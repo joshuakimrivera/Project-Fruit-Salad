@@ -25,7 +25,9 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong class="mr-4">Name:</strong>
-                {{ Form::text('name', null, array('placeholder' => 'StudentName','class' => 'ml-4')) }}
+                <input type="text" name="last_name" placeholder="Last Name">
+                <input type="text" name="first_name" placeholder="First Name">
+                <input type="text" name="middle_initial" placeholder="Middle Inital">
             </div>
         </div>
 

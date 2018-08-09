@@ -17,8 +17,10 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Name:</strong>
-                <input disabled disabled type="text" name="name" value="{{ $data->name }}" class="form-control">
+                <strong class="mr-3">Name:&nbsp;</strong>
+                <input type="text" name="bday_month" value={{ $data->last_name }} disabled>
+                <input type="text" name="bday_day" value={{ $data->first_name }} disabled>
+                <input type="text" name="bday_year" value={{ $data->middle_initial }} disabled>
             </div>
         </div>
 

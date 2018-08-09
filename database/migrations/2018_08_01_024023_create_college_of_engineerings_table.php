@@ -15,8 +15,12 @@ class CreateCollegeOfEngineeringsTable extends Migration
     {
         Schema::create('college_of_engineerings', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('name');
-            $table->text('birthday');
+            $table->text('last_name');
+            $table->text('first_name');
+            $table->text('middle_initial');
+            $table->text('bday_month');
+            $table->text('bday_day');
+            $table->text('bday_year');
             $table->integer('age');
             $table->char('gender');
             $table->text('address');

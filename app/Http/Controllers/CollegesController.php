@@ -27,7 +27,9 @@ class CollegesController extends Controller
     public function CEstore(Request $request){
         // return $request;
         $this->validate(request(), [
-            'name' => 'required',
+            'last_name' => 'required',
+            'first_name' => 'required',
+            'middle_initial' => 'required',
             'bday_month' => 'required',
             'bday_day' => 'required',
             'bday_year' => 'required',
@@ -96,7 +98,9 @@ class CollegesController extends Controller
     public function CoEdstore(Request $request){
         // return $request;
         $this->validate(request(), [
-            'name' => 'required',
+            'last_name' => 'required',
+            'first_name' => 'required',
+            'middle_initial' => 'required',
             'bday_month' => 'required',
             'bday_day' => 'required',
             'bday_year' => 'required',
@@ -164,7 +168,9 @@ class CollegesController extends Controller
     public function CCISstore(Request $request){
         // return $request;
         $this->validate(request(), [
-            'name' => 'required',
+            'last_name' => 'required',
+            'first_name' => 'required',
+            'middle_initial' => 'required',
             'bday_month' => 'required',
             'bday_day' => 'required',
             'bday_year' => 'required',
