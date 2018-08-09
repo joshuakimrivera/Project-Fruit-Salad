@@ -55,7 +55,7 @@
             @foreach($shows as $show)  
                 <tr>
                     <td class="mr-5 ml-5">{{ $show->name }}</td>
-                    <td class="mr-5 ml-5">{{ $show->birthday }}</td>
+                    <td class="mr-5 ml-5">{{ $show->bday_month }} {{ $show->bday_day }}, {{ $show->bday_year }}</td>
                     <td class="mr-5 ml-5">{{ $show->age }}</td>
                     <td class="mr-5 ml-5">{{ $show->gender }}</td>
                     <td class="mr-5 ml-5">{{ $show->address }}</td>
@@ -121,7 +121,7 @@
                 @foreach($datas as $data)  
                     <tr>
                         <td class="mr-5 ml-5">{{ $data->name }}</td>
-                        <td class="mr-5 ml-5">{{ $data->birthday }}</td>
+                        <td class="mr-5 ml-5">{{ $data->bday_month }} {{ $data->bday_day }}, {{ $data->bday_year }}</td>
                         <td class="mr-5 ml-5">{{ $data->age }}</td>
                         <td class="mr-5 ml-5">{{ $data->gender }}</td>
                         <td class="mr-5 ml-5">{{ $data->address }}</td>
@@ -188,7 +188,7 @@
                 @foreach($outputs as $data)  
                     <tr>
                         <td class="mr-5 ml-5">{{ $data->name }}</td>
-                        <td class="mr-5 ml-5">{{ $data->birthday }}</td>
+                        <td class="mr-5 ml-5">{{ $data->bday_month }} {{ $data->bday_day }}, {{ $data->bday_year }}</td>
                         <td class="mr-5 ml-5">{{ $data->age }}</td>
                         <td class="mr-5 ml-5">{{ $data->gender }}</td>
                         <td class="mr-5 ml-5">{{ $data->address }}</td>

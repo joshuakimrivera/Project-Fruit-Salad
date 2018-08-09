@@ -28,7 +28,9 @@ class CollegesController extends Controller
         // return $request;
         $this->validate(request(), [
             'name' => 'required',
-            'birthday' => 'required',
+            'bday_month' => 'required',
+            'bday_day' => 'required',
+            'bday_year' => 'required',
             'age' => 'required',
             'gender' => 'required',
             'address' => 'required',
@@ -95,7 +97,9 @@ class CollegesController extends Controller
         // return $request;
         $this->validate(request(), [
             'name' => 'required',
-            'birthday' => 'required',
+            'bday_month' => 'required',
+            'bday_day' => 'required',
+            'bday_year' => 'required',
             'age' => 'required',
             'gender' => 'required',
             'address' => 'required',
@@ -161,7 +165,9 @@ class CollegesController extends Controller
         // return $request;
         $this->validate(request(), [
             'name' => 'required',
-            'birthday' => 'required',
+            'bday_month' => 'required',
+            'bday_day' => 'required',
+            'bday_year' => 'required',
             'age' => 'required',
             'gender' => 'required',
             'address' => 'required',

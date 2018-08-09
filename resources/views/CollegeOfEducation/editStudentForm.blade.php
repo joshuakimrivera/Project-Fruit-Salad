@@ -25,7 +25,9 @@
          <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Birthday:</strong>
-                <input type="text" name="birthday" value={{ $data->birthday }} class="form-control">
+                <input type="text" name="bday_month" value={{ $data->bday_month }} class="">
+                <input type="text" name="bday_day" value={{ $data->bday_day }} class="">
+                <input type="text" name="bday_year" value={{ $data->bday_year }} class="">
             </div>
         </div>
 
