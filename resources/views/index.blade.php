@@ -153,9 +153,9 @@
                                     <td>{{ $show->year }}</td>
                                     <td>Section {{ $show->section }}</td>
                                     <td>
-                                        <a class="btn" href="{{ route('CollegesController.CEshow',$show->id) }}">show</a>
-                                        <a class="btn" href="{{ route('CollegesController.CEedit',$show->id) }}">edit</a>
-                                        <a class="btn" href = "{{ route('CollegesController.CEdelete',$show->id) }}">delete</a>
+                                        <a class="btn-small" href="{{ route('CollegesController.CEshow',$show->id) }}">show</a>
+                                        <a class="btn-small" href="{{ route('CollegesController.CEedit',$show->id) }}">edit</a>
+                                        <a class="btn-small" href = "{{ route('CollegesController.CEdelete',$show->id) }}">delete</a>
                                     </td>
                                 </tr>
                             @endforeach
