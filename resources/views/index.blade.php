@@ -122,13 +122,9 @@
                                 <div>
                                     
                                 </div>
-                                <div class="column">
-                                        <div class="col-xs-1 align-center">
-                                            <div>{{ $shows->links() }}</div>
-                                        </div>
-                                    </div>
+                                
                     </div>
-                    <table>
+                    <table class="responsive-table small-text">
                             <tr>
                                 <th><a href="{{ route('CE.sortingOfName') }}" class="">Name</a></th>
                                 <th><a href="{{ route('CE.sortingOfBirthday') }}" class="">Birthday</a></th>
@@ -151,9 +147,9 @@
                                     <td>{{ $show->year }}</td>
                                     <td>Section {{ $show->section }}</td>
                                     <td>
-                                        <a class="btn-small" href="{{ route('CollegesController.CEshow',$show->id) }}">show</a>
-                                        <a class="btn-small" href="{{ route('CollegesController.CEedit',$show->id) }}">edit</a>
-                                        <a class="btn-small" href = "{{ route('CollegesController.CEdelete',$show->id) }}">delete</a>
+                                        <a class="btn-small btn-floating" href="{{ route('CollegesController.CEshow',$show->id) }}"><i class="material-icons">open_in_new</i></a>
+                                        <a class="btn-small btn-floating" href="{{ route('CollegesController.CEedit',$show->id) }}"><i class="material-icons">edit</i></a>
+                                        <a class="btn-small btn-floating red" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -167,7 +163,7 @@
 
 
 
-
+        
 
 
 
