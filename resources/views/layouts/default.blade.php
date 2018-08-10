@@ -9,13 +9,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+   
 
     
 
     @yield('pageCss')
 
 </head>
-<body>
+<body class="red lighten-5">
     <div class="mt-5 ml-5">
         @yield('content')
     </div>

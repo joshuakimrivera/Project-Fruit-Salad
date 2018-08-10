@@ -16,53 +16,54 @@
 
 
 @section('content')
+<nav> <div class="navbar-fixed ">
+        <nav>
+          <div class="nav-wrapper blue-grey lighten-5">
+              <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></button>
+            <a href="#!" class="brand-logo black-text">PUP Stats</a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="sass.html">Sass</a></li>
+              <li><a href="badges.html">Components</a></li>
+              <li></li>
+            </ul>
+          </div>
+        </nav>
+      </div> </nav>
+
+  <ul id="slide-out" class="sidenav">
+    <li><div class="user-view">
+      <div class="background">
+        <img src="images/office.jpg">
+      </div>
+      <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+      <a href="#name"><span class="white-text name">John Doe</span></a>
+      <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  </ul>
+
+      
+<div>
+    
+          
+
 <!--icerivera-->
-<div >
+<div class="container">
     {{-- College of Engineering --}}
     <!-- card experiment -->
         <div class="row">
-            <div class="col s6">
-              <div class="card">
+            <div class="col s12">
+              <div class="card  z-depth-4">
                 <div class="card-image blue-grey darken-3">
-                    <div >
+                    <div class="materialboxed"  >
                         <canvas id="CollegeofEngineering" ></canvas>
                     </div> 
                   <!--<span class="card-title">Card Title</span>-->
-                  
-
-                <div style="position: relative; height: 70px;">
-                        <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                        <div class="fixed-action-btn click-to-toggle" style="position: absolute; right: 24px;">
-                          <a class="btn-floating btn-large red">
-                            <i class="material-icons">menu</i>
-                          </a>
-                          <ul>
-                            <li>
-                              <a class="btn-floating red"  href="{{ route('CollegesController.CEadd') }}">
-                                <i class="material-icons">add</i>
-                              </a>
-                            </li>
-                            <li>
-                              <button type="file" name="file" class="btn-floating yellow darken-1"  >
-                                <i class="material-icons">content_copy</i>
-                              </button>
-                            </li>
-                            <li>
-                              <button class="btn-floating green" type="submit">
-                                <i class="material-icons">publish</i>
-                              </button>
-                            </li>
-                          </ul>
-                        </div>
-                    </form>
-                </div>
-
-
-
-
-
-
+                  <a  href="{{ route('CollegesController.CEadd') }}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                 </div>
                 <div class="card-content">
                     <div class="container">
@@ -178,7 +179,7 @@
     <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h5>College of Education</h5>
+                    <h5 id="huwaw">College of Education</h5>
                 </div>
                 {{-- <form action="{{ route('CollegesController.CEsearch') }}" method="post">
                     {{ csrf_field() }}
@@ -257,7 +258,7 @@
     <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h5>College of Computer And Information Sciences</h5>
+                    <h5 id="huwaw2">College of Computer And Information Sciences</h5>
                 </div>
                 {{-- <form action="{{ route('CollegesController.CEsearch') }}" method="post">
                     {{ csrf_field() }}
@@ -331,14 +332,24 @@
         </div>
     </div>
 </div>
+</div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.fixed-action-btn');
-    var instances = M.FloatingActionButton.init(elems, {
-      direction: 'left',
-      hoverEnabled: true
+    var elems = document.querySelectorAll('.materialboxed');
+    var instances = M.Materialbox.init(elems, {
+        
     });
   });
+</script>
+<!--sidenav INIT-->
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+           var elems = document.querySelectorAll('.sidenav');
+           var instances = M.Sidenav.init(elems, {
+            draggable: 'true'
+           });
+        });
+
 </script>
 @endsection
 
