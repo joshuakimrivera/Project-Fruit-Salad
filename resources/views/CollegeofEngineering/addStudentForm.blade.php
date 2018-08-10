@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -200,6 +201,15 @@
             </div>
         @endif
     </div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {
+                
+            });
+        });
+    </script>
 @endsection
 
 @section('pageJs')

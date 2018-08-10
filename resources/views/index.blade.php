@@ -16,120 +16,164 @@
 
 
 @section('content')
+<nav> <div class="navbar-fixed ">
+        <nav>
+          <div class="nav-wrapper blue-grey lighten-5">
+              <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></button>
+            <a href="#!" class="brand-logo black-text">PUP Stats</a>
+            <ul class="right hide-on-med-and-down">
+              <li></li>
+            </ul>
+          </div>
+        </nav>
+      </div> </nav>
+
+  <ul id="slide-out" class="sidenav">
+    <li><div class="user-view">
+      <div class="background">
+        <img src="images/office.jpg">
+      </div>
+      <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+      <a href="#name"><span class="white-text name">John Doe</span></a>
+      <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  </ul>
+
+      
+<div>
+    
+<div style="height: 50px;"></div>
+
+<!--icerivera-->
+<div class="container">
     {{-- College of Engineering --}}
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>College of Engineering</h2>
-            </div>
-            @if ( Session::has('success') )
-                <div class="alert alert-success alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                    <strong>{{ Session::get('success') }}</strong>
+    <!-- card experiment -->
+        <div class="row">
+            <div class="col s12">
+              <div class="card  z-depth-4">
+                <div class="card-image grey darken-4">
+                    <div class="materialboxed"  >
+                        <canvas id="CollegeofEngineering" ></canvas>
+                    </div> 
+                  <!--<span class="card-title">Card Title</span>-->
+                  <a  href="{{ route('CollegesController.CEadd') }}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                 </div>
-            @endif
- 
-            @if ( Session::has('error') )
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                    <span class="sr-only">Close</span>
-                </button>
-                <strong>{{ Session::get('error') }}</strong>
-            </div>
-            @endif
-        
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                    <div>
-                        @foreach ($errors->all() as $error)
-                        <p>{{ $error }}</p>
-                        @endforeach
+                <div class="card-content">
+                    <div class="container">
+                            <div class="row">
+                                    
+                                       
+                                        <br><br>
+                                        <input type="file" name="file" class="">
+                                        
+                                        <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
+                                  
+                                    <div class="col-lg-12 margin-tb">
+                                        @if ( Session::has('success') )
+                                            <div class="alert alert-success alert-dismissible" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                    <span class="sr-only">Close</span>
+                                                </button>
+                                                <strong>{{ Session::get('success') }}</strong>
+                                            </div>
+                                        @endif
+                             
+                                        @if ( Session::has('error') )
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                                <span class="sr-only">Close</span>
+                                            </button>
+                                            <strong>{{ Session::get('error') }}</strong>
+                                        </div>
+                                        @endif
+                                    
+                                        @if (count($errors) > 0)
+                                            <div class="alert alert-danger">
+                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                                <div>
+                                                    @foreach ($errors->all() as $error)
+                                                    <p>{{ $error }}</p>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        @endif
+                                        {{-- <form action="{{ route('CollegesController.CEsearch') }}" method="post">
+                                            {{ csrf_field() }}
+                                            <input type="submit" class=" pull-right btn btn-primary ml-3 mr-5" value="Search">
+                                            <input class="pull-right ml-5" type="text" placeholder="Search for Name" name="data">
+                                        </form> --}}
+                                            
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div>
+                                        <div class="center">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    
+                                </div>
+                                
                     </div>
+                    <table class="responsive-table small-text">
+                            <tr>
+                                <th><a href="{{ route('CE.sortingOfName') }}" class="">Name</a></th>
+                                <th><a href="{{ route('CE.sortingOfBirthday') }}" class="">Birthday</a></th>
+                                <th><a href="{{ route('CE.sortingOfAge') }}" class="">Age</a></th>
+                                <th><a href="{{ route('CE.sortingOfGender') }}" class="">Gender</a></th>
+                                <th><a href="#" class="">Address</a></th>
+                                <th><a href="#" class="">Department</a></th>
+                                <th><a href="#" class="">Year</a></th>
+                                <th><a href="#" class="">Section</a></th>
+                                <th><a href="#" class="">ACTION</a></th>
+                            </tr>
+                            @foreach($shows as $show)  
+                                <tr>
+                                    <td>{{ $show->last_name }}, {{ $show->first_name }} {{ $show->middle_initial }}.</td>
+                                    <td>{{ $show->bday_month }} {{ $show->bday_day }}, {{ $show->bday_year }}</td>
+                                    <td>{{ $show->age }}</td>
+                                    <td>{{ $show->gender }}</td>
+                                    <td>{{ $show->address }}</td>
+                                    <td>{{ $show->department }}</td>
+                                    <td>{{ $show->year }}</td>
+                                    <td>Section {{ $show->section }}</td>
+                                    <td>
+                                        <a class="btn-small btn-floating" href="{{ route('CollegesController.CEshow',$show->id) }}"><i class="material-icons">open_in_new</i></a>
+                                        <a class="btn-small btn-floating" href="{{ route('CollegesController.CEedit',$show->id) }}"><i class="material-icons">edit</i></a>
+                                        <a class="btn-small btn-floating red" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
                 </div>
-            @endif
-            {{-- <form action="{{ route('CollegesController.CEsearch') }}" method="post">
-                {{ csrf_field() }}
-                <input type="submit" class=" pull-right btn btn-primary ml-3 mr-5" value="Search">
-                <input class="pull-right ml-5" type="text" placeholder="Search for Name" name="data">
-            </form> --}}
-                
-            <div class="pull-right mr-4">
-                <a class="btn btn-info" href="{{ route('CollegesController.CEadd') }}"> Add Student Information</a>
-            </div>
-            <div class="pull-right">
-                    &nbsp;
-            </div>
-            <div class="pullright">
-                &nbsp;
+              </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-right mr-4">
-                <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <input type="file" name="file" class="">
-                    
-                    <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- <hr>
-    <div class="col-md-10">
-        <canvas id="CollegeofEngineering" width="100" height="100"></canvas>
-    </div> --}}
-    <hr>
-    <div class="row">
-        <table>
-            <tr>
-                <th class="mr-5 ml-5"><a href="{{ route('CE.sortingOfName') }}" class="">Name</a></th>
-                <th class="mr-5 ml-5"><a href="{{ route('CE.sortingOfBirthday') }}" class="">Birthday</a></th>
-                <th class="mr-5 ml-5"><a href="{{ route('CE.sortingOfAge') }}" class="">Age</a></th>
-                <th class="mr-5 ml-5"><a href="{{ route('CE.sortingOfGender') }}" class="">Gender</a></th>
-                <th class="mr-5 ml-5"><a href="#" class="">Address</a></th>
-                <th class="mr-5 ml-5"><a href="#" class="">Department</a></th>
-                <th class="mr-5 ml-5"><a href="#" class="">Year</a></th>
-                <th class="mr-5 ml-5"><a href="#" class="">Section</a></th>
-                <th class="mr-5 ml-5"><a href="#" class="">ACTION</a></th>
-            </tr>
-            @foreach($shows as $show)  
-                <tr>
-                    <td class="mr-5 ml-5">{{ $show->last_name }}, {{ $show->first_name }} {{ $show->middle_initial }}.</td>
-                    <td class="mr-5 ml-5">{{ $show->bday_month }} {{ $show->bday_day }}, {{ $show->bday_year }}</td>
-                    <td class="mr-5 ml-5">{{ $show->age }}</td>
-                    <td class="mr-5 ml-5">{{ $show->gender }}</td>
-                    <td class="mr-5 ml-5">{{ $show->address }}</td>
-                    <td class="mr-5 ml-5">{{ $show->department }}</td>
-                    <td class="mr-5 ml-5">{{ $show->year }}</td>
-                    <td class="mr-5 ml-5">Section {{ $show->section }}</td>
-                    <td class="mr-5 ml-5">
-                        <a class="btn btn-info" href="{{ route('CollegesController.CEshow',$show->id) }}">show</a>
-                        <a class="btn btn-info" href="{{ route('CollegesController.CEedit',$show->id) }}">edit</a>
-                        <a class="btn btn-info" href = "{{ route('CollegesController.CEdelete',$show->id) }}">delete</a>
-                    </td>
-                </tr>
-            @endforeach
-        </table>
-    </div>
-    <div class="column">
-            <div class="col-xs-1 align-center">
-                <div>{{ $shows->links() }}</div>
-            </div>
-        </div>
-    <hr>
+
+
+
+
+
+        
+
+
+
+   
 
     {{-- College Of Education --}}
     <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>College of Education</h2>
+                    <h5 id="huwaw">College of Education</h5>
                 </div>
                 {{-- <form action="{{ route('CollegesController.CEsearch') }}" method="post">
                     {{ csrf_field() }}
@@ -208,7 +252,7 @@
     <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>College of Computer And Information Sciences</h2>
+                    <h5 id="huwaw2">College of Computer And Information Sciences</h5>
                 </div>
                 {{-- <form action="{{ route('CollegesController.CEsearch') }}" method="post">
                     {{ csrf_field() }}
@@ -281,6 +325,26 @@
             <div>{{ $outputs->links() }}</div>
         </div>
     </div>
+</div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.materialboxed');
+    var instances = M.Materialbox.init(elems, {
+        
+    });
+  });
+</script>
+<!--sidenav INIT-->
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+           var elems = document.querySelectorAll('.sidenav');
+           var instances = M.Sidenav.init(elems, {
+            draggable: 'true'
+           });
+        });
+
+</script>
 @endsection
 
 
@@ -355,20 +419,20 @@
                     label: ' Number of students in this College',
                     data: [12, 19, 3, 5, 2, 3],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        '#b71c1c',
+                        '#0288d1',
+                        '#311b92',
+                        '#ffff00',
+                        '#1b5e20',
+                        '#ff9800'
                     ],
                     borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
+                        '#b71c1c',
+                        '#0288d1',
+                        '#311b92',
+                        '#ffff00',
+                        '#1b5e20',
+                        '#ff9800'
                     ],
                     borderWidth: 1
                 }]
