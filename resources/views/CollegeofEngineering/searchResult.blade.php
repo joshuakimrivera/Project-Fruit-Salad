@@ -7,6 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    test
+    <ul>
+        {{-- {{ $results }} --}}
+        @foreach( $results as $result)
+            <li>
+                {{ $result ->last_name }}
+                {{ $result ->first_name }}
+            </li>
+        @endforeach
+    </ul>
 </body>
 </html>

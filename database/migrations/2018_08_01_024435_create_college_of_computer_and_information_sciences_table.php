@@ -18,6 +18,7 @@ class CreateCollegeOfComputerAndInformationSciencesTable extends Migration
             $table->text('last_name');
             $table->text('first_name');
             $table->text('middle_initial');
+            $table->integer('date_sorter');
             $table->text('bday_month');
             $table->text('bday_day');
             $table->text('bday_year');

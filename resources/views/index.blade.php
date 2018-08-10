@@ -3,9 +3,13 @@
 
 @section('pageCss')
     <style>
-        table, th, td {
-            border-color: red;
+        table, th {
+            text-align: center;
             border: solid;
+        }
+
+        td {
+            border-style: groove;
         }
     </style>
 @endsection
@@ -18,11 +22,42 @@
             <div class="pull-left">
                 <h2>College of Engineering</h2>
             </div>
+            @if ( Session::has('success') )
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <strong>{{ Session::get('success') }}</strong>
+                </div>
+            @endif
+ 
+            @if ( Session::has('error') )
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong>{{ Session::get('error') }}</strong>
+            </div>
+            @endif
+        
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                    <div>
+                        @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
             {{-- <form action="{{ route('CollegesController.CEsearch') }}" method="post">
                 {{ csrf_field() }}
                 <input type="submit" class=" pull-right btn btn-primary ml-3 mr-5" value="Search">
                 <input class="pull-right ml-5" type="text" placeholder="Search for Name" name="data">
             </form> --}}
+                
             <div class="pull-right mr-4">
                 <a class="btn btn-info" href="{{ route('CollegesController.CEadd') }}"> Add Student Information</a>
             </div>
@@ -34,6 +69,18 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-right mr-4">
+                <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <input type="file" name="file" class="">
+                    
+                    <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
+                </form>
+            </div>
+        </div>
+    </div>
     {{-- <hr>
     <div class="col-md-10">
         <canvas id="CollegeofEngineering" width="100" height="100"></canvas>
@@ -42,15 +89,15 @@
     <div class="row">
         <table>
             <tr>
-                <th class="mr-5 ml-5 ml-5">Name</th>
-                <th class="mr-5 ml-5">Birthday</th>
-                <th class="mr-5 ml-5">Age</th>
-                <th class="mr-5 ml-5">Gender</th>
-                <th class="mr-5 ml-5">Address</th>
-                <th class="mr-5 ml-5">Department</th>
-                <th class="mr-5 ml-5">Year</th>
-                <th class="mr-5 ml-5">Section</th>
-                <th class="mr-5 ml-5">ACTION</th>
+                <th class="mr-5 ml-5"><a href="{{ route('CE.sortingOfName') }}" class="">Name</a></th>
+                <th class="mr-5 ml-5"><a href="{{ route('CE.sortingOfBirthday') }}" class="">Birthday</a></th>
+                <th class="mr-5 ml-5"><a href="{{ route('CE.sortingOfAge') }}" class="">Age</a></th>
+                <th class="mr-5 ml-5"><a href="{{ route('CE.sortingOfGender') }}" class="">Gender</a></th>
+                <th class="mr-5 ml-5"><a href="#" class="">Address</a></th>
+                <th class="mr-5 ml-5"><a href="#" class="">Department</a></th>
+                <th class="mr-5 ml-5"><a href="#" class="">Year</a></th>
+                <th class="mr-5 ml-5"><a href="#" class="">Section</a></th>
+                <th class="mr-5 ml-5"><a href="#" class="">ACTION</a></th>
             </tr>
             @foreach($shows as $show)  
                 <tr>
@@ -100,6 +147,18 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-right mr-4">
+                    <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <input type="file" name="file" class="">
+                        
+                        <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
+                    </form>
+                </div>
+            </div>
+        </div>
         <hr>
         {{-- <div class="col-md-10">
             <canvas id="CollegeofEngineering" width="100" height="100"></canvas>
@@ -108,15 +167,15 @@
         <div class="row">
             <table>
                 <tr>
-                    <th class="mr-5 ml-5 ml-5">Name</th>
-                    <th class="mr-5 ml-5">Birthday</th>
-                    <th class="mr-5 ml-5">Age</th>
-                    <th class="mr-5 ml-5">Gender</th>
-                    <th class="mr-5 ml-5">Address</th>
-                    <th class="mr-5 ml-5">Department</th>
-                    <th class="mr-5 ml-5">Year</th>
-                    <th class="mr-5 ml-5">Section</th>
-                    <th class="mr-5 ml-5">ACTION</th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Name</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Birthday</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Age</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Gender</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Address</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Department</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Year</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Section</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">ACTION</a></th>
                 </tr>
                 @foreach($datas as $data)  
                     <tr>
@@ -167,6 +226,18 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+                <div class="pull-right mr-4">
+                    <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <input type="file" name="file" class="">
+                        
+                        <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
+                    </form>
+                </div>
+            </div>
+        </div>
         <hr>
         {{-- <div class="col-md-10">
             <canvas id="CollegeofEngineering" width="100" height="100"></canvas>
@@ -175,15 +246,15 @@
         <div class="row">
             <table>
                 <tr>
-                    <th class="mr-5 ml-5 ml-5">Name</th>
-                    <th class="mr-5 ml-5">Birthday</th>
-                    <th class="mr-5 ml-5">Age</th>
-                    <th class="mr-5 ml-5">Gender</th>
-                    <th class="mr-5 ml-5">Address</th>
-                    <th class="mr-5 ml-5">Department</th>
-                    <th class="mr-5 ml-5">Year</th>
-                    <th class="mr-5 ml-5">Section</th>
-                    <th class="mr-5 ml-5">ACTION</th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Name</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Birthday</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Age</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Gender</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Address</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Department</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Year</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">Section</a></th>
+                    <th class="mr-5 ml-5"><a href="#" class="">ACTION</a></th>
                 </tr>
                 @foreach($outputs as $data)  
                     <tr>

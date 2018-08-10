@@ -34,8 +34,9 @@
          <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Birthdate:&nbsp;</strong>
+                <input type="hidden" id="date_sorter" name="date_sorter" value="">
                 {{-- {{ Form::date('bday_mo', null, array('class' => 'ml-4')) }} --}}
-                <select name="bday_month" id="">
+                <select name="bday_month" id="bday">
                     <option selected disabled>Month</option>
                     <option value="January">January</option>
                     <option value="February">February</option>
@@ -194,4 +195,17 @@
             </div>
         @endif
     </div>
+@endsection
+
+@section('pageJs')
+    <script>
+        $(document).ready(function(){
+            $('#bday').on('change', function(){
+                var dropdown = $("select[name='bday_month']")[0]['selectedIndex'];
+                // var dropdown = document.getElementById('bday');
+                // console.log(dropdown);
+                $("input:hidden#date_sorter").val(dropdown);
+            })
+        });
+    </script>
 @endsection

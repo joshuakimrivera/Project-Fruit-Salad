@@ -12,6 +12,12 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::post('/update/College-of-Engineering/{id}', 'CollegesController@CEupdate')->name('CollegesController.CEupdate');
     Route::get('/show/College-of-Engineering/{id}', 'CollegesController@CEshow')->name('CollegesController.CEshow');
     Route::post('/search/College-of-Engineering', 'CollegesController@CEsearch')->name('CollegesController.CEsearch');
+    Route::post('/College-of-Engineering/import', 'CollegesController@CEimport')->name('CEimport');
+    Route::get('/College-of-Engineering/sort-by-name', 'CollegesController@CEsortingOfNames')->name('CE.sortingOfName');
+    Route::get('/College-of-Engineering/sort-by-birthday', 'CollegesController@CEsortingOfBirthdays')->name('CE.sortingOfBirthday');
+    Route::get('/College-of-Engineering/sort-by-age', 'CollegesController@CEsortingOfAges')->name('CE.sortingOfAge');
+    Route::get('/College-of-Engineering/sort-by-gender', 'CollegesController@CEsortingOfGenders')->name('CE.sortingOfGender');
+
 
     //College of Education Routes
     Route::get('/add/College-of-Education', 'CollegesController@CoEdadd')->name('CollegesController.CoEdadd');
@@ -21,6 +27,7 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::post('/update/College-of-Education/{id}', 'CollegesController@CoEdupdate')->name('CollegesController.CoEdupdate');
     Route::get('/show/College-of-Education/{id}', 'CollegesController@CoEdshow')->name('CollegesController.CoEdshow');
     Route::post('/search/College-of-Education', 'CollegesController@CoEdsearch')->name('CollegesController.CoEdsearch');
+    Route::post('/College-of-Education/import', 'CollegesController@CoEdimport')->name('CoEdimport');
 
     //College of Computer and Information Sciences Routes
     Route::get('/add/College-of-Computer-and-Information-Sciences', 'CollegesController@CCISadd')->name('CollegesController.CCISadd');
@@ -30,5 +37,7 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::post('/update/College-of-Computer-and-Information-Sciences/{id}', 'CollegesController@CCISupdate')->name('CollegesController.CCISupdate');
     Route::get('/show/College-of-Computer-and-Information-Sciences/{id}', 'CollegesController@CCISshow')->name('CollegesController.CCISshow');
     Route::post('/search/College-of-Computer-and-Information-Sciences', 'CollegesController@CCISsearch')->name('CollegesController.CCISsearch');
+    Route::post('/College-of-Computer-and-Information-Sciences/import', 'CollegesController@CCISimport')->name('CCISimport');
+    
  });
 

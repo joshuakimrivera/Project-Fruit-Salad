@@ -34,21 +34,22 @@
          <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Birthday:&nbsp;</strong>
+                <input type="hidden" id="date_sorter" name="date_sorter" value="">
                 {{-- {{ Form::date('birthday', null, array('class' => 'ml-4')) }} --}}
-                <select name="bday_month" id="">
+                <select name="bday_month" id="bday">
                         <option selected disabled>Month</option>
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="August">August</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
+                        <option data-target="1" value="January">January</option>
+                        <option data-target="2" value="February">February</option>
+                        <option data-target="3" value="March">March</option>
+                        <option data-target="4" value="April">April</option>
+                        <option data-target="5" value="May">May</option>
+                        <option data-target="6" value="June">June</option>
+                        <option data-target="7" value="July">July</option>
+                        <option data-target="8" value="August">August</option>
+                        <option data-target="9" value="September">September</option>
+                        <option data-target="10" value="October">October</option>
+                        <option data-target="11" value="November">November</option>
+                        <option data-target="12" value="December">December</option>
                     </select>
                     <select name="bday_day" id="">
                         <option selected disabled>Day</option>
@@ -199,4 +200,17 @@
             </div>
         @endif
     </div>
+@endsection
+
+@section('pageJs')
+    <script>
+        $(document).ready(function(){
+            $('#bday').on('change', function(){
+                var dropdown = $("select[name='bday_month']")[0]['selectedIndex'];
+                // var dropdown = document.getElementById('bday');
+                // console.log(dropdown);
+                $("input:hidden#date_sorter").val(dropdown);
+            })
+        });
+    </script>
 @endsection
