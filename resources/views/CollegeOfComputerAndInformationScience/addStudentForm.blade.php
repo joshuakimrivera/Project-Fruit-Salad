@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -32,7 +33,7 @@
         </div>
 
          <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="input-field col s12">
                 <strong>Birthdate:&nbsp;</strong>
                 <input type="hidden" id="date_sorter" name="date_sorter" value="">
                 {{-- {{ Form::date('bday_mo', null, array('class' => 'ml-4')) }} --}}
@@ -195,10 +196,19 @@
             </div>
         @endif
     </div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {
+                
+            });
+        });
+    </script>
 @endsection
 
 @section('pageJs')
-    <script>
+    <!--<script>
         $(document).ready(function(){
             $('#bday').on('change', function(){
                 var dropdown = $("select[name='bday_month']")[0]['selectedIndex'];
@@ -207,5 +217,6 @@
                 $("input:hidden#date_sorter").val(dropdown);
             })
         });
-    </script>
+    </script>-->
+    
 @endsection
