@@ -39,5 +39,6 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::post('/search/College-of-Computer-and-Information-Sciences', 'CollegesController@CCISsearch')->name('CollegesController.CCISsearch');
     Route::post('/College-of-Computer-and-Information-Sciences/import', 'CollegesController@CCISimport')->name('CCISimport');
     
+
  });
 

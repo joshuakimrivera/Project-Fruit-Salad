@@ -22,8 +22,6 @@
               <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></button>
             <a href="#!" class="brand-logo black-text">PUP Stats</a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="sass.html">Sass</a></li>
-              <li><a href="badges.html">Components</a></li>
               <li></li>
             </ul>
           </div>
@@ -49,7 +47,7 @@
       
 <div>
     
-          
+<div style="height: 50px;"></div>
 
 <!--icerivera-->
 <div class="container">
@@ -58,7 +56,7 @@
         <div class="row">
             <div class="col s12">
               <div class="card  z-depth-4">
-                <div class="card-image blue-grey darken-3">
+                <div class="card-image grey darken-4">
                     <div class="materialboxed"  >
                         <canvas id="CollegeofEngineering" ></canvas>
                     </div> 
@@ -425,20 +423,20 @@
                     label: ' Number of students in this College',
                     data: [12, 19, 3, 5, 2, 3],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        '#b71c1c',
+                        '#0288d1',
+                        '#311b92',
+                        '#ffff00',
+                        '#1b5e20',
+                        '#ff9800'
                     ],
                     borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
+                        '#b71c1c',
+                        '#0288d1',
+                        '#311b92',
+                        '#ffff00',
+                        '#1b5e20',
+                        '#ff9800'
                     ],
                     borderWidth: 1
                 }]
