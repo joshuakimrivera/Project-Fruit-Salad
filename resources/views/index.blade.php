@@ -805,4 +805,76 @@
             }
         });
     </script>
+    <script>
+            var ctx = document.getElementById("CollegeofEducation").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["BBTE", "BLIS", "BEED", "BSED-ENG", "BSED-FIL", "BSED-MATH", "BSED-SOC"],
+                    datasets: [{
+                        label: ' Number of students in this College',
+                        data: [12, 19, 3, 5, 2, 3, 20],
+                        backgroundColor: [
+                            '#b71c1c',
+                            '#0288d1',
+                            '#311b92',
+                            '#ffff00',
+                            '#1b5e20',
+                            '#ff9800',
+                            '#4a148c'
+                        ],
+                        borderColor: [
+                            '#b71c1c',
+                            '#0288d1',
+                            '#311b92',
+                            '#ffff00',
+                            '#1b5e20',
+                            '#ff9800',
+                            '#4a148c'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
+        <script>
+                var ctx = document.getElementById("CollegeofComputerAndInformationSciences").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ["CS", "IT"],
+                        datasets: [{
+                            label: ' Number of students in this College',
+                            data: [12, 19],
+                            backgroundColor: [
+                                '#b71c1c',
+                                '#0288d1'
+                            ],
+                            borderColor: [
+                                '#b71c1c',
+                                '#0288d1'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero:true
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
 @endsection
