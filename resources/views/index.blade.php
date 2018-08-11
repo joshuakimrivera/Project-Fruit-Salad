@@ -4,158 +4,385 @@
 
 
 @section('content')
-<nav> <div class="navbar-fixed ">
+
+<!--NAVIGATIONAL STRUCTURES -->
+<!-- NAV BAR HEADER -->
+<nav>
+    <div class="navbar-fixed ">
         <nav>
           <div class="nav-wrapper blue-grey lighten-5">
               <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></button>
-            <a href="#!" class="brand-logo black-text">PUP Stats</a>
-            <ul class="right hide-on-med-and-down">
-              <li></li>
-            </ul>
+                <a href="#!" class="brand-logo black-text">PUP Stats</a>
+                <ul class="right hide-on-med-and-down">
+                </ul>
           </div>
         </nav>
-      </div> </nav>
+    </div> 
+</nav>
 
-  <ul id="slide-out" class="sidenav">
+<!-- SIDEBAR NAVIGATION -->
+<ul id="slide-out" class="sidenav">
     <li><div class="user-view">
-      <div class="background">
-        <img src="images/office.jpg">
-      </div>
-      <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-      <a href="#name"><span class="white-text name">John Doe</span></a>
-      <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-    </div></li>
+            <div class="background">
+                <img src="images/office.jpg">
+            </div>
+            <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+            <a href="#name"><span class="white-text name">John Doe</span></a>
+            <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+        </div>
+    </li>
     <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
     <li><a href="#!">Second Link</a></li>
     <li><div class="divider"></div></li>
     <li><a class="subheader">Subheader</a></li>
     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-  </ul>
+</ul>
+<!-- END OF NAVIGATIONAL STRUCTURES -->
 
-      
+<!-- MAIN CONTAINER --> 
+<div>  
+    <!--SPACER -->
+    <div style="height: 50px;"></div>
 <div>
-    
-<div style="height: 50px;"></div>
 
-<!--icerivera-->
-<div class="container">
     {{-- College of Engineering --}}
-    <!-- card experiment -->
+    <!-- CARD CONTAINER STRUCTURE FOR COLLEGE OF ENGINEERING -->
         <div class="row">
             <div class="col s12">
-              <div class="card  z-depth-4">
-                <div class="card-image grey darken-4">
-                    <div class="materialboxed"  >
-                        <canvas id="CollegeofEngineering" ></canvas>
-                    </div> 
-                  <!--<span class="card-title">Card Title</span>-->
-                  <a  href="{{ route('CollegesController.CEadd') }}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                </div>
-                <div class="card-content">
-                    <div class="container">
-                            <div class="row">
-                                    
-                                       
+                <div class="card  z-depth-4">
+                    <div class="card-image">
+                        <div class="row">
+                            <div class="col s6 flow-text center"><h4>College of Engineering</h4></div>
+                            <div class="col s6 center"><span><h4>Statistics</h4></span></div>
+                                <div class="col s6">
+                                          <div>
+                                                <table class="responsive-table">
+                                                        <tr>
+                                                            <th><a href="{{ route('CE.sortingOfName') }}" class="">Name</a></th>
+                                                            <!--<th><a href="{{ route('CE.sortingOfBirthday') }}" class="">Birthday</a></th>-->
+                                                            <th><a href="{{ route('CE.sortingOfAge') }}" class="">Age</a></th>
+                                                            <th><a href="{{ route('CE.sortingOfGender') }}" class="">Gender</a></th>
+                                                            <!--<th><a href="#" class="">Address</a></th>-->
+                                                            <th><a href="#" class="">Department</a></th>
+                                                            <th><a href="#" class="">Year</a></th>
+                                                            <th><a href="#" class="">Section</a></th>
+                                                            <th><a href="#" class="">&nbsp</a></th>
+                                                        </tr>
+                            
+                                                        @foreach($shows as $show)  
+                                                            <tr>
+                                                                <td>{{ $show->last_name }}, {{ $show->first_name }} {{ $show->middle_initial }}.</td>
+                                                                <!--<td>{{ $show->bday_month }} {{ $show->bday_day }}, {{ $show->bday_year }}</td>-->
+                                                                <td>{{ $show->age }}</td>
+                                                                <td>{{ $show->gender }}</td>
+                                                                <!--<td>{{ $show->address }}</td>-->
+                                                                <td>{{ $show->department }}</td>
+                                                                <td>{{ $show->year }}</td>
+                                                                <td>Section {{ $show->section }}</td>
+                                                                <td>
+                                                                    <a class="btn-small btn-floating tooltipped" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CEshow',$show->id) }}"><i class="material-icons">open_in_new</i></a>
+                                                                    <a class="btn-small btn-floating tooltipped" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CEedit',$show->id) }}"><i class="material-icons">edit</i></a>
+                                                                    <a class="btn-small btn-floating red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </table>
+                                          </div>
+                                    </div>
+                                <div class="col s6"  >
+                                    <div class="materialboxed"><canvas id="CollegeofEngineering"></canvas></div>
                                         <br><br>
-                                        <input type="file" name="file" class="">
-                                        
-                                        <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
-                                  
-                                    <div class="col-lg-12 margin-tb">
-                                        @if ( Session::has('success') )
-                                            <div class="alert alert-success alert-dismissible" role="alert">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                    <span aria-hidden="true">×</span>
-                                                    <span class="sr-only">Close</span>
-                                                </button>
-                                                <strong>{{ Session::get('success') }}</strong>
+                                        <div class="container">
+                                                <div class="row">
+                                                        <div class="col-lg-12 margin-tb">
+                                                            @if ( Session::has('success') )
+                                                                <div class="alert alert-success alert-dismissible" role="alert">
+                                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                        <span aria-hidden="true">×</span>
+                                                                        <span class="sr-only">Close</span>
+                                                                    </button>
+                                                                    <strong>{{ Session::get('success') }}</strong>
+                                                                </div>
+                                                            @endif
+                                                 
+                                                            @if ( Session::has('error') )
+                                                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                    <span class="sr-only">Close</span>
+                                                                </button>
+                                                                <strong>{{ Session::get('error') }}</strong>
+                                                            </div>
+                                                            @endif
+                                                        
+                                                            @if (count($errors) > 0)
+                                                                <div class="alert alert-danger">
+                                                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                                                    <div>
+                                                                        @foreach ($errors->all() as $error)
+                                                                        <p>{{ $error }}</p>
+                                                                        @endforeach
+                                                                    </div>
+                                                                </div>
+                                                            @endif
+                                                            {{-- <form action="{{ route('CollegesController.CEsearch') }}" method="post">
+                                                                {{ csrf_field() }}
+                                                                <input type="submit" class=" pull-right btn btn-primary ml-3 mr-5" value="Search">
+                                                                <input class="pull-right ml-5" type="text" placeholder="Search for Name" name="data">
+                                                            </form> --}}
+                                                                
+                                                        </div>
+                                                </div>       
                                             </div>
-                                        @endif
-                             
-                                        @if ( Session::has('error') )
-                                        <div class="alert alert-danger alert-dismissible" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                                <span class="sr-only">Close</span>
-                                            </button>
-                                            <strong>{{ Session::get('error') }}</strong>
-                                        </div>
-                                        @endif
-                                    
-                                        @if (count($errors) > 0)
-                                            <div class="alert alert-danger">
-                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                                <div>
-                                                    @foreach ($errors->all() as $error)
-                                                    <p>{{ $error }}</p>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        @endif
-                                        {{-- <form action="{{ route('CollegesController.CEsearch') }}" method="post">
+                                        <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
                                             {{ csrf_field() }}
-                                            <input type="submit" class=" pull-right btn btn-primary ml-3 mr-5" value="Search">
-                                            <input class="pull-right ml-5" type="text" placeholder="Search for Name" name="data">
-                                        </form> --}}
-                                            
-                                    </div>
+                                            <input type="file" name="file" class="">
+                                            <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
+                                        </form>
                                 </div>
-                                <div class="row">
-                                    <div>
-                                        <div class="center">
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    
-                                </div>
-                                
+                        </div>
+                        <!-- MATERIALBOXED MATERIALIZECSS STRUCTURE -->
+                        <!--<div class="materialboxed"  >
+                            <canvas id="CollegeofEngineering" ></canvas>
+                        </div>-->
+                        <!-- END OF MATERIALBOXED STRUCTURE -->
+
+                        <!--CARD TITLE STRUCTURE -->
+                        
+                        <!-- END OF CARD TITLE STRUCTURE -->
+
+                        <a href="{{ route('CollegesController.CEadd') }}" class="btn-floating btn-medium halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                     </div>
-                    <table class="responsive-table small-text">
-                            <tr>
-                                <th><a href="{{ route('CE.sortingOfName') }}" class="">Name</a></th>
-                                <th><a href="{{ route('CE.sortingOfBirthday') }}" class="">Birthday</a></th>
-                                <th><a href="{{ route('CE.sortingOfAge') }}" class="">Age</a></th>
-                                <th><a href="{{ route('CE.sortingOfGender') }}" class="">Gender</a></th>
-                                <th><a href="#" class="">Address</a></th>
-                                <th><a href="#" class="">Department</a></th>
-                                <th><a href="#" class="">Year</a></th>
-                                <th><a href="#" class="">Section</a></th>
-                                <th><a href="#" class="">ACTION</a></th>
-                            </tr>
-                            @foreach($shows as $show)  
-                                <tr>
-                                    <td>{{ $show->last_name }}, {{ $show->first_name }} {{ $show->middle_initial }}.</td>
-                                    <td>{{ $show->bday_month }} {{ $show->bday_day }}, {{ $show->bday_year }}</td>
-                                    <td>{{ $show->age }}</td>
-                                    <td>{{ $show->gender }}</td>
-                                    <td>{{ $show->address }}</td>
-                                    <td>{{ $show->department }}</td>
-                                    <td>{{ $show->year }}</td>
-                                    <td>Section {{ $show->section }}</td>
-                                    <td>
-                                        <a class="btn-small btn-floating" href="{{ route('CollegesController.CEshow',$show->id) }}"><i class="material-icons">open_in_new</i></a>
-                                        <a class="btn-small btn-floating" href="{{ route('CollegesController.CEedit',$show->id) }}"><i class="material-icons">edit</i></a>
-                                        <a class="btn-small btn-floating red" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </table>
+                    <div class="card-content">
+                    </div>
                 </div>
-              </div>
             </div>
         </div>
 
+        <!-- CARD CONTAINER STRUCTURE FOR COLLEGE OF EDUCATION -->
+        <div class="row">
+                <div class="col s12">
+                    <div class="card  z-depth-4">
+                        <div class="card-image">
+                            <div class="row">
+                                <div class="col s6 flow-text center"><h4>College of Education</h4></div>
+                                <div class="col s6 center"><span><h4>Statistics</h4></span></div>
+                                    <div class="col s6">
+                                              <div>
+                                                    <table class="responsive-table">
+                                                            <tr>
+                                                                <th><a href="{{ route('CoEd.sortingOfName') }}" class="">Name</a></th>
+                                                                <!--<th><a href="{{ route('CoEd.sortingOfBirthday') }}" class="">Birthday</a></th>-->
+                                                                <th><a href="{{ route('CoEd.sortingOfAge') }}" class="">Age</a></th>
+                                                                <th><a href="{{ route('CoEd.sortingOfGender') }}" class="">Gender</a></th>
+                                                                <!--<th><a href="#" class="">Address</a></th>-->
+                                                                <th><a href="#" class="">Department</a></th>
+                                                                <th><a href="#" class="">Year</a></th>
+                                                                <th><a href="#" class="">Section</a></th>
+                                                                <th><a href="#" class="">&nbsp</a></th>
+                                                            </tr>
+                                
+                                                            @foreach($shows as $show)  
+                                                                <tr>
+                                                                    <td>{{ $show->last_name }}, {{ $show->first_name }} {{ $show->middle_initial }}.</td>
+                                                                    <!--<td>{{ $show->bday_month }} {{ $show->bday_day }}, {{ $show->bday_year }}</td>-->
+                                                                    <td>{{ $show->age }}</td>
+                                                                    <td>{{ $show->gender }}</td>
+                                                                    <!--<td>{{ $show->address }}</td>-->
+                                                                    <td>{{ $show->department }}</td>
+                                                                    <td>{{ $show->year }}</td>
+                                                                    <td>Section {{ $show->section }}</td>
+                                                                    <td>
+                                                                        <a class="btn-small btn-floating tooltipped" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$show->id) }}"><i class="material-icons">open_in_new</i></a>
+                                                                        <a class="btn-small btn-floating tooltipped" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$show->id) }}"><i class="material-icons">edit</i></a>
+                                                                        <a class="btn-small btn-floating red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$show->id) }}"><i class="material-icons">delete</i></a>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        </table>
+                                              </div>
+                                        </div>
+                                    <div class="col s6"  >
+                                        <div class="materialboxed"><canvas id="CollegeofEngineering"></canvas></div>
+                                            <br><br>
+                                            <div class="container">
+                                                    <div class="row">
+                                                        <br><br>
+                        
+                                                        <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
+                                                            {{ csrf_field() }}
+                                                            <input type="file" name="file" class="">
+                                                            <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
+                                                        </form>
+                                                          
+                                                            <div class="col-lg-12 margin-tb">
+                                                                @if ( Session::has('success') )
+                                                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                            <span aria-hidden="true">×</span>
+                                                                            <span class="sr-only">Close</span>
+                                                                        </button>
+                                                                        <strong>{{ Session::get('success') }}</strong>
+                                                                    </div>
+                                                                @endif
+                                                     
+                                                                @if ( Session::has('error') )
+                                                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                        <span aria-hidden="true">×</span>
+                                                                        <span class="sr-only">Close</span>
+                                                                    </button>
+                                                                    <strong>{{ Session::get('error') }}</strong>
+                                                                </div>
+                                                                @endif
+                                                            
+                                                                @if (count($errors) > 0)
+                                                                    <div class="alert alert-danger">
+                                                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                                                        <div>
+                                                                            @foreach ($errors->all() as $error)
+                                                                            <p>{{ $error }}</p>
+                                                                            @endforeach
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
+                                                                {{-- <form action="{{ route('CollegesController.CEsearch') }}" method="post">
+                                                                    {{ csrf_field() }}
+                                                                    <input type="submit" class=" pull-right btn btn-primary ml-3 mr-5" value="Search">
+                                                                    <input class="pull-right ml-5" type="text" placeholder="Search for Name" name="data">
+                                                                </form> --}}
+                                                                    
+                                                            </div>
+                                                    </div>
+                                            <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
+                                                {{ csrf_field() }}
+                                                <input type="file" name="file" class="">
+                                                <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
+                                            </form>
+                                    </div>
+                            </div>
+                            <!-- MATERIALBOXED MATERIALIZECSS STRUCTURE -->
+                            <!--<div class="materialboxed"  >
+                                <canvas id="CollegeofEngineering" ></canvas>
+                            </div>-->
+                            <!-- END OF MATERIALBOXED STRUCTURE -->
+    
+                            <!--CARD TITLE STRUCTURE -->
+                            
+                            <!-- END OF CARD TITLE STRUCTURE -->
+    
+                            <a href="{{ route('CollegesController.CoEdadd') }}" class="btn-floating btn-medium halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="card-content">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
 
-        
 
 
 
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- CARD CONTAINER STRUCTURE FOR COLLEGE OF EDUCATION  -->
+        <div class="row">
+                <div class="col s12">
+                    <div class="card  z-depth-4">
+                        <div class="card-image grey darken-4">
+    
+                            <!-- MATERIALBOXED MATERIALIZECSS STRUCTURE -->
+                            <div class="materialboxed"  >
+                                <!--<canvas id="CollegeofEngineering" ></canvas>-->
+                            </div> 
+                            <!-- END OF MATERIALBOXED STRUCTURE -->
+    
+                            <!--CARD TITLE STRUCTURE -->
+                            <!--<span class="card-title">Card Title</span>-->
+                            <!-- END OF CARD TITLE STRUCTURE -->
+    
+                            <a href="{{ route('CollegesController.CoEdadd') }}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                            <span><h3>&nbsp College of Engineering</h3></span>
+                        </div>
+    
+                        <div class="card-content">
+                            
+    
+                                <div class="row">
+                                    <div>
+                                        <div class="center"></div>
+                                    </div>
+                                </div>
+                                    
+                            </div>
+                            <table class="responsive-table small-text">
+                                <tr>
+                                    <th><a href="{{ route('CE.sortingOfName') }}" class="">Name</a></th>
+                                    <th><a href="{{ route('CE.sortingOfBirthday') }}" class="">Birthday</a></th>
+                                    <th><a href="{{ route('CE.sortingOfAge') }}" class="">Age</a></th>
+                                    <th><a href="{{ route('CE.sortingOfGender') }}" class="">Gender</a></th>
+                                    <th><a href="#" class="">Address</a></th>
+                                    <th><a href="#" class="">Department</a></th>
+                                    <th><a href="#" class="">Year</a></th>
+                                    <th><a href="#" class="">Section</a></th>
+                                    <th><a href="#" class="">ACTION</a></th>
+                                </tr>
+    
+                                @foreach($shows as $show)  
+                                    <tr>
+                                        <td>{{ $show->last_name }}, {{ $show->first_name }} {{ $show->middle_initial }}.</td>
+                                        <td>{{ $show->bday_month }} {{ $show->bday_day }}, {{ $show->bday_year }}</td>
+                                        <td>{{ $show->age }}</td>
+                                        <td>{{ $show->gender }}</td>
+                                        <td>{{ $show->address }}</td>
+                                        <td>{{ $show->department }}</td>
+                                        <td>{{ $show->year }}</td>
+                                        <td>Section {{ $show->section }}</td>
+                                        <td>
+                                            <a class="btn-small btn-floating" href="{{ route('CollegesController.CEshow',$show->id) }}"><i class="material-icons">open_in_new</i></a>
+                                            <a class="btn-small btn-floating" href="{{ route('CollegesController.CEedit',$show->id) }}"><i class="material-icons">edit</i></a>
+                                            <a class="btn-small btn-floating red" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
     {{-- College Of Education --}}
     <div class="row">
@@ -182,12 +409,7 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-right mr-4">
-                    <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
-                        {{ csrf_field() }}
-                        <input type="file" name="file" class="">
-                        
-                        <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
-                    </form>
+                    
                 </div>
             </div>
         </div>
@@ -307,14 +529,17 @@
                 @endforeach
             </table>
         </div>
+
         <hr>
-    <div class="column">
-        <div class="col-xs-1 align-center">
-            <div>{{ $outputs->links() }}</div>
+
+        <div class="column">
+            <div class="col-xs-1 align-center">
+                <div>{{ $outputs->links() }}</div>
+            </div>
         </div>
     </div>
 </div>
-</div>
+<!-- END OF MAIN CONTAINER -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.materialboxed');
@@ -332,6 +557,14 @@
            });
         });
 
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.tooltipped');
+    var instances = M.Tooltip.init(elems, {
+        enterDelay: 250
+    });
+  });
 </script>
 @endsection
 
@@ -400,9 +633,9 @@
     <script>
         var ctx = document.getElementById("CollegeofEngineering").getContext('2d');
         var myChart = new Chart(ctx, {
-            type: 'bar',
+            type: '',
             data: {
-                labels: ["Civil Engineering", "Electronics Engineering", "Electrical Engineering", "Mechanical Engineering", "Industrial Engineering", "Computer Engineering"],
+                labels: ["CE", "ECE", "EE", "ME", "IE", "COE"],
                 datasets: [{
                     label: ' Number of students in this College',
                     data: [12, 19, 3, 5, 2, 3],
