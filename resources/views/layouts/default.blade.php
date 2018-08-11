@@ -34,7 +34,7 @@
     <script src="{{ asset('js/dist/jquery.inputmask.bundle.js') }}"></script>
     <script src="{{ asset('js/plugins/dataTables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/plugins/dataTables/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/chartsJS/Chart.bundle.min.js') }}"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="{{ URL::asset('js/chartjs-plugin-datalabels.min.js') }}"></script>
 
     @yield('pageJs')

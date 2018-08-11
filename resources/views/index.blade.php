@@ -42,7 +42,7 @@
 <div style="height: 30px;"></div>
 
 <!--MAIN DASHBOARD-->
-<div>
+<div onload="icebear()">
     <div class="row">
         <div class="col s12">
             <div class="card">
@@ -211,7 +211,7 @@
 
                         </div>
                         <div class="col s8">
-                            <canvas id="CollegeofEngineering"></canvas>
+                            <canvas id="CollegeofEngineering" height="150%"></canvas>
                         </div>
                     </div>
 
@@ -771,25 +771,19 @@
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ["CE", "ECE", "EE", "ME", "IE", "COE"],
+                labels: ["CE", "CCIS", "CoEd"],
                 datasets: [{
                     label: ' Number of students in this College',
-                    data: [12, 19, 3, 5, 2, 3],
+                    data: [12, 19, 12],
                     backgroundColor: [
                         '#b71c1c',
                         '#0288d1',
                         '#311b92',
-                        '#ffff00',
-                        '#1b5e20',
-                        '#ff9800'
                     ],
                     borderColor: [
                         '#b71c1c',
                         '#0288d1',
                         '#311b92',
-                        '#ffff00',
-                        '#1b5e20',
-                        '#ff9800'
                     ],
                     borderWidth: 1
                 }]
@@ -805,47 +799,7 @@
             }
         });
     </script>
-    <script>
-            var ctx = document.getElementById("CollegeofEducation").getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ["BBTE", "BLIS", "BEED", "BSED-ENG", "BSED-FIL", "BSED-MATH", "BSED-SOC"],
-                    datasets: [{
-                        label: ' Number of students in this College',
-                        data: [12, 19, 3, 5, 2, 3, 20],
-                        backgroundColor: [
-                            '#b71c1c',
-                            '#0288d1',
-                            '#311b92',
-                            '#ffff00',
-                            '#1b5e20',
-                            '#ff9800',
-                            '#4a148c'
-                        ],
-                        borderColor: [
-                            '#b71c1c',
-                            '#0288d1',
-                            '#311b92',
-                            '#ffff00',
-                            '#1b5e20',
-                            '#ff9800',
-                            '#4a148c'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }]
-                    }
-                }
-            });
-        </script>
+
         <script>
                 var ctx = document.getElementById("CollegeofComputerAndInformationSciences").getContext('2d');
                 var myChart = new Chart(ctx, {
