@@ -205,7 +205,7 @@
                 
             });
         });
-    </script>
+</script>
 @endsection
 
 @section('pageJs')
