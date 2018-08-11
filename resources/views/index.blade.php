@@ -53,7 +53,7 @@
                             <span class="card-title"><i class="material-icons">filter_list</i>&nbsp Filter Selection TAB</span>
 
                             <!--COLLEGES-->
-                            <div class="input-field col s10">
+                            <div class="input-field col s11">
                                 <select>
                                     <option value="ALL" selected>All Colleges</option>
                                     <option value="CCIS">College of Computer and Information Sciences</option>
@@ -64,7 +64,7 @@
                             </div>
 
                             <!--DEPARTMENTS-->
-                            <div class="input-field col s10">
+                            <div class="input-field col s11">
                                 <select>
                                     <option value="ALL" selected>All Departments</option>
                                     <option value="Computer Science">Computer Science</option>
@@ -89,7 +89,7 @@
                                 <label>Department</label>
                             </div>
 
-                            <div class="input-field col s4">
+                            <div class="input-field col s5">
                                     <select>
                                         <option selected>All Levels</option>
                                         <option value="1">First Year</option>
@@ -120,7 +120,7 @@
                                 <label for="icon_prefix">Age</label>
                             </div>
 
-                            <div class="input-field col s4">
+                            <div class="input-field col s5">
                                 <select>
                                     <option value="" selected>All Genders</option>
                                     <option value="1">Female</option>
@@ -163,7 +163,7 @@
                                 <label>Month</label>
                             </div>
 
-                            <div class="input-field col s2">
+                            <div class="input-field col s3">
                                 <select>
                                     <option selected disabled>Day</option>
                                     <option value="1">1</option>
