@@ -16,7 +16,7 @@
     @yield('pageCss')
 
 </head>
-<body>
+<body class="blue-grey darken-4">
     <div class="mt-5 ml-5">
         @yield('content')
     </div>

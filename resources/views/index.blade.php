@@ -10,9 +10,9 @@
 <nav>
     <div class="navbar-fixed ">
         <nav>
-          <div class="nav-wrapper blue-grey lighten-5">
-              <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></button>
-                <a href="#!" class="brand-logo black-text">PUP Stats</a>
+          <div class="nav-wrapper red darken-4">
+              <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons white-text">menu</i></button>
+                <a href="#!" class="brand-logo white-text">PUP Stats</a>
                 <ul class="right hide-on-med-and-down">
                 </ul>
           </div>
@@ -56,17 +56,17 @@
                             <div class="col s6 center"><span><h4>Statistics</h4></span></div>
                                 <div class="col s6">
                                           <div>
-                                                <table class="responsive-table">
+                                                <table class="responsive-table striped">
                                                         <tr>
-                                                            <th><a href="{{ route('CE.sortingOfName') }}" class="">Name</a></th>
-                                                            <!--<th><a href="{{ route('CE.sortingOfBirthday') }}" class="">Birthday</a></th>-->
-                                                            <th><a href="{{ route('CE.sortingOfAge') }}" class="">Age</a></th>
-                                                            <th><a href="{{ route('CE.sortingOfGender') }}" class="">Gender</a></th>
-                                                            <!--<th><a href="#" class="">Address</a></th>-->
-                                                            <th><a href="#" class="">Department</a></th>
-                                                            <th><a href="#" class="">Year</a></th>
-                                                            <th><a href="#" class="">Section</a></th>
-                                                            <th><a href="#" class="">&nbsp</a></th>
+                                                            <th><a href="{{ route('CE.sortingOfName') }}" class="red-text text-darken-4">Name</a></th>
+                                                            <!--<th><a href="{{ route('CE.sortingOfBirthday') }}" class="red-text text-darken-4">Birthday</a></th>-->
+                                                            <th><a href="{{ route('CE.sortingOfAge') }}" class="red-text text-darken-4">Age</a></th>
+                                                            <th><a href="{{ route('CE.sortingOfGender') }}" class="red-text text-darken-4">Gender</a></th>
+                                                            <!--<th><a href="#" class="red-text text-darken-4">Address</a></th>-->
+                                                            <th><a href="#" class="red-text text-darken-4">Department</a></th>
+                                                            <th><a href="#" class="red-text text-darken-4">Year</a></th>
+                                                            <th><a href="#" class="red-text text-darken-4">Section</a></th>
+                                                            <th><a href="#" class="red-text text-darken-4">&nbsp</a></th>
                                                         </tr>
                             
                                                         @foreach($shows as $show)  
@@ -156,7 +156,7 @@
                         
                         <!-- END OF CARD TITLE STRUCTURE -->
 
-                        <a href="{{ route('CollegesController.CEadd') }}" class="btn-floating btn-medium halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                        <a href="{{ route('CollegesController.CEadd') }}" class="btn-floating btn-medium halfway-fab waves-effect waves-light red darken-4"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                     </div>
@@ -212,7 +212,7 @@
                                               </div>
                                         </div>
                                     <div class="col s6"  >
-                                        <div class="materialboxed"><canvas id="CollegeofEducation"></canvas></div>
+                                        <div class="materialboxed black"><canvas id="CollegeofEducation"></canvas></div>
                                             <br><br>
                                             <div class="container">
                                                     <div class="row">
