@@ -1,18 +1,6 @@
 @extends('layouts.default')
 
 
-@section('pageCss')
-    <style>
-        table, th {
-            text-align: center;
-            border: solid;
-        }
-
-        td {
-            border-style: groove;
-        }
-    </style>
-@endsection
 
 
 @section('content')
