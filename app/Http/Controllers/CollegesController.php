@@ -41,6 +41,30 @@ class CollegesController extends Controller
         ));  //calls the blade file with the value stored in $shows
     }
 
+    public function addStudent(Request $request) {
+        // return $request->model;
+        $model_name = '\\App\\'.$request->model;
+        $model = new $model_name;
+        $this->validate(request(), [
+            'last_name' => 'required',
+            'first_name' => 'required',
+            'middle_initial' => 'required',
+            'bday_month' => 'required',
+            'bday_day' => 'required',
+            'bday_year' => 'required',
+            'age' => 'required',
+            'gender' => 'required',
+            'address' => 'required',
+            'college' => 'required',
+            'department' => 'required',
+            'year' => 'required',
+            'section' => 'required'
+        ]);
+        $model::create($request->all());
+        return redirect()->route('CollegesController.index');
+        
+    }
+
     public function filterCollegebyCCIS($CCIS) {
         // return $CCIS;
         $totalCCIS = CollegeOfComputerAndInformationSciences::where('college', 'like', "%$CCIS%")

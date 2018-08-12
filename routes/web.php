@@ -20,6 +20,7 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::get('/filtered-by-CCIS/{CCIS}', 'CollegesController@filterCollegebyCCIS')->name('filter.college.CCIS');
     Route::get('/filtered-by-CoEd/{CoEd}', 'CollegesController@filterCollegebyCoEd')->name('filter.college.CoEd');
     Route::get('/filtered-by-CE/{CE}', 'CollegesController@filterCollegebyCE')->name('filter.college.CE');
+    Route::post('/add-student-information', 'CollegesController@addStudent')->name('CollegesController.addStudent');
 
 
     //College of Education Routes

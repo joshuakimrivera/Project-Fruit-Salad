@@ -1,8 +1,5 @@
 @extends('layouts.default')
 
-
-
-
 @section('content')
 
 <!--NAVIGATIONAL STRUCTURES -->
@@ -201,7 +198,7 @@
                             <label>Day</label>
                         </div>
                         <!--ADD STUDENT BUTTON-->
-                        <a href="{{ route('CollegesController.CoEdadd') }}" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">add</i></a>
+                        <a href="#modal1" class="modal-trigger btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">add</i></a>
 
                         <!--EXCEL FILE UPLOAD STRUCTURE -->
                         <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
@@ -377,10 +374,8 @@
                 </div>
             </div>
         
-            {{ Form::open(array('route' => 'CollegesController.CoEdstore'))}}
+            {{ Form::open(array('route' => 'CollegesController.addStudent', ))}}
             <div class="row">
-        
-        
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong class="mr-4">Name:</strong>
@@ -389,7 +384,7 @@
                         <input type="text" name="middle_initial" placeholder="Middle Inital">
                     </div>
                 </div>
-        
+                <br>
                  <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Birthday:&nbsp;</strong>
@@ -457,14 +452,14 @@
                             </select>
                     </div>
                 </div>
-        
+                <br>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                      <div class="form-group">
                          <strong class="mr-4">Age: &nbsp;&nbsp;</strong>
-                         {{ Form::number('age', null, array('class' => 'ml-4')) }}
+                         {{ Form::number('age', null, array('placeholder' => 'Age', 'class' => 'ml-4')) }}
                     </div>
                 </div>
-        
+                <br>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                      <div class="form-group">
                         <strong class="mr-4">Gender:</strong>
@@ -476,23 +471,27 @@
                          {{-- {{ Form::text('gender', null, array('placeholder' => 'Male or Female', 'class' => 'form-control')) }} --}}
                     </div>
                 </div>
-        
+                <br>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                      <div class="form-group">
                          <strong class="mr-4">Address:</strong>&nbsp;
                          {{ Form::text('address', null, array('placeholder' => 'Address','class' => '')) }}
                     </div>
                 </div> 
-        
+                <br>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                      <div class="form-group">
-                        <strong class="mr-4">College:</strong>&nbsp;&nbsp;
-                        <input type="hidden" name="college" value="Education" >
-                        <input type="text" value="Education" disabled class="">
-                         {{-- {{ Form::text('college', null, array('placeholder' => 'College of', 'class' => 'form-control')) }} --}}
+                        <input type="hidden" name="model" value="">
+                        <strong>College:</strong>
+                        <select name="college" id="college">
+                            <option selected disabled> Select your College</option>
+                            <option value="Computer and Information Services">College of Computer and Information Services</option>
+                            <option value="Education">College of Education</option>
+                            <option value="Engineering">College of Engineering</option>
+                        </select>
                     </div>
                 </div>
-                
+                <br>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Department:</strong>
@@ -509,7 +508,7 @@
                         {{-- {{ Form::text('department', null, array('placeholder' => 'Department','class' => 'form-control')) }} --}}
                     </div>
                 </div>
-        
+                <br>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong class="mr-5">Year:</strong>&nbsp;&nbsp;
@@ -522,7 +521,7 @@
                         </select>
                     </div>
                 </div>
-        
+                <br>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong class="mr-4">Section:</strong>&nbsp;&nbsp;
@@ -537,7 +536,7 @@
                         {{-- {{ Form::number('section', null, array('placeholder' => 'Section','class' => 'form-control')) }} --}}
                     </div>
                 </div>
-        
+                <br>
                 <div class="text-center">
                     <div class="ml-2">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -626,7 +625,7 @@
     var totalCCIS = $("input[name='numberOfCCIS']").val();
     var totalCoEd = $("input[name='numberOfCoEd']").val();
     var totalCE = $("input[name='numberOfCE']").val();
-    console.log(totalCCIS);
+    // console.log(totalCCIS);
     var canvas = document.getElementById("barChart");
     var ctx = canvas.getContext('2d');
     // We are only changing the chart type, so let's make that a global variable along with the chart object:
@@ -714,6 +713,37 @@
             window.location.href = $('option:selected', this).attr('url')
           });
 
+        $("#college").on('change', function(){
+            var college = $(this).val();
+            // console.log(college);
+            // <input type="hidden" name="college">
+            switch (college) {
+                
+                case 'Computer and Information Services' :
+                    $("input[name='model'").val("CollegeOfComputerAndInformationSciences");
+                    break;
+                
+                case 'Education':
+                    $("input[name='model'").val("CollegeOfEducations");
+                    break;
+
+                case 'Engineering':
+                    $("input[name='model'").val("CollegeOfEngineerings");
+                    break;
+                default :
+                break;
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('#bday').on('change', function(){
+            var dropdown = $("select[name='bday_month']")[1]['selectedIndex'];
+            // var dropdown = document.getElementById('bday');
+            console.log(dropdown);
+            $("input:hidden#date_sorter").val(dropdown);
+        })
     });
 </script>
 @endsection
