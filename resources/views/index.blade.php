@@ -1,5 +1,12 @@
 @extends('layouts.default')
 
+@section('pageCss')
+    <style>
+        .CCIS, .CoEd, .CE {
+            visibility: hidden;
+        }
+    </style>
+@endsection
 @section('content')
 
 <!--NAVIGATIONAL STRUCTURES -->
@@ -484,8 +491,8 @@
                         <input type="hidden" name="model" value="">
                         <strong>College:</strong>
                         <select name="college" id="college">
-                            <option selected disabled> Select your College</option>
-                            <option value="Computer and Information Services">College of Computer and Information Services</option>
+                            <option selected disabled> Select your College First</option>
+                            <option value="Computer and Information Science">College of Computer and Information Science</option>
                             <option value="Education">College of Education</option>
                             <option value="Engineering">College of Engineering</option>
                         </select>
@@ -495,15 +502,29 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Department:</strong>
-                        <select name="department" id="">
-                            <option selected disabled> Select your Department</option>
-                            <option value="Business Teacher Educationg">Business Teacher Education</option>
-                            <option value="Library and Information Science">Library and Information Science</option>
-                            <option value="Elementary Education">Elementary Education</option>
-                            <option value="Secondary Education major in English">Secondary Education major in English</option>
-                            <option value="Secondary Education major in Filipino">Secondary Education major in Filipino</option>
-                            <option value="Secondary Education major in Mathematics">Secondary Education major in Mathematics</option>
-                            <option value="Secondary Education major in Social Studies">Secondary Education major in Social Studies</option>
+                        <select disabled hidden name="department" id="CCIS">
+                            <option selected disabled> College of Computer and Information Sciences</option>
+                            <option id="cs" value="Computer Science">Computer Science</option>
+                            <option id="it" value="Information Technology">Information Technology</option>
+                        </select>
+                        <select disabled hidden name="department" id="CoEd">
+                            <option disabled selected>College of Education</option>
+                            <option id="bte" value="Business Teacher Educationg">Business Teacher Education</option>
+                            <option id="lis" value="Library and Information Science">Library and Information Science</option>
+                            <option id="ee" value="Elementary Education">Elementary Education</option>
+                            <option id="seme" value="Secondary Education major in English">Secondary Education major in English</option>
+                            <option id="semf" value="Secondary Education major in Filipino">Secondary Education major in Filipino</option>
+                            <option id="semm" value="Secondary Education major in Mathematics">Secondary Education major in Mathematics</option>
+                            <option id="semss" value="Secondary Education major in Social Studies">Secondary Education major in Social Studies</option>
+                        </select>
+                        <select disabled hidden name="department" id="CE">
+                            <option disabled selected>College of Engineering</option>
+                            <option id="ce" value="Civil Engineering">Civil Engineering</option>
+                            <option id="coe" value="Computer Engineering">Computer Engineering</option>
+                            <option id="electri" value="Electrical Engineering">Electrical Engineering</option>
+                            <option id="electro" value="Electronics Engineering">Electronics Engineering</option>
+                            <option id="ie" value="Industrial Engineering">Industrial Engineering</option>
+                            <option id="me" value="Mechanical Engineering">Mechanical Engineering</option>
                         </select>
                         {{-- {{ Form::text('department', null, array('placeholder' => 'Department','class' => 'form-control')) }} --}}
                     </div>
@@ -709,26 +730,43 @@
 <script>
     $(document).ready(function(){
 
+        // $("#college option:selected").attr('disabled','disabled')
+        //                 .siblings().removeAttr('disabled');
         $("#collegeFilter").on('change', function(){
             window.location.href = $('option:selected', this).attr('url')
           });
-
+        
         $("#college").on('change', function(){
             var college = $(this).val();
             // console.log(college);
-            // <input type="hidden" name="college">
+            // console.log($(this));
             switch (college) {
                 
-                case 'Computer and Information Services' :
-                    $("input[name='model'").val("CollegeOfComputerAndInformationSciences");
+                case 'Computer and Information Science' :
+                    $("#CCIS").prop('disabled', false);
+                    $("#CCIS").removeAttr('hidden', true);
                     break;
                 
                 case 'Education':
                     $("input[name='model'").val("CollegeOfEducations");
+
+                    // $('#bte').prop("disabled", false);
+                    // $('#lis').prop("disabled", false);
+                    // $('#ee').prop("disabled", false);
+                    // $('#seme').prop("disabled", false);
+                    // $('#semf').prop("disabled", false);
+                    // $('#semss').prop("disabled", false);
+                    // $('#semm').prop("disabled", false);
                     break;
 
                 case 'Engineering':
                     $("input[name='model'").val("CollegeOfEngineerings");
+                    // $('#ce').prop("disabled", false);
+                    // $('#coe').prop("disabled", false);
+                    // $('#electri').prop("disabled", false);
+                    // $('#electro').prop("disabled", false);
+                    // $('#ie').prop("disabled", false);
+                    // $('#me').prop("disabled", false);
                     break;
                 default :
                 break;

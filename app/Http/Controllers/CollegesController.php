@@ -15,11 +15,12 @@ use File;
 class CollegesController extends Controller
 {
     public function index(){
-        $CCIS = "Computer and Information Sciences";
+        $CCIS = "Computer and Information Science";
         $CoEd = "Education";
         $CE = "Engineering";
         $totalCCIS = CollegeOfComputerAndInformationSciences::where('college', 'like', "%$CCIS%")
                         ->count();
+        // return $totalCCIS;
         $totalCoEd = CollegeOfEducations::where('college', 'like', "%$CoEd%")
                         ->count();
         $totalCE = CollegeOfEngineerings::where('college', 'like', "%$CE%")
