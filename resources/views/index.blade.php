@@ -46,7 +46,7 @@
     <div class="row">
         <div class="col s4">
             <!--FILTER TAB-->
-            <div class="card">
+            <div class="card josh">
                 <!--CARD DASHBOARD-->
                 <div class="card-content row">
                     <div class="col s12">
@@ -259,7 +259,7 @@
         </div>
         <!--CHART CARD-->
         <div class="col s8">
-            <div class="card">
+            <div class="card josh">
                 <div class="card-content row">
                     <div class="col s7">&nbsp</div>
                         <div class="input-field col s5">
@@ -277,11 +277,12 @@
                 </div>
             </div>
         </div>
+        <!--NAME TABLE CARD-->
         <div class="col s12">
             <div class="card">
                 <div class="card-content row">
                     <!--NAME TABLE-->
-                        <table class="responsive-table">
+                        <table class="responsive-table striped">
                             <tr>
                                 <th class="mr-5 ml-5"><a href="#" class="">Name</a></th>
                                 <th class="mr-5 ml-5"><a href="#" class="">Birthday</a></th>
