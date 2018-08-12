@@ -214,7 +214,11 @@
                             <div class="input-field col s5">
                                 <select id="mySelect" onchange="toggleChart();">
                                     <option value="bar" selected>Default: Bar</option>
+                                    <option value="line">Line</option>
+                                    <option value="radar">Radar</option>
+                                    <option value="doughnut">Doughnut</option>
                                     <option value="pie">Pie</option>
+                                    <option value="polarArea">Polar Area</option>
                                 </select>
                                 <label>Chart Type</label>
                             </div>
@@ -806,26 +810,28 @@ Chart.defaults.global.defaultFontColor = 'black';
 Chart.defaults.global.defaultFontSize = 16;
 
 var data = {
-  labels: ["2005", "2006", "2007"],
-  datasets: [{
-    label: "PUP Colleges",
-    fill: true,
-    lineTension: 0.1,
-    backgroundColor: "rgba(0,255,0,0.4)",
-    borderColor: "green", // The main line color
-    borderCapStyle: 'square',
-    pointBorderColor: "white",
-    pointBackgroundColor: "green",
-    pointBorderWidth: 1,
-    pointHoverRadius: 8,
-    pointHoverBackgroundColor: "yellow",
-    pointHoverBorderColor: "green",
-    pointHoverBorderWidth: 2,
-    pointRadius: 4,
-    pointHitRadius: 10,
-    data: [10, 13, 17, 12, 30, 47, 60, 120, 230, 300, 310, 400],
-    spanGaps: true,
-  }]
+  labels: ["CE", "COED", "CCIS"],
+                datasets: [{
+                    label: ' Number of students in this College',
+                    data: [12, 19, 20],
+                    backgroundColor: [
+                        '#b71c1c',
+                        '#0288d1',
+                        '#311b92',
+                        '#ffff00',
+                        '#1b5e20',
+                        '#ff9800'
+                    ],
+                    borderColor: [
+                        '#b71c1c',
+                        '#0288d1',
+                        '#311b92',
+                        '#ffff00',
+                        '#1b5e20',
+                        '#ff9800'
+                    ],
+                    borderWidth: 1
+                }]
 };
 
 // Notice the scaleLabel at the same level as Ticks
@@ -840,7 +846,7 @@ var options = {
   title: {
     fontSize: 18,
     display: true,
-    text: 'I want to believe !',
+    text: 'Students from all Colleges in PUP',
     position: 'bottom'
   }
 };
