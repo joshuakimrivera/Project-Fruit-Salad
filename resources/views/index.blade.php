@@ -201,6 +201,60 @@
                                 <label>Day</label>
                             </div>
 
+                            <a href="{{ route('CollegesController.CoEdadd') }}" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">add</i></a>
+                            <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type="file" name="file" class="">
+                                <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
+                            </form>
+
+                            <div class="col s6"  >
+                                    <div class="materialboxed"><canvas id="CollegeofEngineering"></canvas></div>
+                                        <br><br>
+                                        <div class="container">
+                                                <div class="row">
+                                                        <div class="col-lg-12 margin-tb">
+                                                            @if ( Session::has('success') )
+                                                                <div class="alert alert-success alert-dismissible" role="alert">
+                                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                        <span aria-hidden="true">×</span>
+                                                                        <span class="sr-only">Close</span>
+                                                                    </button>
+                                                                    <strong>{{ Session::get('success') }}</strong>
+                                                                </div>
+                                                            @endif
+                                                 
+                                                            @if ( Session::has('error') )
+                                                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                    <span class="sr-only">Close</span>
+                                                                </button>
+                                                                <strong>{{ Session::get('error') }}</strong>
+                                                            </div>
+                                                            @endif
+                                                        
+                                                            @if (count($errors) > 0)
+                                                                <div class="alert alert-danger">
+                                                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                                                    <div>
+                                                                        @foreach ($errors->all() as $error)
+                                                                        <p>{{ $error }}</p>
+                                                                        @endforeach
+                                                                    </div>
+                                                                </div>
+                                                            @endif
+                                                            {{-- <form action="{{ route('CollegesController.CEsearch') }}" method="post">
+                                                                {{ csrf_field() }}
+                                                                <input type="submit" class=" pull-right btn btn-primary ml-3 mr-5" value="Search">
+                                                                <input class="pull-right ml-5" type="text" placeholder="Search for Name" name="data">
+                                                            </form> --}}
+                                                                
+                                                        </div>
+                                                </div>       
+                                            </div>
+                                </div>
+
 
 
 
@@ -848,7 +902,11 @@ var options = {
     display: true,
     text: 'Students from all Colleges in PUP',
     position: 'bottom'
-  }
+  },
+  animation: {
+          duration: 2000,
+            easing: 'easeInOutBounce'
+        }
 };
 
 
