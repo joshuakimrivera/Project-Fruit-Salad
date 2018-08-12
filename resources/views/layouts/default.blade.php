@@ -19,9 +19,6 @@
         overflow: hidden;
 }
     </style>
-   
-
-    
 
     @yield('pageCss')
 

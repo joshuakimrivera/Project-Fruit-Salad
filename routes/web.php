@@ -17,6 +17,9 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::get('/College-of-Engineering/sort-by-birthday', 'CollegesController@CEsortingOfBirthdays')->name('CE.sortingOfBirthday');
     Route::get('/College-of-Engineering/sort-by-age', 'CollegesController@CEsortingOfAges')->name('CE.sortingOfAge');
     Route::get('/College-of-Engineering/sort-by-gender', 'CollegesController@CEsortingOfGenders')->name('CE.sortingOfGender');
+    Route::get('/filtered-by-CCIS/{CCIS}', 'CollegesController@filterCollegebyCCIS')->name('filter.college.CCIS');
+    Route::get('/filtered-by-CoEd/{CoEd}', 'CollegesController@filterCollegebyCoEd')->name('filter.college.CoEd');
+    Route::get('/filtered-by-CE/{CE}', 'CollegesController@filterCollegebyCE')->name('filter.college.CE');
 
 
     //College of Education Routes
