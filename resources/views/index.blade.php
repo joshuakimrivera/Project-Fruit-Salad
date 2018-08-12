@@ -42,7 +42,7 @@
 <div style="height: 30px;"></div>
 
 <!--MAIN DASHBOARD-->
-<div>
+<div onload="icebear()">
     <div class="row">
         <div class="col s12">
             <div class="card">
@@ -211,7 +211,18 @@
 
                         </div>
                         <div class="col s8">
-                            <canvas id="CollegeofEngineering"></canvas>
+                            <div class="input-field col s5">
+                                <select id="mySelect" onchange="toggleChart();">
+                                    <option value="bar" selected>Default: Bar</option>
+                                    <option value="line">Line</option>
+                                    <option value="radar">Radar</option>
+                                    <option value="doughnut">Doughnut</option>
+                                    <option value="pie">Pie</option>
+                                    <option value="polarArea">Polar Area</option>
+                                </select>
+                                <label>Chart Type</label>
+                            </div>
+                            <canvas id="barChart" height="150%"></canvas>
                         </div>
                     </div>
 
@@ -244,7 +255,9 @@
                             <td class="mr-5 ml-5">{{ $data->year }}</td>
                             <td class="mr-5 ml-5">Section {{ $data->section }}</td>
                             <td class="mr-5 ml-5">
-                                <a class="btn btn-floating btn-small tooltipped" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>
+                                {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
+                                <!-- Modal Trigger -->
+                                <a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="#modal1"><i class="material-icons">open_in_new</i></a>
                                 <a class="btn btn-floating btn-small tooltipped" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="material-icons">edit</i></a>
                                 <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
                             </td>
@@ -258,6 +271,16 @@
                 
 
         </div>
+    </div>
+</div>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
 </div>
 
@@ -730,6 +753,14 @@
 <!-- END OF MAIN CONTAINER -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, {
+
+    });
+  })
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems, {
        
@@ -766,15 +797,23 @@
 
 
 @section('pageJs')
+    
     <script>
-        var ctx = document.getElementById("CollegeofEngineering").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ["CE", "ECE", "EE", "ME", "IE", "COE"],
+        var canvas = document.getElementById("barChart");
+var ctx = canvas.getContext('2d');
+// We are only changing the chart type, so let's make that a global variable along with the chart object:
+var chartType = document.getElementById("mySelect").value;;
+var myBarChart;
+
+// Global Options:
+Chart.defaults.global.defaultFontColor = 'black';
+Chart.defaults.global.defaultFontSize = 16;
+
+var data = {
+  labels: ["CE", "COED", "CCIS"],
                 datasets: [{
                     label: ' Number of students in this College',
-                    data: [12, 19, 3, 5, 2, 3],
+                    data: [12, 19, 20],
                     backgroundColor: [
                         '#b71c1c',
                         '#0288d1',
@@ -793,88 +832,46 @@
                     ],
                     borderWidth: 1
                 }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                }
-            }
-        });
+};
+
+// Notice the scaleLabel at the same level as Ticks
+var options = {
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true
+      }
+    }]
+  },
+  title: {
+    fontSize: 18,
+    display: true,
+    text: 'Students from all Colleges in PUP',
+    position: 'bottom'
+  }
+};
+
+
+// We add an init function down here after the chart options are declared.
+
+init();
+
+function init() {
+  // Chart declaration:
+  myBarChart = new Chart(ctx, {
+    type: chartType,
+    data: data,
+    options: options
+  });
+}
+
+function toggleChart() {
+  //destroy chart:
+  myBarChart.destroy();
+  //change chart type: 
+  this.chartType = document.getElementById("mySelect").value;
+  //restart chart:
+  init();
+}
     </script>
-    <script>
-            var ctx = document.getElementById("CollegeofEducation").getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ["BBTE", "BLIS", "BEED", "BSED-ENG", "BSED-FIL", "BSED-MATH", "BSED-SOC"],
-                    datasets: [{
-                        label: ' Number of students in this College',
-                        data: [12, 19, 3, 5, 2, 3, 20],
-                        backgroundColor: [
-                            '#b71c1c',
-                            '#0288d1',
-                            '#311b92',
-                            '#ffff00',
-                            '#1b5e20',
-                            '#ff9800',
-                            '#4a148c'
-                        ],
-                        borderColor: [
-                            '#b71c1c',
-                            '#0288d1',
-                            '#311b92',
-                            '#ffff00',
-                            '#1b5e20',
-                            '#ff9800',
-                            '#4a148c'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }]
-                    }
-                }
-            });
-        </script>
-        <script>
-                var ctx = document.getElementById("CollegeofComputerAndInformationSciences").getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ["CS", "IT"],
-                        datasets: [{
-                            label: ' Number of students in this College',
-                            data: [12, 19],
-                            backgroundColor: [
-                                '#b71c1c',
-                                '#0288d1'
-                            ],
-                            borderColor: [
-                                '#b71c1c',
-                                '#0288d1'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero:true
-                                }
-                            }]
-                        }
-                    }
-                });
-            </script>
 @endsection
