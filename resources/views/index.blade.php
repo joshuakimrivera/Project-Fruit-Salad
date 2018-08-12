@@ -806,7 +806,7 @@ Chart.defaults.global.defaultFontColor = 'black';
 Chart.defaults.global.defaultFontSize = 16;
 
 var data = {
-  labels: ["2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016"],
+  labels: ["2005", "2006", "2007"],
   datasets: [{
     label: "PUP Colleges",
     fill: true,
