@@ -42,14 +42,13 @@
 <div style="height: 30px;"></div>
 
 <!--MAIN DASHBOARD-->
-<div onload="icebear()">
+<div>
     <div class="row">
-        <div class="col s12">
+        <div class="col s4">
             <div class="card">
                 <!--CARD DASHBOARD-->
                 <div class="card-content row">
-                    <div>
-                        <div class="col s4">
+                        <div class="col s12">
                             <span class="card-title"><i class="material-icons">filter_list</i>&nbsp Filter Selection TAB</span>
 
                             <!--COLLEGES-->
@@ -208,9 +207,7 @@
                                 <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
                             </form>
 
-                            <div class="col s6"  >
-                                    <div class="materialboxed"><canvas id="CollegeofEngineering"></canvas></div>
-                                        <br><br>
+                            <div class="col s6"  ><br>
                                         <div class="container">
                                                 <div class="row">
                                                         <div class="col-lg-12 margin-tb">
@@ -264,7 +261,22 @@
 
 
                         </div>
-                        <div class="col s8">
+                        
+                        
+                    
+
+                        
+
+                </div>
+
+                
+                    
+            </div>
+        </div>
+        <div class="col s8">
+                <div class="card">
+                        <div class="card-content row">
+                                <div class="col s7">&nbsp</div>
                             <div class="input-field col s5">
                                 <select id="mySelect" onchange="toggleChart();">
                                     <option value="bar" selected>Default: Bar</option>
@@ -278,53 +290,48 @@
                             </div>
                             <canvas id="barChart" height="150%"></canvas>
                         </div>
-                    </div>
-
-                        
-
                 </div>
-
-                <!--NAME TABLE-->
-                <div class="card-action">
-                    <table class="responsive-table">
-                        <tr>
-                            <th class="mr-5 ml-5"><a href="#" class="">Name</a></th>
-                            <th class="mr-5 ml-5"><a href="#" class="">Birthday</a></th>
-                            <th class="mr-5 ml-5"><a href="#" class="">Age</a></th>
-                            <th class="mr-5 ml-5"><a href="#" class="">Gender</a></th>
-                            <th class="mr-5 ml-5"><a href="#" class="">Address</a></th>
-                            <th class="mr-5 ml-5"><a href="#" class="">Department</a></th>
-                            <th class="mr-5 ml-5"><a href="#" class="">Year</a></th>
-                            <th class="mr-5 ml-5"><a href="#" class="">Section</a></th>
-                            <th class="mr-5 ml-5"><a href="#" class="">ACTION</a></th>
-                        </tr>
-                        @foreach($datas as $data)  
-                        <tr>
-                            <td class="mr-5 ml-5">{{ $data->last_name }}, {{ $data->first_name }} {{ $data->middle_initial }}.</td>
-                            <td class="mr-5 ml-5">{{ $data->bday_month }} {{ $data->bday_day }}, {{ $data->bday_year }}</td>
-                            <td class="mr-5 ml-5">{{ $data->age }}</td>
-                            <td class="mr-5 ml-5">{{ $data->gender }}</td>
-                            <td class="mr-5 ml-5">{{ $data->address }}</td>
-                            <td class="mr-5 ml-5">{{ $data->department }}</td>
-                            <td class="mr-5 ml-5">{{ $data->year }}</td>
-                            <td class="mr-5 ml-5">Section {{ $data->section }}</td>
-                            <td class="mr-5 ml-5">
-                                {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
-                                <!-- Modal Trigger -->
-                                <a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="#modal1"><i class="material-icons">open_in_new</i></a>
-                                <a class="btn btn-floating btn-small tooltipped" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="material-icons">edit</i></a>
-                                <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </table>
-                </div>
-                    
-            </div>
-
-                
-
         </div>
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content row">
+                    <!--NAME TABLE-->
+                        <table class="responsive-table">
+                            <tr>
+                                <th class="mr-5 ml-5"><a href="#" class="">Name</a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="">Birthday</a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="">Age</a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="">Gender</a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="">Address</a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="">Department</a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="">Year</a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="">Section</a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="">ACTION</a></th>
+                            </tr>
+                            @foreach($datas as $data)  
+                            <tr>
+                                <td class="mr-5 ml-5">{{ $data->last_name }}, {{ $data->first_name }} {{ $data->middle_initial }}.</td>
+                                <td class="mr-5 ml-5">{{ $data->bday_month }} {{ $data->bday_day }}, {{ $data->bday_year }}</td>
+                                <td class="mr-5 ml-5">{{ $data->age }}</td>
+                                <td class="mr-5 ml-5">{{ $data->gender }}</td>
+                                <td class="mr-5 ml-5">{{ $data->address }}</td>
+                                <td class="mr-5 ml-5">{{ $data->department }}</td>
+                                <td class="mr-5 ml-5">{{ $data->year }}</td>
+                                <td class="mr-5 ml-5">Section {{ $data->section }}</td>
+                                <td class="mr-5 ml-5">
+                                    {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
+                                    <!-- Modal Trigger -->
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="#modal1"><i class="material-icons">open_in_new</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="material-icons">edit</i></a>
+                                    <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </table>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
