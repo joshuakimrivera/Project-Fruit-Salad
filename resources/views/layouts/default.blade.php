@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="{{ url('css/font-awesome-4.7.0/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ url('css/materialize.min.css') }}">
     <link rel="stylesheet" href="{{ url('css/materialize.css') }}">
+    <style>
+        .josh{
+        height: 600px; /* Your height here */
+        overflow: hidden;
+}
+    </style>
    
 
     
