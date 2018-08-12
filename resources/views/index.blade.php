@@ -211,7 +211,14 @@
 
                         </div>
                         <div class="col s8">
-                            <canvas id="CollegeofEngineering" height="150%"></canvas>
+                            <div class="input-field col s5">
+                                <select id="mySelect" onchange="toggleChart();">
+                                    <option value="bar" selected>Default: Bar</option>
+                                    <option value="pie">Pie</option>
+                                </select>
+                                <label>Chart Type</label>
+                            </div>
+                            <canvas id="barChart" height="150%"></canvas>
                         </div>
                     </div>
 
@@ -244,7 +251,9 @@
                             <td class="mr-5 ml-5">{{ $data->year }}</td>
                             <td class="mr-5 ml-5">Section {{ $data->section }}</td>
                             <td class="mr-5 ml-5">
-                                <a class="btn btn-floating btn-small tooltipped" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>
+                                {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
+                                <!-- Modal Trigger -->
+                                <a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="#modal1"><i class="material-icons">open_in_new</i></a>
                                 <a class="btn btn-floating btn-small tooltipped" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="material-icons">edit</i></a>
                                 <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
                             </td>
@@ -258,6 +267,16 @@
                 
 
         </div>
+    </div>
+</div>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
 </div>
 
@@ -730,6 +749,14 @@
 <!-- END OF MAIN CONTAINER -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, {
+
+    });
+  })
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems, {
        
@@ -766,69 +793,79 @@
 
 
 @section('pageJs')
+    
     <script>
-        var ctx = document.getElementById("CollegeofEngineering").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ["CE", "CCIS", "CoEd"],
-                datasets: [{
-                    label: ' Number of students in this College',
-                    data: [12, 19, 12],
-                    backgroundColor: [
-                        '#b71c1c',
-                        '#0288d1',
-                        '#311b92',
-                    ],
-                    borderColor: [
-                        '#b71c1c',
-                        '#0288d1',
-                        '#311b92',
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                }
-            }
-        });
-    </script>
+        var canvas = document.getElementById("barChart");
+var ctx = canvas.getContext('2d');
+// We are only changing the chart type, so let's make that a global variable along with the chart object:
+var chartType = document.getElementById("mySelect").value;;
+var myBarChart;
 
-        <script>
-                var ctx = document.getElementById("CollegeofComputerAndInformationSciences").getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ["CS", "IT"],
-                        datasets: [{
-                            label: ' Number of students in this College',
-                            data: [12, 19],
-                            backgroundColor: [
-                                '#b71c1c',
-                                '#0288d1'
-                            ],
-                            borderColor: [
-                                '#b71c1c',
-                                '#0288d1'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero:true
-                                }
-                            }]
-                        }
-                    }
-                });
-            </script>
+// Global Options:
+Chart.defaults.global.defaultFontColor = 'black';
+Chart.defaults.global.defaultFontSize = 16;
+
+var data = {
+  labels: ["2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016"],
+  datasets: [{
+    label: "PUP Colleges",
+    fill: true,
+    lineTension: 0.1,
+    backgroundColor: "rgba(0,255,0,0.4)",
+    borderColor: "green", // The main line color
+    borderCapStyle: 'square',
+    pointBorderColor: "white",
+    pointBackgroundColor: "green",
+    pointBorderWidth: 1,
+    pointHoverRadius: 8,
+    pointHoverBackgroundColor: "yellow",
+    pointHoverBorderColor: "green",
+    pointHoverBorderWidth: 2,
+    pointRadius: 4,
+    pointHitRadius: 10,
+    data: [10, 13, 17, 12, 30, 47, 60, 120, 230, 300, 310, 400],
+    spanGaps: true,
+  }]
+};
+
+// Notice the scaleLabel at the same level as Ticks
+var options = {
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true
+      }
+    }]
+  },
+  title: {
+    fontSize: 18,
+    display: true,
+    text: 'I want to believe !',
+    position: 'bottom'
+  }
+};
+
+
+// We add an init function down here after the chart options are declared.
+
+init();
+
+function init() {
+  // Chart declaration:
+  myBarChart = new Chart(ctx, {
+    type: chartType,
+    data: data,
+    options: options
+  });
+}
+
+function toggleChart() {
+  //destroy chart:
+  myBarChart.destroy();
+  //change chart type: 
+  this.chartType = document.getElementById("mySelect").value;
+  //restart chart:
+  init();
+}
+    </script>
 @endsection
