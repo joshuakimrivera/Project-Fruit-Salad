@@ -27,7 +27,7 @@
     @yield('pageCss')
 
 </head>
-<body>
+<body class="blue-grey lighten-5">
     <div class="mt-5 ml-5">
         @yield('content')
     </div>
@@ -36,7 +36,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
-    {{--<script src="{{ asset('js/bootstrap.min.js') }}"></script>--}}
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/materialize.js') }}"></script>
     <script src="{{ asset('js/materialize.min.js') }}"></script>
     <script src="{{ asset('js/plugins/chartsJS/chart1.bundle.min.js') }}"></script>
