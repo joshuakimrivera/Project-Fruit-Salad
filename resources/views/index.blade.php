@@ -55,7 +55,7 @@
                 <!--CARD DASHBOARD-->
                 <div class="card-content row">
                     <div class="col s12">
-                        <span class="card-title"><i class="material-icons">filter_list</i>&nbsp Filter Selection TAB</span>
+                        <span class="card-title center"><i class="material-icons">filter_list</i>&nbsp Filter Selection TAB</span>
 
                         <!--COLLEGES-->
                         <div class="input-field col s11">
@@ -257,7 +257,7 @@
                             <a class="waves-effect waves-light btn-floating btn-large modal-trigger tooltipped" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a>
 
                             <!-- Modal Structure -->
-                            <div id="modal2" class="modal">
+                            <div id="modal2" class="modal" style="height: 350px; overflow: hidden;">
 
                                 <div class="modal-content">
                                     <h4 class="center">Import Excel Spreadsheet</h4>
@@ -339,19 +339,19 @@
                     <!--NAME TABLE-->
                         <table class="responsive-table striped">
                             <tr>
-                                <th class="mr-5 ml-5"><a href="#" class="">Name</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Birthday</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Age</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Gender</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Address</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Department</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Year</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Section</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">ACTION</a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Name</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Birthday</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Age</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Gender</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Address</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Department</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Actions</h6></a></th>
                             </tr>
                             @foreach($datas as $data)  
                             <tr>
-                                <td class="mr-5 ml-5">{{ $data->last_name }}, {{ $data->first_name }} {{ $data->middle_initial }}.</td>
+                                <td class="mr-5 ml-5 ">{{ $data->last_name }}, {{ $data->first_name }} {{ $data->middle_initial }}.</td>
                                 <td class="mr-5 ml-5">{{ $data->bday_month }} {{ $data->bday_day }}, {{ $data->bday_year }}</td>
                                 <td class="mr-5 ml-5">{{ $data->age }}</td>
                                 <td class="mr-5 ml-5">{{ $data->gender }}</td>
@@ -362,9 +362,9 @@
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger green" data-position="bottom" data-tooltip="Show" href="#CoEdmodal"><i class="material-icons"></i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4" data-position="bottom" data-tooltip="View" href="#CoEdmodal"><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="material-icons">edit</i></a>
+                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -381,9 +381,9 @@
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped green modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CEshow',$show->id) }}"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CEedit',$show->id) }}"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-floating btn-small tooltipped light-blue darken-4 modal-trigger" data-position="bottom" data-tooltip="View" href="{{ route('CollegesController.CEshow',$show->id) }}"><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CEedit',$show->id) }}"><i class="material-icons">edit</i></a>
+                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -400,9 +400,9 @@
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger green" data-position="bottom" data-tooltip="Show" href="#CCISmodal"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CCISedit',$output->id) }}"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4" data-position="bottom" data-tooltip="View" href="#CCISmodal"><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CCISedit',$output->id) }}"><i class="material-icons">edit</i></a>
+                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -783,7 +783,7 @@
         title: {
             fontSize: 18,
             display: true,
-            text: 'Students from all Colleges in PUP',
+            text: 'CHART - TITLE',
             position: 'bottom'
         },
         animation: {
