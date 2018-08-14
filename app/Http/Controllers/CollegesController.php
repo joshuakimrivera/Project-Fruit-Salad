@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Colleges;
 use App\CollegeOfEngineerings;
 use App\CollegeOfEducations;
 use App\CollegeOfComputerAndInformationSciences;
@@ -15,11 +14,88 @@ use File;
 class CollegesController extends Controller
 {
     public function index(){
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $totalCCIS = CollegeOfComputerAndInformationSciences::where('college', 'like', "%$CCIS%")
+                        ->count();
+        // return $totalCCIS;
+        $totalCoEd = CollegeOfEducations::where('college', 'like', "%$CoEd%")
+                        ->count();
+        $totalCE = CollegeOfEngineerings::where('college', 'like', "%$CE%")
+                        ->count();
         $shows = CollegeOfEngineerings::latest()->simplePaginate(5);
         $datas = CollegeOfEducations::latest()->simplePaginate(5);
         $outputs = CollegeOfComputerAndInformationSciences::latest()->simplePaginate(5);
     //    return $shows;
-       return view('index', compact('shows', 'datas', 'outputs'));  //calls the blade file with the value stored in $shows
+       return view('index', compact(
+           'shows',
+            'datas',
+            'outputs',
+            'CCIS',
+            'CoEd',
+            'CE', 
+            'totalCCIS',
+            'totalCoEd',
+            'totalCE'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function addStudent(Request $request) {
+        // return $request->model;
+        $model_name = '\\App\\'.$request->model;
+        $model = new $model_name;
+        $this->validate(request(), [
+            'last_name' => 'required',
+            'first_name' => 'required',
+            'middle_initial' => 'required',
+            'bday_month' => 'required',
+            'bday_day' => 'required',
+            'bday_year' => 'required',
+            'age' => 'required',
+            'gender' => 'required',
+            'address' => 'required',
+            'college' => 'required',
+            'department' => 'required',
+            'year' => 'required',
+            'section' => 'required'
+        ]);
+        $model::create($request->all());
+        return redirect()->route('CollegesController.index');
+        
+    }
+
+    public function filterCollegebyCCIS($CCIS) {
+        // return $CCIS;
+        $totalCCIS = CollegeOfComputerAndInformationSciences::where('college', 'like', "%$CCIS%")
+                        ->count();
+        // return $totalCCIS;
+        $shows = CollegeOfEngineerings::latest()->simplePaginate(5);
+        $datas = CollegeOfEducations::latest()->simplePaginate(5);
+        $outputs = CollegeOfComputerAndInformationSciences::latest()->simplePaginate(5);
+       return view('index', compact('shows', 'datas', 'outputs', 'CCIS', 'CoEd', 'CE','$$totalCCIS'));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCollegebyCoEd($CoEd) {
+        // return $CoEd;
+        $totalCoEd = CollegeOfEducations::where('college', 'like', "%$CoEd%")
+                        ->count();
+        // return $totalCoEd;
+        $shows = CollegeOfEngineerings::latest()->simplePaginate(5);
+        $datas = CollegeOfEducations::latest()->simplePaginate(5);
+        $outputs = CollegeOfComputerAndInformationSciences::latest()->simplePaginate(5);
+       return view('index', compact('shows', 'datas', 'outputs', 'CCIS', 'CoEd', 'CE','$totalCoEd'));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCollegebyCE($CE) {
+        // return $CE;
+        $totalCE = CollegeOfEngineerings::where('college', 'like', "%$CE%")
+                        ->count();
+        // return $totalCE;
+        $shows = CollegeOfEngineerings::latest()->simplePaginate(5);
+        $datas = CollegeOfEducations::latest()->simplePaginate(5);
+        $outputs = CollegeOfComputerAndInformationSciences::latest()->simplePaginate(5);
+       return view('index', compact('shows', 'datas', 'outputs', 'CCIS', 'CoEd', 'CE','$totalCE'));  //calls the blade file with the value stored in $shows
     }
 
     //COLLEGE OF ENGINEERING
@@ -58,7 +134,6 @@ class CollegesController extends Controller
                     }
  
                     if(!empty($insert)){
- 
                         $insertData = DB::table('college_of_engineerings')->insert($insert);
                         if ($insertData) {
                             Session::flash('success', 'Your Data has successfully imported');
@@ -174,7 +249,6 @@ class CollegesController extends Controller
 
 
     //COLLEGE OF EDUCATION
-
     public function CoEdimport(Request $request){
         //validate the xls file
         $this->validate($request, array(
@@ -210,7 +284,6 @@ class CollegesController extends Controller
                     }
  
                     if(!empty($insert)){
- 
                         $insertData = DB::table('college_of_educations')->insert($insert);
                         if ($insertData) {
                             Session::flash('success', 'Your Data has successfully imported');
@@ -299,6 +372,11 @@ class CollegesController extends Controller
         return view('CollegeOfEducation.searchResult', compact('result'));
     }
 
+
+
+
+
+
     //COLLEGE OF COMPUTER AND INFORMATION SCIENCES
 
     public function CCISimport(Request $request){
@@ -336,7 +414,6 @@ class CollegesController extends Controller
                     }
  
                     if(!empty($insert)){
- 
                         $insertData = DB::table('college_of_computer_and_information_sciences')->insert($insert);
                         if ($insertData) {
                             Session::flash('success', 'Your Data has successfully imported');
