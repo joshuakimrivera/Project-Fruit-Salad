@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Colleges;
 use App\CollegeOfEngineerings;
 use App\CollegeOfEducations;
 use App\CollegeOfComputerAndInformationSciences;
@@ -135,7 +134,6 @@ class CollegesController extends Controller
                     }
  
                     if(!empty($insert)){
- 
                         $insertData = DB::table('college_of_engineerings')->insert($insert);
                         if ($insertData) {
                             Session::flash('success', 'Your Data has successfully imported');
@@ -251,7 +249,6 @@ class CollegesController extends Controller
 
 
     //COLLEGE OF EDUCATION
-
     public function CoEdimport(Request $request){
         //validate the xls file
         $this->validate($request, array(
@@ -287,7 +284,6 @@ class CollegesController extends Controller
                     }
  
                     if(!empty($insert)){
- 
                         $insertData = DB::table('college_of_educations')->insert($insert);
                         if ($insertData) {
                             Session::flash('success', 'Your Data has successfully imported');
@@ -376,6 +372,11 @@ class CollegesController extends Controller
         return view('CollegeOfEducation.searchResult', compact('result'));
     }
 
+
+
+
+
+
     //COLLEGE OF COMPUTER AND INFORMATION SCIENCES
 
     public function CCISimport(Request $request){
@@ -413,7 +414,6 @@ class CollegesController extends Controller
                     }
  
                     if(!empty($insert)){
- 
                         $insertData = DB::table('college_of_computer_and_information_sciences')->insert($insert);
                         if ($insertData) {
                             Session::flash('success', 'Your Data has successfully imported');

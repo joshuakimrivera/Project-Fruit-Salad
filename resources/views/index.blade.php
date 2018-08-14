@@ -2,8 +2,9 @@
 
 @section('pageCss')
     <style>
-        .CCIS, .CoEd, .CE {
-            visibility: hidden;
+        th, td {
+            text-align: center;
+            vertical-align: middle;
         }
     </style>
 @endsection
@@ -16,7 +17,7 @@
         <nav>
           <div class="nav-wrapper red darken-4">
               <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons white-text">menu</i></button>
-                <a href="#!" class="brand-logo white-text"><i class="material-icons" title="PupStats">insert_chart</i> PupStats</a>
+                <a href="#!" class="brand-logo white-text"><i class="fa fa-bar-chart-o"></i> PupStats</a>
                 <ul class="right hide-on-med-and-down">
                 </ul>
           </div>
@@ -28,9 +29,9 @@
 <ul id="slide-out" class="sidenav">
     <li><div class="user-view">
             <div class="background">
-                <img src="images/office.jpg">
+                {{-- <img src="images/office.jpg"> --}}
             </div>
-            <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+            {{-- <a href="#user"><img class="circle" src="images/yuna.jpg"></a> --}}
             <a href="#name"><span class="white-text name">John Doe</span></a>
             <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
         </div>
@@ -54,7 +55,7 @@
                 <!--CARD DASHBOARD-->
                 <div class="card-content row">
                     <div class="col s12">
-                        <span class="card-title"><i class="material-icons">filter_list</i>&nbsp Filter Selection TAB</span>
+                        <span class="card-title"><i class="fa fa-sort-amount-desc"></i>&nbsp Filter Selection TAB</span>
 
                         <!--COLLEGES-->
                         <div class="input-field col s11">
@@ -204,17 +205,7 @@
                             </select>
                             <label>Day</label>
                         </div>
-                        <!--ADD STUDENT BUTTON-->
-                        <a href="#modal1" class="modal-trigger btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">add</i></a>
-
-                        <!--EXCEL FILE UPLOAD STRUCTURE -->
-                        <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            <input type="file" name="file" class="">
-                            <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
-                        </form>
-
-                        <div class="col s6"  ><br>
+                        {{-- <div class="col s6"  ><br>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12 margin-tb">
@@ -247,15 +238,40 @@
                                                 @endforeach
                                             </div>
                                         </div>
-                                        @endif
-                                        {{-- <form action="{{ route('CollegesController.CEsearch') }}" method="post">
-                                            {{ csrf_field() }}
-                                            <input type="submit" class=" pull-right btn btn-primary ml-3 mr-5" value="Search">
-                                            <input class="pull-right ml-5" type="text" placeholder="Search for Name" name="data">
-                                        </form> --}}                      
+                                        @endif                    
                                     </div>
                                 </div>       
                             </div>
+                        </div> --}}
+                        <!--ADD STUDENT BUTTON-->
+                        <a href="#modal1" data-tooltip="Add Student" class="tooltipped modal-trigger btn-floating btn-medium waves-effect waves-light red"><i class="fa fa-plus"></i></a>
+                        <select name="import" id="import">
+                            <option selected disabled>Import Excel File Instead?</option>
+                            <option value="CE">Import in College of Engineering</option>
+                            <option value="CoEd">Import in College of Education</option>
+                            <option value="CCIS">Import in College of Computer and Information Science</option>
+                        </select>
+                        <!--EXCEL FILE UPLOAD STRUCTURE -->
+                        <div class="hiddendiv" id="CEimport">
+                            <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type="file" name="file" class="">
+                                <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
+                            </form>
+                        </div>
+                        <div class="hiddendiv" id="CoEdimport">
+                            <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type="file" name="file" class="">
+                                <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
+                            </form>
+                        </div>
+                        <div class="hiddendiv" id="CCISimport">
+                            <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type="file" name="file" class="">
+                                <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
+                            </form>
                         </div>
                     </div>
                 </div>    
@@ -311,51 +327,56 @@
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="#modal1"><i class="material-icons">open_in_new</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="material-icons">edit</i></a>
-                                    <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger green" data-position="bottom" data-tooltip="Show" href="#CoEdmodal"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach
-                            @foreach($shows as $data)  
+                            @foreach($shows as $show)  
                             <tr>
-                                <td class="mr-5 ml-5">{{ $data->last_name }}, {{ $data->first_name }} {{ $data->middle_initial }}.</td>
-                                <td class="mr-5 ml-5">{{ $data->bday_month }} {{ $data->bday_day }}, {{ $data->bday_year }}</td>
-                                <td class="mr-5 ml-5">{{ $data->age }}</td>
-                                <td class="mr-5 ml-5">{{ $data->gender }}</td>
-                                <td class="mr-5 ml-5">{{ $data->address }}</td>
-                                <td class="mr-5 ml-5">{{ $data->department }}</td>
-                                <td class="mr-5 ml-5">{{ $data->year }}</td>
-                                <td class="mr-5 ml-5">Section {{ $data->section }}</td>
+                                <td class="mr-5 ml-5">{{ $show->last_name }}, {{ $show->first_name }} {{ $show->middle_initial }}.</td>
+                                <td class="mr-5 ml-5">{{ $show->bday_month }} {{ $show->bday_day }}, {{ $show->bday_year }}</td>
+                                <td class="mr-5 ml-5">{{ $show->age }}</td>
+                                <td class="mr-5 ml-5">{{ $show->gender }}</td>
+                                <td class="mr-5 ml-5">{{ $show->address }}</td>
+                                <td class="mr-5 ml-5">{{ $show->department }}</td>
+                                <td class="mr-5 ml-5">{{ $show->year }}</td>
+                                <td class="mr-5 ml-5">Section {{ $show->section }}</td>
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="#modal1"><i class="material-icons">open_in_new</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="material-icons">edit</i></a>
-                                    <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped green modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CEshow',$show->id) }}"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CEedit',$show->id) }}"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach
-                            @foreach($outputs as $data)  
+                            @foreach($outputs as $output)  
                             <tr>
-                                <td class="mr-5 ml-5">{{ $data->last_name }}, {{ $data->first_name }} {{ $data->middle_initial }}.</td>
-                                <td class="mr-5 ml-5">{{ $data->bday_month }} {{ $data->bday_day }}, {{ $data->bday_year }}</td>
-                                <td class="mr-5 ml-5">{{ $data->age }}</td>
-                                <td class="mr-5 ml-5">{{ $data->gender }}</td>
-                                <td class="mr-5 ml-5">{{ $data->address }}</td>
-                                <td class="mr-5 ml-5">{{ $data->department }}</td>
-                                <td class="mr-5 ml-5">{{ $data->year }}</td>
-                                <td class="mr-5 ml-5">Section {{ $data->section }}</td>
+                                <td class="mr-5 ml-5">{{ $output->last_name }}, {{ $output->first_name }} {{ $output->middle_initial }}.</td>
+                                <td class="mr-5 ml-5">{{ $output->bday_month }} {{ $output->bday_day }}, {{ $output->bday_year }}</td>
+                                <td class="mr-5 ml-5">{{ $output->age }}</td>
+                                <td class="mr-5 ml-5">{{ $output->gender }}</td>
+                                <td class="mr-5 ml-5">{{ $output->address }}</td>
+                                <td class="mr-5 ml-5">{{ $output->department }}</td>
+                                <td class="mr-5 ml-5">{{ $output->year }}</td>
+                                <td class="mr-5 ml-5">Section {{ $output->section }}</td>
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="#modal1"><i class="material-icons">open_in_new</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="material-icons">edit</i></a>
-                                    <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger green" data-position="bottom" data-tooltip="Show" href="#CCISmodal"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CCISedit',$output->id) }}"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach
                         </table>
+                    <div>
+                        {{ $shows->links() }}
+                        {{ $datas->links() }}
+                        {{ $outputs->links() }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -491,7 +512,7 @@
                         <input type="hidden" name="model" value="">
                         <strong>College:</strong>
                         <select name="college" id="college">
-                            <option selected disabled> Select your College First</option>
+                            <option selected disabled>--</option>
                             <option value="Computer and Information Science">College of Computer and Information Science</option>
                             <option value="Education">College of Education</option>
                             <option value="Engineering">College of Engineering</option>
@@ -502,30 +523,43 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Department:</strong>
-                        <select disabled hidden name="department" id="CCIS">
-                            <option selected disabled> College of Computer and Information Sciences</option>
-                            <option id="cs" value="Computer Science">Computer Science</option>
-                            <option id="it" value="Information Technology">Information Technology</option>
-                        </select>
-                        <select disabled hidden name="department" id="CoEd">
-                            <option disabled selected>College of Education</option>
-                            <option id="bte" value="Business Teacher Educationg">Business Teacher Education</option>
-                            <option id="lis" value="Library and Information Science">Library and Information Science</option>
-                            <option id="ee" value="Elementary Education">Elementary Education</option>
-                            <option id="seme" value="Secondary Education major in English">Secondary Education major in English</option>
-                            <option id="semf" value="Secondary Education major in Filipino">Secondary Education major in Filipino</option>
-                            <option id="semm" value="Secondary Education major in Mathematics">Secondary Education major in Mathematics</option>
-                            <option id="semss" value="Secondary Education major in Social Studies">Secondary Education major in Social Studies</option>
-                        </select>
-                        <select disabled hidden name="department" id="CE">
-                            <option disabled selected>College of Engineering</option>
-                            <option id="ce" value="Civil Engineering">Civil Engineering</option>
-                            <option id="coe" value="Computer Engineering">Computer Engineering</option>
-                            <option id="electri" value="Electrical Engineering">Electrical Engineering</option>
-                            <option id="electro" value="Electronics Engineering">Electronics Engineering</option>
-                            <option id="ie" value="Industrial Engineering">Industrial Engineering</option>
-                            <option id="me" value="Mechanical Engineering">Mechanical Engineering</option>
-                        </select>
+                        <div id="primary">
+                            <select name="" id="">
+                                <option disabled selected>
+                                    Select your College First
+                                </option>
+                            </select>
+                        </div>
+                        <div class="hiddendiv" id="CCIS">
+                            <select name="department">
+                                <option selected disabled>--</option>
+                                <option id="cs" value="Computer Science">Computer Science</option>
+                                <option id="it" value="Information Technology">Information Technology</option>
+                            </select>
+                        </div>
+                        <div class="hiddendiv" id="CoEd">
+                            <select name="department" id="CoEd">
+                                <option disabled selected>--</option>
+                                <option id="bte" value="Business Teacher Educationg">Business Teacher Education</option>
+                                <option id="lis" value="Library and Information Science">Library and Information Science</option>
+                                <option id="ee" value="Elementary Education">Elementary Education</option>
+                                <option id="seme" value="Secondary Education major in English">Secondary Education major in English</option>
+                                <option id="semf" value="Secondary Education major in Filipino">Secondary Education major in Filipino</option>
+                                <option id="semm" value="Secondary Education major in Mathematics">Secondary Education major in Mathematics</option>
+                                <option id="semss" value="Secondary Education major in Social Studies">Secondary Education major in Social Studies</option>
+                            </select>
+                        </div>
+                        <div class="hiddendiv" id="CE">
+                            <select class="d-none" name="department">
+                                <option disabled selected>--</option>
+                                <option id="ce" value="Civil Engineering">Civil Engineering</option>
+                                <option id="coe" value="Computer Engineering">Computer Engineering</option>
+                                <option id="electri" value="Electrical Engineering">Electrical Engineering</option>
+                                <option id="electro" value="Electronics Engineering">Electronics Engineering</option>
+                                <option id="ie" value="Industrial Engineering">Industrial Engineering</option>
+                                <option id="me" value="Mechanical Engineering">Mechanical Engineering</option>
+                            </select>
+                        </div>
                         {{-- {{ Form::text('department', null, array('placeholder' => 'Department','class' => 'form-control')) }} --}}
                     </div>
                 </div>
@@ -588,11 +622,7 @@
                 });
         </script>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
 </div>
-
 <!-- END OF MAIN CONTAINER -->
 
 @endsection
@@ -604,7 +634,6 @@
     document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.modal');
         var instances = M.Modal.init(elems, {
-
         });
     })
 </script>
@@ -743,44 +772,68 @@
             switch (college) {
                 
                 case 'Computer and Information Science' :
-                    $("#CCIS").prop('disabled', false);
-                    $("#CCIS").removeAttr('hidden', true);
+                    $("input[name='model'").val("CollegeOfComputerAndInformationSciences");
+                    $("#primary").addClass('hiddendiv', true);
+                    $("#CCIS").removeClass('hiddendiv', true);
+                    $("#CoEd").addClass('hiddendiv', true);
+                    $("#CE").addClass('hiddendiv', true);
                     break;
                 
                 case 'Education':
                     $("input[name='model'").val("CollegeOfEducations");
-
-                    // $('#bte').prop("disabled", false);
-                    // $('#lis').prop("disabled", false);
-                    // $('#ee').prop("disabled", false);
-                    // $('#seme').prop("disabled", false);
-                    // $('#semf').prop("disabled", false);
-                    // $('#semss').prop("disabled", false);
-                    // $('#semm').prop("disabled", false);
+                    $("#primary").addClass('hiddendiv', true);
+                    $("#CoEd").removeClass('hiddendiv', true);
+                    $("#CE").addClass('hiddendiv', true);
+                    $("#CCIS").addClass('hiddendiv', true);
                     break;
 
                 case 'Engineering':
                     $("input[name='model'").val("CollegeOfEngineerings");
-                    // $('#ce').prop("disabled", false);
-                    // $('#coe').prop("disabled", false);
-                    // $('#electri').prop("disabled", false);
-                    // $('#electro').prop("disabled", false);
-                    // $('#ie').prop("disabled", false);
-                    // $('#me').prop("disabled", false);
+                    $("#primary").addClass('hiddendiv', true);
+                    $("#CoEd").addClass('hiddendiv', true);
+                    $("#CCIS").addClass('hiddendiv', true);
+                    $("#CE").removeClass('hiddendiv', true);
                     break;
                 default :
                 break;
             }
         });
-    });
-</script>
-<script>
-    $(document).ready(function(){
+
         $('#bday').on('change', function(){
             var dropdown = $("select[name='bday_month']")[1]['selectedIndex'];
             // var dropdown = document.getElementById('bday');
-            console.log(dropdown);
+            // console.log(dropdown);
             $("input:hidden#date_sorter").val(dropdown);
+        })
+
+        $('#import').on('change', function(){
+            var collegeImport = $("select[name='import']").val();
+            // console.log(collegeImport);
+
+            switch (collegeImport) {
+                case 'CCIS' :
+                    console.log('ccis');
+                    $("#CCISimport").removeClass('hiddendiv', true);
+                    $("#CoEdimport").addClass('hiddendiv', true);
+                    $("#CEimport").addClass('hiddendiv', true);
+                    break;
+                
+                case 'CoEd':
+                console.log('coed');
+                    $("#CoEdimport").removeClass('hiddendiv', true);
+                    $("#CEimport").addClass('hiddendiv', true);
+                    $("#CCISimport").addClass('hiddendiv', true);
+                    break;
+
+                case 'CE':
+                console.log("ce");
+                    $("#CoEdimport").addClass('hiddendiv', true);
+                    $("#CCISimport").addClass('hiddendiv', true);
+                    $("#CEimport").removeClass('hiddendiv', true);
+                    break;
+                default :
+                break;
+            }
         })
     });
 </script>
