@@ -17,7 +17,7 @@
         <nav>
           <div class="nav-wrapper red darken-4">
               <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons white-text">menu</i></button>
-                <a href="#!" class="brand-logo white-text"><i class="large material-icons">insert_chart</i> PupStats</a>
+                <a href="#!" class="brand-logo white-text"><i class="large material-icons" style="font-size: 48px;">insert_chart</i> PupStats</a>
                 <ul class="right hide-on-med-and-down">
                 </ul>
           </div>
@@ -32,11 +32,12 @@
                 {{-- <img src="images/office.jpg"> --}}
             </div>
             {{-- <a href="#user"><img class="circle" src="images/yuna.jpg"></a> --}}
-            <a href="#name"><span class="white-text name">John Doe</span></a>
-            <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+            <a href="#name"><span class="name"><i class="material-icons">insert_chart</i>&nbsp PUP STATISTICS DASHBOARD</span></a>
+            {{--<a href="#email"><span class="email" style="font-size: 10px;" >https://gitlab.com/cristianumali.a99/Project-Fruit-Salad</span></a>--}}
         </div>
+        <br>
     </li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!"><i class="material-icons">nature_people</i>Project-Fruit-Salad</a></li>
     <li><a href="#!">Second Link</a></li>
     <li><div class="divider"></div></li>
     <li><a class="subheader">Subheader</a></li>
@@ -55,7 +56,7 @@
                 <!--CARD DASHBOARD-->
                 <div class="card-content row">
                     <div class="col s12">
-                        <span class="card-title center"><i class="material-icons">filter_list</i>&nbsp Filter Selection TAB</span>
+                        <span class="card-title"><i class="material-icons" style="font-size: 36px;">filter_list</i>&nbsp Filter Selection TAB</span>
 
                         <!--COLLEGES-->
                         <div class="input-field col s11">
@@ -319,7 +320,7 @@
                     <div class="col s7">&nbsp</div>
                         <div class="input-field col s5">
                             <select id="mySelect" onchange="toggleChart();">
-                                <option value="bar" selected>Default: Bar</option>
+                                <option value="bar"  selected>Default: Bar</option>
                                 <option value="line">Line</option>
                                 <option value="radar">Radar</option>
                                 <option value="doughnut">Doughnut</option>
@@ -629,7 +630,15 @@
                 <br>
    
                 <div class="row input-field">
-                    <div class="form-group col s6">
+
+                    <div class="form-group col s6" id="ui">
+                        <select name="year" disabled>
+                            <option selected disabled>Select a Course First</option>
+                        </select>
+                        <label>Year</label>
+                    </div>
+
+                    <div class="form-group col s6 hiddendiv" id="yearOne">
                         <select name="year">
                             <option selected disabled>---</option>
                             <option value="4">4th Year</option>
@@ -639,14 +648,31 @@
                         </select>
                         <label>Year</label>
                     </div>
+
+
+                    <div class="form-group col s6 hiddendiv" id="ceYear">
+                        <select name="year">
+                            <option selected disabled>---</option>
+                            <option value="5">5th Year</option>
+                            <option value="4">4th Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="1">1st Year</option>
+                        </select>
+                        <label>Year</label>
+                    </div>
+
+
+
+
                     <div class="form-group col s6">
                         <select name="section" id="">
                             <option selected disabled>---</option>
-                            <option value="1">Section 1</option>
-                            <option value="2">Section 2</option>
-                            <option value="3">Section 3</option>
-                            <option value="4">Section 4</option>
                             <option value="5">Section 5</option>
+                            <option value="4">Section 4</option>
+                            <option value="3">Section 3</option>
+                            <option value="2">Section 2</option>
+                            <option value="1">Section 1</option>
                         </select>
                         <label>Section</label>
                         {{-- {{ Form::number('section', null, array('placeholder' => 'Section','class' => 'form-control')) }} --}}
@@ -654,7 +680,7 @@
                 </div>
                 <br>
                 <div class="center">
-                    <button type="submit" class="btn btn-large hoverable waves-effect waves-light orange accent-3"><i class="material-icons left">send</i>Submit</button>
+                    <button type="submit" class="btn btn-large hoverable waves-effect waves-light orange accent-3 tooltipped" data-tooltip="Create Student"><i class="material-icons left">send</i>Submit</button>
                 </div>
                 <br>
             </div>
@@ -837,6 +863,9 @@
                     $("#CCIS").removeClass('hiddendiv', true);
                     $("#CoEd").addClass('hiddendiv', true);
                     $("#CE").addClass('hiddendiv', true);
+                    $("#yearOne").removeClass('hiddendiv', true);
+                    $("#ceYear").addClass('hiddendiv', true);
+                    $("#ui").addClass('hiddendiv', true);
                     break;
                 
                 case 'Education':
@@ -845,6 +874,9 @@
                     $("#CoEd").removeClass('hiddendiv', true);
                     $("#CE").addClass('hiddendiv', true);
                     $("#CCIS").addClass('hiddendiv', true);
+                    $("#yearOne").removeClass('hiddendiv', true);
+                    $("#ceYear").addClass('hiddendiv', true);
+                    $("#ui").addClass('hiddendiv', true);
                     break;
 
                 case 'Engineering':
@@ -853,6 +885,9 @@
                     $("#CoEd").addClass('hiddendiv', true);
                     $("#CCIS").addClass('hiddendiv', true);
                     $("#CE").removeClass('hiddendiv', true);
+                    $("#yearOne").addClass('hiddendiv', true);
+                    $("#ceYear").removeClass('hiddendiv', true);
+                    $("#ui").addClass('hiddendiv', true);
                     break;
                 default :
                 break;
@@ -876,6 +911,7 @@
                     $("#CCISimport").removeClass('hiddendiv', true);
                     $("#CoEdimport").addClass('hiddendiv', true);
                     $("#CEimport").addClass('hiddendiv', true);
+                   
                     break;
                 
                 case 'CoEd':
@@ -883,6 +919,7 @@
                     $("#CoEdimport").removeClass('hiddendiv', true);
                     $("#CEimport").addClass('hiddendiv', true);
                     $("#CCISimport").addClass('hiddendiv', true);
+                    
                     break;
 
                 case 'CE':
@@ -890,6 +927,7 @@
                     $("#CoEdimport").addClass('hiddendiv', true);
                     $("#CCISimport").addClass('hiddendiv', true);
                     $("#CEimport").removeClass('hiddendiv', true);
+                    
                     break;
                 default :
                 break;
