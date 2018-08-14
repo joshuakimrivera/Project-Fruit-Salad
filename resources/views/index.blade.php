@@ -17,7 +17,7 @@
         <nav>
           <div class="nav-wrapper red darken-4">
               <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons white-text">menu</i></button>
-                <a href="#!" class="brand-logo white-text"><i class="fa fa-bar-chart-o"></i> PupStats</a>
+                <a href="#!" class="brand-logo white-text"><i class="large material-icons">insert_chart</i> PupStats</a>
                 <ul class="right hide-on-med-and-down">
                 </ul>
           </div>
@@ -51,11 +51,11 @@
     <div class="row">
         <div class="col s4">
             <!--FILTER TAB-->
-            <div class="card josh">
+            <div class="card josh z-depth-4">
                 <!--CARD DASHBOARD-->
                 <div class="card-content row">
                     <div class="col s12">
-                        <span class="card-title"><i class="fa fa-sort-amount-desc"></i>&nbsp Filter Selection TAB</span>
+                        <span class="card-title center"><i class="material-icons">filter_list</i>&nbsp Filter Selection TAB</span>
 
                         <!--COLLEGES-->
                         <div class="input-field col s11">
@@ -244,34 +244,69 @@
                             </div>
                         </div> --}}
                         <!--ADD STUDENT BUTTON-->
-                        <a href="#modal1" data-tooltip="Add Student" class="tooltipped modal-trigger btn-floating btn-medium waves-effect waves-light red"><i class="fa fa-plus"></i></a>
-                        <select name="import" id="import">
-                            <option selected disabled>Import Excel File Instead?</option>
-                            <option value="CE">Import in College of Engineering</option>
-                            <option value="CoEd">Import in College of Education</option>
-                            <option value="CCIS">Import in College of Computer and Information Science</option>
-                        </select>
-                        <!--EXCEL FILE UPLOAD STRUCTURE -->
-                        <div class="hiddendiv" id="CEimport">
-                            <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <input type="file" name="file" class="">
-                                <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
-                            </form>
+                        <div class="col s12"><hr></div>
+                        
+                        <div class="col s3">
+                            <a href="#modal1" data-tooltip="Add Student" class="tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a>
                         </div>
-                        <div class="hiddendiv" id="CoEdimport">
-                            <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <input type="file" name="file" class="">
-                                <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
-                            </form>
-                        </div>
-                        <div class="hiddendiv" id="CCISimport">
-                            <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <input type="file" name="file" class="">
-                                <input type="submit" value="Submit Excel" class="btn btn-primary btn-sm">
-                            </form>
+                        <div class="col s9">
+                            
+                                <!--EXCEL FILE UPLOAD STRUCTURE -->
+
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light btn-floating btn-large modal-trigger tooltipped" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a>
+
+                            <!-- Modal Structure -->
+                            <div id="modal2" class="modal" style="height: 350px; overflow: hidden;">
+
+                                <div class="modal-content">
+                                    <h4 class="center">Import Excel Spreadsheet</h4>
+                                    <hr>
+                                    <br>
+                                    <div class="container">
+                                        <div class="input-field">
+                                            <select name="import" id="import">
+                                                <option selected disabled>Choose a Department</option>
+                                                <option value="CE">Import in College of Engineering</option>
+                                                <option value="CoEd">Import in College of Education</option>
+                                                <option value="CCIS">Import in College of Computer and Information Science</option>
+                                            </select>
+                                            <label>Import Excel Spreadsheet to?</label>
+                                        </div>
+                                        <div class="hiddendiv" id="CEimport">
+                                                <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
+                                                    {{ csrf_field() }}
+                                                    <input type="file" name="file" class="">
+                                                    <br>
+                                                    <div class="center">
+                                                        <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="hiddendiv" id="CoEdimport">
+                                                <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
+                                                    {{ csrf_field() }}
+                                                    <input type="file" name="file" class="">
+                                                    <br>
+                                                    <div class="center">
+                                                        <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="hiddendiv" id="CCISimport">
+                                                <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data">
+                                                    {{ csrf_field() }}
+                                                    <input type="file" name="file" class="">
+                                                    <br>
+                                                    <div class="center">
+                                                        <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>    
@@ -279,7 +314,7 @@
         </div>
         <!--CHART CARD-->
         <div class="col s8">
-            <div class="card josh">
+            <div class="card josh z-depth-4">
                 <div class="card-content row">
                     <div class="col s7">&nbsp</div>
                         <div class="input-field col s5">
@@ -304,19 +339,19 @@
                     <!--NAME TABLE-->
                         <table class="responsive-table striped">
                             <tr>
-                                <th class="mr-5 ml-5"><a href="#" class="">Name</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Birthday</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Age</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Gender</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Address</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Department</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Year</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">Section</a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="">ACTION</a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Name</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Birthday</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Age</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Gender</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Address</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Department</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Actions</h6></a></th>
                             </tr>
                             @foreach($datas as $data)  
                             <tr>
-                                <td class="mr-5 ml-5">{{ $data->last_name }}, {{ $data->first_name }} {{ $data->middle_initial }}.</td>
+                                <td class="mr-5 ml-5 ">{{ $data->last_name }}, {{ $data->first_name }} {{ $data->middle_initial }}.</td>
                                 <td class="mr-5 ml-5">{{ $data->bday_month }} {{ $data->bday_day }}, {{ $data->bday_year }}</td>
                                 <td class="mr-5 ml-5">{{ $data->age }}</td>
                                 <td class="mr-5 ml-5">{{ $data->gender }}</td>
@@ -327,9 +362,9 @@
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger green" data-position="bottom" data-tooltip="Show" href="#CoEdmodal"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4" data-position="bottom" data-tooltip="View" href="#CoEdmodal"><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="material-icons">edit</i></a>
+                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -346,9 +381,9 @@
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped green modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CEshow',$show->id) }}"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CEedit',$show->id) }}"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-floating btn-small tooltipped light-blue darken-4 modal-trigger" data-position="bottom" data-tooltip="View" href="{{ route('CollegesController.CEshow',$show->id) }}"><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CEedit',$show->id) }}"><i class="material-icons">edit</i></a>
+                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -365,9 +400,9 @@
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger green" data-position="bottom" data-tooltip="Show" href="#CCISmodal"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CCISedit',$output->id) }}"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4" data-position="bottom" data-tooltip="View" href="#CCISmodal"><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CCISedit',$output->id) }}"><i class="material-icons">edit</i></a>
+                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -389,37 +424,47 @@
 <input type="hidden" name="numberOfCE" value="{{ $totalCE }}">
 
 <div id="modal1" class="modal">
-    <div class="modal-content">
-        <div class="container">
+    <div class="modal-content"  style="overflow: hidden;" >
+        <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
+        <div class="form-group container">
             <div class="row">
-                <div class="col-lg-12 margin-tb">
-                    <div class="pull-left">
-                        <h2>Fill the student Information below</h2>
-                    </div>
-                    <div class="pull-right mr-5">
-                        <a class="btn btn-primary" href="{{ route('CollegesController.index') }}"> Back</a>
-                    </div>
+                <div class="">
+                    <br>
+                    <h5 class="center">Fill the student Information below</h5>
                 </div>
             </div>
         
             {{ Form::open(array('route' => 'CollegesController.addStudent', ))}}
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong class="mr-4">Name:</strong>
-                        <input type="text" name="last_name" placeholder="Last Name">
-                        <input type="text" name="first_name" placeholder="First Name">
-                        <input type="text" name="middle_initial" placeholder="Middle Inital">
+            <div class="">
+                <div class="row form-group">
+                    <div class="input-field form-group">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="fname" type="text" name="first_name"  required>
+                            <label for="fname">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="wobble" type="text" name="middle_initial"  required>
+                            <label for="wobble">Middle Initial</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="ayoko" type="text" name="last_name"  required>
+                            <label for="ayoko">Last Name</label>
+                        </div>
                     </div>
                 </div>
+                <hr>
                 <br>
-                 <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Birthday:&nbsp;</strong>
+                 <div>
+                    <div class="input-field row form-group">
                         <input type="hidden" id="date_sorter" name="date_sorter" value="">
                         {{-- {{ Form::date('birthday', null, array('class' => 'ml-4')) }} --}}
-                        <select name="bday_month" id="bday">
-                                <option selected disabled>Month</option>
+                        <div class="col s6">
+                            <i class="material-icons prefix">perm_contact_calendar</i>
+                            <select name="bday_month" id="bday">
+                                <option selected disabled>---</option>
                                 <option value="January">January</option>
                                 <option value="February">February</option>
                                 <option value="March">March</option>
@@ -433,8 +478,11 @@
                                 <option value="November">November</option>
                                 <option value="December">December</option>
                             </select>
-                            <select name="bday_day" id="">
-                                <option selected disabled>Day</option>
+                            <label>Birth Month</label>
+                        </div>
+                        <div class="col s2">
+                            <select name="bday_day" id="" class="col s2">
+                                <option selected disabled>---</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -467,8 +515,11 @@
                                 <option value="30">30</option>
                                 <option value="31">31</option>
                             </select>
+                            <label>Birth Day</label>
+                        </div>
+                        <div class="col s4">
                             <select name="bday_year" id="">
-                                <option selected disabled>Year</option>
+                                <option selected disabled>---</option>
                                 <option value="1993">1993</option>
                                 <option value="1994">1994</option>
                                 <option value="1995">1995</option>
@@ -478,130 +529,139 @@
                                 <option value="1999">1999</option>
                                 <option value="2000">2000</option>
                             </select>
+                            <label>Birth Year</label>
+                        </div>
+                            
                     </div>
                 </div>
-                <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                     <div class="form-group">
-                         <strong class="mr-4">Age: &nbsp;&nbsp;</strong>
-                         {{ Form::number('age', null, array('placeholder' => 'Age', 'class' => 'ml-4')) }}
+                <div class="row form-group">
+                    <div class="input-field col s3">
+                        <i class="material-icons prefix">perm_identity</i>
+                        {{ Form::number('age', null, array('placeholder' => '---', 'class' => '', 'required')) }}
+                        <label>Age</label>
                     </div>
-                </div>
-                <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                     <div class="form-group">
-                        <strong class="mr-4">Gender:</strong>
+                    <div class="input-field col s4">
+                        <i class="material-icons prefix">wc</i>
                         <select class="ml-2" name="gender" id="">
-                            <option selected disabled>Select your gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                            <option selected disabled>---</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
-                         {{-- {{ Form::text('gender', null, array('placeholder' => 'Male or Female', 'class' => 'form-control')) }} --}}
+                        <label>Gender</label>
+                            {{-- {{ Form::text('gender', null, array('placeholder' => 'Male or Female', 'class' => 'form-control')) }} --}}
                     </div>
                 </div>
-                <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                     <div class="form-group">
-                         <strong class="mr-4">Address:</strong>&nbsp;
-                         {{ Form::text('address', null, array('placeholder' => 'Address','class' => '')) }}
+               
+  
+                <div class="row form-group">
+                     <div class="input-field col s12">
+                        <i class="material-icons prefix">home</i>
+                         {{ Form::text('address', null, array('placeholder' => '---','class' => '', 'required')) }}
+                         <label>Address</label>
                     </div>
                 </div> 
+                <hr>
                 <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                     <div class="form-group">
-                        <input type="hidden" name="model" value="">
-                        <strong>College:</strong>
-                        <select name="college" id="college">
-                            <option selected disabled>--</option>
-                            <option value="Computer and Information Science">College of Computer and Information Science</option>
-                            <option value="Education">College of Education</option>
-                            <option value="Engineering">College of Engineering</option>
-                        </select>
-                    </div>
-                </div>
-                <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Department:</strong>
-                        <div id="primary">
-                            <select name="" id="">
-                                <option disabled selected>
-                                    Select your College First
-                                </option>
-                            </select>
-                        </div>
-                        <div class="hiddendiv" id="CCIS">
-                            <select name="department">
+                <div class="row form-group input-field">
+                    <div class="col s6">
+                        <div class="form-group">
+                            <input type="hidden" name="model" value="">
+                            <i class="material-icons prefix">school</i>
+                            <select name="college" id="college">
                                 <option selected disabled>--</option>
-                                <option id="cs" value="Computer Science">Computer Science</option>
-                                <option id="it" value="Information Technology">Information Technology</option>
+                                <option value="Computer and Information Science">College of Computer and Information Science</option>
+                                <option value="Education">College of Education</option>
+                                <option value="Engineering">College of Engineering</option>
                             </select>
+                            <label>College</label>
                         </div>
-                        <div class="hiddendiv" id="CoEd">
-                            <select name="department" id="CoEd">
-                                <option disabled selected>--</option>
-                                <option id="bte" value="Business Teacher Educationg">Business Teacher Education</option>
-                                <option id="lis" value="Library and Information Science">Library and Information Science</option>
-                                <option id="ee" value="Elementary Education">Elementary Education</option>
-                                <option id="seme" value="Secondary Education major in English">Secondary Education major in English</option>
-                                <option id="semf" value="Secondary Education major in Filipino">Secondary Education major in Filipino</option>
-                                <option id="semm" value="Secondary Education major in Mathematics">Secondary Education major in Mathematics</option>
-                                <option id="semss" value="Secondary Education major in Social Studies">Secondary Education major in Social Studies</option>
-                            </select>
+                    </div>
+                    <div class="col s6">
+                        <div class="form-group">
+                            <div id="primary">
+                                <i class="material-icons prefix">business</i>
+                                <select name="" id="" disabled>
+                                    <option selected>Select a College First</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                            <div class="hiddendiv" id="CCIS">
+                                <i class="material-icons prefix">business</i>
+                                <select name="department">
+                                    <option selected disabled>--</option>
+                                    <option id="cs" value="Computer Science">Computer Science</option>
+                                    <option id="it" value="Information Technology">Information Technology</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                            <div class="hiddendiv" id="CoEd">
+                                <i class="material-icons prefix">business</i>
+                                <select name="department" id="CoEd">
+                                    <option disabled selected>--</option>
+                                    <option id="bte" value="Business Teacher Educationg">BTEd</option>
+                                    <option id="lis" value="Library and Information Science">LInfoSci</option>
+                                    <option id="ee" value="Elementary Education">ElemEd</option>
+                                    <option id="seme" value="Secondary Education major in English">SecEd Major in English</option>
+                                    <option id="semf" value="Secondary Education major in Filipino">SecEd Major in Filipino</option>
+                                    <option id="semm" value="Secondary Education major in Mathematics">SecEd Major in Mathematics</option>
+                                    <option id="semss" value="Secondary Education major in Social Studies">SecEd Major in Social Studies</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                            <div class="hiddendiv" id="CE">
+                                <i class="material-icons prefix">business</i>
+                                <select class="d-none" name="department">
+                                    <option disabled selected>--</option>
+                                    <option id="ce" value="Civil Engineering">Civil Engineering</option>
+                                    <option id="coe" value="Computer Engineering">Computer Engineering</option>
+                                    <option id="electri" value="Electrical Engineering">Electrical Engineering</option>
+                                    <option id="electro" value="Electronics Engineering">Electronics Engineering</option>
+                                    <option id="ie" value="Industrial Engineering">Industrial Engineering</option>
+                                    <option id="me" value="Mechanical Engineering">Mechanical Engineering</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                            {{-- {{ Form::text('department', null, array('placeholder' => 'Department','class' => 'form-control')) }} --}}
                         </div>
-                        <div class="hiddendiv" id="CE">
-                            <select class="d-none" name="department">
-                                <option disabled selected>--</option>
-                                <option id="ce" value="Civil Engineering">Civil Engineering</option>
-                                <option id="coe" value="Computer Engineering">Computer Engineering</option>
-                                <option id="electri" value="Electrical Engineering">Electrical Engineering</option>
-                                <option id="electro" value="Electronics Engineering">Electronics Engineering</option>
-                                <option id="ie" value="Industrial Engineering">Industrial Engineering</option>
-                                <option id="me" value="Mechanical Engineering">Mechanical Engineering</option>
-                            </select>
-                        </div>
-                        {{-- {{ Form::text('department', null, array('placeholder' => 'Department','class' => 'form-control')) }} --}}
                     </div>
                 </div>
+                
                 <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong class="mr-5">Year:</strong>&nbsp;&nbsp;
+   
+                <div class="row input-field">
+                    <div class="form-group col s6">
                         <select name="year">
-                            <option selected disabled>Select your Year&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option>
+                            <option selected disabled>---</option>
                             <option value="4">4th Year</option>
                             <option value="3">3rd Year</option>
                             <option value="2">2nd Year</option>
                             <option value="1">1st Year</option>
                         </select>
+                        <label>Year</label>
                     </div>
-                </div>
-                <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong class="mr-4">Section:</strong>&nbsp;&nbsp;
+                    <div class="form-group col s6">
                         <select name="section" id="">
-                            <option selected disabled>Select your Section &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                            <option selected disabled>---</option>
                             <option value="1">Section 1</option>
                             <option value="2">Section 2</option>
                             <option value="3">Section 3</option>
                             <option value="4">Section 4</option>
                             <option value="5">Section 5</option>
                         </select>
+                        <label>Section</label>
                         {{-- {{ Form::number('section', null, array('placeholder' => 'Section','class' => 'form-control')) }} --}}
                     </div>
                 </div>
                 <br>
-                <div class="text-center">
-                    <div class="ml-2">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
+                <div class="center">
+                    <button type="submit" class="btn btn-large hoverable waves-effect waves-light orange accent-3"><i class="material-icons left">send</i>Submit</button>
                 </div>
+                <br>
             </div>
             {{ Form::close() }}
         
-            <div>
-                <h4>Errors will be shown below:</h4>
+            <div class="container left">
+                <h6 class="left">Errors will be shown below:</h6>
                 @if(count($errors))
                     <div class="alert alert-danger">
                         <ul>
@@ -723,7 +783,7 @@
         title: {
             fontSize: 18,
             display: true,
-            text: 'Students from all Colleges in PUP',
+            text: 'CHART - TITLE',
             position: 'bottom'
         },
         animation: {
