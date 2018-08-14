@@ -17,7 +17,7 @@
         <nav>
           <div class="nav-wrapper red darken-4">
               <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons white-text">menu</i></button>
-                <a href="#!" class="brand-logo white-text"><i class="large material-icons">insert_chart</i> PupStats</a>
+                <a href="#!" class="brand-logo white-text"><i class="large material-icons" style="font-size: 48px;">insert_chart</i> PupStats</a>
                 <ul class="right hide-on-med-and-down">
                 </ul>
           </div>
@@ -32,11 +32,12 @@
                 {{-- <img src="images/office.jpg"> --}}
             </div>
             {{-- <a href="#user"><img class="circle" src="images/yuna.jpg"></a> --}}
-            <a href="#name"><span class="white-text name">John Doe</span></a>
-            <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+            <a href="#name"><span class="name"><i class="material-icons">insert_chart</i>&nbsp PUP STATISTICS DASHBOARD</span></a>
+            {{--<a href="#email"><span class="email" style="font-size: 10px;" >https://gitlab.com/cristianumali.a99/Project-Fruit-Salad</span></a>--}}
         </div>
+        <br>
     </li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!"><i class="material-icons">nature_people</i>Project-Fruit-Salad</a></li>
     <li><a href="#!">Second Link</a></li>
     <li><div class="divider"></div></li>
     <li><a class="subheader">Subheader</a></li>
@@ -55,7 +56,7 @@
                 <!--CARD DASHBOARD-->
                 <div class="card-content row">
                     <div class="col s12">
-                        <span class="card-title center"><i class="material-icons">filter_list</i>&nbsp Filter Selection TAB</span>
+                        <span class="card-title"><i class="material-icons" style="font-size: 36px;">filter_list</i>&nbsp Filter Selection TAB</span>
 
                         <!--COLLEGES-->
                         <div class="input-field col s11">
@@ -319,7 +320,7 @@
                     <div class="col s7">&nbsp</div>
                         <div class="input-field col s5">
                             <select id="mySelect" onchange="toggleChart();">
-                                <option value="bar" selected>Default: Bar</option>
+                                <option value="bar"  selected>Default: Bar</option>
                                 <option value="line">Line</option>
                                 <option value="radar">Radar</option>
                                 <option value="doughnut">Doughnut</option>
