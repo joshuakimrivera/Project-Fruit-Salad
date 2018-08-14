@@ -248,14 +248,14 @@
                         <div class="col s12"><hr></div>
                         
                         <div class="col s3">
-                            <a href="#modal1" data-tooltip="Add Student" class="tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a>
+                            <a href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a>
                         </div>
                         <div class="col s9">
                             
                                 <!--EXCEL FILE UPLOAD STRUCTURE -->
 
                             <!-- Modal Trigger -->
-                            <a class="waves-effect waves-light btn-floating btn-large modal-trigger tooltipped" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a>
+                            <a class="waves-effect waves-light btn-floating btn-large modal-trigger tooltipped z-depth-2" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a>
 
                             <!-- Modal Structure -->
                             <div id="modal2" class="modal" style="height: 350px; overflow: hidden;">
@@ -265,7 +265,7 @@
                                     <hr>
                                     <br>
                                     <div class="container">
-                                        <div class="input-field">
+                                        <div class="input-field z-depth-2">
                                             <select name="import" id="import">
                                                 <option selected disabled>Choose a Department</option>
                                                 <option value="CE">Import in College of Engineering</option>
@@ -457,6 +457,9 @@
                     </div>
                 </div>
                 <hr>
+                <br>
+                
+                <br>
                 <br>
                  <div>
                     <div class="input-field row form-group">
