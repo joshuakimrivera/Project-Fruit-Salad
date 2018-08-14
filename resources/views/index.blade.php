@@ -244,7 +244,7 @@
                             </div>
                         </div> --}}
                         <!--ADD STUDENT BUTTON-->
-                        <a href="#modal1" data-tooltip="Add Student" class="tooltipped modal-trigger btn-floating btn-medium waves-effect waves-light red"><i class="fa fa-plus"></i></a>
+                        <a href="#modal1" data-tooltip="Add Student" class="tooltipped modal-trigger btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">person_add</i></a>
                         <select name="import" id="import">
                             <option selected disabled>Import Excel File Instead?</option>
                             <option value="CE">Import in College of Engineering</option>
@@ -388,50 +388,50 @@
 <input type="hidden" name="numberOfCoEd" value="{{ $totalCoEd }}">
 <input type="hidden" name="numberOfCE" value="{{ $totalCE }}">
 
-<div id="modal1" class="modal">
+<div id="modal1" class="modal" style="overflow: 'show';">
     <div class="modal-content">
-        <div>
+        <form>
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
                         <h5>Fill the student Information below</h5>
                     </div>
                     <div class="pull-right mr-5">
-                        <a class="btn btn-primary" href="{{ route('CollegesController.index') }}"> Back</a>
+                        <a class="btn btn-primary tooltipped" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
                     </div>
                 </div>
             </div>
         
             {{ Form::open(array('route' => 'CollegesController.addStudent', ))}}
-            <div class="row">
-                <div class="container">
-                    <div class="form-group input-field">
+            <div class="container">
+                <div class="row">
+                    <div class="input-field form-group">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="icon_fname" type="text" name="first_name" class="validate">
-                            <label for="icon_fname">First Name</label>
+                            <input id="fname" type="text" name="first_name"  required>
+                            <label for="fname">First Name</label>
                         </div>
                         <div class="input-field col s6">
-                            <i class="material-icons prefix">account_circle</i>
-                            <input id="icon_m" type="text" name="middle_initial" class="validate">
-                            <label for="icon_m">Middle Initial</label>
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="wobble" type="text" name="middle_initial"  required>
+                            <label for="wobble">Middle Initial</label>
                         </div>
                         <div class="input-field col s6">
-                            <i class="material-icons prefix">account_circle</i>
-                            <input id="icon_lname" type="text" name="last_name" class="validate">
-                            <label for="icon_lname">Last Name</label>
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="ayoko" type="text" name="last_name"  required>
+                            <label for="ayoko">Last Name</label>
                         </div>
-                       
                     </div>
                 </div>
+                <hr>
                 <br>
-                 <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Birthday:&nbsp;</strong>
+                 <div>
+                    <div class="input-field row form-group">
                         <input type="hidden" id="date_sorter" name="date_sorter" value="">
                         {{-- {{ Form::date('birthday', null, array('class' => 'ml-4')) }} --}}
-                        <select name="bday_month" id="bday">
-                                <option selected disabled>Month</option>
+                        <div class="col s5">
+                            <select name="bday_month" id="bday">
+                                <option selected disabled>---</option>
                                 <option value="January">January</option>
                                 <option value="February">February</option>
                                 <option value="March">March</option>
@@ -445,8 +445,11 @@
                                 <option value="November">November</option>
                                 <option value="December">December</option>
                             </select>
-                            <select name="bday_day" id="">
-                                <option selected disabled>Day</option>
+                            <label>Birth Month</label>
+                        </div>
+                        <div class="col s3">
+                            <select name="bday_day" id="" class="col s2">
+                                <option selected disabled>---</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -479,8 +482,11 @@
                                 <option value="30">30</option>
                                 <option value="31">31</option>
                             </select>
+                            <label>Birth Day</label>
+                        </div>
+                        <div class="col s4">
                             <select name="bday_year" id="">
-                                <option selected disabled>Year</option>
+                                <option selected disabled>---</option>
                                 <option value="1993">1993</option>
                                 <option value="1994">1994</option>
                                 <option value="1995">1995</option>
@@ -490,36 +496,38 @@
                                 <option value="1999">1999</option>
                                 <option value="2000">2000</option>
                             </select>
+                            <label>Birth Year</label>
+                        </div>
+                            
                     </div>
                 </div>
-                <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                     <div class="form-group">
-                         <strong class="mr-4">Age: &nbsp;&nbsp;</strong>
-                         {{ Form::number('age', null, array('placeholder' => 'Age', 'class' => 'ml-4')) }}
+                <div class="row">
+                    <div class="input-field col s3 form-group">
+                        <i class="material-icons prefix">perm_identity</i>
+                        {{ Form::number('age', null, array('placeholder' => '---', 'class' => 'ml-4')) }}
+                        <label>Age</label>
                     </div>
-                </div>
-                <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                     <div class="form-group">
-                        <strong class="mr-4">Gender:</strong>
+                    <div class="input-field col s4 form-group">
+                        <i class="material-icons prefix">wc</i>
                         <select class="ml-2" name="gender" id="">
-                            <option selected disabled>Select your gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                            <option selected disabled>---</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
-                         {{-- {{ Form::text('gender', null, array('placeholder' => 'Male or Female', 'class' => 'form-control')) }} --}}
+                        <label>Gender</label>
+                            {{-- {{ Form::text('gender', null, array('placeholder' => 'Male or Female', 'class' => 'form-control')) }} --}}
                     </div>
                 </div>
+               
                 <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="">
                      <div class="form-group">
                          <strong class="mr-4">Address:</strong>&nbsp;
                          {{ Form::text('address', null, array('placeholder' => 'Address','class' => '')) }}
                     </div>
                 </div> 
                 <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="">
                      <div class="form-group">
                         <input type="hidden" name="model" value="">
                         <strong>College:</strong>
@@ -532,7 +540,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="">
                     <div class="form-group">
                         <strong>Department:</strong>
                         <div id="primary">
@@ -576,7 +584,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="">
                     <div class="form-group">
                         <strong class="mr-5">Year:</strong>&nbsp;&nbsp;
                         <select name="year">
@@ -589,7 +597,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="">
                     <div class="form-group">
                         <strong class="mr-4">Section:</strong>&nbsp;&nbsp;
                         <select name="section" id="">
@@ -624,7 +632,7 @@
                     </div>
                 @endif
             </div>
-        </div>
+        </form>
         <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     var elems = document.querySelectorAll('select');
