@@ -11,6 +11,7 @@ use Session;
 use Excel;
 use File;
 
+
 class CollegesController extends Controller
 {
     public function index(){
@@ -24,9 +25,12 @@ class CollegesController extends Controller
                         ->count();
         $totalCE = CollegeOfEngineerings::where('college', 'like', "%$CE%")
                         ->count();
+        
         $shows = CollegeOfEngineerings::latest()->simplePaginate(5);
         $datas = CollegeOfEducations::latest()->simplePaginate(5);
         $outputs = CollegeOfComputerAndInformationSciences::latest()->simplePaginate(5);
+        $total = CollegeOfEngineerings::union($outputs, $datas);
+        return $total;
     //    return $shows;
        return view('index', compact(
            'shows',
@@ -66,36 +70,63 @@ class CollegesController extends Controller
     }
 
     public function filterCollegebyCCIS($CCIS) {
-        // return $CCIS;
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $outputs = CollegeOfComputerAndInformationSciences::latest()->simplePaginate(5);
+        $shows = CollegeOfEngineerings::latest()->count();
+        $datas = CollegeOfEducations::latest()->count();
         $totalCCIS = CollegeOfComputerAndInformationSciences::where('college', 'like', "%$CCIS%")
                         ->count();
-        // return $totalCCIS;
-        $shows = CollegeOfEngineerings::latest()->simplePaginate(5);
-        $datas = CollegeOfEducations::latest()->simplePaginate(5);
-        $outputs = CollegeOfComputerAndInformationSciences::latest()->simplePaginate(5);
-       return view('index', compact('shows', 'datas', 'outputs', 'CCIS', 'CoEd', 'CE','$$totalCCIS'));  //calls the blade file with the value stored in $shows
+       return view('CollegeOfComputerAndInformationScience.filterResult', compact(
+            'totalCCIS', 
+            'shows', 
+            'datas', 
+            'outputs',
+            'CCIS',
+            'CoEd',
+            'CE'
+        ));  //calls the blade file with the value stored in $shows
     }
 
     public function filterCollegebyCoEd($CoEd) {
-        // return $CoEd;
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $outputs = CollegeOfEducations::latest()->simplePaginate(5);
+        $shows = CollegeOfEngineerings::latest()->count();
+        $datas = CollegeOfComputerAndInformationSciences::latest()->count();
         $totalCoEd = CollegeOfEducations::where('college', 'like', "%$CoEd%")
                         ->count();
-        // return $totalCoEd;
-        $shows = CollegeOfEngineerings::latest()->simplePaginate(5);
-        $datas = CollegeOfEducations::latest()->simplePaginate(5);
-        $outputs = CollegeOfComputerAndInformationSciences::latest()->simplePaginate(5);
-       return view('index', compact('shows', 'datas', 'outputs', 'CCIS', 'CoEd', 'CE','$totalCoEd'));  //calls the blade file with the value stored in $shows
+       return view('CollegeOfEducation.filterResult', compact(
+            'totalCoEd', 
+            'shows', 
+            'datas', 
+            'outputs',
+            'CCIS',
+            'CoEd',
+            'CE'
+        ));  //calls the blade file with the value stored in $shows
     }
 
     public function filterCollegebyCE($CE) {
-        // return $CE;
-        $totalCE = CollegeOfEngineerings::where('college', 'like', "%$CE%")
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $outputs = CollegeOfEngineerings::latest()->simplePaginate(5);
+        $shows = CollegeOfEngineerings::latest()->count();
+        $datas = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEngineerings::where('college', 'like', "%$CE%")
                         ->count();
-        // return $totalCE;
-        $shows = CollegeOfEngineerings::latest()->simplePaginate(5);
-        $datas = CollegeOfEducations::latest()->simplePaginate(5);
-        $outputs = CollegeOfComputerAndInformationSciences::latest()->simplePaginate(5);
-       return view('index', compact('shows', 'datas', 'outputs', 'CCIS', 'CoEd', 'CE','$totalCE'));  //calls the blade file with the value stored in $shows
+       return view('CollegeOfEngineering.filterResult', compact(
+            'totalCoEd', 
+            'shows', 
+            'datas', 
+            'outputs',
+            'CCIS',
+            'CoEd',
+            'CE'
+        ));  //calls the blade file with the value stored in $shows
     }
 
     //COLLEGE OF ENGINEERING

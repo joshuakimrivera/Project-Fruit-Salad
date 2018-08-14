@@ -62,12 +62,13 @@
                         <div class="input-field col s11">
                             <select id="collegeFilter" name="college">
                                 <option url= {{ route('CollegesController.index', $CCIS) }} selected>All Colleges</option>
-                                <option url= {{ route('filter.college.CCIS', $CCIS) }} value="Computer and Information Sciences">College of Computer and Information Sciences</option>
+                                <option url= {{ route('filter.college.CCIS', $CCIS) }} selected value="Computer and Information Sciences">College of Computer and Information Sciences</option>
                                 <option url= {{ route('filter.college.CoEd', $CoEd) }} value="Education">College of Education</option>
-                                <option url= {{ route('filter.college.CE', $CE) }} value="Engineering">College of Engineering</option>
+                                <option selected url= {{ route('filter.college.CE', $CE) }} value="Engineering">College of Engineering</option>
                             </select>
                             <label>College</label>
                         </div>
+
                         <!--DEPARTMENTS-->
                         <div class="input-field col s11">
                             <select id="departmentFilter" name="department">
@@ -347,44 +348,7 @@
                                 <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
                                 <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Actions</h6></a></th>
                             </tr>
-                            @foreach($datas as $data)  
-                            <tr>
-                                <td class="mr-5 ml-5 ">{{ $data->last_name }}, {{ $data->first_name }} {{ $data->middle_initial }}.</td>
-                                <td class="mr-5 ml-5">{{ $data->bday_month }} {{ $data->bday_day }}, {{ $data->bday_year }}</td>
-                                <td class="mr-5 ml-5">{{ $data->age }}</td>
-                                <td class="mr-5 ml-5">{{ $data->gender }}</td>
-                                <td class="mr-5 ml-5">{{ $data->address }}</td>
-                                <td class="mr-5 ml-5">{{ $data->department }}</td>
-                                <td class="mr-5 ml-5">{{ $data->year }}</td>
-                                <td class="mr-5 ml-5">Section {{ $data->section }}</td>
-                                <td class="mr-5 ml-5">
-                                    {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
-                                    <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4" data-position="bottom" data-tooltip="View" href="#CoEdmodal"><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="material-icons">edit</i></a>
-                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
-                                </td>
-                            </tr>
-                            @endforeach
-                            @foreach($shows as $show)  
-                            <tr>
-                                <td class="mr-5 ml-5">{{ $show->last_name }}, {{ $show->first_name }} {{ $show->middle_initial }}.</td>
-                                <td class="mr-5 ml-5">{{ $show->bday_month }} {{ $show->bday_day }}, {{ $show->bday_year }}</td>
-                                <td class="mr-5 ml-5">{{ $show->age }}</td>
-                                <td class="mr-5 ml-5">{{ $show->gender }}</td>
-                                <td class="mr-5 ml-5">{{ $show->address }}</td>
-                                <td class="mr-5 ml-5">{{ $show->department }}</td>
-                                <td class="mr-5 ml-5">{{ $show->year }}</td>
-                                <td class="mr-5 ml-5">Section {{ $show->section }}</td>
-                                <td class="mr-5 ml-5">
-                                    {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
-                                    <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped light-blue darken-4 modal-trigger" data-position="bottom" data-tooltip="View" href="{{ route('CollegesController.CEshow',$show->id) }}"><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CEedit',$show->id) }}"><i class="material-icons">edit</i></a>
-                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
-                                </td>
-                            </tr>
-                            @endforeach
+                            
                             @foreach($outputs as $output)  
                             <tr>
                                 <td class="mr-5 ml-5">{{ $output->last_name }}, {{ $output->first_name }} {{ $output->middle_initial }}.</td>
@@ -406,8 +370,6 @@
                             @endforeach
                         </table>
                     <div>
-                        {{ $shows->links() }}
-                        {{ $datas->links() }}
                         {{ $outputs->links() }}
                     </div>
                 </div>
@@ -417,9 +379,8 @@
     </div>
 </div>
 
-<input type="hidden" name="numberOfCCIS" value="{{ $totalCCIS }}">
-<input type="hidden" name="numberOfCoEd" value="{{ $totalCoEd }}">
-<input type="hidden" name="numberOfCE" value="{{ $totalCE }}">
+<input type="hidden" name="numberOfCCIS" value="{{ $totalCoEd }}">
+<input type="hidden" name="numberOfTotal" value="{{ $shows + $datas }}">
 
 <div id="modal1" class="modal">
     <div class="modal-content"  style="overflow: hidden;" >
@@ -658,10 +619,6 @@
                         </select>
                         <label>Year</label>
                     </div>
-
-
-
-
                     <div class="form-group col s6">
                         <select name="section" id="">
                             <option selected disabled>---</option>
@@ -756,8 +713,7 @@
 </script>
 <script>
     var totalCCIS = $("input[name='numberOfCCIS']").val();
-    var totalCoEd = $("input[name='numberOfCoEd']").val();
-    var totalCE = $("input[name='numberOfCE']").val();
+    var total = $("input[name='numberOfTotal']").val();
     // console.log(totalCCIS);
     var canvas = document.getElementById("barChart");
     var ctx = canvas.getContext('2d');
@@ -770,10 +726,10 @@
     Chart.defaults.global.defaultFontSize = 16;
 
     var data = {
-        labels: ["CE", "COED", "CCIS"],
+        labels: ["Engineering", "Other Colleges"],
         datasets: [{
-            label: ' Number of students in this College',
-            data: [totalCE, totalCoEd, totalCCIS],
+            label: ' Number of Students',
+            data: [totalCCIS, total],
             backgroundColor: [
                 '#b71c1c',
                 '#0288d1',
