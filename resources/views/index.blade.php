@@ -17,7 +17,7 @@
         <nav>
           <div class="nav-wrapper red darken-4">
               <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons white-text">menu</i></button>
-                <a href="#!" class="brand-logo white-text"><i class="fa fa-bar-chart-o"></i> PupStats</a>
+                <a href="#!" class="brand-logo white-text"><i class="large material-icons">stars</i> PupStats</a>
                 <ul class="right hide-on-med-and-down">
                 </ul>
           </div>
@@ -55,7 +55,7 @@
                 <!--CARD DASHBOARD-->
                 <div class="card-content row">
                     <div class="col s12">
-                        <span class="card-title"><i class="fa fa-sort-amount-desc"></i>&nbsp Filter Selection TAB</span>
+                        <span class="card-title"><i class="material-icons">filter_list</i>&nbsp Filter Selection TAB</span>
 
                         <!--COLLEGES-->
                         <div class="input-field col s11">
@@ -327,7 +327,7 @@
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger green" data-position="bottom" data-tooltip="Show" href="#CoEdmodal"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger green" data-position="bottom" data-tooltip="Show" href="#CoEdmodal"><i class="material-icons"></i></a>
                                     <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="fa fa-edit"></i></a>
                                     <a class="btn btn-floating btn-small red tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="fa fa-trash"></i></a>
                                 </td>
@@ -390,11 +390,11 @@
 
 <div id="modal1" class="modal">
     <div class="modal-content">
-        <div class="container">
+        <div>
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>Fill the student Information below</h2>
+                        <h5>Fill the student Information below</h5>
                     </div>
                     <div class="pull-right mr-5">
                         <a class="btn btn-primary" href="{{ route('CollegesController.index') }}"> Back</a>
@@ -404,12 +404,24 @@
         
             {{ Form::open(array('route' => 'CollegesController.addStudent', ))}}
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong class="mr-4">Name:</strong>
-                        <input type="text" name="last_name" placeholder="Last Name">
-                        <input type="text" name="first_name" placeholder="First Name">
-                        <input type="text" name="middle_initial" placeholder="Middle Inital">
+                <div class="container">
+                    <div class="form-group input-field">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="icon_fname" type="text" name="first_name" class="validate">
+                            <label for="icon_fname">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="icon_m" type="text" name="middle_initial" class="validate">
+                            <label for="icon_m">Middle Initial</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="icon_lname" type="text" name="last_name" class="validate">
+                            <label for="icon_lname">Last Name</label>
+                        </div>
+                       
                     </div>
                 </div>
                 <br>
