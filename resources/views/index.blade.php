@@ -630,7 +630,15 @@
                 <br>
    
                 <div class="row input-field">
-                    <div class="form-group col s6">
+
+                    <div class="form-group col s6" id="ui">
+                        <select name="year" disabled>
+                            <option selected disabled>Select a Course First</option>
+                        </select>
+                        <label>Year</label>
+                    </div>
+
+                    <div class="form-group col s6 hiddendiv" id="yearOne">
                         <select name="year">
                             <option selected disabled>---</option>
                             <option value="4">4th Year</option>
@@ -640,14 +648,31 @@
                         </select>
                         <label>Year</label>
                     </div>
+
+
+                    <div class="form-group col s6 hiddendiv" id="ceYear">
+                        <select name="year">
+                            <option selected disabled>---</option>
+                            <option value="5">5th Year</option>
+                            <option value="4">4th Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="1">1st Year</option>
+                        </select>
+                        <label>Year</label>
+                    </div>
+
+
+
+
                     <div class="form-group col s6">
                         <select name="section" id="">
                             <option selected disabled>---</option>
-                            <option value="1">Section 1</option>
-                            <option value="2">Section 2</option>
-                            <option value="3">Section 3</option>
-                            <option value="4">Section 4</option>
                             <option value="5">Section 5</option>
+                            <option value="4">Section 4</option>
+                            <option value="3">Section 3</option>
+                            <option value="2">Section 2</option>
+                            <option value="1">Section 1</option>
                         </select>
                         <label>Section</label>
                         {{-- {{ Form::number('section', null, array('placeholder' => 'Section','class' => 'form-control')) }} --}}
@@ -655,7 +680,7 @@
                 </div>
                 <br>
                 <div class="center">
-                    <button type="submit" class="btn btn-large hoverable waves-effect waves-light orange accent-3"><i class="material-icons left">send</i>Submit</button>
+                    <button type="submit" class="btn btn-large hoverable waves-effect waves-light orange accent-3 tooltipped" data-tooltip="Create Student"><i class="material-icons left">send</i>Submit</button>
                 </div>
                 <br>
             </div>
@@ -838,6 +863,9 @@
                     $("#CCIS").removeClass('hiddendiv', true);
                     $("#CoEd").addClass('hiddendiv', true);
                     $("#CE").addClass('hiddendiv', true);
+                    $("#yearOne").removeClass('hiddendiv', true);
+                    $("#ceYear").addClass('hiddendiv', true);
+                    $("#ui").addClass('hiddendiv', true);
                     break;
                 
                 case 'Education':
@@ -846,6 +874,9 @@
                     $("#CoEd").removeClass('hiddendiv', true);
                     $("#CE").addClass('hiddendiv', true);
                     $("#CCIS").addClass('hiddendiv', true);
+                    $("#yearOne").removeClass('hiddendiv', true);
+                    $("#ceYear").addClass('hiddendiv', true);
+                    $("#ui").addClass('hiddendiv', true);
                     break;
 
                 case 'Engineering':
@@ -854,6 +885,9 @@
                     $("#CoEd").addClass('hiddendiv', true);
                     $("#CCIS").addClass('hiddendiv', true);
                     $("#CE").removeClass('hiddendiv', true);
+                    $("#yearOne").addClass('hiddendiv', true);
+                    $("#ceYear").removeClass('hiddendiv', true);
+                    $("#ui").addClass('hiddendiv', true);
                     break;
                 default :
                 break;
@@ -877,6 +911,7 @@
                     $("#CCISimport").removeClass('hiddendiv', true);
                     $("#CoEdimport").addClass('hiddendiv', true);
                     $("#CEimport").addClass('hiddendiv', true);
+                   
                     break;
                 
                 case 'CoEd':
@@ -884,6 +919,7 @@
                     $("#CoEdimport").removeClass('hiddendiv', true);
                     $("#CEimport").addClass('hiddendiv', true);
                     $("#CCISimport").addClass('hiddendiv', true);
+                    
                     break;
 
                 case 'CE':
@@ -891,6 +927,7 @@
                     $("#CoEdimport").addClass('hiddendiv', true);
                     $("#CCISimport").addClass('hiddendiv', true);
                     $("#CEimport").removeClass('hiddendiv', true);
+                    
                     break;
                 default :
                 break;
