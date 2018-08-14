@@ -250,34 +250,63 @@
                             <a href="#modal1" data-tooltip="Add Student" class="tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a>
                         </div>
                         <div class="col s9">
-                            <select name="import" id="import">
-                                <option selected disabled>Import Excel File Instead?</option>
-                                <option value="CE">Import in College of Engineering</option>
-                                <option value="CoEd">Import in College of Education</option>
-                                <option value="CCIS">Import in College of Computer and Information Science</option>
-                            </select>
+                            
                                 <!--EXCEL FILE UPLOAD STRUCTURE -->
-                            <div class="hiddendiv" id="CEimport">
-                                <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
-                                    {{ csrf_field() }}
-                                    <input type="file" name="file" class="">
-                                    <input type="submit" value="Submit Excel" class="btn btn-primary btn-small">
-                                </form>
+
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light btn-floating btn-large modal-trigger tooltipped" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a>
+
+                            <!-- Modal Structure -->
+                            <div id="modal2" class="modal">
+
+                                <div class="modal-content">
+                                    <h4 class="center">Import Excel Spreadsheet</h4>
+                                    <hr>
+                                    <br>
+                                    <div class="container">
+                                        <div class="input-field">
+                                            <select name="import" id="import">
+                                                <option selected disabled>Choose a Department</option>
+                                                <option value="CE">Import in College of Engineering</option>
+                                                <option value="CoEd">Import in College of Education</option>
+                                                <option value="CCIS">Import in College of Computer and Information Science</option>
+                                            </select>
+                                            <label>Import Excel Spreadsheet to?</label>
+                                        </div>
+                                        <div class="hiddendiv" id="CEimport">
+                                                <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
+                                                    {{ csrf_field() }}
+                                                    <input type="file" name="file" class="">
+                                                    <br>
+                                                    <div class="center">
+                                                        <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="hiddendiv" id="CoEdimport">
+                                                <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
+                                                    {{ csrf_field() }}
+                                                    <input type="file" name="file" class="">
+                                                    <br>
+                                                    <div class="center">
+                                                        <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="hiddendiv" id="CCISimport">
+                                                <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data">
+                                                    {{ csrf_field() }}
+                                                    <input type="file" name="file" class="">
+                                                    <br>
+                                                    <div class="center">
+                                                        <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="hiddendiv" id="CoEdimport">
-                                <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
-                                    {{ csrf_field() }}
-                                    <input type="file" name="file" class="">
-                                    <input type="submit" value="Submit Excel" class="btn btn-primary btn-small">
-                                </form>
-                            </div>
-                            <div class="hiddendiv" id="CCISimport">
-                                <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data">
-                                    {{ csrf_field() }}
-                                    <input type="file" name="file" class="">
-                                    <input type="submit" value="Submit Excel" class="btn btn-primary btn-small">
-                                </form>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>    
