@@ -265,7 +265,7 @@
                                     <hr>
                                     <br>
                                     <div class="container">
-                                        <div class="input-field z-depth-2">
+                                        <div class="input-field ">
                                             <select name="import" id="import">
                                                 <option selected disabled>Choose a Department</option>
                                                 <option value="CE">Import in College of Engineering</option>
@@ -275,7 +275,7 @@
                                             <label>Import Excel Spreadsheet to?</label>
                                         </div>
                                         <div class="hiddendiv" id="CEimport">
-                                                <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
+                                                <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data" onsubmit="loading()">
                                                     {{ csrf_field() }}
                                                     <input type="file" name="file" class="">
                                                     <br>
@@ -285,7 +285,7 @@
                                                 </form>
                                             </div>
                                             <div class="hiddendiv" id="CoEdimport">
-                                                <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
+                                                <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data" onsubmit="loading()">
                                                     {{ csrf_field() }}
                                                     <input type="file" name="file" class="">
                                                     <br>
@@ -295,7 +295,7 @@
                                                 </form>
                                             </div>
                                             <div class="hiddendiv" id="CCISimport">
-                                                <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data">
+                                                <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data" onsubmit="loading()">
                                                     {{ csrf_field() }}
                                                     <input type="file" name="file" class="">
                                                     <br>
@@ -304,6 +304,10 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                    </div>
+                                    <div id="lod" class="progress center" style="visibility: hidden;">
+                                        <div class="indeterminate"></div>
+                                        <h8> Sending email</h8>
                                     </div>
                                 </div>
                             </div>
@@ -759,6 +763,14 @@
             enterDelay: 250
         });
     });
+</script>
+<script>
+    function loading(){
+        document.getElementById("CCISimport").style.visibility='hidden'
+        document.getElementById("CoEdimport").style.visibility='hidden'
+        document.getElementById("CEimport").style.visibility='hidden'
+        document.getElementById("lod").style.visibility='visible';
+    }
 </script>
 <script>
     var totalCCIS = $("input[name='numberOfCCIS']").val();
