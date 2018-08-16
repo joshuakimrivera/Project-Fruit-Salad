@@ -9,51 +9,7 @@
     </style>
 @endsection
 @section('content')
-<!-- Preloader and it's background. -->
-<div class="preloader-background">
-    <div class="preloader-wrapper big active">
-          <div class="spinner-layer spinner-blue">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div><div class="gap-patch">
-              <div class="circle"></div>
-            </div><div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-    
-          <div class="spinner-layer spinner-red">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div><div class="gap-patch">
-              <div class="circle"></div>
-            </div><div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-    
-          <div class="spinner-layer spinner-yellow">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div><div class="gap-patch">
-              <div class="circle"></div>
-            </div><div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-    
-          <div class="spinner-layer spinner-green">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div><div class="gap-patch">
-              <div class="circle"></div>
-            </div><div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-        </div>
-      <p class="blinking loding">&nbsp Loading<br>Please Wait....</p>
-    </div>
+
 <!--NAVIGATIONAL STRUCTURES -->
 <!-- NAV BAR HEADER -->
 <nav>
@@ -106,22 +62,29 @@
                         <div class="input-field col s11">
                             <select id="collegeFilter" name="college">
                                 <option url= {{ route('CollegesController.index', $CCIS) }} selected>All Colleges</option>
-                                <option url= {{ route('filter.college.CCIS', $CCIS) }} value="Computer and Information Sciences">College of Computer and Information Sciences</option>
+                                <option url= {{ route('filter.college.CCIS', $CCIS) }} selected value="Computer and Information Sciences">College of Computer and Information Sciences</option>
                                 <option url= {{ route('filter.college.CoEd', $CoEd) }} value="Education">College of Education</option>
-                                <option url= {{ route('filter.college.CE', $CE) }} value="Engineering">College of Engineering</option>
+                                <option selected url= {{ route('filter.college.CE', $CE) }} value="Engineering">College of Engineering</option>
                             </select>
                             <label>College</label>
                         </div>
+
                         <!--DEPARTMENTS-->
-                        <div id="dept" class="input-field col s11">
-                            <select disabled name="department">
-                                <option value="ALL" selected>Select College first</option>
+                        <div class="input-field col s11">
+                            <select id="departmentFilter" name="department">
+                                <option value="ALL" selected>All Departments</option>
+                                <option value="Computer Engineering">Computer Engineering</option>
+                                <option value="Civil Engineering">Civil Engineering</option>
+                                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                                <option value="Electrical Engineering">Electrical Engineering</option>
+                                <option value="Electronics Engineering">Electronics Engineering</option>
+                                <option value="Industrial Engineering">Industrial Engineering</option>
                             </select>
                             <label>Department</label>
                         </div>
 
                         <div class="input-field col s5">
-                            <select disabled id="yearFilter" name="year">
+                            <select  id="yearFilter" name="year">
                                 <option selected>All Levels</option>
                                 <option value="1">First Year</option>
                                 <option value="2">Second Year</option>
@@ -135,7 +98,7 @@
                         <div class="input-field col s1">&nbsp</div>
 
                         <div class="input-field col s5">
-                            <select disabled id="sectionFilter" name="section">
+                            <select id="sectionFilter" name="section">
                                 <option value="" selected>All Sections</option>
                                 <option value="1">Section 1</option>
                                 <option value="2">Section 2</option>
@@ -147,12 +110,12 @@
                         </div>
 
                         <div class="input-field col s6">
-                            <input disabled id="icon_prefix" name="age" type="text" class="validate">
+                            <input id="icon_prefix" name="age" type="text" class="validate">
                             <label for="icon_prefix">Age</label>
                         </div>
 
                         <div class="input-field col s5">
-                            <select disabled id="genderFilter" name="gender">
+                            <select id="genderFilter" name="gender">
                                 <option value="" selected>All Genders</option>
                                 <option value="1">Female</option>
                                 <option value="2">Male</option>
@@ -161,7 +124,7 @@
                         </div>
 
                         <div class="input-field col s3">
-                            <select disabled id="yearFilter" name="bday_year">
+                            <select id="yearFilter" name="bday_year">
                                 <option selected disabled>Year</option>
                                 <option value="1993">1993</option>
                                 <option value="1994">1994</option>
@@ -176,7 +139,7 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <select disabled id="monthFilter" name="bday_month">
+                            <select id="monthFilter" name="bday_month">
                                 <option selected disabled>Month</option>
                                 <option data-target="1" value="January">January</option>
                                 <option data-target="2" value="February">February</option>
@@ -195,7 +158,7 @@
                         </div>
 
                         <div class="input-field col s3">
-                            <select disabled id="dayFilter" name="bday_day">
+                            <select id="dayFilter" name="bday_day">
                                 <option selected disabled>Day</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -273,14 +236,14 @@
                         <div class="col s12"><hr></div>
                         
                         <div class="col s3">
-                            <a href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a>
+                            <a href="#modal1" data-tooltip="Add Student" class="tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a>
                         </div>
                         <div class="col s9">
                             
                                 <!--EXCEL FILE UPLOAD STRUCTURE -->
 
                             <!-- Modal Trigger -->
-                            <a class="waves-effect waves-light btn-floating btn-large modal-trigger tooltipped z-depth-2" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a>
+                            <a class="waves-effect waves-light btn-floating btn-large modal-trigger tooltipped" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a>
 
                             <!-- Modal Structure -->
                             <div id="modal2" class="modal" style="height: 350px; overflow: hidden;">
@@ -290,7 +253,7 @@
                                     <hr>
                                     <br>
                                     <div class="container">
-                                        <div class="input-field ">
+                                        <div class="input-field">
                                             <select name="import" id="import">
                                                 <option selected disabled>Choose a Department</option>
                                                 <option value="CE">Import in College of Engineering</option>
@@ -300,7 +263,7 @@
                                             <label>Import Excel Spreadsheet to?</label>
                                         </div>
                                         <div class="hiddendiv" id="CEimport">
-                                                <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data" onsubmit="loading()">
+                                                <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
                                                     {{ csrf_field() }}
                                                     <input type="file" name="file" class="">
                                                     <br>
@@ -310,7 +273,7 @@
                                                 </form>
                                             </div>
                                             <div class="hiddendiv" id="CoEdimport">
-                                                <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data" onsubmit="loading()">
+                                                <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
                                                     {{ csrf_field() }}
                                                     <input type="file" name="file" class="">
                                                     <br>
@@ -320,7 +283,7 @@
                                                 </form>
                                             </div>
                                             <div class="hiddendiv" id="CCISimport">
-                                                <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data" onsubmit="loading()">
+                                                <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data">
                                                     {{ csrf_field() }}
                                                     <input type="file" name="file" class="">
                                                     <br>
@@ -329,10 +292,6 @@
                                                     </div>
                                                 </form>
                                             </div>
-                                    </div>
-                                    <div id="lod" class="progress center" style="visibility: hidden;">
-                                        <div class="indeterminate"></div>
-                                        <h8> Sending email</h8>
                                     </div>
                                 </div>
                             </div>
@@ -379,44 +338,7 @@
                                 <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
                                 <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Actions</h6></a></th>
                             </tr>
-                            @foreach($datas as $data)  
-                            <tr>
-                                <td class="mr-5 ml-5 ">{{ $data->last_name }}, {{ $data->first_name }} {{ $data->middle_initial }}.</td>
-                                <td class="mr-5 ml-5">{{ $data->bday_month }} {{ $data->bday_day }}, {{ $data->bday_year }}</td>
-                                <td class="mr-5 ml-5">{{ $data->age }}</td>
-                                <td class="mr-5 ml-5">{{ $data->gender }}</td>
-                                <td class="mr-5 ml-5">{{ $data->address }}</td>
-                                <td class="mr-5 ml-5">{{ $data->department }}</td>
-                                <td class="mr-5 ml-5">{{ $data->year }}</td>
-                                <td class="mr-5 ml-5">Section {{ $data->section }}</td>
-                                <td class="mr-5 ml-5">
-                                    {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
-                                    <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4" data-position="bottom" data-tooltip="View" href="#CoEdmodal"><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="material-icons">edit</i></a>
-                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
-                                </td>
-                            </tr>
-                            @endforeach
-                            @foreach($shows as $show)  
-                            <tr>
-                                <td class="mr-5 ml-5">{{ $show->last_name }}, {{ $show->first_name }} {{ $show->middle_initial }}.</td>
-                                <td class="mr-5 ml-5">{{ $show->bday_month }} {{ $show->bday_day }}, {{ $show->bday_year }}</td>
-                                <td class="mr-5 ml-5">{{ $show->age }}</td>
-                                <td class="mr-5 ml-5">{{ $show->gender }}</td>
-                                <td class="mr-5 ml-5">{{ $show->address }}</td>
-                                <td class="mr-5 ml-5">{{ $show->department }}</td>
-                                <td class="mr-5 ml-5">{{ $show->year }}</td>
-                                <td class="mr-5 ml-5">Section {{ $show->section }}</td>
-                                <td class="mr-5 ml-5">
-                                    {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
-                                    <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped light-blue darken-4 modal-trigger" data-position="bottom" data-tooltip="View" href="{{ route('CollegesController.CEshow',$show->id) }}"><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CEedit',$show->id) }}"><i class="material-icons">edit</i></a>
-                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
-                                </td>
-                            </tr>
-                            @endforeach
+                            
                             @foreach($outputs as $output)  
                             <tr>
                                 <td class="mr-5 ml-5">{{ $output->last_name }}, {{ $output->first_name }} {{ $output->middle_initial }}.</td>
@@ -437,8 +359,8 @@
                             </tr>
                             @endforeach
                         </table>
-                    <div style="margin-left:45%">
-                        {{ $shows->links() }}
+                    <div>
+                        {{ $outputs->links() }}
                     </div>
                 </div>
             </div>
@@ -447,9 +369,8 @@
     </div>
 </div>
 
-<input type="hidden" name="numberOfCCIS" value="{{ $totalCCIS }}">
-<input type="hidden" name="numberOfCoEd" value="{{ $totalCoEd }}">
-<input type="hidden" name="numberOfCE" value="{{ $totalCE }}">
+<input type="hidden" name="numberOfCCIS" value="{{ $totalCoEd }}">
+<input type="hidden" name="numberOfTotal" value="{{ $shows + $datas }}">
 
 <div id="modal1" class="modal">
     <div class="modal-content"  style="overflow: hidden;" >
@@ -484,9 +405,6 @@
                     </div>
                 </div>
                 <hr>
-                <br>
-                
-                <br>
                 <br>
                  <div>
                     <div class="input-field row form-group">
@@ -691,10 +609,6 @@
                         </select>
                         <label>Year</label>
                     </div>
-
-
-
-
                     <div class="form-group col s6">
                         <select name="section" id="">
                             <option selected disabled>---</option>
@@ -740,7 +654,6 @@
     </div>
 </div>
 <!-- END OF MAIN CONTAINER -->
-
 
 @endsection
 
@@ -789,17 +702,8 @@
     });
 </script>
 <script>
-    function loading(){
-        document.getElementById("CCISimport").style.visibility='hidden'
-        document.getElementById("CoEdimport").style.visibility='hidden'
-        document.getElementById("CEimport").style.visibility='hidden'
-        document.getElementById("lod").style.visibility='visible';
-    }
-</script>
-<script>
     var totalCCIS = $("input[name='numberOfCCIS']").val();
-    var totalCoEd = $("input[name='numberOfCoEd']").val();
-    var totalCE = $("input[name='numberOfCE']").val();
+    var total = $("input[name='numberOfTotal']").val();
     // console.log(totalCCIS);
     var canvas = document.getElementById("barChart");
     var ctx = canvas.getContext('2d');
@@ -812,10 +716,10 @@
     Chart.defaults.global.defaultFontSize = 16;
 
     var data = {
-        labels: ["CE", "COED", "CCIS"],
+        labels: ["Engineering", "Other Colleges"],
         datasets: [{
-            label: ' Number of students in this College',
-            data: [totalCE, totalCoEd, totalCCIS],
+            label: ' Number of Students',
+            data: [totalCCIS, total],
             backgroundColor: [
                 '#b71c1c',
                 '#0288d1',
@@ -974,13 +878,4 @@
         })
     });
 </script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function(){
-      $('.preloader-background').delay(1700).fadeOut('slow');
-      $('.preloader-wrapper')
-      .delay(1700)
-      .fadeOut();
-});
-  </script>
 @endsection
