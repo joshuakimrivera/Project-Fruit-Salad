@@ -16,7 +16,7 @@
         <nav>
           <div class="nav-wrapper red darken-4">
               <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons white-text">menu</i></button>
-                <a href="#!" class="brand-logo white-text"><i class="large material-icons" style="font-size: 48px;">insert_chart</i> PupStats</a>
+                <a href="#!" class="brand-logo white-text"><i class="large material-icons" style="font-size: 48px;">equalizer</i> PupStats</a>
                 <ul class="right hide-on-med-and-down">
                 </ul>
           </div>
@@ -776,8 +776,8 @@
     var myBarChart;
 
     // Global Options:
-    Chart.defaults.global.defaultFontColor = 'black';
-    Chart.defaults.global.defaultFontSize = 16;
+    Chart.defaults.global.defaultFontColor = 'white';
+    Chart.defaults.global.defaultFontSize = 8;
 
     var data = {
         labels: ["CE", "COED", "CCIS"],
@@ -785,16 +785,16 @@
             label: ' Number of students in this College',
             data: [totalCE, totalCoEd, totalCCIS],
             backgroundColor: [
-                '#b71c1c',
-                '#0288d1',
+                '#00b2b8',
+                '#880044',
                 '#311b92',
                 '#ffff00',
                 '#1b5e20',
                 '#ff9800'
             ],
             borderColor: [
-                '#b71c1c',
-                '#0288d1',
+                '#00b2b8',
+                '#880044',
                 '#311b92',
                 '#ffff00',
                 '#1b5e20',
@@ -816,7 +816,7 @@
         title: {
             fontSize: 18,
             display: true,
-            text: 'CHART - TITLE',
+            text: 'PUP Statistics ',
             position: 'bottom'
         },
         animation: {
@@ -846,6 +846,7 @@
     //change chart type: 
     this.chartType = newt;
     //restart chart:
+    
     init();
     }
 </script>
