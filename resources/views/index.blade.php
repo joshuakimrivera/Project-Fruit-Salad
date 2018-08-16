@@ -258,7 +258,8 @@
                                         <div class="hiddendiv" id="CEimport">
                                                 <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data" onsubmit="loading()">
                                                     {{ csrf_field() }}
-                                                    <input type="file" name="file" class="">
+                                                    
+                                                    <input type="file" name="file">
                                                     <br>
                                                     <div class="center">
                                                         <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
@@ -776,8 +777,8 @@
     var myBarChart;
 
     // Global Options:
-    Chart.defaults.global.defaultFontColor = 'white';
-    Chart.defaults.global.defaultFontSize = 8;
+    Chart.defaults.global.defaultFontColor = 'black';
+    Chart.defaults.global.defaultFontSize = 18;
 
     var data = {
         labels: ["CE", "COED", "CCIS"],
