@@ -946,8 +946,8 @@
     });
 </script>
 <script>
-        jQuery(function(){
-           jQuery('#rivera').click();
-        });
-        </script>
+    jQuery(function(){
+        jQuery('#rivera').click();
+    });
+</script>
 @endsection
