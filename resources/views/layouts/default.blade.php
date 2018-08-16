@@ -19,8 +19,11 @@
     <link rel="stylesheet" href="{{ url('css/bootstrap4.css') }}"> --}}
     <style>
         .josh{
-        height: 600px; /* Your height here */
-        overflow: hidden;
+            height: 600px; /* Your height here */
+            /*overflow: hidden;*/
+        }
+        .maroon{
+            color: maroon;
         }
     </style>
 

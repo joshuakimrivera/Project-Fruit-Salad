@@ -302,8 +302,19 @@
         <div class="col s8">
             <div class="card josh z-depth-4">
                 <div class="card-content row">
-                    <div class="col s7">&nbsp</div>
-                        <div class="input-field col s5">
+                    <div class="col s5">
+                            <hr>
+                            <button id="rivera" type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Bar Graph" onclick="toggleChart('bar')"><i class="material-icons">equalizer</i></button>
+                            <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Line Graph" onclick="toggleChart('line')"><i class="material-icons">timeline</i></button>
+                            <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Radar Chart" onclick="toggleChart('radar')"><i class="material-icons">navigation</i></button>
+                            <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Donut Chart" onclick="toggleChart('doughnut')"><i class="material-icons">donut_large</i></button>
+                            <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Pie Chart" onclick="toggleChart('pie')"><i class="material-icons">pie_chart</i></button>
+                            <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Polar Area" onclick="toggleChart('polarArea')"><i class="material-icons">track_changes</i></button>
+                        <hr>
+                    </div>
+                    <div><canvas id="barChart" height="150%"></canvas></div>
+                    
+                        {{--<div class="input-field col s5">
                             <select id="mySelect" onchange="toggleChart();">
                                 <option value="bar"  selected>Default: Bar</option>
                                 <option value="line">Line</option>
@@ -313,8 +324,9 @@
                                 <option value="polarArea">Polar Area</option>
                             </select>
                             <label>Chart Type</label>
-                        </div>
-                    <canvas id="barChart" height="150%"></canvas>
+                        </div>--}}
+                       
+                    
                 </div>
             </div>
         </div>
@@ -760,7 +772,7 @@
     var canvas = document.getElementById("barChart");
     var ctx = canvas.getContext('2d');
     // We are only changing the chart type, so let's make that a global variable along with the chart object:
-    var chartType = document.getElementById("mySelect").value;;
+    var chartType = 'bar';
     var myBarChart;
 
     // Global Options:
@@ -827,11 +839,12 @@
         });
     }
 
-    function toggleChart() {
+    function toggleChart(chval) {
     //destroy chart:
+    var newt = chval;
     myBarChart.destroy();
     //change chart type: 
-    this.chartType = document.getElementById("mySelect").value;
+    this.chartType = newt;
     //restart chart:
     init();
     }
@@ -930,4 +943,9 @@
         })
     });
 </script>
+<script>
+        jQuery(function(){
+           jQuery('#rivera').click();
+        });
+        </script>
 @endsection
