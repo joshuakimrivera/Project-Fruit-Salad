@@ -61,7 +61,7 @@
                         <!--COLLEGES-->
                         <div class="input-field col s11">
                             <select id="collegeFilter" name="college">
-                                <option url= {{ route('CollegesController.index', $CCIS) }} selected>All Colleges</option>
+                                <option url= {{ route('CollegesController.index') }} selected>All Colleges</option>
                                 <option url= {{ route('filter.college.CCIS', $CCIS) }} selected value="Computer and Information Sciences">College of Computer and Information Sciences</option>
                                 <option url= {{ route('filter.college.CoEd', $CoEd) }} value="Education">College of Education</option>
                                 <option selected url= {{ route('filter.college.CE', $CE) }} value="Engineering">College of Engineering</option>
@@ -70,21 +70,102 @@
                         </div>
 
                         <!--DEPARTMENTS-->
-                        <div class="input-field col s11">
-                            <select id="departmentFilter" name="department">
-                                <option value="ALL" selected>All Departments</option>
-                                <option value="Computer Engineering">Computer Engineering</option>
-                                <option value="Civil Engineering">Civil Engineering</option>
-                                <option value="Mechanical Engineering">Mechanical Engineering</option>
-                                <option value="Electrical Engineering">Electrical Engineering</option>
-                                <option value="Electronics Engineering">Electronics Engineering</option>
-                                <option value="Industrial Engineering">Industrial Engineering</option>
-                            </select>
-                            <label>Department</label>
-                        </div>
+                        @if(isset( $selectCpE ) )
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CE', $CE) }} value="ALL" selected>All Departments</option>
+                                    <option selected url= {{ route('filter.college.CE.CpE') }} value="Computer Engineering">Computer Engineering</option>
+                                    <option url= {{ route('filter.college.CE.Civil') }} value="Civil Engineering">Civil Engineering</option>
+                                    <option url= {{ route('filter.college.CE.ME') }} value="Mechanical Engineering">Mechanical Engineering</option>
+                                    <option url= {{ route('filter.college.CE.EE') }} value="Electrical Engineering">Electrical Engineering</option>
+                                    <option url= {{ route('filter.college.CE.ECE') }} value="Electronics Engineering">Electronics Engineering</option>
+                                    <option url= {{ route('filter.college.CE.IE') }} value="Industrial Engineering">Industrial Engineering</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @elseif(isset( $selectCivil ))
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CE', $CE) }} value="ALL" selected>All Departments</option>
+                                    <option url= {{ route('filter.college.CE.CpE') }} value="Computer Engineering">Computer Engineering</option>
+                                    <option selected url= {{ route('filter.college.CE.Civil') }} value="Civil Engineering">Civil Engineering</option>
+                                    <option url= {{ route('filter.college.CE.ME') }} value="Mechanical Engineering">Mechanical Engineering</option>
+                                    <option url= {{ route('filter.college.CE.EE') }} value="Electrical Engineering">Electrical Engineering</option>
+                                    <option url= {{ route('filter.college.CE.ECE') }} value="Electronics Engineering">Electronics Engineering</option>
+                                    <option url= {{ route('filter.college.CE.IE') }} value="Industrial Engineering">Industrial Engineering</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @elseif(isset( $selectME ))
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CE', $CE) }} value="ALL" selected>All Departments</option>
+                                    <option url= {{ route('filter.college.CE.CpE') }} value="Computer Engineering">Computer Engineering</option>
+                                    <option url= {{ route('filter.college.CE.Civil') }} value="Civil Engineering">Civil Engineering</option>
+                                    <option selected url= {{ route('filter.college.CE.ME') }} value="Mechanical Engineering">Mechanical Engineering</option>
+                                    <option url= {{ route('filter.college.CE.EE') }} value="Electrical Engineering">Electrical Engineering</option>
+                                    <option url= {{ route('filter.college.CE.ECE') }} value="Electronics Engineering">Electronics Engineering</option>
+                                    <option url= {{ route('filter.college.CE.IE') }} value="Industrial Engineering">Industrial Engineering</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @elseif(isset( $selectEE ))
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CE', $CE) }} value="ALL" selected>All Departments</option>
+                                    <option url= {{ route('filter.college.CE.CpE') }} value="Computer Engineering">Computer Engineering</option>
+                                    <option url= {{ route('filter.college.CE.Civil') }} value="Civil Engineering">Civil Engineering</option>
+                                    <option url= {{ route('filter.college.CE.ME') }} value="Mechanical Engineering">Mechanical Engineering</option>
+                                    <option selected url= {{ route('filter.college.CE.EE') }} value="Electrical Engineering">Electrical Engineering</option>
+                                    <option url= {{ route('filter.college.CE.ECE') }} value="Electronics Engineering">Electronics Engineering</option>
+                                    <option url= {{ route('filter.college.CE.IE') }} value="Industrial Engineering">Industrial Engineering</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @elseif(isset( $selectECE ))
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CE', $CE) }} value="ALL" selected>All Departments</option>
+                                    <option url= {{ route('filter.college.CE.CpE') }} value="Computer Engineering">Computer Engineering</option>
+                                    <option url= {{ route('filter.college.CE.Civil') }} value="Civil Engineering">Civil Engineering</option>
+                                    <option url= {{ route('filter.college.CE.ME') }} value="Mechanical Engineering">Mechanical Engineering</option>
+                                    <option url= {{ route('filter.college.CE.EE') }} value="Electrical Engineering">Electrical Engineering</option>
+                                    <option selected url= {{ route('filter.college.CE.ECE') }} value="Electronics Engineering">Electronics Engineering</option>
+                                    <option url= {{ route('filter.college.CE.IE') }} value="Industrial Engineering">Industrial Engineering</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @elseif(isset( $selectIE ))
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CE', $CE) }} value="ALL" selected>All Departments</option>
+                                    <option url= {{ route('filter.college.CE.CpE') }} value="Computer Engineering">Computer Engineering</option>
+                                    <option url= {{ route('filter.college.CE.Civil') }} value="Civil Engineering">Civil Engineering</option>
+                                    <option url= {{ route('filter.college.CE.ME') }} value="Mechanical Engineering">Mechanical Engineering</option>
+                                    <option url= {{ route('filter.college.CE.EE') }} value="Electrical Engineering">Electrical Engineering</option>
+                                    <option url= {{ route('filter.college.CE.ECE') }} value="Electronics Engineering">Electronics Engineering</option>
+                                    <option selected url= {{ route('filter.college.CE.IE') }} value="Industrial Engineering">Industrial Engineering</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @else
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option selected url= {{ route('filter.college.CE', $CE) }} value="ALL" selected>All Departments</option>
+                                    <option url= {{ route('filter.college.CE.CpE') }} value="Computer Engineering">Computer Engineering</option>
+                                    <option url= {{ route('filter.college.CE.Civil') }} value="Civil Engineering">Civil Engineering</option>
+                                    <option url= {{ route('filter.college.CE.ME') }} value="Mechanical Engineering">Mechanical Engineering</option>
+                                    <option url= {{ route('filter.college.CE.EE') }} value="Electrical Engineering">Electrical Engineering</option>
+                                    <option url= {{ route('filter.college.CE.ECE') }} value="Electronics Engineering">Electronics Engineering</option>
+                                    <option url= {{ route('filter.college.CE.IE') }} value="Industrial Engineering">Industrial Engineering</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @endif
+                        
 
                         <div class="input-field col s5">
-                            <select  id="yearFilter" name="year">
+                            <select disabled id="yearFilter" name="year">
                                 <option selected>All Levels</option>
                                 <option value="1">First Year</option>
                                 <option value="2">Second Year</option>
@@ -98,7 +179,7 @@
                         <div class="input-field col s1">&nbsp</div>
 
                         <div class="input-field col s5">
-                            <select id="sectionFilter" name="section">
+                            <select disabled id="sectionFilter" name="section">
                                 <option value="" selected>All Sections</option>
                                 <option value="1">Section 1</option>
                                 <option value="2">Section 2</option>
@@ -110,12 +191,12 @@
                         </div>
 
                         <div class="input-field col s6">
-                            <input id="icon_prefix" name="age" type="text" class="validate">
+                            <input disabled id="icon_prefix" name="age" type="text" class="validate">
                             <label for="icon_prefix">Age</label>
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="genderFilter" name="gender">
+                            <select disabled id="genderFilter" name="gender">
                                 <option value="" selected>All Genders</option>
                                 <option value="1">Female</option>
                                 <option value="2">Male</option>
@@ -124,7 +205,7 @@
                         </div>
 
                         <div class="input-field col s3">
-                            <select id="yearFilter" name="bday_year">
+                            <select disabled id="yearFilter" name="bday_year">
                                 <option selected disabled>Year</option>
                                 <option value="1993">1993</option>
                                 <option value="1994">1994</option>
@@ -139,7 +220,7 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="monthFilter" name="bday_month">
+                            <select disabled id="monthFilter" name="bday_month">
                                 <option selected disabled>Month</option>
                                 <option data-target="1" value="January">January</option>
                                 <option data-target="2" value="February">February</option>
@@ -158,7 +239,7 @@
                         </div>
 
                         <div class="input-field col s3">
-                            <select id="dayFilter" name="bday_day">
+                            <select disabled id="dayFilter" name="bday_day">
                                 <option selected disabled>Day</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -194,44 +275,6 @@
                             </select>
                             <label>Day</label>
                         </div>
-                        {{-- <div class="col s6"  ><br>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-12 margin-tb">
-                                        @if ( Session::has('success') )
-                                        <div class="alert alert-success alert-dismissible" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                                <span class="sr-only">Close</span>
-                                            </button>
-                                            <strong>{{ Session::get('success') }}</strong>
-                                        </div>
-                                        @endif
-                                                 
-                                        @if ( Session::has('error') )
-                                        <div class="alert alert-danger alert-dismissible" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                                <span class="sr-only">Close</span>
-                                            </button>
-                                            <strong>{{ Session::get('error') }}</strong>
-                                        </div>
-                                        @endif
-                                                        
-                                        @if (count($errors) > 0)
-                                        <div class="alert alert-danger">
-                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                            <div>
-                                                @foreach ($errors->all() as $error)
-                                                <p>{{ $error }}</p>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                        @endif                    
-                                    </div>
-                                </div>       
-                            </div>
-                        </div> --}}
                         <!--ADD STUDENT BUTTON-->
                         <div class="col s12"><hr></div>
                         
@@ -326,40 +369,40 @@
             <div class="card">
                 <div class="card-content row">
                     <!--NAME TABLE-->
-                        <table class="responsive-table striped">
-                            <tr>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Name</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Birthday</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Age</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Gender</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Address</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Department</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Actions</h6></a></th>
-                            </tr>
-                            
-                            @foreach($outputs as $output)  
-                            <tr>
-                                <td class="mr-5 ml-5">{{ $output->last_name }}, {{ $output->first_name }} {{ $output->middle_initial }}.</td>
-                                <td class="mr-5 ml-5">{{ $output->bday_month }} {{ $output->bday_day }}, {{ $output->bday_year }}</td>
-                                <td class="mr-5 ml-5">{{ $output->age }}</td>
-                                <td class="mr-5 ml-5">{{ $output->gender }}</td>
-                                <td class="mr-5 ml-5">{{ $output->address }}</td>
-                                <td class="mr-5 ml-5">{{ $output->department }}</td>
-                                <td class="mr-5 ml-5">{{ $output->year }}</td>
-                                <td class="mr-5 ml-5">Section {{ $output->section }}</td>
-                                <td class="mr-5 ml-5">
-                                    {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
-                                    <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4" data-position="bottom" data-tooltip="View" href="#CCISmodal"><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CCISedit',$output->id) }}"><i class="material-icons">edit</i></a>
-                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </table>
-                    <div>
+                    <table class="responsive-table striped">
+                        <tr>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Name</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Birthday</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Age</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Gender</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Address</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Department</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Actions</h6></a></th>
+                        </tr>
+                        
+                        @foreach($outputs as $output)  
+                        <tr>
+                            <td class="mr-5 ml-5">{{ $output->last_name }}, {{ $output->first_name }} {{ $output->middle_initial }}.</td>
+                            <td class="mr-5 ml-5">{{ $output->bday_month }} {{ $output->bday_day }}, {{ $output->bday_year }}</td>
+                            <td class="mr-5 ml-5">{{ $output->age }}</td>
+                            <td class="mr-5 ml-5">{{ $output->gender }}</td>
+                            <td class="mr-5 ml-5">{{ $output->address }}</td>
+                            <td class="mr-5 ml-5">{{ $output->department }}</td>
+                            <td class="mr-5 ml-5">{{ $output->year }}</td>
+                            <td class="mr-5 ml-5">Section {{ $output->section }}</td>
+                            <td class="mr-5 ml-5">
+                                {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
+                                <!-- Modal Trigger -->
+                                <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4" data-position="bottom" data-tooltip="View" href="#CCISmodal"><i class="material-icons">zoom_in</i></a>
+                                <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CCISedit',$output->id) }}"><i class="material-icons">edit</i></a>
+                                <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </table>
+                    <div style="margin-left:45%">
                         {{ $outputs->links() }}
                     </div>
                 </div>
@@ -369,8 +412,43 @@
     </div>
 </div>
 
-<input type="hidden" name="numberOfCCIS" value="{{ $totalCoEd }}">
-<input type="hidden" name="numberOfTotal" value="{{ $shows + $datas }}">
+@if(isset( $selectCpE ))
+    <input type="hidden" name="numberOfStudent" value="{{ $totalCpE }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalCivil + $totalME + $totalEE + $totalECE + $totalIE}}">
+    <input type="hidden" name="labelLeft" value="Computer Engineering">
+    <input type="hidden" name="labelRight" value="Other Departments">
+@elseif(isset( $selectCivil ))
+    <input type="hidden" name="numberOfStudent" value="{{ $totalCivil }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalCpE + $totalME + $totalEE + $totalECE + $totalIE}}">
+    <input type="hidden" name="labelLeft" value="Civil Engineering">
+    <input type="hidden" name="labelRight" value="Other Departments">
+@elseif(isset( $selectME ))
+    <input type="hidden" name="numberOfStudent" value="{{ $totalME }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalCpE + $totalCivil + $totalEE + $totalECE + $totalIE}}">
+    <input type="hidden" name="labelLeft" value="Mechanical Engineering">
+    <input type="hidden" name="labelRight" value="Other Departments">
+@elseif(isset( $selectEE ))
+    <input type="hidden" name="numberOfStudent" value="{{ $totalEE }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalCpE + $totalCivil + $totalME + $totalECE + $totalIE}}">
+    <input type="hidden" name="labelLeft" value="Electrical Engineering">
+    <input type="hidden" name="labelRight" value="Other Departments">
+@elseif(isset( $selectECE ))
+    <input type="hidden" name="numberOfStudent" value="{{ $totalECE }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalCpE + $totalCivil + $totalEE + $totalME + $totalIE}}">
+    <input type="hidden" name="labelLeft" value="Electronics Engineering">
+    <input type="hidden" name="labelRight" value="Other Departments">
+@elseif(isset( $selectIE ))
+    <input type="hidden" name="numberOfStudent" value="{{ $totalIE }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalCpE + $totalCivil + $totalEE + $totalME + $totalECE}}">
+    <input type="hidden" name="labelLeft" value="Industrial Engineering">
+    <input type="hidden" name="labelRight" value="Other Departments">
+@else
+    <input type="hidden" name="numberOfStudent" value="{{ $totalCE }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $shows + $datas }}">
+    <input type="hidden" name="labelLeft" value="Computer Engineering">
+    <input type="hidden" name="labelRight" value="Other Colleges">
+@endif
+
 
 <div id="modal1" class="modal">
     <div class="modal-content"  style="overflow: hidden;" >
@@ -702,9 +780,15 @@
     });
 </script>
 <script>
-    var totalCCIS = $("input[name='numberOfCCIS']").val();
+    // <input type="hidden" name="numberOfStudent" value="{{ $totalCE }}">
+    // <input type="hidden" name="numberOfTotal" value="{{ $shows + $datas }}">
+    // <input type="hidden" name="labelLeft" value="Computer Engineering">
+    // <input type="hidden" name="labelRight" value="Other Colleges">
+    var totalStudents = $("input[name='numberOfStudent']").val();
     var total = $("input[name='numberOfTotal']").val();
-    // console.log(totalCCIS);
+    var labelLeft = $("input[name='labelLeft']").val();
+    var labelRight = $("input[name='labelRight']").val();
+
     var canvas = document.getElementById("barChart");
     var ctx = canvas.getContext('2d');
     // We are only changing the chart type, so let's make that a global variable along with the chart object:
@@ -716,10 +800,10 @@
     Chart.defaults.global.defaultFontSize = 16;
 
     var data = {
-        labels: ["Engineering", "Other Colleges"],
+        labels: [labelLeft, labelRight],
         datasets: [{
-            label: ' Number of Students',
-            data: [totalCCIS, total],
+            label: ' Number of Student',
+            data: [totalStudents, total],
             backgroundColor: [
                 '#b71c1c',
                 '#0288d1',
@@ -793,6 +877,9 @@
         $("#collegeFilter").on('change', function(){
             window.location.href = $('option:selected', this).attr('url')
           });
+        $("#departmentFilter").on('change', function(){
+            window.location.href = $('option:selected', this).attr('url')
+        });
         
         $("#college").on('change', function(){
             var college = $(this).val();

@@ -70,14 +70,35 @@
                         </div>
 
                         <!--DEPARTMENTS-->
-                        <div class="input-field col s11">
-                            <select id="departmentFilter" name="department">
-                                <option url= {{ route('filter.college.CCIS', $CCIS) }} value="ALL" selected>All Departments</option>
-                                <option url= {{ route('filter.department.CS', $CS) }} value="Computer Science">Computer Science</option>
-                                <option url= {{ route('filter.department.IT', $IT) }} value="Information Technology">Information Technology</option>
-                            </select>
-                            <label>Department</label>
-                        </div>
+                        @if(isset( $selectCS ) )
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CCIS', $CCIS) }} value="ALL" selected>All Departments</option>
+                                    <option selected url= {{ route('filter.department.CS', $CS) }} value="Computer Science">Computer Science</option>
+                                    <option url= {{ route('filter.department.IT', $IT) }} value="Information Technology">Information Technology</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @elseif(isset( $selectIT ))
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CCIS', $CCIS) }} value="ALL" selected>All Departments</option>
+                                    <option url= {{ route('filter.department.CS', $CS) }} value="Computer Science">Computer Science</option>
+                                    <option selected url= {{ route('filter.department.IT', $IT) }} value="Information Technology">Information Technology</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @else
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CCIS', $CCIS) }} value="ALL" selected>All Departments</option>
+                                    <option url= {{ route('filter.department.CS', $CS) }} value="Computer Science">Computer Science</option>
+                                    <option url= {{ route('filter.department.IT', $IT) }} value="Information Technology">Information Technology</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @endif
+                        
 
                         <div class="input-field col s5">
                             <select disabled id="yearFilter" name="year">
@@ -190,44 +211,6 @@
                             </select>
                             <label>Day</label>
                         </div>
-                        {{-- <div class="col s6"  ><br>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-12 margin-tb">
-                                        @if ( Session::has('success') )
-                                        <div class="alert alert-success alert-dismissible" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                                <span class="sr-only">Close</span>
-                                            </button>
-                                            <strong>{{ Session::get('success') }}</strong>
-                                        </div>
-                                        @endif
-                                                 
-                                        @if ( Session::has('error') )
-                                        <div class="alert alert-danger alert-dismissible" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                                <span class="sr-only">Close</span>
-                                            </button>
-                                            <strong>{{ Session::get('error') }}</strong>
-                                        </div>
-                                        @endif
-                                                        
-                                        @if (count($errors) > 0)
-                                        <div class="alert alert-danger">
-                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                            <div>
-                                                @foreach ($errors->all() as $error)
-                                                <p>{{ $error }}</p>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                        @endif                    
-                                    </div>
-                                </div>       
-                            </div>
-                        </div> --}}
                         <!--ADD STUDENT BUTTON-->
                         <div class="col s12"><hr></div>
                         
@@ -259,39 +242,38 @@
                                             <label>Import Excel Spreadsheet to?</label>
                                         </div>
                                         <div class="hiddendiv" id="CEimport">
-                                                <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
-                                                    {{ csrf_field() }}
-                                                    <input type="file" name="file" class="">
-                                                    <br>
-                                                    <div class="center">
-                                                        <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="hiddendiv" id="CoEdimport">
-                                                <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
-                                                    {{ csrf_field() }}
-                                                    <input type="file" name="file" class="">
-                                                    <br>
-                                                    <div class="center">
-                                                        <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="hiddendiv" id="CCISimport">
-                                                <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data">
-                                                    {{ csrf_field() }}
-                                                    <input type="file" name="file" class="">
-                                                    <br>
-                                                    <div class="center">
-                                                        <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                            <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
+                                                {{ csrf_field() }}
+                                                <input type="file" name="file" class="">
+                                                <br>
+                                                <div class="center">
+                                                    <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="hiddendiv" id="CoEdimport">
+                                            <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
+                                                {{ csrf_field() }}
+                                                <input type="file" name="file" class="">
+                                                <br>
+                                                <div class="center">
+                                                    <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="hiddendiv" id="CCISimport">
+                                            <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data">
+                                                {{ csrf_field() }}
+                                                <input type="file" name="file" class="">
+                                                <br>
+                                                <div class="center">
+                                                    <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>    
@@ -322,40 +304,40 @@
             <div class="card">
                 <div class="card-content row">
                     <!--NAME TABLE-->
-                        <table class="responsive-table striped">
-                            <tr>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Name</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Birthday</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Age</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Gender</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Address</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Department</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Actions</h6></a></th>
-                            </tr>
-                            
-                            @foreach($outputs as $output)  
-                            <tr>
-                                <td class="mr-5 ml-5">{{ $output->last_name }}, {{ $output->first_name }} {{ $output->middle_initial }}.</td>
-                                <td class="mr-5 ml-5">{{ $output->bday_month }} {{ $output->bday_day }}, {{ $output->bday_year }}</td>
-                                <td class="mr-5 ml-5">{{ $output->age }}</td>
-                                <td class="mr-5 ml-5">{{ $output->gender }}</td>
-                                <td class="mr-5 ml-5">{{ $output->address }}</td>
-                                <td class="mr-5 ml-5">{{ $output->department }}</td>
-                                <td class="mr-5 ml-5">{{ $output->year }}</td>
-                                <td class="mr-5 ml-5">Section {{ $output->section }}</td>
-                                <td class="mr-5 ml-5">
-                                    {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
-                                    <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4" data-position="bottom" data-tooltip="View" href="#CCISmodal"><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CCISedit',$output->id) }}"><i class="material-icons">edit</i></a>
-                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </table>
-                    <div>
+                    <table class="responsive-table striped">
+                        <tr>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Name</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Birthday</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Age</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Gender</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Address</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Department</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
+                            <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Actions</h6></a></th>
+                        </tr>
+                        
+                        @foreach($outputs as $output)  
+                        <tr>
+                            <td class="mr-5 ml-5">{{ $output->last_name }}, {{ $output->first_name }} {{ $output->middle_initial }}.</td>
+                            <td class="mr-5 ml-5">{{ $output->bday_month }} {{ $output->bday_day }}, {{ $output->bday_year }}</td>
+                            <td class="mr-5 ml-5">{{ $output->age }}</td>
+                            <td class="mr-5 ml-5">{{ $output->gender }}</td>
+                            <td class="mr-5 ml-5">{{ $output->address }}</td>
+                            <td class="mr-5 ml-5">{{ $output->department }}</td>
+                            <td class="mr-5 ml-5">{{ $output->year }}</td>
+                            <td class="mr-5 ml-5">Section {{ $output->section }}</td>
+                            <td class="mr-5 ml-5">
+                                {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
+                                <!-- Modal Trigger -->
+                                <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4" data-position="bottom" data-tooltip="View" href="#CCISmodal"><i class="material-icons">zoom_in</i></a>
+                                <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CCISedit',$output->id) }}"><i class="material-icons">edit</i></a>
+                                <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </table>
+                    <div style="margin-left:45%">
                         {{ $outputs->links() }}
                     </div>
                 </div>
@@ -365,8 +347,24 @@
     </div>
 </div>
 
-<input type="hidden" name="numberOfCCIS" value="{{ $totalCCIS }}">
-<input type="hidden" name="numberOfTotal" value="{{ $shows + $datas }}">
+{{-- Temporary Storage From Controller To Script --}}
+@if(isset( $selectCS ))
+    <input type="hidden" name="numberOfCCIS" value="{{ $totalCS }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalIT }}">
+    <input type="hidden" name="labelLeft" value="Computer Science">
+    <input type="hidden" name="labelRight" value="Other Department">
+@elseif(isset( $selectIT ))
+    <input type="hidden" name="numberOfCCIS" value="{{ $totalIT }}">
+    <input type="hidden" name="numberOfTotal" value="{{  $totalCS }}">
+    <input type="hidden" name="labelLeft" value="Information Technology">
+    <input type="hidden" name="labelRight" value="Other Department">
+@else
+    <input type="hidden" name="numberOfCCIS" value="{{ $totalCCIS }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $shows + $datas }}">
+    <input type="hidden" name="labelLeft" value="Computer and Information Science">
+    <input type="hidden" name="labelRight" value="Other Colleges">
+@endif
+
 
 <div id="modal1" class="modal">
     <div class="modal-content"  style="overflow: hidden;" >
@@ -700,6 +698,8 @@
 <script>
     var totalCCIS = $("input[name='numberOfCCIS']").val();
     var total = $("input[name='numberOfTotal']").val();
+    var labelLeft = $("input[name='labelLeft']").val();
+    var labelRight = $("input[name='labelRight']").val();
     // console.log(totalCCIS);
     var canvas = document.getElementById("barChart");
     var ctx = canvas.getContext('2d');
@@ -712,7 +712,7 @@
     Chart.defaults.global.defaultFontSize = 16;
 
     var data = {
-        labels: ["Computer and Information Science", "Other Colleges"],
+        labels: [labelLeft, labelRight],
         datasets: [{
             label: ' Number of Students',
             data: [totalCCIS, total],
