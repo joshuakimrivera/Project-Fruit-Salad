@@ -50,7 +50,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
              <div class="form-group">
                  <strong>Address:</strong>
-                <input type="text" name="adress" value="{{ $data->address }}" class="form-control">
+                <input type="text" name="address" value="{{ $data->address }}" class="form-control">
             </div>
         </div> 
 

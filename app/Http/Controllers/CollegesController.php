@@ -26,12 +26,14 @@ class CollegesController extends Controller
         $totalCE = CollegeOfEngineerings::where('college', 'like', "%$CE%")
                         ->count();
         
-        $shows = CollegeOfEngineerings::latest()->simplePaginate(5);
-        $datas = CollegeOfEducations::latest()->simplePaginate(5);
-        $outputs = CollegeOfComputerAndInformationSciences::latest()->simplePaginate(5);
-        $total = CollegeOfEngineerings::union($outputs, $datas);
-        return $total;
-    //    return $shows;
+        $shows = CollegeOfEngineerings::latest()->Paginate(2);
+        $datas = CollegeOfEducations::latest()->Paginate(2);
+        $outputs = CollegeOfComputerAndInformationSciences::latest()->Paginate(1);
+        // $total = CollegeOfEngineerings::join('college_of_engineerings', 'college_of_engineerings.college', 'college_of_educations.college')
+        // ->where('college', 'like', "%$CE%")
+        // ->orWhere('college', 'like', "%$CoEd%")
+        // ->count();
+        // return $total;
        return view('index', compact(
            'shows',
             'datas',
@@ -69,10 +71,13 @@ class CollegesController extends Controller
         
     }
 
-    public function filterCollegebyCCIS($CCIS) {
+    public function filterCoEdDepartmentCS($CS) {
+        return "cs";
         $CCIS = "Computer and Information Science";
         $CoEd = "Education";
         $CE = "Engineering";
+        $IT = "Information Technology";
+        $CS = "Computer Science";
         $outputs = CollegeOfComputerAndInformationSciences::latest()->simplePaginate(5);
         $shows = CollegeOfEngineerings::latest()->count();
         $datas = CollegeOfEducations::latest()->count();
@@ -85,7 +90,58 @@ class CollegesController extends Controller
             'outputs',
             'CCIS',
             'CoEd',
-            'CE'
+            'CE',
+            'IT',
+            'CS'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCoEdDepartmentIT($IT) {
+        return "it";
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $IT = "Information Technology";
+        $CS = "Computer Science";
+        $outputs = CollegeOfComputerAndInformationSciences::latest()->simplePaginate(5);
+        $shows = CollegeOfEngineerings::latest()->count();
+        $datas = CollegeOfEducations::latest()->count();
+        $totalCCIS = CollegeOfComputerAndInformationSciences::where('college', 'like', "%$CCIS%")
+                        ->count();
+       return view('CollegeOfComputerAndInformationScience.filterResult', compact(
+            'totalCCIS', 
+            'shows', 
+            'datas', 
+            'outputs',
+            'CCIS',
+            'CoEd',
+            'CE',
+            'IT',
+            'CS'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCollegebyCCIS($CCIS) {
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $IT = "Information Technology";
+        $CS = "Computer Science";
+        $outputs = CollegeOfComputerAndInformationSciences::latest()->simplePaginate(5);
+        $shows = CollegeOfEngineerings::latest()->count();
+        $datas = CollegeOfEducations::latest()->count();
+        $totalCCIS = CollegeOfComputerAndInformationSciences::where('college', 'like', "%$CCIS%")
+                        ->count();
+       return view('CollegeOfComputerAndInformationScience.filterResult', compact(
+            'totalCCIS', 
+            'shows', 
+            'datas', 
+            'outputs',
+            'CCIS',
+            'CoEd',
+            'CE',
+            'IT',
+            'CS'
         ));  //calls the blade file with the value stored in $shows
     }
 

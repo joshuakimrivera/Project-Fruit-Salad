@@ -18,7 +18,6 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::get('/College-of-Engineering/sort-by-age', 'CollegesController@CEsortingOfAges')->name('CE.sortingOfAge');
     Route::get('/College-of-Engineering/sort-by-gender', 'CollegesController@CEsortingOfGenders')->name('CE.sortingOfGender');
     Route::get('/filtered-by-CCIS/{CCIS}', 'CollegesController@filterCollegebyCCIS')->name('filter.college.CCIS');
-    Route::get('/filtered-by-CoEd/{CoEd}', 'CollegesController@filterCollegebyCoEd')->name('filter.college.CoEd');
     Route::get('/filtered-by-CE/{CE}', 'CollegesController@filterCollegebyCE')->name('filter.college.CE');
     Route::post('/add-student-information', 'CollegesController@addStudent')->name('CollegesController.addStudent');
 
@@ -32,6 +31,9 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::get('/show/College-of-Education/{id}', 'CollegesController@CoEdshow')->name('CollegesController.CoEdshow');
     Route::post('/search/College-of-Education', 'CollegesController@CoEdsearch')->name('CollegesController.CoEdsearch');
     Route::post('/College-of-Education/import', 'CollegesController@CoEdimport')->name('CoEdimport');
+    Route::get('/filtered-by-CoEd/{CoEd}', 'CollegesController@filterCollegebyCoEd')->name('filter.college.CoEd');
+    Route::get('/filtered-by-CoEd/department/{CS}', 'CollegesController@filterCoEdDepartmentCS')->name('filter.department.CS');
+    Route::get('/filtered-by-CoEd/department/{IT}', 'CollegesController@filterCoEdDepartmentIT')->name('filter.department.IT');
 
     //College of Computer and Information Sciences Routes
     Route::get('/add/College-of-Computer-and-Information-Sciences', 'CollegesController@CCISadd')->name('CollegesController.CCISadd');

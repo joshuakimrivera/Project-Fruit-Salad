@@ -69,31 +69,15 @@
                             <label>College</label>
                         </div>
                         <!--DEPARTMENTS-->
-                        <div class="input-field col s11">
-                            <select id="departmentFilter" name="department">
-                                <option value="ALL" selected>All Departments</option>
-                                <option value="Computer Science">Computer Science</option>
-                                <option value="Information Technology">Information Technology</option>
-                                <option value="Business Teacher Education">Business Teacher Education</option>
-                                <option value="Library and Information Science">Library and Information Science</option>
-                                <option value="Elementary Education">Elementary Education</option>
-                                <option value="Secondary Education major in English">Secondary Education Major in English</option>
-                                <option value="Secondary Education major in Filipino">Secondary Education Major in Filipino</option>
-                                <option value="Secondary Education major in Mathematics">Secondary Education Major in Mathematics</option>
-                                <option value="Secondary Education major in Social Studies">Secondary Education Major in Social Studies</option>
-                                <option value="Computer Engineering">Computer Engineering</option>
-                                <option value="Civil Engineering">Civil Engineering</option>
-                                <option value="Mechanical Engineering">Mechanical Engineering</option>
-                                <option value="Electrical Engineering">Electrical Engineering</option>
-                                <option value="Electronics Engineering">Electronics Engineering</option>
-                                <option value="Industrial Engineering">Industrial Engineering</option>
-                                <option value="Architecture">Architecture</option>
+                        <div id="dept" class="input-field col s11">
+                            <select disabled name="department">
+                                <option value="ALL" selected>Select College first</option>
                             </select>
                             <label>Department</label>
                         </div>
 
                         <div class="input-field col s5">
-                            <select  id="yearFilter" name="year">
+                            <select disabled id="yearFilter" name="year">
                                 <option selected>All Levels</option>
                                 <option value="1">First Year</option>
                                 <option value="2">Second Year</option>
@@ -107,7 +91,7 @@
                         <div class="input-field col s1">&nbsp</div>
 
                         <div class="input-field col s5">
-                            <select id="sectionFilter" name="section">
+                            <select disabled id="sectionFilter" name="section">
                                 <option value="" selected>All Sections</option>
                                 <option value="1">Section 1</option>
                                 <option value="2">Section 2</option>
@@ -119,12 +103,12 @@
                         </div>
 
                         <div class="input-field col s6">
-                            <input id="icon_prefix" name="age" type="text" class="validate">
+                            <input disabled id="icon_prefix" name="age" type="text" class="validate">
                             <label for="icon_prefix">Age</label>
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="genderFilter" name="gender">
+                            <select disabled id="genderFilter" name="gender">
                                 <option value="" selected>All Genders</option>
                                 <option value="1">Female</option>
                                 <option value="2">Male</option>
@@ -133,7 +117,7 @@
                         </div>
 
                         <div class="input-field col s3">
-                            <select id="yearFilter" name="bday_year">
+                            <select disabled id="yearFilter" name="bday_year">
                                 <option selected disabled>Year</option>
                                 <option value="1993">1993</option>
                                 <option value="1994">1994</option>
@@ -148,7 +132,7 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="monthFilter" name="bday_month">
+                            <select disabled id="monthFilter" name="bday_month">
                                 <option selected disabled>Month</option>
                                 <option data-target="1" value="January">January</option>
                                 <option data-target="2" value="February">February</option>
@@ -167,7 +151,7 @@
                         </div>
 
                         <div class="input-field col s3">
-                            <select id="dayFilter" name="bday_day">
+                            <select disabled id="dayFilter" name="bday_day">
                                 <option selected disabled>Day</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -405,10 +389,8 @@
                             </tr>
                             @endforeach
                         </table>
-                    <div>
+                    <div style="margin-left:45%">
                         {{ $shows->links() }}
-                        {{ $datas->links() }}
-                        {{ $outputs->links() }}
                     </div>
                 </div>
             </div>

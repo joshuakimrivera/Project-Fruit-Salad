@@ -73,22 +73,12 @@
                         <div class="input-field col s11">
                             <select id="departmentFilter" name="department">
                                 <option value="ALL" selected>All Departments</option>
-                                <option value="Computer Science">Computer Science</option>
-                                <option value="Information Technology">Information Technology</option>
-                                <option value="Business Teacher Education">Business Teacher Education</option>
-                                <option value="Library and Information Science">Library and Information Science</option>
-                                <option value="Elementary Education">Elementary Education</option>
-                                <option value="Secondary Education major in English">Secondary Education Major in English</option>
-                                <option value="Secondary Education major in Filipino">Secondary Education Major in Filipino</option>
-                                <option value="Secondary Education major in Mathematics">Secondary Education Major in Mathematics</option>
-                                <option value="Secondary Education major in Social Studies">Secondary Education Major in Social Studies</option>
                                 <option value="Computer Engineering">Computer Engineering</option>
                                 <option value="Civil Engineering">Civil Engineering</option>
                                 <option value="Mechanical Engineering">Mechanical Engineering</option>
                                 <option value="Electrical Engineering">Electrical Engineering</option>
                                 <option value="Electronics Engineering">Electronics Engineering</option>
                                 <option value="Industrial Engineering">Industrial Engineering</option>
-                                <option value="Architecture">Architecture</option>
                             </select>
                             <label>Department</label>
                         </div>
