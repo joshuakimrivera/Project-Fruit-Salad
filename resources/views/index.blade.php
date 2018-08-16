@@ -9,15 +9,6 @@
     </style>
 @endsection
 @section('content')
-<!-- Preloader and it's background. -->
-<div class="preloader-background">
-    <div class="preloader-wrapper big active">
-      
-          
-        </div>
-      
-      <img src="img/preloader.gif" alt="">
-    </div>
 <!--NAVIGATIONAL STRUCTURES -->
 <!-- NAV BAR HEADER -->
 <nav>
@@ -247,9 +238,10 @@
                             <a class="waves-effect waves-light btn-floating btn-large modal-trigger tooltipped z-depth-2" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a>
 
                             <!-- Modal Structure -->
-                            <div id="modal2" class="modal" style="height: 350px; overflow: hidden;">
+                            <div id="modal2" class="modal scale-transition" style="height: 350px; overflow: hidden;">
 
                                 <div class="modal-content">
+                                        <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
                                     <h4 class="center">Import Excel Spreadsheet</h4>
                                     <hr>
                                     <br>
@@ -415,7 +407,7 @@
 <input type="hidden" name="numberOfCoEd" value="{{ $totalCoEd }}">
 <input type="hidden" name="numberOfCE" value="{{ $totalCE }}">
 
-<div id="modal1" class="modal">
+<div id="modal1" class="modal scale-transition">
     <div class="modal-content"  style="overflow: hidden;" >
         <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
         <div class="form-group container">
@@ -938,17 +930,4 @@
         })
     });
 </script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function(){
-      $('.preloader-background').delay(1700).fadeOut('slow');
-      $('.preloader-wrapper')
-      .delay(1700)
-      .animate({
-        left: '250px',
-        height: '+=150px',
-        width: '+=150px'
-    });
-});
-  </script>
 @endsection
