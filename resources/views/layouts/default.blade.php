@@ -27,8 +27,8 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          background-color: #eee;
-          position: absolute;
+          background-color: #ffffff;
+          position: fixed;
           z-index: 999;
           top: 0;
           left: 0;
@@ -60,14 +60,11 @@
 </body>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--}}
-    <script
-src="https://code.jquery.com/jquery-3.3.1.js"
-integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
   
-    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
+    {{--<script src="{{ asset('js/bootstrap.min.js') }}"></script>--}}
     <script src="{{ asset('js/materialize.js') }}"></script>
     {{--<script src="{{ asset('js/materialize.min.js') }}"></script>--}}
     <script src="{{ asset('js/plugins/chartsJS/chart1.bundle.min.js') }}"></script>

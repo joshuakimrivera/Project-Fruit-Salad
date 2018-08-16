@@ -12,47 +12,11 @@
 <!-- Preloader and it's background. -->
 <div class="preloader-background">
     <div class="preloader-wrapper big active">
-          <div class="spinner-layer spinner-blue">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div><div class="gap-patch">
-              <div class="circle"></div>
-            </div><div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-    
-          <div class="spinner-layer spinner-red">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div><div class="gap-patch">
-              <div class="circle"></div>
-            </div><div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-    
-          <div class="spinner-layer spinner-yellow">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div><div class="gap-patch">
-              <div class="circle"></div>
-            </div><div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-    
-          <div class="spinner-layer spinner-green">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div><div class="gap-patch">
-              <div class="circle"></div>
-            </div><div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
+      
+          
         </div>
-      <p class="blinking loding">&nbsp Loading<br>Please Wait....</p>
+      
+      <img src="img/preloader.gif" alt="">
     </div>
 <!--NAVIGATIONAL STRUCTURES -->
 <!-- NAV BAR HEADER -->
@@ -980,7 +944,11 @@
       $('.preloader-background').delay(1700).fadeOut('slow');
       $('.preloader-wrapper')
       .delay(1700)
-      .fadeOut();
+      .animate({
+        left: '250px',
+        height: '+=150px',
+        width: '+=150px'
+    });
 });
   </script>
 @endsection
