@@ -9,7 +9,6 @@
     </style>
 @endsection
 @section('content')
-
 <!--NAVIGATIONAL STRUCTURES -->
 <!-- NAV BAR HEADER -->
 <nav>
@@ -17,7 +16,7 @@
         <nav>
           <div class="nav-wrapper red darken-4">
               <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons white-text">menu</i></button>
-                <a href="#!" class="brand-logo white-text"><i class="large material-icons" style="font-size: 48px;">insert_chart</i> PupStats</a>
+                <a href="#!" class="brand-logo white-text"><i class="large material-icons" style="font-size: 48px;">equalizer</i> PupStats</a>
                 <ul class="right hide-on-med-and-down">
                 </ul>
           </div>
@@ -229,24 +228,25 @@
                         <div class="col s12"><hr></div>
                         
                         <div class="col s3">
-                            <a href="#modal1" data-tooltip="Add Student" class="tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a>
+                            <a href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a>
                         </div>
                         <div class="col s9">
                             
                                 <!--EXCEL FILE UPLOAD STRUCTURE -->
 
                             <!-- Modal Trigger -->
-                            <a class="waves-effect waves-light btn-floating btn-large modal-trigger tooltipped" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a>
+                            <a class="waves-effect waves-light btn-floating btn-large modal-trigger tooltipped z-depth-2" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a>
 
                             <!-- Modal Structure -->
-                            <div id="modal2" class="modal" style="height: 350px; overflow: hidden;">
+                            <div id="modal2" class="modal scale-transition" style="height: 350px; overflow: hidden;">
 
                                 <div class="modal-content">
+                                        <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
                                     <h4 class="center">Import Excel Spreadsheet</h4>
                                     <hr>
                                     <br>
                                     <div class="container">
-                                        <div class="input-field">
+                                        <div class="input-field ">
                                             <select name="import" id="import">
                                                 <option selected disabled>Choose a Department</option>
                                                 <option value="CE">Import in College of Engineering</option>
@@ -256,9 +256,10 @@
                                             <label>Import Excel Spreadsheet to?</label>
                                         </div>
                                         <div class="hiddendiv" id="CEimport">
-                                                <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data">
+                                                <form action="{{ route('CEimport') }}" method="POST" enctype="multipart/form-data" onsubmit="loading()">
                                                     {{ csrf_field() }}
-                                                    <input type="file" name="file" class="">
+                                                    
+                                                    <input type="file" name="file">
                                                     <br>
                                                     <div class="center">
                                                         <button type="submit" value="Submit Excel" class=" btn-large orange accent-3"><i class="material-icons">send</i></button>
@@ -266,7 +267,7 @@
                                                 </form>
                                             </div>
                                             <div class="hiddendiv" id="CoEdimport">
-                                                <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data">
+                                                <form action="{{ route('CoEdimport') }}" method="POST" enctype="multipart/form-data" onsubmit="loading()">
                                                     {{ csrf_field() }}
                                                     <input type="file" name="file" class="">
                                                     <br>
@@ -276,7 +277,7 @@
                                                 </form>
                                             </div>
                                             <div class="hiddendiv" id="CCISimport">
-                                                <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data">
+                                                <form action="{{ route('CCISimport') }}" method="POST" enctype="multipart/form-data" onsubmit="loading()">
                                                     {{ csrf_field() }}
                                                     <input type="file" name="file" class="">
                                                     <br>
@@ -285,6 +286,10 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                    </div>
+                                    <div id="lod" class="progress center" style="visibility: hidden;">
+                                        <div class="indeterminate"></div>
+                                        <h8> Sending email</h8>
                                     </div>
                                 </div>
                             </div>
@@ -298,8 +303,19 @@
         <div class="col s8">
             <div class="card josh z-depth-4">
                 <div class="card-content row">
-                    <div class="col s7">&nbsp</div>
-                        <div class="input-field col s5">
+                    <div class="col s5">
+                            <hr>
+                            <button id="rivera" type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Bar Graph" onclick="toggleChart('bar')"><i class="material-icons">equalizer</i></button>
+                            <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Line Graph" onclick="toggleChart('line')"><i class="material-icons">timeline</i></button>
+                            <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Radar Chart" onclick="toggleChart('radar')"><i class="material-icons">navigation</i></button>
+                            <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Donut Chart" onclick="toggleChart('doughnut')"><i class="material-icons">donut_large</i></button>
+                            <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Pie Chart" onclick="toggleChart('pie')"><i class="material-icons">pie_chart</i></button>
+                            <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Polar Area" onclick="toggleChart('polarArea')"><i class="material-icons">track_changes</i></button>
+                        <hr>
+                    </div>
+                    <div><canvas id="barChart" height="150%"></canvas></div>
+                    
+                        {{--<div class="input-field col s5">
                             <select id="mySelect" onchange="toggleChart();">
                                 <option value="bar"  selected>Default: Bar</option>
                                 <option value="line">Line</option>
@@ -309,8 +325,9 @@
                                 <option value="polarArea">Polar Area</option>
                             </select>
                             <label>Chart Type</label>
-                        </div>
-                    <canvas id="barChart" height="150%"></canvas>
+                        </div>--}}
+                       
+                    
                 </div>
             </div>
         </div>
@@ -403,7 +420,7 @@
 <input type="hidden" name="numberOfCoEd" value="{{ $totalCoEd }}">
 <input type="hidden" name="numberOfCE" value="{{ $totalCE }}">
 
-<div id="modal1" class="modal">
+<div id="modal1" class="modal scale-transition">
     <div class="modal-content"  style="overflow: hidden;" >
         <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
         <div class="form-group container">
@@ -436,6 +453,9 @@
                     </div>
                 </div>
                 <hr>
+                <br>
+                
+                <br>
                 <br>
                  <div>
                     <div class="input-field row form-group">
@@ -690,6 +710,7 @@
 </div>
 <!-- END OF MAIN CONTAINER -->
 
+
 @endsection
 
 
@@ -737,6 +758,14 @@
     });
 </script>
 <script>
+    function loading(){
+        document.getElementById("CCISimport").style.visibility='hidden'
+        document.getElementById("CoEdimport").style.visibility='hidden'
+        document.getElementById("CEimport").style.visibility='hidden'
+        document.getElementById("lod").style.visibility='visible';
+    }
+</script>
+<script>
     var totalCCIS = $("input[name='numberOfCCIS']").val();
     var totalCoEd = $("input[name='numberOfCoEd']").val();
     var totalCE = $("input[name='numberOfCE']").val();
@@ -744,12 +773,12 @@
     var canvas = document.getElementById("barChart");
     var ctx = canvas.getContext('2d');
     // We are only changing the chart type, so let's make that a global variable along with the chart object:
-    var chartType = document.getElementById("mySelect").value;;
+    var chartType = 'bar';
     var myBarChart;
 
     // Global Options:
     Chart.defaults.global.defaultFontColor = 'black';
-    Chart.defaults.global.defaultFontSize = 16;
+    Chart.defaults.global.defaultFontSize = 18;
 
     var data = {
         labels: ["CE", "COED", "CCIS"],
@@ -757,16 +786,16 @@
             label: ' Number of students in this College',
             data: [totalCE, totalCoEd, totalCCIS],
             backgroundColor: [
-                '#b71c1c',
-                '#0288d1',
+                '#00b2b8',
+                '#880044',
                 '#311b92',
                 '#ffff00',
                 '#1b5e20',
                 '#ff9800'
             ],
             borderColor: [
-                '#b71c1c',
-                '#0288d1',
+                '#00b2b8',
+                '#880044',
                 '#311b92',
                 '#ffff00',
                 '#1b5e20',
@@ -788,7 +817,7 @@
         title: {
             fontSize: 18,
             display: true,
-            text: 'CHART - TITLE',
+            text: 'PUP Statistics ',
             position: 'bottom'
         },
         animation: {
@@ -811,12 +840,14 @@
         });
     }
 
-    function toggleChart() {
+    function toggleChart(chval) {
     //destroy chart:
+    var newt = chval;
     myBarChart.destroy();
     //change chart type: 
-    this.chartType = document.getElementById("mySelect").value;
+    this.chartType = newt;
     //restart chart:
+    
     init();
     }
 </script>
@@ -912,6 +943,11 @@
                 break;
             }
         })
+    });
+</script>
+<script>
+    jQuery(function(){
+        jQuery('#rivera').click();
     });
 </script>
 @endsection
