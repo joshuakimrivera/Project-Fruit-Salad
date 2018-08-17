@@ -70,36 +70,151 @@
                         </div>
 
                         <!--DEPARTMENTS-->
-                        <div class="input-field col s11">
-                            <select id="departmentFilter" name="department">
-                                <option value="All">All Department</option>
-                                <option value="Business Teacher Education">Business Teacher Education</option>
-                                <option value="Library and Information Science">Library and Information Science</option>
-                                <option value="Elementary Education">Elementary Education</option>
-                                <option value="Secondary Education major in English">Secondary Education Major in English</option>
-                                <option value="Secondary Education major in Filipino">Secondary Education Major in Filipino</option>
-                                <option value="Secondary Education major in Mathematics">Secondary Education Major in Mathematics</option>
-                                <option value="Secondary Education major in Social Studies">Secondary Education Major in Social Studies</option>
-                            </select>
-                            <label>Department</label>
-                        </div>
-
-                        <div class="input-field col s5">
-                            <select  id="yearFilter" name="year">
-                                <option selected>All Levels</option>
-                                <option value="1">First Year</option>
-                                <option value="2">Second Year</option>
-                                <option value="3">Third Year</option>
-                                <option value="4">Fourth Year</option>
-                                <option value="5">Fifth Year</option>
-                            </select>
-                            <label>Year Level</label>
-                        </div>
+                        @if(isset( $selectBTE ) )
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option selected url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
+                                    <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
+                                    <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
+                                    <option url= {{ route('filter.college.CoEd.SEME') }} value="Secondary Education major in English">Secondary Education Major in English</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMF') }} value="Secondary Education major in Filipino">Secondary Education Major in Filipino</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMM') }} value="Secondary Education major in Mathematics">Secondary Education Major in Mathematics</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMSS') }} value="Secondary Education major in Social Studies">Secondary Education Major in Social Studies</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @elseif(isset( $selectLIS ))
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
+                                    <option selected url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
+                                    <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
+                                    <option url= {{ route('filter.college.CoEd.SEME') }} value="Secondary Education major in English">Secondary Education Major in English</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMF') }} value="Secondary Education major in Filipino">Secondary Education Major in Filipino</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMM') }} value="Secondary Education major in Mathematics">Secondary Education Major in Mathematics</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMSS') }} value="Secondary Education major in Social Studies">Secondary Education Major in Social Studies</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @elseif(isset( $selectEE ))
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
+                                    <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
+                                    <option selected url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
+                                    <option url= {{ route('filter.college.CoEd.SEME') }} value="Secondary Education major in English">Secondary Education Major in English</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMF') }} value="Secondary Education major in Filipino">Secondary Education Major in Filipino</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMM') }} value="Secondary Education major in Mathematics">Secondary Education Major in Mathematics</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMSS') }} value="Secondary Education major in Social Studies">Secondary Education Major in Social Studies</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @elseif(isset( $selectSEME ))
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
+                                    <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
+                                    <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
+                                    <option selected url= {{ route('filter.college.CoEd.SEME') }} value="Secondary Education major in English">Secondary Education Major in English</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMF') }} value="Secondary Education major in Filipino">Secondary Education Major in Filipino</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMM') }} value="Secondary Education major in Mathematics">Secondary Education Major in Mathematics</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMSS') }} value="Secondary Education major in Social Studies">Secondary Education Major in Social Studies</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @elseif(isset( $selectSEMF ))
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
+                                    <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
+                                    <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
+                                    <option url= {{ route('filter.college.CoEd.SEME') }} value="Secondary Education major in English">Secondary Education Major in English</option>
+                                    <option selected url= {{ route('filter.college.CoEd.SEMF') }} value="Secondary Education major in Filipino">Secondary Education Major in Filipino</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMM') }} value="Secondary Education major in Mathematics">Secondary Education Major in Mathematics</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMSS') }} value="Secondary Education major in Social Studies">Secondary Education Major in Social Studies</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @elseif(isset( $selectSEMM ))
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
+                                    <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
+                                    <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
+                                    <option url= {{ route('filter.college.CoEd.SEME') }} value="Secondary Education major in English">Secondary Education Major in English</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMF') }} value="Secondary Education major in Filipino">Secondary Education Major in Filipino</option>
+                                    <option selected url= {{ route('filter.college.CoEd.SEMM') }} value="Secondary Education major in Mathematics">Secondary Education Major in Mathematics</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMSS') }} value="Secondary Education major in Social Studies">Secondary Education Major in Social Studies</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @elseif(isset( $selectSEMSS ))
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
+                                    <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
+                                    <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
+                                    <option url= {{ route('filter.college.CoEd.SEME') }} value="Secondary Education major in English">Secondary Education Major in English</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMF') }} value="Secondary Education major in Filipino">Secondary Education Major in Filipino</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMM') }} value="Secondary Education major in Mathematics">Secondary Education Major in Mathematics</option>
+                                    <option selected url= {{ route('filter.college.CoEd.SEMSS') }} value="Secondary Education major in Social Studies">Secondary Education Major in Social Studies</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @else
+                            <div class="input-field col s11">
+                                <select id="departmentFilter" name="department">
+                                    <option selected url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
+                                    <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
+                                    <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
+                                    <option url= {{ route('filter.college.CoEd.SEME') }} value="Secondary Education major in English">Secondary Education Major in English</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMF') }} value="Secondary Education major in Filipino">Secondary Education Major in Filipino</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMM') }} value="Secondary Education major in Mathematics">Secondary Education Major in Mathematics</option>
+                                    <option url= {{ route('filter.college.CoEd.SEMSS') }} value="Secondary Education major in Social Studies">Secondary Education Major in Social Studies</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                        @endif
+                        
+                        {{-- Year --}}
+                        @if(isset( $selectBTE ) || isset( $selectLIS ) || isset( $selectEE ) || isset($selectSEME) || isset($selectSEMF) || isset($selectSEMM) || isset($selectSEMSS))
+                            <div class="input-field col s5">
+                                <select id="yearFilter" name="year">
+                                    <option selected>All Levels</option>
+                                    <option value="1">First Year</option>
+                                    <option value="2">Second Year</option>
+                                    <option value="3">Third Year</option>
+                                    <option value="4">Fourth Year</option>
+                                    <option value="5">Fifth Year</option>
+                                </select>
+                                <label>Year Level</label>
+                            </div>
+                        @else
+                            <div class="input-field col s5">
+                                <select disabled id="yearFilter" name="year">
+                                    <option selected>All Levels</option>
+                                    <option value="1">First Year</option>
+                                    <option value="2">Second Year</option>
+                                    <option value="3">Third Year</option>
+                                    <option value="4">Fourth Year</option>
+                                    <option value="5">Fifth Year</option>
+                                </select>
+                                <label>Year Level</label>
+                            </div>
+                        @endif
 
                         <div class="input-field col s1">&nbsp</div>
 
                         <div class="input-field col s5">
-                            <select id="sectionFilter" name="section">
+                            <select disabled id="sectionFilter" name="section">
                                 <option value="" selected>All Sections</option>
                                 <option value="1">Section 1</option>
                                 <option value="2">Section 2</option>
@@ -111,12 +226,12 @@
                         </div>
 
                         <div class="input-field col s6">
-                            <input id="icon_prefix" name="age" type="text" class="validate">
+                            <input disabled id="icon_prefix" name="age" type="text" class="validate">
                             <label for="icon_prefix">Age</label>
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="genderFilter" name="gender">
+                            <select disabled id="genderFilter" name="gender">
                                 <option value="" selected>All Genders</option>
                                 <option value="1">Female</option>
                                 <option value="2">Male</option>
@@ -125,7 +240,7 @@
                         </div>
 
                         <div class="input-field col s3">
-                            <select id="yearFilter" name="bday_year">
+                            <select disabled id="yearFilter" name="bday_year">
                                 <option selected disabled>Year</option>
                                 <option value="1993">1993</option>
                                 <option value="1994">1994</option>
@@ -140,7 +255,7 @@
                         </div>
 
                         <div class="input-field col s5">
-                            <select id="monthFilter" name="bday_month">
+                            <select disabled id="monthFilter" name="bday_month">
                                 <option selected disabled>Month</option>
                                 <option data-target="1" value="January">January</option>
                                 <option data-target="2" value="February">February</option>
@@ -159,7 +274,7 @@
                         </div>
 
                         <div class="input-field col s3">
-                            <select id="dayFilter" name="bday_day">
+                            <select disabled id="dayFilter" name="bday_day">
                                 <option selected disabled>Day</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -195,44 +310,6 @@
                             </select>
                             <label>Day</label>
                         </div>
-                        {{-- <div class="col s6"  ><br>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-12 margin-tb">
-                                        @if ( Session::has('success') )
-                                        <div class="alert alert-success alert-dismissible" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                                <span class="sr-only">Close</span>
-                                            </button>
-                                            <strong>{{ Session::get('success') }}</strong>
-                                        </div>
-                                        @endif
-                                                 
-                                        @if ( Session::has('error') )
-                                        <div class="alert alert-danger alert-dismissible" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                                <span class="sr-only">Close</span>
-                                            </button>
-                                            <strong>{{ Session::get('error') }}</strong>
-                                        </div>
-                                        @endif
-                                                        
-                                        @if (count($errors) > 0)
-                                        <div class="alert alert-danger">
-                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                            <div>
-                                                @foreach ($errors->all() as $error)
-                                                <p>{{ $error }}</p>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                        @endif                    
-                                    </div>
-                                </div>       
-                            </div>
-                        </div> --}}
                         <!--ADD STUDENT BUTTON-->
                         <div class="col s12"><hr></div>
                         
@@ -388,8 +465,47 @@
     </div>
 </div>
 
-<input type="hidden" name="numberOfCCIS" value="{{ $totalCoEd }}">
-<input type="hidden" name="numberOfTotal" value="{{ $shows + $datas }}">
+@if(isset( $selectBTE ))
+    <input type="hidden" name="numberOfStudent" value="{{ $totalBTE }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalBTE }}">
+    <input type="hidden" name="labelLeft" value="Business Teacher Education">
+    <input type="hidden" name="labelRight" value="Other Departments">
+@elseif(isset( $selectLIS ))
+    <input type="hidden" name="numberOfStudent" value="{{ $totalLIS }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalLIS }}">
+    <input type="hidden" name="labelLeft" value="Library Information Science">
+    <input type="hidden" name="labelRight" value="Other Departments">
+@elseif(isset( $selectEE ))
+    <input type="hidden" name="numberOfStudent" value="{{ $totalEE }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalEE }}">
+    <input type="hidden" name="labelLeft" value="Elementary Education">
+    <input type="hidden" name="labelRight" value="Other Departments">
+@elseif(isset( $selectSEME ))
+    <input type="hidden" name="numberOfStudent" value="{{ $totalSEME }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalSEME }}">
+    <input type="hidden" name="labelLeft" value="Secondary Education Major in English">
+    <input type="hidden" name="labelRight" value="Other Departments">
+@elseif(isset( $selectSEMF ))
+    <input type="hidden" name="numberOfStudent" value="{{ $totalSEMF }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalSEMF }}">
+    <input type="hidden" name="labelLeft" value="Secondary Education Major in Filipino">
+    <input type="hidden" name="labelRight" value="Other Departments">
+@elseif(isset( $selectSEMM ))
+    <input type="hidden" name="numberOfStudent" value="{{ $totalSEMM }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalSEMM }}">
+    <input type="hidden" name="labelLeft" value="Secondary Education Major in Mathematics">
+    <input type="hidden" name="labelRight" value="Other Departments">
+@elseif(isset( $selectSEMSS ))
+    <input type="hidden" name="numberOfStudent" value="{{ $totalSEMSS }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalSEMSS }}">
+    <input type="hidden" name="labelLeft" value="Sec Educ Major in Social Studies">
+    <input type="hidden" name="labelRight" value="Other Departments">
+@else
+    <input type="hidden" name="numberOfStudent" value="{{ $totalCoEd }}">
+    <input type="hidden" name="numberOfTotal" value="{{ $shows + $datas }}">
+    <input type="hidden" name="labelLeft" value="College of Education">
+    <input type="hidden" name="labelRight" value="Other Colleges">
+@endif
 
 <div id="modal1" class="modal">
     <div class="modal-content"  style="overflow: hidden;" >
@@ -729,8 +845,10 @@
     }
 </script>
 <script>
-    var totalCCIS = $("input[name='numberOfCCIS']").val();
+    var totalStudents = $("input[name='numberOfStudent']").val();
     var total = $("input[name='numberOfTotal']").val();
+    var labelLeft = $("input[name='labelLeft']").val();
+    var labelRight = $("input[name='labelRight']").val();
     // console.log(totalCCIS);
     var canvas = document.getElementById("barChart");
     var ctx = canvas.getContext('2d');
@@ -743,10 +861,10 @@
     Chart.defaults.global.defaultFontSize = 18;
 
     var data = {
-        labels: ["Education", "Other Colleges"],
+        labels: [labelLeft, labelRight],
         datasets: [{
             label: ' Number of Students',
-            data: [totalCCIS, total],
+            data: [totalStudents, total],
             backgroundColor: [
                 '#b71c1c',
                 '#0288d1',
@@ -816,8 +934,10 @@
 <script>
     $(document).ready(function(){
 
-        // $("#college option:selected").attr('disabled','disabled')
-        //                 .siblings().removeAttr('disabled');
+        $("#departmentFilter").on('change', function(){
+            window.location.href = $('option:selected', this).attr('url')
+        });
+
         $("#collegeFilter").on('change', function(){
             window.location.href = $('option:selected', this).attr('url')
           });

@@ -37,6 +37,13 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::post('/search/College-of-Education', 'CollegesController@CoEdsearch')->name('CollegesController.CoEdsearch');
     Route::post('/College-of-Education/import', 'CollegesController@CoEdimport')->name('CoEdimport');
     Route::get('/filtered-by-CoEd/{CoEd}', 'CollegesController@filterCollegebyCoEd')->name('filter.college.CoEd');
+    Route::get('/filtered-by-CoEd-BTE', 'CollegesController@filterCoEdDepartmentBTE')->name('filter.college.CoEd.BTE');
+    Route::get('/filtered-by-CoEd-LIS', 'CollegesController@filterCoEdDepartmentLIS')->name('filter.college.CoEd.LIS');
+    Route::get('/filtered-by-CoEd-EE', 'CollegesController@filterCoEdDepartmentEE')->name('filter.college.CoEd.EE');
+    Route::get('/filtered-by-CoEd-SEME', 'CollegesController@filterCoEdDepartmentSEME')->name('filter.college.CoEd.SEME');
+    Route::get('/filtered-by-CoEd-SEMF', 'CollegesController@filterCoEdDepartmentSEMF')->name('filter.college.CoEd.SEMF');
+    Route::get('/filtered-by-CoEd-SEMM', 'CollegesController@filterCoEdDepartmentSEMM')->name('filter.college.CoEd.SEMM');
+    Route::get('/filtered-by-CoEd-SEMSS', 'CollegesController@filterCoEdDepartmentSEMSS')->name('filter.college.CoEd.SEMSS');
 
     //College of Computer and Information Sciences Routes
     Route::get('/add/College-of-Computer-and-Information-Sciences', 'CollegesController@CCISadd')->name('CollegesController.CCISadd');

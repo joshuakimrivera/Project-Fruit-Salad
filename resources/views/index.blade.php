@@ -409,8 +409,10 @@
                             </tr>
                             @endforeach
                         </table>
-                    <div style="margin-left:45%">
-                        {{ $shows->links() }}
+                    <div class="column">
+                            {{ $shows->links() }}
+                            {{ $datas->links() }}
+                            {{ $outputs->links() }}
                     </div>
                 </div>
             </div>

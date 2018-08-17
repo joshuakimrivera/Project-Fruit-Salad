@@ -163,7 +163,32 @@
                             </div>
                         @endif
                         
-
+                        {{-- Year --}}
+                        @if(isset( $selectCpE ) || isset( $selectCivil ) || isset( $selectME ) || isset($selectEE) || isset($selectECE) || isset($selectIE))
+                            <div class="input-field col s5">
+                                <select id="yearFilter" name="year">
+                                    <option selected>All Levels</option>
+                                    <option value="1">First Year</option>
+                                    <option value="2">Second Year</option>
+                                    <option value="3">Third Year</option>
+                                    <option value="4">Fourth Year</option>
+                                    <option value="5">Fifth Year</option>
+                                </select>
+                                <label>Year Level</label>
+                            </div>
+                        @else
+                            <div class="input-field col s5">
+                                <select disabled id="yearFilter" name="year">
+                                    <option selected>All Levels</option>
+                                    <option value="1">First Year</option>
+                                    <option value="2">Second Year</option>
+                                    <option value="3">Third Year</option>
+                                    <option value="4">Fourth Year</option>
+                                    <option value="5">Fifth Year</option>
+                                </select>
+                                <label>Year Level</label>
+                            </div>
+                        @endif
                         <div class="input-field col s5">
                             <select disabled id="yearFilter" name="year">
                                 <option selected>All Levels</option>
@@ -463,7 +488,7 @@
 @else
     <input type="hidden" name="numberOfStudent" value="{{ $totalCE }}">
     <input type="hidden" name="numberOfTotal" value="{{ $shows + $datas }}">
-    <input type="hidden" name="labelLeft" value="Computer Engineering">
+    <input type="hidden" name="labelLeft" value="College of Engineering">
     <input type="hidden" name="labelRight" value="Other Colleges">
 @endif
 
@@ -798,15 +823,11 @@
         }
     </script>
 <script>
-    // <input type="hidden" name="numberOfStudent" value="{{ $totalCE }}">
-    // <input type="hidden" name="numberOfTotal" value="{{ $shows + $datas }}">
-    // <input type="hidden" name="labelLeft" value="Computer Engineering">
-    // <input type="hidden" name="labelRight" value="Other Colleges">
     var totalStudents = $("input[name='numberOfStudent']").val();
     var total = $("input[name='numberOfTotal']").val();
     var labelLeft = $("input[name='labelLeft']").val();
     var labelRight = $("input[name='labelRight']").val();
-
+    
     var canvas = document.getElementById("barChart");
     var ctx = canvas.getContext('2d');
     // We are only changing the chart type, so let's make that a global variable along with the chart object:
@@ -868,8 +889,10 @@
 
     init();
 
+    
     function init() {
     // Chart declaration:
+        
         myBarChart = new Chart(ctx, {
             type: chartType,
             data: data,

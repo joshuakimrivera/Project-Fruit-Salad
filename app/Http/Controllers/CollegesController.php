@@ -28,7 +28,7 @@ class CollegesController extends Controller
         
         $shows = CollegeOfEngineerings::latest()->Paginate(2);
         $datas = CollegeOfEducations::latest()->Paginate(2);
-        $outputs = CollegeOfComputerAndInformationSciences::latest()->Paginate(1);
+        $outputs = CollegeOfComputerAndInformationSciences::latest()->Paginate(5);
        return view('index', compact(
            'shows',
             'datas',
@@ -99,6 +99,181 @@ class CollegesController extends Controller
         $totalIE = CollegeOfEngineerings::where('department', 'like', "%Industrial Engineering%")->count();
        return view('CollegeOfEngineering.filterResult', compact(
             'selectCpE',
+            'outputs',
+            'datas',
+            'shows',
+            'totalCpE',
+            'totalCivil',
+            'totalME',
+            'totalEE',
+            'totalECE',
+            'totalIE',
+            'CE',
+            'CoEd',
+            'CCIS',
+            'totalCE'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCEDepartmentCivil() {
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $selectCivil = 1;
+        $outputs = CollegeOfEngineerings::latest()->where('department', 'like', "%Civil Engineering%")->Paginate(5);
+
+        $datas = CollegeOfEducations::latest()->count();
+        $shows = CollegeOfEducations::latest()->count();
+        $totalCE = CollegeOfEngineerings::latest()->count();
+
+        $totalCpE = CollegeOfEngineerings::where('department', 'like', "%Computer Engineering%")->count();
+        $totalCivil = CollegeOfEngineerings::where('department', 'like', "%Civil Engineering%")->count();
+        $totalME = CollegeOfEngineerings::where('department', 'like', "%Mechanical Engineering%")->count();
+        $totalEE = CollegeOfEngineerings::where('department', 'like', "%Electrical Engineering%")->count();
+        $totalECE = CollegeOfEngineerings::where('department', 'like', "%Electronics Engineering%")->count();
+        $totalIE = CollegeOfEngineerings::where('department', 'like', "%Industrial Engineering%")->count();
+       return view('CollegeOfEngineering.filterResult', compact(
+            'selectCivil',
+            'outputs',
+            'datas',
+            'shows',
+            'totalCpE',
+            'totalCivil',
+            'totalME',
+            'totalEE',
+            'totalECE',
+            'totalIE',
+            'CE',
+            'CoEd',
+            'CCIS',
+            'totalCE'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCEDepartmentME() {
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $selectME = 1;
+        $outputs = CollegeOfEngineerings::latest()->where('department', 'like', "%Mechanical Engineering%")->Paginate(5);
+
+        $datas = CollegeOfEducations::latest()->count();
+        $shows = CollegeOfEducations::latest()->count();
+        $totalCE = CollegeOfEngineerings::latest()->count();
+
+        $totalCpE = CollegeOfEngineerings::where('department', 'like', "%Computer Engineering%")->count();
+        $totalCivil = CollegeOfEngineerings::where('department', 'like', "%Civil Engineering%")->count();
+        $totalME = CollegeOfEngineerings::where('department', 'like', "%Mechanical Engineering%")->count();
+        $totalEE = CollegeOfEngineerings::where('department', 'like', "%Electrical Engineering%")->count();
+        $totalECE = CollegeOfEngineerings::where('department', 'like', "%Electronics Engineering%")->count();
+        $totalIE = CollegeOfEngineerings::where('department', 'like', "%Industrial Engineering%")->count();
+       return view('CollegeOfEngineering.filterResult', compact(
+            'selectME',
+            'outputs',
+            'datas',
+            'shows',
+            'totalCpE',
+            'totalCivil',
+            'totalME',
+            'totalEE',
+            'totalECE',
+            'totalIE',
+            'CE',
+            'CoEd',
+            'CCIS',
+            'totalCE'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCEDepartmentEE() {
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $selectEE = 1;
+        $outputs = CollegeOfEngineerings::latest()->where('department', 'like', "%Electrical Engineering%")->Paginate(5);
+
+        $datas = CollegeOfEducations::latest()->count();
+        $shows = CollegeOfEducations::latest()->count();
+        $totalCE = CollegeOfEngineerings::latest()->count();
+
+        $totalCpE = CollegeOfEngineerings::where('department', 'like', "%Computer Engineering%")->count();
+        $totalCivil = CollegeOfEngineerings::where('department', 'like', "%Civil Engineering%")->count();
+        $totalME = CollegeOfEngineerings::where('department', 'like', "%Mechanical Engineering%")->count();
+        $totalEE = CollegeOfEngineerings::where('department', 'like', "%Electrical Engineering%")->count();
+        $totalECE = CollegeOfEngineerings::where('department', 'like', "%Electronics Engineering%")->count();
+        $totalIE = CollegeOfEngineerings::where('department', 'like', "%Industrial Engineering%")->count();
+       return view('CollegeOfEngineering.filterResult', compact(
+            'selectEE',
+            'outputs',
+            'datas',
+            'shows',
+            'totalCpE',
+            'totalCivil',
+            'totalME',
+            'totalEE',
+            'totalECE',
+            'totalIE',
+            'CE',
+            'CoEd',
+            'CCIS',
+            'totalCE'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCEDepartmentECE() {
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $selectECE = 1;
+        $outputs = CollegeOfEngineerings::latest()->where('department', 'like', "%Electronics Engineering%")->Paginate(5);
+
+        $datas = CollegeOfEducations::latest()->count();
+        $shows = CollegeOfEducations::latest()->count();
+        $totalCE = CollegeOfEngineerings::latest()->count();
+
+        $totalCpE = CollegeOfEngineerings::where('department', 'like', "%Computer Engineering%")->count();
+        $totalCivil = CollegeOfEngineerings::where('department', 'like', "%Civil Engineering%")->count();
+        $totalME = CollegeOfEngineerings::where('department', 'like', "%Mechanical Engineering%")->count();
+        $totalEE = CollegeOfEngineerings::where('department', 'like', "%Electrical Engineering%")->count();
+        $totalECE = CollegeOfEngineerings::where('department', 'like', "%Electronics Engineering%")->count();
+        $totalIE = CollegeOfEngineerings::where('department', 'like', "%Industrial Engineering%")->count();
+       return view('CollegeOfEngineering.filterResult', compact(
+            'selectECE',
+            'outputs',
+            'datas',
+            'shows',
+            'totalCpE',
+            'totalCivil',
+            'totalME',
+            'totalEE',
+            'totalECE',
+            'totalIE',
+            'CE',
+            'CoEd',
+            'CCIS',
+            'totalCE'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCEDepartmentIE() {
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $selectIE = 1;
+        $outputs = CollegeOfEngineerings::latest()->where('department', 'like', "%Industrial Engineering%")->Paginate(5);
+
+        $datas = CollegeOfEducations::latest()->count();
+        $shows = CollegeOfEducations::latest()->count();
+        $totalCE = CollegeOfEngineerings::latest()->count();
+
+        $totalCpE = CollegeOfEngineerings::where('department', 'like', "%Computer Engineering%")->count();
+        $totalCivil = CollegeOfEngineerings::where('department', 'like', "%Civil Engineering%")->count();
+        $totalME = CollegeOfEngineerings::where('department', 'like', "%Mechanical Engineering%")->count();
+        $totalEE = CollegeOfEngineerings::where('department', 'like', "%Electrical Engineering%")->count();
+        $totalECE = CollegeOfEngineerings::where('department', 'like', "%Electronics Engineering%")->count();
+        $totalIE = CollegeOfEngineerings::where('department', 'like', "%Industrial Engineering%")->count();
+       return view('CollegeOfEngineering.filterResult', compact(
+            'selectIE',
             'outputs',
             'datas',
             'shows',
@@ -301,7 +476,7 @@ class CollegesController extends Controller
         $CE = "Engineering";
         $outputs = CollegeOfEducations::latest()->Paginate(5);
         $shows = CollegeOfEngineerings::latest()->count();
-        $datas = CollegeOfComputerAndInformationSciences::latest()->count();
+        $datas = CollegeOfComputerAndInformationSciences::all()->count();
         $totalCoEd = CollegeOfEducations::where('college', 'like', "%$CoEd%")
                         ->count();
        return view('CollegeOfEducation.filterResult', compact(
@@ -314,6 +489,277 @@ class CollegesController extends Controller
             'CE'
         ));  //calls the blade file with the value stored in $shows
     }
+
+    public function filterCoEdDepartmentBTE() {
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $selectBTE = 1;
+        $outputs = CollegeOfEducations::latest()->where('department', 'like', "%Business Teacher Education%")->Paginate(5);
+
+        $datas = CollegeOfEngineerings::latest()->count();
+        $shows = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+
+        $totalBTE = CollegeOfEducations::latest()->where('department', 'like', "%Business Teacher Education%")->count();
+        $totalLIS = CollegeOfEducations::latest()->where('department', 'like', "%Library and Information Science%")->count();
+        $totalEE = CollegeOfEducations::latest()->where('department', 'like', "%Elementary Education%")->count();
+        $totalSEME = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in English%")->count();
+        $totalSEMF = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Filipino%")->count();
+        $totalSEMM = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Mathematics")->count();
+        $totalSEMSS = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Social Studies%")->count();
+       return view('CollegeOfEducation.filterResult', compact(
+            'CCIS',
+            'CoEd',
+            'CE',
+            'selectBTE',
+            'outputs',
+            'datas',
+            'shows',
+            'totalCoEd',
+            'totalBTE',
+            'totalLIS',
+            'totalEE',
+            'totalSEME',
+            'totalSEMF',
+            'totalSEMM',
+            'totalSEMSS'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCoEdDepartmentLIS() {
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $selectLIS = 1;
+        $outputs = CollegeOfEducations::latest()->where('department', 'like', "%Library and Information Science%")->Paginate(5);
+
+        $datas = CollegeOfEngineerings::latest()->count();
+        $shows = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+
+        $totalBTE = CollegeOfEducations::latest()->where('department', 'like', "%Business Teacher Education%")->count();
+        $totalLIS = CollegeOfEducations::latest()->where('department', 'like', "%Library and Information Science%")->count();
+        $totalEE = CollegeOfEducations::latest()->where('department', 'like', "%Elementary Education%")->count();
+        $totalSEME = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in English%")->count();
+        $totalSEMF = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Filipino%")->count();
+        $totalSEMM = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Mathematics")->count();
+        $totalSEMSS = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Social Studies%")->count();
+       return view('CollegeOfEducation.filterResult', compact( 
+            'selectLIS',
+            'CCIS',
+            'CoEd',
+            'CE',
+            'outputs',
+            'datas',
+            'shows',
+            'totalCoEd',
+            'totalBTE',
+            'totalLIS',
+            'totalEE',
+            'totalSEME',
+            'totalSEMF',
+            'totalSEMM',
+            'totalSEMSS'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCoEdDepartmentEE() {
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $selectEE = 1;
+        $outputs = CollegeOfEducations::latest()->where('department', 'like', "%Elementary Education%")->Paginate(5);
+
+        $datas = CollegeOfEngineerings::latest()->count();
+        $shows = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+
+        $totalBTE = CollegeOfEducations::latest()->where('department', 'like', "%Business Teacher Education%")->count();
+        $totalLIS = CollegeOfEducations::latest()->where('department', 'like', "%Library and Information Science%")->count();
+        $totalEE = CollegeOfEducations::latest()->where('department', 'like', "%Elementary Education%")->count();
+        $totalSEME = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in English%")->count();
+        $totalSEMF = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Filipino%")->count();
+        $totalSEMM = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Mathematics")->count();
+        $totalSEMSS = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Social Studies%")->count();
+       return view('CollegeOfEducation.filterResult', compact( 
+            'selectEE',
+            'CCIS',
+            'CoEd',
+            'CE',
+            'outputs',
+            'datas',
+            'shows',
+            'totalCoEd',
+            'totalBTE',
+            'totalLIS',
+            'totalEE',
+            'totalSEME',
+            'totalSEMF',
+            'totalSEMM',
+            'totalSEMSS'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCoEdDepartmentSEME() {
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $selectSEME = 1;
+        $outputs = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in English%")->Paginate(5);
+
+        $datas = CollegeOfEngineerings::latest()->count();
+        $shows = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+
+        $totalBTE = CollegeOfEducations::latest()->where('department', 'like', "%Business Teacher Education%")->count();
+        $totalLIS = CollegeOfEducations::latest()->where('department', 'like', "%Library and Information Science%")->count();
+        $totalEE = CollegeOfEducations::latest()->where('department', 'like', "%Elementary Education%")->count();
+        $totalSEME = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in English%")->count();
+        $totalSEMF = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Filipino%")->count();
+        $totalSEMM = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Mathematics")->count();
+        $totalSEMSS = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Social Studies%")->count();
+       return view('CollegeOfEducation.filterResult', compact( 
+            'selectSEME',
+            'CCIS',
+            'CoEd',
+            'CE',
+            'outputs',
+            'datas',
+            'shows',
+            'totalCoEd',
+            'totalBTE',
+            'totalLIS',
+            'totalEE',
+            'totalSEME',
+            'totalSEMF',
+            'totalSEMM',
+            'totalSEMSS'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCoEdDepartmentSEMF() {
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $selectSEMF = 1;
+        $outputs = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Filipino%")->Paginate(5);
+
+        $datas = CollegeOfEngineerings::latest()->count();
+        $shows = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+
+        $totalBTE = CollegeOfEducations::latest()->where('department', 'like', "%Business Teacher Education%")->count();
+        $totalLIS = CollegeOfEducations::latest()->where('department', 'like', "%Library and Information Science%")->count();
+        $totalEE = CollegeOfEducations::latest()->where('department', 'like', "%Elementary Education%")->count();
+        $totalSEME = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in English%")->count();
+        $totalSEMF = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Filipino%")->count();
+        $totalSEMM = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Mathematics")->count();
+        $totalSEMSS = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Social Studies%")->count();
+       return view('CollegeOfEducation.filterResult', compact( 
+            'selectSEMF',
+            'CCIS',
+            'CoEd',
+            'CE',
+            'outputs',
+            'datas',
+            'shows',
+            'totalCoEd',
+            'totalBTE',
+            'totalLIS',
+            'totalEE',
+            'totalSEME',
+            'totalSEMF',
+            'totalSEMM',
+            'totalSEMSS'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCoEdDepartmentSEMM() {
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $selectSEMM = 1;
+        $outputs = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Mathematics%")->Paginate(5);
+
+        $datas = CollegeOfEngineerings::latest()->count();
+        $shows = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+
+        $totalBTE = CollegeOfEducations::latest()->where('department', 'like', "%Business Teacher Education%")->count();
+        $totalLIS = CollegeOfEducations::latest()->where('department', 'like', "%Library and Information Science%")->count();
+        $totalEE = CollegeOfEducations::latest()->where('department', 'like', "%Elementary Education%")->count();
+        $totalSEME = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in English%")->count();
+        $totalSEMF = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Filipino%")->count();
+        $totalSEMM = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Mathematics")->count();
+        $totalSEMSS = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Social Studies%")->count();
+       return view('CollegeOfEducation.filterResult', compact( 
+            'selectSEMM',
+            'CCIS',
+            'CoEd',
+            'CE',
+            'outputs',
+            'datas',
+            'shows',
+            'totalCoEd',
+            'totalBTE',
+            'totalLIS',
+            'totalEE',
+            'totalSEME',
+            'totalSEMF',
+            'totalSEMM',
+            'totalSEMSS'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+    public function filterCoEdDepartmentSEMSS() {
+        $CCIS = "Computer and Information Science";
+        $CoEd = "Education";
+        $CE = "Engineering";
+        $selectSEMSS = 1;
+        $outputs = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Social Studies%")->Paginate(5);
+
+        $datas = CollegeOfEngineerings::latest()->count();
+        $shows = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+
+        $totalBTE = CollegeOfEducations::latest()->where('department', 'like', "%Business Teacher Education%")->count();
+        $totalLIS = CollegeOfEducations::latest()->where('department', 'like', "%Library and Information Science%")->count();
+        $totalEE = CollegeOfEducations::latest()->where('department', 'like', "%Elementary Education%")->count();
+        $totalSEME = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in English%")->count();
+        $totalSEMF = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Filipino%")->count();
+        $totalSEMM = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Mathematics")->count();
+        $totalSEMSS = CollegeOfEducations::latest()->where('department', 'like', "%Secondary Education Major in Social Studies%")->count();
+       return view('CollegeOfEducation.filterResult', compact( 
+            'selectSEMSS',
+            'CCIS',
+            'CoEd',
+            'CE',
+            'outputs',
+            'datas',
+            'shows',
+            'totalCoEd',
+            'totalBTE',
+            'totalLIS',
+            'totalEE',
+            'totalSEME',
+            'totalSEMF',
+            'totalSEMM',
+            'totalSEMSS'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function CoEdimport(Request $request){
         //validate the xls file
@@ -479,6 +925,7 @@ class CollegesController extends Controller
                         ->count();
         $totalCS = CollegeOfComputerAndInformationSciences::where('department', 'like', "%$CS%")
                         ->count();
+        
        return view('CollegeOfComputerAndInformationScience.filterResult', compact(
             'totalCS',
             'totalIT',
