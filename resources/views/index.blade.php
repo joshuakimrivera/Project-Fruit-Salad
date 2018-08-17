@@ -336,7 +336,7 @@
             <div class="card">
                 <div class="card-content row">
                     <!--NAME TABLE-->
-                        <table class="responsive-table striped">
+                        <table class="responsive-table striped" id="thetable">
                             <tr>
                                 <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Name</h6></a></th>
                                 <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Birthday</h6></a></th>
@@ -381,7 +381,7 @@
                                         gender = {{ $data->gender }}
                                         year = {{ $data->year }}
                                         section = {{ $data->section }}><i class="material-icons" >edit</i></a>
-                                    <a class="btn btn-floating btn-small red darken-5 tooltipped modal-trigger remove" data-position="bottom" data-tooltip="Delete" href = #delete><i class="material-icons">delete</i></a>
+                                    <a class="btn btn-floating btn-small red darken-5 tooltipped modal-trigger " data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
 
@@ -422,7 +422,7 @@
                                         year = {{ $show->year }}
                                         section = {{ $show->section }}><i class="material-icons"
                                         >edit</i></a>
-                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
+                                    <a class="btn btn-floating btn-small red darken-5 tooltipped modal-trigger" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
 
@@ -460,7 +460,7 @@
                                         gender = {{ $output->gender }}
                                         year = {{ $output->year }}
                                         section = {{ $output->section }}><i class="material-icons" >edit</i></a>
-                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
+                                    <a class="btn btn-floating btn-small red darken-5 tooltipped modal-trigger" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -478,25 +478,56 @@
 <input type="hidden" name="numberOfCCIS" value="{{ $totalCCIS }}">
 <input type="hidden" name="numberOfCoEd" value="{{ $totalCoEd }}">
 <input type="hidden" name="numberOfCE" value="{{ $totalCE }}">
-
+@include('showmodal')
 @include("ceeditmodal")
 @include("cciseditmodal")
 @include("coededitmodal")
-<!-- Delete Modal -->
-<div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- Start of CoEddelete -->
+<div class="modal modal-danger fade" id="COEDdelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <!-- <button type="button" class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
         <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
       </div>
       
-         "{{ route('CollegesController.CoEddelete',$data->id) }}"
-         
+        <form action="{{ route('CollegesController.CoEddelete',$data->id) }}">
+        <div class="modal-body">
+            <p class="text-center">
+              
+              
+              {{ csrf_field() }}
+              
+            
+              Are you sure you want to delete this?
+
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button   type="button" class="btn btn-success close" data-dismiss="modal" aria-label="Close">No, Cancel</button>
+          <button    type="submit"  id="btndelete" class="btn btn-warning"  >Yes, Delete</button>
+        </div>
+        </form>
+        
+    </div>
+  </div>
+</div>
+<!-- End of COED delete-->
+<!-- Start of CEdelete -->
+<div class="modal modal-danger fade" id="CEdelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <button type="button" class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+        <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
+      </div>
+      
+<!--          "{{ route('CollegesController.CoEddelete',$data->id) }}"
+ -->         
         <div class="modal-body">
         <p class="text-center">
           
-          <form action="{{ route('CollegesController.CoEddelete',$data->id) }}"></form>
+          <form action="">
           {{ csrf_field() }}
           
         
@@ -508,14 +539,46 @@
 
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
-          <button    id="btndelete" class="btn btn-warning"  >Yes, Delete</button>
+            <button  type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
+          <button    type="submit"  id="btndelete" class="btn btn-warning"  >Yes, Delete</button>
         </div>
+        </form>
         
     </div>
   </div>
 </div>
-@include('showmodal')
+<!-- End of CEdelete -->
+<!--Start of CCISdelete  -->
+<div class="modal modal-danger fade" id="CCISdelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <button type="button" class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+        <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
+      </div>
+      
+<!--          "{{ route('CollegesController.CoEddelete',$data->id) }}"
+ -->         
+        <div class="modal-body">
+        <p class="text-center">
+          
+          <form action="">
+          {{ csrf_field() }}
+          Are you sure you want to delete this?
+
+        </p>
+            
+        <div class="modal-footer">
+            <button  type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
+          <button    type="submit"  id="btndelete" class="btn btn-warning"  >Yes, Delete</button>
+        </div>
+        </form>
+        
+    </div>
+  </div>
+</div>
+<!--End of CCISdelete  -->
+
 
 <div id="modal1" class="modal scale-transition">
     <div class="modal-content"  style="overflow: hidden;" >
@@ -954,7 +1017,18 @@
     init();
     }
 </script>
-
+<script>
+    $(document).ready( function () {
+         $('#thetable').DataTable({
+              'paging'      : true,
+              'lengthChange': true,
+              'searching'   : true,
+              'ordering'    : true,
+              'info'        : true,
+              'autoWidth'   : true
+    })
+    } );
+</script>
 <script>
     $(document).ready(function(){
 
@@ -1013,7 +1087,7 @@
             // console.log(dropdown);
             $("input:hidden#date_sorter").val(dropdown);
         })
-
+      
         // $(".cciseditmodal").on('click', function(){
         //     // $('option:selected', this).attr('url')
         //     // console.log($(this).attr('firstname'));
@@ -1036,31 +1110,15 @@
 
 
         // });
-
+        $('#exitmodal').on('click', function(){
+              
+            $('.modal').modal('hide');
+        
+         });
         
         
 
-        /*$(".viewmodal").on('click', function(){
-            // $('option:selected', this).attr('url')
-            // console.log($(this).attr('firstname'));
-            var address = $(this).parent('td').parent('tr').find('td:eq(4)').text();
-            var department = $(this).parent('td').parent('tr').find('td:eq(5)').text();
-            $("input[name='first_name").val($(this).attr('first_name'));
-            $("input[name='middle_initial").val($(this).attr('middle_initial'));
-            $("input[name='last_name").val($(this).attr('last_name'));            
-            $("input[name='bday_month").val($(this).attr('bday_month'));
-            $("input[name='bday_day").val($(this).attr('bday_day'));
-            $("input[name='bday_year").val($(this).attr('bday_year'));
-            $("input[name='age").val($(this).attr('age'));
-            $("input[name='gender").val($(this).attr('gender'));
-            $("input[name='address").val(address);
-            $("input[name='department").val(department);
-            $("input[name='year").val($(this).attr('year'));
-            $("input[name='section").val($(this).attr('section'));
-
-
-
-        });*/
+        
 
 
         $('#import').on('change', function(){

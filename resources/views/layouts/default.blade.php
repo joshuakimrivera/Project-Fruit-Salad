@@ -17,6 +17,7 @@
     <link type="text/css" rel="stylesheet" href="{{ url('css/materialize.css') }}">
     {{-- <link rel="stylesheet" href="{{ url('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('css/bootstrap4.css') }}"> --}}
+    <link rel="stylesheet" href="{{ url('css/jquery.dataTables.min.css') }}">
     <style>
         .josh{
             height: 600px; /* Your height here */
@@ -45,6 +46,7 @@
     <script src="{{ asset('js/materialize.js') }}"></script>
     {{--<script src="{{ asset('js/materialize.min.js') }}"></script>--}}
     <script src="{{ asset('js/plugins/chartsJS/chart1.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/dataTables/jquery.dataTables.min.js') }}"></script>  
     <script>
         $(".viewmodal").on('click', function(){
             // $('option:selected', this).attr('url')

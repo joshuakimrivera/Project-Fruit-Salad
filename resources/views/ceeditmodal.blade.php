@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="">
                     <br>
-                    <h5 class="center">Student Information</h5>
+                    <h5 class="center">Edit $show->first_name's Data</h5>
                 </div>
             </div>
         

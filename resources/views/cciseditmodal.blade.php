@@ -5,11 +5,11 @@
             <div class="row">
                 <div class="">
                     <br>
-                    <h5 class="center">Student Information</h5>
+                    <h5 class="center">Edit <span value="first_name"></span>'s Data</h5>
                 </div>
             </div>
         
-            {!! Form::model($data, ['route' => ['CollegesController.CCISupdate', $data->id]]) !!}
+            {!! Form::model($output, ['route' => ['CollegesController.CCISupdate', $output->id]]) !!}
             <div class="">
                 <div class="row form-group">
                     <div class="input-field form-group">
@@ -30,7 +30,6 @@
                         </div>
                     </div>
                 </div>
-
                 <hr>
                 <br>
                     <div>
@@ -89,8 +88,8 @@
                                 <option value="Engineering">College of Engineering</option>
                             </select>
                             <label>College</label>
-                        </div>-->
-                    </div>
+                        </div>
+                    </div>-->
                     <div class="col s6">
                         <div class="form-group">
                             <div id="primary">
