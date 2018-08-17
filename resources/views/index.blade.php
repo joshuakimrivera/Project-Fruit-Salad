@@ -228,7 +228,7 @@
                         <div class="col s12"><hr></div>
                         
                         <div class="col s3">
-                            <a href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a>
+                            <a id="addstud" href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a>
                         </div>
                         <div class="col s9">
                             
@@ -345,7 +345,7 @@
                                 <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Address</h6></a></th>
                                 <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Department</h6></a></th>
                                 <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
-                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Section</h6></a></th>
                                 <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Actions</h6></a></th>
                             </tr>
                             @foreach($datas as $data)  
@@ -361,8 +361,26 @@
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4" data-position="bottom" data-tooltip="View" href="#CoEdmodal"><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CoEdedit',$data->id) }}"><i class="material-icons">edit</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = {{ $data->first_name }}
+                                        last_name = {{ $data->last_name }}
+                                        middle_initial = {{ $data->middle_initial }}
+                                        bday_month = {{ $data->bday_month }}
+                                        bday_day = {{ $data->bday_day }}
+                                        bday_year = {{ $data->bday_year }}
+                                        age = {{ $data->age }}
+                                        gender = {{ $data->gender }}
+                                        year = {{ $data->year }}
+                                        section = {{ $data->section }} ><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange modal-trigger" data-position="bottom " data-tooltip="Edit" href="#coededitmodal"><i class="material-icons" first_name = {{ $data->first_name }}
+                                        last_name = {{ $data->last_name }}
+                                        middle_initial = {{ $data->middle_initial }}
+                                        bday_month = {{ $data->bday_month }}
+                                        bday_day = {{ $data->bday_day }}
+                                        bday_year = {{ $data->bday_year }}
+                                        age = {{ $data->age }}
+                                        gender = {{ $data->gender }}
+                                        year = {{ $data->year }}
+                                        section = {{ $data->section }}>edit</i></a>
                                     <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
@@ -380,11 +398,29 @@
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped light-blue darken-4 modal-trigger edit"
-                                        firstname = {{ $show->first_name }}
-                                        lastname = {{ $show->last_name }}
-                                        data-position="bottom" data-tooltip="View" href="#CEmodal"><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CEedit',$show->id) }}"><i class="material-icons">edit</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped light-blue darken-4 modal-trigger viewmodal"
+                                        first_name = {{ $show->first_name }}
+                                        last_name = {{ $show->last_name }}
+                                        middle_initial = {{ $show->middle_initial }}
+                                        bday_month = {{ $show->bday_month }}
+                                        bday_day = {{ $show->bday_day }}
+                                        bday_year = {{ $show->bday_year }}
+                                        age = {{ $show->age }}
+                                        gender = {{ $show->gender }}
+                                        year = {{ $show->year }}
+                                        section = {{ $show->section }}
+                                        data-position="bottom" data-tooltip="View" href="#showmodal"><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange modal-trigger editmodal" data-position="bottom " data-tooltip="Edit"  href="#ceeditmodal"><i class="material-icons"
+                                        first_name = {{ $show->first_name }}
+                                        last_name = {{ $show->last_name }}
+                                        middle_initial = {{ $show->middle_initial }}
+                                        bday_month = {{ $show->bday_month }}
+                                        bday_day = {{ $show->bday_day }}
+                                        bday_year = {{ $show->bday_year }}
+                                        age = {{ $show->age }}
+                                        gender = {{ $show->gender }}
+                                        year = {{ $show->year }}
+                                        section = {{ $show->section }}>edit</i></a>
                                     <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
@@ -402,8 +438,26 @@
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4" data-position="bottom" data-tooltip="View" href="#CCISmodal"><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CCISedit',$output->id) }}"><i class="material-icons">edit</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = {{ $output->first_name }}
+                                        last_name = {{ $output->last_name }}
+                                        middle_initial = {{ $output->middle_initial }}
+                                        bday_month = {{ $output->bday_month }}
+                                        bday_day = {{ $output->bday_day }}
+                                        bday_year = {{ $output->bday_year }}
+                                        age = {{ $output->age }}
+                                        gender = {{ $output->gender }}
+                                        year = {{ $output->year }}
+                                        section = {{ $output->section }}><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange modal-trigger cciseditmodal" data-position="bottom " data-tooltip="Edit" href="#cciseditmodal"><i class="material-icons" first_name = {{ $show->first_name }}
+                                        last_name = {{ $output->last_name }}
+                                        middle_initial = {{ $output->middle_initial }}
+                                        bday_month = {{ $output->bday_month }}
+                                        bday_day = {{ $output->bday_day }}
+                                        bday_year = {{ $output->bday_year }}
+                                        age = {{ $output->age }}
+                                        gender = {{ $output->gender }}
+                                        year = {{ $output->year }}
+                                        section = {{ $output->section }}>edit</i></a>
                                     <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
@@ -711,8 +765,7 @@
         </script>
     </div>
 </div>
-
-<div id="CEmodal" class="modal">
+<div id="cciseditmodal" class="modal">
     <div class="modal-content"  style="overflow: hidden;" >
         <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
         <div class="form-group container">
@@ -723,7 +776,7 @@
                 </div>
             </div>
         
-            {{ Form::open(array('route' => 'CollegesController.addStudent', ))}}
+            {!! Form::model($output, ['route' => ['CollegesController.CCISupdate', $output->id]]) !!}
             <div class="">
                 <div class="row form-group">
                     <div class="input-field form-group">
@@ -734,12 +787,12 @@
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">perm_identity</i>
-                            <input id="wobble" type="text" name="middle_initial"  required>
-                            <label for="wobble">Middle Initial</label>
+                            <input id="wobble" type="text" name="middle_initial"  disabled>
+                            {{--<label for="wobble">Middle Initial</label>--}}
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">perm_identity</i>
-                            <input id="ayoko" type="text" name="last_name"  required>
+                            <input id="ayoko" type="text" name="last_name"  disabled>
                             {{-- <label for="ayoko">Last Name</label> --}}
                         </div>
                     </div>
@@ -752,73 +805,16 @@
                         {{-- {{ Form::date('birthday', null, array('class' => 'ml-4')) }} --}}
                         <div class="col s6">
                             <i class="material-icons prefix">perm_contact_calendar</i>
-                            <select name="bday_month" id="bday">
-                                <option selected disabled>---</option>
-                                <option value="January">January</option>
-                                <option value="February">February</option>
-                                <option value="March">March</option>
-                                <option value="April">April</option>
-                                <option value="May">May</option>
-                                <option value="June">June</option>
-                                <option value="July">July</option>
-                                <option value="August">August</option>
-                                <option value="September">September</option>
-                                <option value="October">October</option>
-                                <option value="November">November</option>
-                                <option value="December">December</option>
-                            </select>
-                            <label>Birth Month</label>
+                            <input id="wobble" type="text" name="bday_month" disabled>
+                            
                         </div>
                         <div class="col s2">
-                            <select name="bday_day" id="" class="col s2">
-                                <option selected disabled>---</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                            </select>
-                            <label>Birth Day</label>
+                            <input id="wobble" type="text" name="bday_day" disabled>
+                            
                         </div>
                         <div class="col s4">
-                            <select name="bday_year" id="">
-                                <option selected disabled>---</option>
-                                <option value="1993">1993</option>
-                                <option value="1994">1994</option>
-                                <option value="1995">1995</option>
-                                <option value="1996">1996</option>
-                                <option value="1997">1997</option>
-                                <option value="1998">1998</option>
-                                <option value="1999">1999</option>
-                                <option value="2000">2000</option>
-                            </select>
-                            <label>Birth Year</label>
+                            <input id="wobble" type="text" name="bday_year" disabled>
+                            {{--<label>Birth Year</label>--}}
                         </div>
                             
                     </div>
@@ -826,17 +822,13 @@
                 <div class="row form-group">
                     <div class="input-field col s3">
                         <i class="material-icons prefix">perm_identity</i>
-                        {{ Form::number('age', null, array('placeholder' => '---', 'class' => '', 'required')) }}
-                        <label>Age</label>
+                        <!--{{ Form::number('age', null, array('placeholder' => '---', 'class' => '', 'required')) }}-->
+                        <input id="wobble" type="text" name="age" disabled>
                     </div>
                     <div class="input-field col s4">
                         <i class="material-icons prefix">wc</i>
-                        <select class="ml-2" name="gender" id="">
-                            <option selected disabled>---</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                        <label>Gender</label>
+                       <input id="wobble" type="text" name="gender" disabled>
+                        
                             {{-- {{ Form::text('gender', null, array('placeholder' => 'Male or Female', 'class' => 'form-control')) }} --}}
                     </div>
                 </div>
@@ -845,14 +837,14 @@
                 <div class="row form-group">
                         <div class="input-field col s12">
                         <i class="material-icons prefix">home</i>
-                            {{ Form::text('address', null, array('placeholder' => '---','class' => '', 'required')) }}
-                            <label>Address</label>
+                            <!--{{ Form::text('address', null, array('placeholder' => '---','class' => '', 'required')) }}-->
+                            <input id="wobble" type="text" name="address" disabled>
                     </div>
                 </div> 
                 <hr>
                 <br>
                 <div class="row form-group input-field">
-                    <div class="col s6">
+                    <!--<div class="col s6">
                         <div class="form-group">
                             <input type="hidden" name="model" value="">
                             <i class="material-icons prefix">school</i>
@@ -864,50 +856,31 @@
                             </select>
                             <label>College</label>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="col s6">
                         <div class="form-group">
                             <div id="primary">
                                 <i class="material-icons prefix">business</i>
-                                <select name="" id="" disabled>
-                                    <option selected>Select a College First</option>
-                                </select>
-                                <label>Department</label>
+                                <input id="wobble" type="text" name="department" disabled>
+                                
                             </div>
-                            <div class="hiddendiv" id="CCIS">
+                            <!--<div class="hiddendiv" id="CCIS">
                                 <i class="material-icons prefix">business</i>
                                 <select name="department">
                                     <option selected disabled>--</option>
                                     <option id="cs" value="Computer Science">Computer Science</option>
                                     <option id="it" value="Information Technology">Information Technology</option>
                                 </select>
-                                <label>Department</label>
+                                <label>Department</label>-->
                             </div>
                             <div class="hiddendiv" id="CoEd">
                                 <i class="material-icons prefix">business</i>
-                                <select name="department" id="CoEd">
-                                    <option disabled selected>--</option>
-                                    <option id="bte" value="Business Teacher Educationg">BTEd</option>
-                                    <option id="lis" value="Library and Information Science">LInfoSci</option>
-                                    <option id="ee" value="Elementary Education">ElemEd</option>
-                                    <option id="seme" value="Secondary Education major in English">SecEd Major in English</option>
-                                    <option id="semf" value="Secondary Education major in Filipino">SecEd Major in Filipino</option>
-                                    <option id="semm" value="Secondary Education major in Mathematics">SecEd Major in Mathematics</option>
-                                    <option id="semss" value="Secondary Education major in Social Studies">SecEd Major in Social Studies</option>
-                                </select>
-                                <label>Department</label>
+                                <input id="wobble" type="text" name="department" disabled>
+                                
                             </div>
                             <div class="hiddendiv" id="CE">
                                 <i class="material-icons prefix">business</i>
-                                <select class="d-none" name="department">
-                                    <option disabled selected>--</option>
-                                    <option id="ce" value="Civil Engineering">Civil Engineering</option>
-                                    <option id="coe" value="Computer Engineering">Computer Engineering</option>
-                                    <option id="electri" value="Electrical Engineering">Electrical Engineering</option>
-                                    <option id="electro" value="Electronics Engineering">Electronics Engineering</option>
-                                    <option id="ie" value="Industrial Engineering">Industrial Engineering</option>
-                                    <option id="me" value="Mechanical Engineering">Mechanical Engineering</option>
-                                </select>
+                                <input id="wobble" type="text" name="department" disabled>
                                 <label>Department</label>
                             </div>
                             {{-- {{ Form::text('department', null, array('placeholder' => 'Department','class' => 'form-control')) }} --}}
@@ -920,33 +893,18 @@
                 <div class="row input-field">
 
                     <div class="form-group col s6" id="ui">
-                        <select name="year" disabled>
-                            <option selected disabled>Select a Course First</option>
-                        </select>
-                        <label>Year</label>
+                        <input id="wobble" type="text" name="year" disabled>
+                        
                     </div>
 
                     <div class="form-group col s6 hiddendiv" id="yearOne">
-                        <select name="year">
-                            <option selected disabled>---</option>
-                            <option value="4">4th Year</option>
-                            <option value="3">3rd Year</option>
-                            <option value="2">2nd Year</option>
-                            <option value="1">1st Year</option>
-                        </select>
-                        <label>Year</label>
+                        <input id="wobble" type="text" name="year" disabled>
+                        
                     </div>
 
 
                     <div class="form-group col s6 hiddendiv" id="ceYear">
-                        <select name="year">
-                            <option selected disabled>---</option>
-                            <option value="5">5th Year</option>
-                            <option value="4">4th Year</option>
-                            <option value="3">3rd Year</option>
-                            <option value="2">2nd Year</option>
-                            <option value="1">1st Year</option>
-                        </select>
+                        <input id="wobble" type="text" name="year" disabled>
                         <label>Year</label>
                     </div>
 
@@ -954,15 +912,8 @@
 
 
                     <div class="form-group col s6">
-                        <select name="section" id="">
-                            <option selected disabled>---</option>
-                            <option value="5">Section 5</option>
-                            <option value="4">Section 4</option>
-                            <option value="3">Section 3</option>
-                            <option value="2">Section 2</option>
-                            <option value="1">Section 1</option>
-                        </select>
-                        <label>Section</label>
+                        <input id="wobble" type="text" name="section" disabled>
+                        
                         {{-- {{ Form::number('section', null, array('placeholder' => 'Section','class' => 'form-control')) }} --}}
                     </div>
                 </div>
@@ -997,6 +948,7 @@
         </script>
     </div>
 </div>
+@include('showmodal')
 
 
 <div id="CCISmodal" class="modal">
@@ -1774,12 +1726,70 @@
             $("input:hidden#date_sorter").val(dropdown);
         })
 
-        $(".edit").on('click', function(){
+        $(".cciseditmodal").on('click', function(){
             // $('option:selected', this).attr('url')
             // console.log($(this).attr('firstname'));
-            $("input[name='first_name").val($(this).attr('firstname'));
-            $("input[name='last_name").val($(this).attr('lastname'));
+            
+            var address = $(this).parent('td').parent('tr').find('td:eq(4)').text();
+            var department = $(this).parent('td').parent('tr').find('td:eq(5)').text();
+            $("input[name='first_name").val($(this).attr('first_name'));
+            $("input[name='last_name").val($(this).attr('last_name'));
+            $("input[name='middle_initial").val($(this).attr('middle_initial'));
+            $("input[name='bday_month").val($(this).attr('bday_month'));
+            $("input[name='bday_day").val($(this).attr('bday_day'));
+            $("input[name='bday_year").val($(this).attr('bday_year'));
+            $("input[name='age").val($(this).attr('age'));
+            $("input[name='gender").val($(this).attr('gender'));
+            $("input[name='address").val(address);
+            $("input[name='department").val(department);
+            $("input[name='year").val($(this).attr('year'));
+            $("input[name='section").val($(this).attr('section'));
+
+
+
         });
+
+        $("#addstud").on('click', function(){
+            $("input[name='first_name").val("");
+            $("input[name='last_name").val("");
+            $("input[name='middle_initial").val("");
+            $("input[name='bday_month").val("");
+            $("input[name='bday_day").val("");
+            $("input[name='bday_year").val("");
+            $("input[name='age").val("");
+            $("input[name='gender").val("");
+            $("input[name='address").val("");
+            $("input[name='department").val("");
+            $("input[name='year").val("");
+            $("input[name='section").val("");
+
+
+
+        });
+        
+
+        /*$(".viewmodal").on('click', function(){
+            // $('option:selected', this).attr('url')
+            // console.log($(this).attr('firstname'));
+            var address = $(this).parent('td').parent('tr').find('td:eq(4)').text();
+            var department = $(this).parent('td').parent('tr').find('td:eq(5)').text();
+            $("input[name='first_name").val($(this).attr('first_name'));
+            $("input[name='middle_initial").val($(this).attr('middle_initial'));
+            $("input[name='last_name").val($(this).attr('last_name'));            
+            $("input[name='bday_month").val($(this).attr('bday_month'));
+            $("input[name='bday_day").val($(this).attr('bday_day'));
+            $("input[name='bday_year").val($(this).attr('bday_year'));
+            $("input[name='age").val($(this).attr('age'));
+            $("input[name='gender").val($(this).attr('gender'));
+            $("input[name='address").val(address);
+            $("input[name='department").val(department);
+            $("input[name='year").val($(this).attr('year'));
+            $("input[name='section").val($(this).attr('section'));
+
+
+
+        });*/
+
 
         $('#import').on('change', function(){
             var collegeImport = $("select[name='import']").val();
