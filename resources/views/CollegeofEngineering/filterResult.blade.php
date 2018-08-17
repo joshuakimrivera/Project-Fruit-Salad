@@ -189,17 +189,6 @@
                                 <label>Year Level</label>
                             </div>
                         @endif
-                        <div class="input-field col s5">
-                            <select disabled id="yearFilter" name="year">
-                                <option selected>All Levels</option>
-                                <option value="1">First Year</option>
-                                <option value="2">Second Year</option>
-                                <option value="3">Third Year</option>
-                                <option value="4">Fourth Year</option>
-                                <option value="5">Fifth Year</option>
-                            </select>
-                            <label>Year Level</label>
-                        </div>
 
                         <div class="input-field col s1">&nbsp</div>
 
