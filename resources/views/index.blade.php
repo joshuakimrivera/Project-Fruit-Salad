@@ -381,7 +381,7 @@
                                         gender = {{ $data->gender }}
                                         year = {{ $data->year }}
                                         section = {{ $data->section }}><i class="material-icons" >edit</i></a>
-                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
+                                    <a class="btn btn-floating btn-small red darken-5 tooltipped modal-trigger remove" data-position="bottom" data-tooltip="Delete" href = #delete><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
 
@@ -482,6 +482,41 @@
 @include("ceeditmodal")
 @include("cciseditmodal")
 @include("coededitmodal")
+<!-- Delete Modal -->
+<div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
+      </div>
+      
+         "{{ route('CollegesController.CoEddelete',$data->id) }}"
+         
+        <div class="modal-body">
+        <p class="text-center">
+          
+          <form action="{{ route('CollegesController.CoEddelete',$data->id) }}"></form>
+          {{ csrf_field() }}
+          
+        
+          Are you sure you want to delete this?
+
+        </p>
+
+            
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
+          <button    id="btndelete" class="btn btn-warning"  >Yes, Delete</button>
+        </div>
+        
+    </div>
+  </div>
+</div>
+@include('showmodal')
+
 <div id="modal1" class="modal scale-transition">
     <div class="modal-content"  style="overflow: hidden;" >
         <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
@@ -736,8 +771,8 @@
                             <option value="1">Section 1</option>
                         </select>
                         <label>Section</label>
-                        {{-- {{ Form::number('section', null, array('placeholder' => 'Section','class' => 'form-control')) }} --}}
-                    </div>
+                         <!-- {{-- {{ Form::number('section', null, array('placeholder' => 'Section','class' => 'form-control')) }} --}} 
+                    </div> -->
                 </div>
                 <br>
                 <div class="center">
@@ -771,8 +806,8 @@
     </div>
 </div>
 
-@include('showmodal')
-<!--@include('cciseditmodal')-->
+
+
 
 
 <!-- END OF MAIN CONTAINER -->

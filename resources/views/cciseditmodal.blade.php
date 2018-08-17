@@ -30,6 +30,7 @@
                         </div>
                     </div>
                 </div>
+
                 <hr>
                 <br>
                     <div>
@@ -88,8 +89,8 @@
                                 <option value="Engineering">College of Engineering</option>
                             </select>
                             <label>College</label>
-                        </div>
-                    </div>-->
+                        </div>-->
+                    </div>
                     <div class="col s6">
                         <div class="form-group">
                             <div id="primary">
