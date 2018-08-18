@@ -7,6 +7,20 @@
             vertical-align: middle;
         }
     </style>
+    <!--Adminlte css  -->
+    <link rel="stylesheet" href="{{ url('adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{ url('adminlte/bower_components/font-awesome/css/font-awesome.min.css') }}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{{ url('adminlte/bower_components/Ionicons/css/ionicons.min.css') }}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{ url('adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ url('adminlte/dist/css/AdminLTE.min.cs') }}s">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="{{ url('adminlte/dist/css/skins/_all-skins.min.css') }}">
+    <!--Adminlte css  -->
 @endsection
 @section('content')
 <!--NAVIGATIONAL STRUCTURES -->
@@ -47,6 +61,158 @@
 <div style="height: 30px;"></div>
 
 <!--MAIN DASHBOARD-->
+<!-- sample adminlte testing -->
+<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Data Table With Full Features</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-striped">
+                <thead><tr>
+                    <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Name</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Birthday</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Age</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Gender</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Address</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Department</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Section</h6></a></th>
+                                <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Actions</h6></a></th>
+                </tr>
+                </thead>
+                @foreach($shows as $show)  
+                            <tr>
+                                <td class="mr-5 ml-5">{{ $show->last_name }}, {{ $show->first_name }} {{ $show->middle_initial }}.</td>
+                                <td class="mr-5 ml-5">{{ $show->bday_month }} {{ $show->bday_day }}, {{ $show->bday_year }}</td>
+                                <td class="mr-5 ml-5">{{ $show->age }}</td>
+                                <td class="mr-5 ml-5">{{ $show->gender }}</td>
+                                <td class="mr-5 ml-5">{{ $show->address }}</td>
+                                <td class="mr-5 ml-5">{{ $show->department }}</td>
+                                <td class="mr-5 ml-5">{{ $show->year }}</td>
+                                <td class="mr-5 ml-5">Section {{ $show->section }}</td>
+                                <td class="mr-5 ml-5">
+                                    <!-- {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}} -->
+                                    <!-- Modal Trigger -->
+                                    <a class="btn btn-floating btn-small tooltipped light-blue darken-4 modal-trigger viewmodal"
+                                        first_name = "{{ $show->first_name }}"
+                                        last_name = "{{ $show->last_name }}"
+                                        middle_initial = "{{ $show->middle_initial }}"
+                                        bday_month = "{{ $show->bday_month }}"
+                                        bday_day = "{{ $show->bday_day }}"
+                                        bday_year = "{{ $show->bday_year }}"
+                                        age = "{{ $show->age }}"
+                                        gender = "{{ $show->gender }}"
+                                        year = "{{ $show->year }}"
+                                        section = "{{ $show->section }}"
+                                        data-position="bottom" data-tooltip="View" href="#showmodal"><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange modal-trigger editmodal" data-position="bottom " data-tooltip="Edit"  href="#ceeditmodal" first_name = "{{ $show->first_name }}"
+                                        last_name = "{{ $show->last_name }}"
+                                        middle_initial = "{{ $show->middle_initial }}"
+                                        bday_month = "{{ $show->bday_month }}"
+                                        bday_day = "{{ $show->bday_day }}"
+                                        bday_year = "{{ $show->bday_year }}"
+                                        age = "{{ $show->age }}"
+                                        gender = "{{ $show->gender }}"
+                                        year = "{{ $show->year }}"
+                                        section = "{{ $show->section }}"><i class="material-icons"
+                                        >edit</i></a>
+                                    <a class="btn btn-floating btn-small red darken-5 tooltipped modal-trigger" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
+                                </td>
+                            </tr>
+
+                            @endforeach
+                            @foreach($shows as $show)  
+                            <tr>
+                                <td class="mr-5 ml-5">{{ $show->last_name }}, {{ $show->first_name }} {{ $show->middle_initial }}.</td>
+                                <td class="mr-5 ml-5">{{ $show->bday_month }} {{ $show->bday_day }}, {{ $show->bday_year }}</td>
+                                <td class="mr-5 ml-5">{{ $show->age }}</td>
+                                <td class="mr-5 ml-5">{{ $show->gender }}</td>
+                                <td class="mr-5 ml-5">{{ $show->address }}</td>
+                                <td class="mr-5 ml-5">{{ $show->department }}</td>
+                                <td class="mr-5 ml-5">{{ $show->year }}</td>
+                                <td class="mr-5 ml-5">Section {{ $show->section }}</td>
+                                <td class="mr-5 ml-5">
+                                    <!-- {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}} -->
+                                    <!-- Modal Trigger -->
+                                    <a class="btn btn-floating btn-small tooltipped light-blue darken-4 modal-trigger viewmodal"
+                                        first_name = "{{ $show->first_name }}"
+                                        last_name = "{{ $show->last_name }}"
+                                        middle_initial = "{{ $show->middle_initial }}"
+                                        bday_month = "{{ $show->bday_month }}"
+                                        bday_day = "{{ $show->bday_day }}"
+                                        bday_year = "{{ $show->bday_year }}"
+                                        age = "{{ $show->age }}"
+                                        gender = "{{ $show->gender }}"
+                                        year = "{{ $show->year }}"
+                                        section = "{{ $show->section }}"
+                                        data-position="bottom" data-tooltip="View" href="#showmodal"><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange modal-trigger editmodal" data-position="bottom " data-tooltip="Edit"  href="#ceeditmodal" first_name = "{{ $show->first_name }}"
+                                        last_name = "{{ $show->last_name }}"
+                                        middle_initial = "{{ $show->middle_initial }}"
+                                        bday_month = "{{ $show->bday_month }}"
+                                        bday_day = "{{ $show->bday_day }}"
+                                        bday_year = "{{ $show->bday_year }}"
+                                        age = "{{ $show->age }}"
+                                        gender = "{{ $show->gender }}"
+                                        year = "{{ $show->year }}"
+                                        section = "{{ $show->section }}"><i class="material-icons"
+                                        >edit</i></a>
+                                    <a class="btn btn-floating btn-small red darken-5 tooltipped modal-trigger" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
+                                </td>
+                            </tr>
+
+                            @endforeach
+                            @foreach($outputs as $output)  
+                            <tr>
+                                <td class="mr-5 ml-5">{{ $output->last_name }}, {{ $output->first_name }} {{ $output->middle_initial }}.</td>
+                                <td class="mr-5 ml-5">{{ $output->bday_month }} {{ $output->bday_day }}, {{ $output->bday_year }}</td>
+                                <td class="mr-5 ml-5">{{ $output->age }}</td>
+                                <td class="mr-5 ml-5">{{ $output->gender }}</td>
+                                <td class="mr-5 ml-5">{{ $output->address }}</td>
+                                <td class="mr-5 ml-5">{{ $output->department }}</td>
+                                <td class="mr-5 ml-5">{{ $output->year }}</td>
+                                <td class="mr-5 ml-5">Section {{ $output->section }}</td>
+                                <td class="mr-5 ml-5">
+                                    {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
+                                    <!-- Modal Trigger -->
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = "{{ $output->first_name }}"
+                                        last_name = "{{ $output->last_name }}"
+                                        middle_initial = "{{ $output->middle_initial }}"
+                                        bday_month = "{{ $output->bday_month }}"
+                                        bday_day = "{{ $output->bday_day }}"
+                                        bday_year = "{{ $output->bday_year }}"
+                                        age = "{{ $output->age }}"
+                                        gender = "{{ $output->gender }}"
+                                        year = "{{ $output->year }}"
+                                        section = "{{ $output->section }}"><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange modal-trigger editmodal" data-position="bottom " data-tooltip="Edit" href="#cciseditmodal" first_name = "{{ $show->first_name }}"
+                                        last_name = "{{ $output->last_name }}"
+                                        middle_initial = "{{ $output->middle_initial }}"
+                                        bday_month = "{{ $output->bday_month }}"
+                                        bday_day = "{{ $output->bday_day }}"
+                                        bday_year = "{{ $output->bday_year }}"
+                                        age = "{{ $output->age }}"
+                                        gender = "{{ $output->gender }}"
+                                        year = "{{ $output->year }}"
+                                        section = "{{ $output->section }}"><i class="material-icons" >edit</i></a>
+                                    <a class="btn btn-floating btn-small red darken-5 tooltipped modal-trigger" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
+                                </td>
+                            </tr>
+                            @endforeach
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+<!-- sample adminlte testing -->
 <div>
     <div class="row">
         <div class="col s4">
@@ -871,8 +1037,6 @@
 
 
 
-
-
 <!-- END OF MAIN CONTAINER -->
 
 
@@ -1017,7 +1181,7 @@
     init();
     }
 </script>
-<script>
+<!-- <script>
     $(document).ready( function () {
          $('#thetable').DataTable({
               'paging'      : true,
@@ -1028,7 +1192,7 @@
               'autoWidth'   : true
     })
     } );
-</script>
+</script> -->
 <script>
     $(document).ready(function(){
 
@@ -1160,4 +1324,35 @@
         jQuery('#rivera').click();
     });
 </script>
+<!--adminlte js  -->
+<!-- jQuery 3 -->
+<script src="{{ asset('adminlte/bower_components/jquery/dist/jquery.min.js') }}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="{{ asset('adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<!-- DataTables -->
+<script src="{{ asset('adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+<!-- SlimScroll -->
+<script src="{{ asset('adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+<!-- FastClick -->
+<script src="{{ asset('adminlte/bower_components/fastclick/lib/fastclick.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
+
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
+<!--adminlte js  -->
 @endsection
