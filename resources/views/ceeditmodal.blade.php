@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="">
                     <br>
-                    <h5 class="center">Edit $show->first_name's Data</h5>
+                    <h5 class="center">Edit <span value="first_name"></span>'s Data</h5>
                 </div>
             </div>
         

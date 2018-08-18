@@ -361,26 +361,26 @@
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = {{ $data->first_name }}
-                                        last_name = {{ $data->last_name }}
-                                        middle_initial = {{ $data->middle_initial }}
-                                        bday_month = {{ $data->bday_month }}
-                                        bday_day = {{ $data->bday_day }}
-                                        bday_year = {{ $data->bday_year }}
-                                        age = {{ $data->age }}
-                                        gender = {{ $data->gender }}
-                                        year = {{ $data->year }}
-                                        section = {{ $data->section }} ><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange modal-trigger editmodal" data-position="bottom " data-tooltip="Edit" href="#coededitmodal" first_name = {{ $data->first_name }}
-                                        last_name = {{ $data->last_name }}
-                                        middle_initial = {{ $data->middle_initial }}
-                                        bday_month = {{ $data->bday_month }}
-                                        bday_day = {{ $data->bday_day }}
-                                        bday_year = {{ $data->bday_year }}
-                                        age = {{ $data->age }}
-                                        gender = {{ $data->gender }}
-                                        year = {{ $data->year }}
-                                        section = {{ $data->section }}><i class="material-icons" >edit</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = "{{ $data->first_name }}"
+                                        last_name = "{{ $data->last_name }}"
+                                        middle_initial = "{{ $data->middle_initial }}"
+                                        bday_month = "{{ $data->bday_month }}"
+                                        bday_day = "{{ $data->bday_day }}"
+                                        bday_year = "{{ $data->bday_year }}"
+                                        age = "{{ $data->age }}"
+                                        gender = "{{ $data->gender }}"
+                                        year = "{{ $data->year }}"
+                                        section = "{{ $data->section }}" ><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange modal-trigger editmodal" data-position="bottom " data-tooltip="Edit" href="#coededitmodal" first_name = "{{ $data->first_name }}"
+                                        last_name = "{{ $data->last_name }}"
+                                        middle_initial = "{{ $data->middle_initial }}"
+                                        bday_month = "{{ $data->bday_month }}"
+                                        bday_day = "{{ $data->bday_day }}"
+                                        bday_year = "{{ $data->bday_year }}"
+                                        age = "{{ $data->age }}"
+                                        gender = "{{ $data->gender }}"
+                                        year = "{{ $data->year }}"
+                                        section = "{{ $data->section }}"><i class="material-icons" >edit</i></a>
                                     <a class="btn btn-floating btn-small red darken-5 tooltipped modal-trigger " data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CoEddelete',$data->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
@@ -400,27 +400,27 @@
                                     <!-- {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}} -->
                                     <!-- Modal Trigger -->
                                     <a class="btn btn-floating btn-small tooltipped light-blue darken-4 modal-trigger viewmodal"
-                                        first_name = {{ $show->first_name }}
-                                        last_name = {{ $show->last_name }}
-                                        middle_initial = {{ $show->middle_initial }}
-                                        bday_month = {{ $show->bday_month }}
-                                        bday_day = {{ $show->bday_day }}
-                                        bday_year = {{ $show->bday_year }}
-                                        age = {{ $show->age }}
-                                        gender = {{ $show->gender }}
-                                        year = {{ $show->year }}
-                                        section = {{ $show->section }}
+                                        first_name = "{{ $show->first_name }}"
+                                        last_name = "{{ $show->last_name }}"
+                                        middle_initial = "{{ $show->middle_initial }}"
+                                        bday_month = "{{ $show->bday_month }}"
+                                        bday_day = "{{ $show->bday_day }}"
+                                        bday_year = "{{ $show->bday_year }}"
+                                        age = "{{ $show->age }}"
+                                        gender = "{{ $show->gender }}"
+                                        year = "{{ $show->year }}"
+                                        section = "{{ $show->section }}"
                                         data-position="bottom" data-tooltip="View" href="#showmodal"><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange modal-trigger editmodal" data-position="bottom " data-tooltip="Edit"  href="#ceeditmodal" first_name = {{ $show->first_name }}
-                                        last_name = {{ $show->last_name }}
-                                        middle_initial = {{ $show->middle_initial }}
-                                        bday_month = {{ $show->bday_month }}
-                                        bday_day = {{ $show->bday_day }}
-                                        bday_year = {{ $show->bday_year }}
-                                        age = {{ $show->age }}
-                                        gender = {{ $show->gender }}
-                                        year = {{ $show->year }}
-                                        section = {{ $show->section }}><i class="material-icons"
+                                    <a class="btn btn-floating btn-small tooltipped orange modal-trigger editmodal" data-position="bottom " data-tooltip="Edit"  href="#ceeditmodal" first_name = "{{ $show->first_name }}"
+                                        last_name = "{{ $show->last_name }}"
+                                        middle_initial = "{{ $show->middle_initial }}"
+                                        bday_month = "{{ $show->bday_month }}"
+                                        bday_day = "{{ $show->bday_day }}"
+                                        bday_year = "{{ $show->bday_year }}"
+                                        age = "{{ $show->age }}"
+                                        gender = "{{ $show->gender }}"
+                                        year = "{{ $show->year }}"
+                                        section = "{{ $show->section }}"><i class="material-icons"
                                         >edit</i></a>
                                     <a class="btn btn-floating btn-small red darken-5 tooltipped modal-trigger" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CEdelete',$show->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
@@ -440,26 +440,26 @@
                                 <td class="mr-5 ml-5">
                                     {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = {{ $output->first_name }}
-                                        last_name = {{ $output->last_name }}
-                                        middle_initial = {{ $output->middle_initial }}
-                                        bday_month = {{ $output->bday_month }}
-                                        bday_day = {{ $output->bday_day }}
-                                        bday_year = {{ $output->bday_year }}
-                                        age = {{ $output->age }}
-                                        gender = {{ $output->gender }}
-                                        year = {{ $output->year }}
-                                        section = {{ $output->section }}><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange modal-trigger editmodal" data-position="bottom " data-tooltip="Edit" href="#cciseditmodal" first_name = {{ $show->first_name }}
-                                        last_name = {{ $output->last_name }}
-                                        middle_initial = {{ $output->middle_initial }}
-                                        bday_month = {{ $output->bday_month }}
-                                        bday_day = {{ $output->bday_day }}
-                                        bday_year = {{ $output->bday_year }}
-                                        age = {{ $output->age }}
-                                        gender = {{ $output->gender }}
-                                        year = {{ $output->year }}
-                                        section = {{ $output->section }}><i class="material-icons" >edit</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = "{{ $output->first_name }}"
+                                        last_name = "{{ $output->last_name }}"
+                                        middle_initial = "{{ $output->middle_initial }}"
+                                        bday_month = "{{ $output->bday_month }}"
+                                        bday_day = "{{ $output->bday_day }}"
+                                        bday_year = "{{ $output->bday_year }}"
+                                        age = "{{ $output->age }}"
+                                        gender = "{{ $output->gender }}"
+                                        year = "{{ $output->year }}"
+                                        section = "{{ $output->section }}"><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange modal-trigger editmodal" data-position="bottom " data-tooltip="Edit" href="#cciseditmodal" first_name = "{{ $show->first_name }}"
+                                        last_name = "{{ $output->last_name }}"
+                                        middle_initial = "{{ $output->middle_initial }}"
+                                        bday_month = "{{ $output->bday_month }}"
+                                        bday_day = "{{ $output->bday_day }}"
+                                        bday_year = "{{ $output->bday_year }}"
+                                        age = "{{ $output->age }}"
+                                        gender = "{{ $output->gender }}"
+                                        year = "{{ $output->year }}"
+                                        section = "{{ $output->section }}"><i class="material-icons" >edit</i></a>
                                     <a class="btn btn-floating btn-small red darken-5 tooltipped modal-trigger" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
