@@ -8,18 +8,18 @@
         }
     </style>
     <!--Adminlte css  -->
-    <link rel="stylesheet" href="{{ url('adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url('adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css') }}"> -->
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ url('adminlte/bower_components/font-awesome/css/font-awesome.min.css') }}">
+  <!-- <link rel="stylesheet" href="{{ url('adminlte/bower_components/font-awesome/css/font-awesome.min.css') }}"> -->
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ url('adminlte/bower_components/Ionicons/css/ionicons.min.css') }}">
+  <!-- <link rel="stylesheet" href="{{ url('adminlte/bower_components/Ionicons/css/ionicons.min.css') }}"> -->
   <!-- DataTables -->
-  <link rel="stylesheet" href="{{ url('adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+  <!-- <link rel="stylesheet" href="{{ url('adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}"> -->
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ url('adminlte/dist/css/AdminLTE.min.cs') }}s">
+  <!-- <link rel="stylesheet" href="{{ url('adminlte/dist/css/AdminLTE.min.cs') }}s"> -->
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="{{ url('adminlte/dist/css/skins/_all-skins.min.css') }}">
+  <!-- <link rel="stylesheet" href="{{ url('adminlte/dist/css/skins/_all-skins.min.css') }}"> -->
     <!--Adminlte css  -->
 @endsection
 @section('content')
@@ -62,12 +62,12 @@
 
 <!--MAIN DASHBOARD-->
 <!-- sample adminlte testing -->
-<div class="box">
+<!-- <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Table With Full Features</h3>
-            </div>
+            </div> -->
             <!-- /.box-header -->
-            <div class="box-body">
+            <!-- <div class="box-body">
               <table id="example2" class="table table-bordered table-striped">
                 <thead><tr>
                     <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Name</h6></a></th>
@@ -91,10 +91,10 @@
                                 <td class="mr-5 ml-5">{{ $show->department }}</td>
                                 <td class="mr-5 ml-5">{{ $show->year }}</td>
                                 <td class="mr-5 ml-5">Section {{ $show->section }}</td>
-                                <td class="mr-5 ml-5">
+                                <td class="mr-5 ml-5"> -->
                                     <!-- {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}} -->
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped light-blue darken-4 modal-trigger viewmodal"
+                                    <!-- <a class="btn btn-floating btn-small tooltipped light-blue darken-4 modal-trigger viewmodal"
                                         first_name = "{{ $show->first_name }}"
                                         last_name = "{{ $show->last_name }}"
                                         middle_initial = "{{ $show->middle_initial }}"
@@ -132,10 +132,10 @@
                                 <td class="mr-5 ml-5">{{ $show->department }}</td>
                                 <td class="mr-5 ml-5">{{ $show->year }}</td>
                                 <td class="mr-5 ml-5">Section {{ $show->section }}</td>
-                                <td class="mr-5 ml-5">
+                                <td class="mr-5 ml-5"> -->
                                     <!-- {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}} -->
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped light-blue darken-4 modal-trigger viewmodal"
+                                    <!-- <a class="btn btn-floating btn-small tooltipped light-blue darken-4 modal-trigger viewmodal"
                                         first_name = "{{ $show->first_name }}"
                                         last_name = "{{ $show->last_name }}"
                                         middle_initial = "{{ $show->middle_initial }}"
@@ -174,9 +174,9 @@
                                 <td class="mr-5 ml-5">{{ $output->year }}</td>
                                 <td class="mr-5 ml-5">Section {{ $output->section }}</td>
                                 <td class="mr-5 ml-5">
-                                    {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
+                                    {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}} -->
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = "{{ $output->first_name }}"
+                                    <!-- <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = "{{ $output->first_name }}"
                                         last_name = "{{ $output->last_name }}"
                                         middle_initial = "{{ $output->middle_initial }}"
                                         bday_month = "{{ $output->bday_month }}"
@@ -201,17 +201,17 @@
                             </tr>
                             @endforeach
               </table>
-            </div>
+            </div> -->
             <!-- /.box-body -->
-          </div>
+          <!-- </div> -->
           <!-- /.box -->
-        </div>
+        <!-- </div> -->
         <!-- /.col -->
-      </div>
+      <!-- </div> -->
       <!-- /.row -->
-    </section>
+    <!-- </section> -->
     <!-- /.content -->
-  </div>
+<!--   </div> -->
 <!-- sample adminlte testing -->
 <div>
     <div class="row">

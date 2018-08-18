@@ -349,7 +349,7 @@
                             <td class="mr-5 ml-5">
                                 {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                 <!-- Modal Trigger -->
-                                <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = {{ $output->first_name }}
+                                <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = "{{ $output->first_name }}"
                                         last_name = {{ $output->last_name }}
                                         middle_initial = {{ $output->middle_initial }}
                                         bday_month = {{ $output->bday_month }}
@@ -359,7 +359,7 @@
                                         gender = {{ $output->gender }}
                                         year = {{ $output->year }}
                                         section = {{ $output->section }}><i class="material-icons">zoom_in</i></a>
-                                <a class="btn btn-floating btn-small tooltipped orange editmodal modal-trigger" data-position="bottom" data-tooltip="Edit" href="#filterbyCCISedit" first_name = {{ $output->first_name }}
+                                <a class="btn btn-floating btn-small tooltipped orange editmodal modal-trigger" data-position="bottom" data-tooltip="Edit" href="#filterbyCCISedit" first_name = "{{ $output->first_name }}"
                                         last_name = {{ $output->last_name }}
                                         middle_initial = {{ $output->middle_initial }}
                                         bday_month = {{ $output->bday_month }}
@@ -403,7 +403,7 @@
 @endif
 
 @include('showmodal')
-@include('filterbyccisedit')
+@include('filterbyCCISedit')
 <div id="modal1" class="modal">
     <div class="modal-content"  style="overflow: hidden;" >
         <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
