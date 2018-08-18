@@ -1,15 +1,15 @@
-<div id="filterbyCCISedit" class="modal">
+<div id="filterbyCEedit" class="modal">
     <div class="modal-content"  style="overflow: hidden;" >
         <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
         <div class="form-group container">
             <div class="row">
                 <div class="">
                     <br>
-                    <h5 class="center">Edit <span value="first_name"></span>'s Data</h5>
+                    <h5 id="nameid" class="center">Edit <span value="first_name"></span>'s Data</h5>
                 </div>
             </div>
         
-            {!! Form::model($output, ['route' => ['CollegesController.CCISupdate', $output->id]]) !!}
+            {!! Form::model($output, ['route' => ['CollegesController.CoEdupdate', $output->id]]) !!}
             <div class="">
                 <div class="row form-group">
                     <div class="input-field form-group">
@@ -152,7 +152,7 @@
                 </div>
                 <br>
                 <div class="center">
-                    <button type="submit" class="btn btn-large hoverable waves-effect waves-light orange accent-3 tooltipped" data-tooltip="Create Student"><i class="material-icons left">send</i>Submit</button>
+                    <button type="submit" class="btn btn-large hoverable waves-effect waves-light orange accent-3 tooltipped" data-tooltip="Create Student"><i class="material-icons left">send</i>Update</button>
                 </div>
                 <br>
             </div>

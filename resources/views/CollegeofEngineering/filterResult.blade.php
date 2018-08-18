@@ -423,7 +423,16 @@
                                         gender = {{ $output->gender }}
                                         year = {{ $output->year }}
                                         section = {{ $output->section }} ><i class="material-icons">zoom_in</i></a>
-                                <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CCISedit',$output->id) }}"><i class="material-icons">edit</i></a>
+                                <a class="btn btn-floating btn-small tooltipped orange editmodal modal-trigger" data-position="bottom" data-tooltip="Edit" href="#filterbyCEedit" first_name = "{{ $output->first_name }}"
+                                        last_name = {{ $output->last_name }}
+                                        middle_initial = {{ $output->middle_initial }}
+                                        bday_month = {{ $output->bday_month }}
+                                        bday_day = {{ $output->bday_day }}
+                                        bday_year = {{ $output->bday_year }}
+                                        age = {{ $output->age }}
+                                        gender = {{ $output->gender }}
+                                        year = {{ $output->year }}
+                                        section = {{ $output->section }}><i class="material-icons">edit</i></a>
                                 <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
                             </td>
                         </tr>
@@ -477,6 +486,7 @@
 @endif
 
 @include('showmodal')
+@include('filterbyCEedit')
 <div id="modal1" class="modal">
     <div class="modal-content"  style="overflow: hidden;" >
         <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>

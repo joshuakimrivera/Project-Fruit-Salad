@@ -403,7 +403,7 @@
 @endif
 
 @include('showmodal')
-@include('filterbyCCISedit')
+@include('filterbyccisedit')
 <div id="modal1" class="modal">
     <div class="modal-content"  style="overflow: hidden;" >
         <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
