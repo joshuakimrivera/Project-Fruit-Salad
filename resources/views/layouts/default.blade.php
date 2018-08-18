@@ -85,7 +85,7 @@
             $("input[name='department").val(department);
             $("input[name='year").val($(this).attr('year'));
             $("input[name='section").val($(this).attr('section'));
-            $("span[value='first_name").val($(this).attr('first_name'));
+            $("#nameid span").text($(this).attr('first_name'));
         
         });        
     </script>

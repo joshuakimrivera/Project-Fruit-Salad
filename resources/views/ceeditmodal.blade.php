@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="">
                     <br>
-                    <h5 class="center">Edit <span value="first_name"></span>'s Data</h5>
+                    <h5 id="nameid" class="center">Edit <span value="first_name"></span>'s Data</h5>
                 </div>
             </div>
         
@@ -152,7 +152,7 @@
                 </div>
                 <br>
                 <div class="center">
-                    <button type="submit" class="btn btn-large hoverable waves-effect waves-light orange accent-3 tooltipped" data-tooltip="Create Student"><i class="material-icons left">send</i>Submit</button>
+                    <button type="submit" class="btn btn-large hoverable waves-effect waves-light orange accent-3 tooltipped" data-tooltip="Create Student"><i class="material-icons left">send</i>Update</button>
                 </div>
                 <br>
             </div>
