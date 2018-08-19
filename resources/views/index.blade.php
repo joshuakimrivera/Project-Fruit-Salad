@@ -6,6 +6,32 @@
             text-align: center;
             vertical-align: middle;
         }
+        nav {
+    height: 40px;
+    line-height: 40px;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    height: 40px;
+    line-height: 40px;
+}
+
+nav .button-collapse i {
+    height: 40px;
+    line-height: 40px;
+}
+
+nav .brand-logo { 
+    font-size: 1.3rem; 
+}
+
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 40px;
+        line-height: 40px;
+    }
+}
+
     </style>
 @endsection
 @section('content')
@@ -14,9 +40,9 @@
 <nav>
     <div class="navbar-fixed ">
         <nav>
-          <div class="nav-wrapper red darken-4">
-              <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons white-text">menu</i></button>
-                <a href="#!" class="brand-logo white-text"><i class="large material-icons" style="font-size: 48px;">equalizer</i> PupStats</a>
+          <div class="nav-wrapper indigo darken-4">
+              <button class="btn-flat sidenav-trigger button-collapse" data-target="slide-out" style="top: -8px;"><i class="material-icons white-text">menu</i></button>
+                <a href="#!" class="brand-logo white-text"><i class="large material-icons" style="font-size: 2rem;">equalizer</i><b>PUP Analytics</b></a>
                 <ul class="right hide-on-med-and-down">
                 </ul>
           </div>
@@ -44,26 +70,26 @@
 </ul>
 <!-- END OF NAVIGATIONAL STRUCTURES -->
 
-<div style="height: 30px;"></div>
+<div style="height: 15px;"></div>
 
 <!--MAIN DASHBOARD-->
 <div>
     <div class="row">
-        <div class="col s4">
+        <div class="col s3 m3">
             <!--FILTER TAB-->
             <div class="card josh z-depth-4">
                 <!--CARD DASHBOARD-->
-                <div class="card-content row">
+                <div class="card-content">
                     <div class="col s12">
-                        <span class="card-title"><i class="material-icons" style="font-size: 36px;">filter_list</i>&nbsp Filter Selection TAB</span>
+                        <span class="card-title center"><i class="material-icons" style="font-size: 4rem;">search</i></span>
 
                         <!--COLLEGES-->
                         <div class="input-field col s11">
                             <select id="collegeFilter" name="college">
                                 <option url= {{ route('CollegesController.index', $CCIS) }} selected>All Colleges</option>
-                                <option url= {{ route('filter.college.CCIS', $CCIS) }} value="Computer and Information Sciences">College of Computer and Information Sciences</option>
-                                <option url= {{ route('filter.college.CoEd', $CoEd) }} value="Education">College of Education</option>
-                                <option url= {{ route('filter.college.CE', $CE) }} value="Engineering">College of Engineering</option>
+                                <option url= {{ route('filter.college.CCIS', $CCIS) }} value="Computer and Information Sciences">Computer and Information Sciences</option>
+                                <option url= {{ route('filter.college.CoEd', $CoEd) }} value="Education">Education</option>
+                                <option url= {{ route('filter.college.CE', $CE) }} value="Engineering">Engineering</option>
                             </select>
                             <label>College</label>
                         </div>
@@ -117,7 +143,7 @@
 
                         <div class="input-field col s3">
                             <select disabled id="yearFilter" name="bday_year">
-                                <option selected disabled>Year</option>
+                                <option selected disabled>---</option>
                                 <option value="1993">1993</option>
                                 <option value="1994">1994</option>
                                 <option value="1995">1995</option>
@@ -132,7 +158,7 @@
 
                         <div class="input-field col s5">
                             <select disabled id="monthFilter" name="bday_month">
-                                <option selected disabled>Month</option>
+                                <option selected disabled>---</option>
                                 <option data-target="1" value="January">January</option>
                                 <option data-target="2" value="February">February</option>
                                 <option data-target="3" value="March">March</option>
@@ -151,7 +177,7 @@
 
                         <div class="input-field col s3">
                             <select disabled id="dayFilter" name="bday_day">
-                                <option selected disabled>Day</option>
+                                <option selected disabled>---</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -225,17 +251,14 @@
                             </div>
                         </div> --}}
                         <!--ADD STUDENT BUTTON-->
-                        <div class="col s12"><hr></div>
                         
-                        <div class="col s3">
-                            <a href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a>
-                        </div>
+                        
                         <div class="col s9">
                             
                                 <!--EXCEL FILE UPLOAD STRUCTURE -->
 
                             <!-- Modal Trigger -->
-                            <a class="waves-effect waves-light btn-floating btn-large modal-trigger tooltipped z-depth-2" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a>
+                           
 
                             <!-- Modal Structure -->
                             <div id="modal2" class="modal scale-transition" style="height: 350px; overflow: hidden;">
@@ -300,10 +323,10 @@
             </div>
         </div>
         <!--CHART CARD-->
-        <div class="col s8">
+        <div class="col s7">
             <div class="card josh z-depth-4">
                 <div class="card-content row">
-                    <div class="col s5">
+                    <div class="col s12">
                             <hr>
                             <button id="rivera" type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Bar Graph" onclick="toggleChart('bar')"><i class="material-icons">equalizer</i></button>
                             <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Line Graph" onclick="toggleChart('line')"><i class="material-icons">timeline</i></button>
@@ -311,7 +334,6 @@
                             <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Donut Chart" onclick="toggleChart('doughnut')"><i class="material-icons">donut_large</i></button>
                             <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Pie Chart" onclick="toggleChart('pie')"><i class="material-icons">pie_chart</i></button>
                             <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Polar Area" onclick="toggleChart('polarArea')"><i class="material-icons">track_changes</i></button>
-                        <hr>
                     </div>
                     <div><canvas id="barChart" height="150%"></canvas></div>
                     
@@ -1572,6 +1594,15 @@
         </script>
     </div>
 </div>
+<div class="fixed-action-btn toolbar">
+        <a class="btn-floating btn-large indigo darken-2">
+          <i class="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+            <li><a href="#modal1" data-position="top" data-tooltip="Add Student" class="tooltipped modal-trigger  btn-large waves-effect waves-light indigo darken-2"><i class="material-icons">person_add</i></a></li>
+            <li><a class="waves-effect waves-light btn-large modal-trigger tooltipped indigo darken-2" data-position="top" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a></li>
+        </ul>
+      </div>
 <!-- END OF MAIN CONTAINER -->
 
 
@@ -1579,7 +1610,14 @@
 
 
 @section('pageJs')
-    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+      toolbarEnabled: true
+    });
+  });
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.modal');
@@ -1643,7 +1681,7 @@
 
     // Global Options:
     Chart.defaults.global.defaultFontColor = 'black';
-    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontSize = 12;
 
     var data = {
         labels: ["CE", "COED", "CCIS"],

@@ -25,6 +25,15 @@
         .maroon{
             color: maroon;
         }
+        header, main, footer {
+      padding-left: 300px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
     </style>
 
     @yield('pageCss')
