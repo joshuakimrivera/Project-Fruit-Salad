@@ -950,17 +950,17 @@ nav .brand-logo {
             label: ' Number of Students',
             data: [totalStudents, total],
             backgroundColor: [
-                '#004d40',
-                '#880044',
-                '#311b92',
+                '#090934',
+                '#ffc107',
+                '#4527a0',
                 '#ffff00',
                 '#1b5e20',
                 '#ff9800'
             ],
             borderColor: [
-                '#004d40',
-                '#880044',
-                '#311b92',
+                '#090934',
+                '#ffc107',
+                '#4527a0',
                 '#ffff00',
                 '#1b5e20',
                 '#ff9800'

@@ -31,6 +31,10 @@ nav .brand-logo {
         line-height: 40px;
     }
 }
+$('div svg text').css({
+    "font-family" : "'Segoe UI' !important",
+    "padding" : "3%"
+});
         
     </style>
 @endsection
@@ -74,12 +78,12 @@ nav .brand-logo {
 <div style="height: 15px;"></div>
 
 <div class="fixed-action-btn toolbar">
-    <a class="btn-floating btn-large orange">
+    <a class="btn-floating btn-large pink darken-1">
         <i class="large material-icons">add</i>
     </a>
     <ul>
-        <li><a href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a></li>
-        <li><a class="waves-effect waves-light btn-large modal-trigger tooltipped indigo darken-2" data-position="top" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a></li>
+        <li><a href="#modal1" data-tooltip="Add Student"  data-position="top" class="z-depth-2 tooltipped modal-trigger btn-large waves-effect waves-light"><i class="material-icons">person_add</i></a></li>
+        <li><a class="waves-effect waves-light btn-large modal-trigger tooltipped " data-position="top" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a></li>
     </ul>
 </div>
 <!--MAIN DASHBOARD-->
@@ -97,9 +101,9 @@ nav .brand-logo {
                         <div class="input-field col s11">
                             <select id="collegeFilter" name="college">
                                 <option url= {{ route('CollegesController.index') }} selected>All Colleges</option>
-                                <option url= {{ route('filter.college.CCIS') }} selected value="Computer and Information Sciences">College of Computer and Information Sciences</option>
-                                <option url= {{ route('filter.college.CoEd') }} value="Education">College of Education</option>
-                                <option url= {{ route('filter.college.CE') }} value="Engineering">College of Engineering</option>
+                                <option url= {{ route('filter.college.CCIS') }} selected value="Computer and Information Sciences">Computer and Information Sciences</option>
+                                <option url= {{ route('filter.college.CoEd') }} value="Education">Education</option>
+                                <option url= {{ route('filter.college.CE') }} value="Engineering">Engineering</option>
                             </select>
                             <label>College</label>
                         </div>
@@ -469,21 +473,23 @@ nav .brand-logo {
             </div>
             <!--AEXPERIMENTAL FEATURES-->
             <div class="col s2">
-                    <div class="card z-depth-4">
-                      <div class="card-content black-text">
+                <div class="card z-depth-4" style="height: 245px">
+                    <div class="card-content black-text">
                         <span class="card-title center"><h2 id = "cardOne">0</h2></span>
-                      <div class="card-action">
-                          <span>Total Number of Students</span>
-                      </div>
+                        <div class="card-action col s12">
+                            <span class="center" id="indicator"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
             <div class="col s2">
-                    <div class="card z-depth-4" style="height: 337px">
+                    <div class="card z-depth-4" style="height: 332px">
                       <div class="card-content black-text">
-                        <span class="center">CE:  <h4 id="percentOne">0%</h4></span>
-                        <span class="center">CoEd:<h4 id="percentTwo">0%</h4></span>
-                        <span class="center">CCIS:<h4 id="percentThree">0%</h4></span>
+                        <span><span id="indicatorTwo">---</span></span>
+                        <span><span id="indicatorThree"></span>  <h4 id="percentOne" class="center">0%</h4></span>
+                        <br><hr>
+                        <span class="center"><span id="indicatorFour"></span>  <h4 id="percentTwo">0%</h4></span>
+                            
                 </div>
             </div>
         </div>
@@ -981,9 +987,15 @@ nav .brand-logo {
     // We are only changing the chart type, so let's make that a global variable along with the chart object:
     var chartType = 'bar';
     var forShow = +totalCCIS;
-    var showOne = (+totalCCIS / +total) * 100;
+    var showOne = (+totalCCIS / (+total + +totalCCIS)) * 100;
+    var showTwo = 100 - +showOne;
+    document.getElementById("indicator").innerHTML = labelLeft + " Students";
     document.getElementById("cardOne").innerHTML = forShow;
+    document.getElementById("indicatorTwo").innerHTML =  labelLeft;
+    document.getElementById("indicatorFour").innerHTML =  labelRight;
     document.getElementById("percentOne").innerHTML = showOne.toFixed(2) + '%';
+    document.getElementById("percentTwo").innerHTML = showTwo.toFixed(2) + '%';
+   
     var myBarChart;
 
     // Global Options:
@@ -997,16 +1009,16 @@ nav .brand-logo {
             label: ' Number of Students',
             data: [totalCCIS, total],
             backgroundColor: [
-                '#004d40',
-                '#880044',
+                '#090934',
+                '#ffc107',
                 '#311b92',
                 '#ffff00',
                 '#1b5e20',
                 '#ff9800'
             ],
             borderColor: [
-                '#004d40',
-                '#880044',
+                '#090934',
+                '#ffc107',
                 '#311b92',
                 '#ffff00',
                 '#1b5e20',
@@ -1028,7 +1040,7 @@ nav .brand-logo {
         title: {
             fontSize: 18,
             display: true,
-            text: 'CCIS',
+            text: 'College of Computer and Information Science',
             position: 'bottom'
         },
         animation: {

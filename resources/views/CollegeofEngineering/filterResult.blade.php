@@ -916,17 +916,17 @@ nav .brand-logo {
             label: ' Number of Student',
             data: [totalStudents, total],
             backgroundColor: [
-                '#004d40',
-                '#880044',
-                '#311b92',
+                '#090934',
+                '#ffc107',
+                '#4527a0',
                 '#ffff00',
                 '#1b5e20',
                 '#ff9800'
             ],
             borderColor: [
-                '#004d40',
-                '#880044',
-                '#311b92',
+                '#090934',
+                '#ffc107',
+                '#4527a0',
                 '#ffff00',
                 '#1b5e20',
                 '#ff9800'
@@ -951,8 +951,8 @@ nav .brand-logo {
             position: 'bottom'
         },
         animation: {
-            duration: 2000,
-            easing: 'easeInOutBounce'
+            duration: 1000,
+            easing: 'easeInQuad'
         }
     };
 
