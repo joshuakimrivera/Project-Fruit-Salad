@@ -242,7 +242,7 @@
 <!--   </div> -->
 <!-- sample adminlte testing -->
 <div class="fixed-action-btn toolbar">
-    <a class="btn-floating btn-large orange">
+    <a class="btn-floating btn-large pink darken-1">
         <i class="large material-icons">add</i>
     </a>
     <ul>
@@ -2052,17 +2052,17 @@
             label: ' Number of students in this College',
             data: [totalCE, totalCoEd, totalCCIS],
             backgroundColor: [
-                '#004d40',
-                '#880044',
-                '#311b92',
+                '#090934',
+                '#ffc107',
+                '#4527a0',
                 '#ffff00',
                 '#1b5e20',
                 '#ff9800'
             ],
             borderColor: [
-                '#004d40',
-                '#880044',
-                '#311b92',
+                '#090934',
+                '#ffc107',
+                '#4527a0',
                 '#ffff00',
                 '#1b5e20',
                 '#ff9800'
