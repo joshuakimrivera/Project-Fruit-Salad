@@ -3,7 +3,6 @@
 Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     
     Route::get('/', 'CollegesController@index')->name('CollegesController.index');
-    Route::post('/', 'CollegesController@filterOptions')->name('filterOptions');
 
     //College of Engineering Routes
     Route::get('/add/college-of-Engineering', 'CollegesController@CEadd')->name('CollegesController.CEadd');
@@ -26,6 +25,12 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::get('/filtered-by-CCIS-EE', 'CollegesController@filterCEDepartmentEE')->name('filter.college.CE.EE');
     Route::get('/filtered-by-CCIS-ECE', 'CollegesController@filterCEDepartmentECE')->name('filter.college.CE.ECE');
     Route::get('/filtered-by-CCIS-IE', 'CollegesController@filterCEDepartmentIE')->name('filter.college.CE.IE');
+    Route::get('/filtered-by-CpE-yr/{yr}', 'CollegesController@filterCpEByYear')->name('filter.college.CpE.yr');
+    Route::get('/filtered-by-Civil-yr/{yr}', 'CollegesController@filterCivilByYear')->name('filter.college.Civil.yr');
+    Route::get('/filtered-by-ME-yr/{yr}', 'CollegesController@filterMEByYear')->name('filter.college.ME.yr');
+    Route::get('/filtered-by-EE-yr/{yr}', 'CollegesController@filterEEByYear')->name('filter.college.EE.yr');
+    Route::get('/filtered-by-ECE-yr/{yr}', 'CollegesController@filterECEByYear')->name('filter.college.ECE.yr');
+    Route::get('/filtered-by-IE-yr/{yr}', 'CollegesController@filterIEByYear')->name('filter.college.IE.yr');
 
 
     //College of Education Routes

@@ -138,6 +138,7 @@ $('div svg text').css({
                             </div>
                         @endif
                         
+                        {{-- Year --}}
                         @if(isset( $selectIT ))
                             @if(isset( $year ))
                                 @if( $year == '1')

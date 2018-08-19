@@ -312,6 +312,38 @@ class CollegesController extends Controller
         ));  //calls the blade file with the value stored in $shows
     }
     
+    public function filterCpEByYear($yr){
+        $year = $yr;
+        $selectCpE = 1;
+        $shows = CollegeOfComputerAndInformationSciences::latest()->count();
+        $datas = CollegeOfEducations::latest()->count();
+
+        $totalCE = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Computer Engineering%")
+                                        ->count();
+
+        $outputs = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Computer Engineering%")
+                                        ->where('year', 'like', "%$yr%")
+                                        ->get();
+        
+        
+        $totalCpE = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Computer Engineering%")
+                                        ->where('year', 'like', "%$yr%")
+                                        ->count();
+        return view('CollegeOfEngineering.filterResult', compact(
+            'year',
+            'selectCpE',
+            'shows',
+            'datas',
+            'totalCpE',
+            'totalCE',
+            'outputs'
+        ));
+
+    }
+
     public function CEimport(Request $request){
         //validate the xls file
         $this->validate($request, array(
@@ -1028,7 +1060,7 @@ class CollegesController extends Controller
             'shows',
             'totalIT',
             'totalCS'
-        ));  //calls the blade file with the value stored in $shows
+        ));
     }
 
 
