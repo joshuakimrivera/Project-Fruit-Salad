@@ -327,7 +327,6 @@ class CollegesController extends Controller
                                         ->where('year', 'like', "%$yr%")
                                         ->get();
         
-        
         $totalCpE = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
                                         ->where('department', 'like', "%Computer Engineering%")
                                         ->where('year', 'like', "%$yr%")
@@ -341,7 +340,156 @@ class CollegesController extends Controller
             'totalCE',
             'outputs'
         ));
+    }
 
+    public function filterCivilByYear($yr){
+        $year = $yr;
+        $selectCivil = 1;
+        $shows = CollegeOfComputerAndInformationSciences::latest()->count();
+        $datas = CollegeOfEducations::latest()->count();
+
+        $totalCE = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Civil Engineering%")
+                                        ->count();
+
+        $outputs = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Civil Engineering%")
+                                        ->where('year', 'like', "%$yr%")
+                                        ->get();
+        
+        $totalCivil = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Civil Engineering%")
+                                        ->where('year', 'like', "%$yr%")
+                                        ->count();
+        return view('CollegeOfEngineering.filterResult', compact(
+            'year',
+            'selectCivil',
+            'shows',
+            'datas',
+            'totalCivil',
+            'totalCE',
+            'outputs'
+        ));
+    }
+
+    public function filterMEByYear($yr){
+        $year = $yr;
+        $selectME = 1;
+        $shows = CollegeOfComputerAndInformationSciences::latest()->count();
+        $datas = CollegeOfEducations::latest()->count();
+
+        $totalCE = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Mechanical Engineering%")
+                                        ->count();
+
+        $outputs = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Mechanical Engineering%")
+                                        ->where('year', 'like', "%$yr%")
+                                        ->get();
+        
+        $totalME = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Mechanical Engineering%")
+                                        ->where('year', 'like', "%$yr%")
+                                        ->count();
+        return view('CollegeOfEngineering.filterResult', compact(
+            'year',
+            'selectME',
+            'shows',
+            'datas',
+            'totalME',
+            'totalCE',
+            'outputs'
+        ));
+    }
+
+    public function filterEEByYear($yr){
+        $year = $yr;
+        $selectEE = 1;
+        $shows = CollegeOfComputerAndInformationSciences::latest()->count();
+        $datas = CollegeOfEducations::latest()->count();
+
+        $totalCE = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Electrical Engineering%")
+                                        ->count();
+
+        $outputs = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Electrical Engineering%")
+                                        ->where('year', 'like', "%$yr%")
+                                        ->get();
+        
+        $totalEE = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Electrical Engineering%")
+                                        ->where('year', 'like', "%$yr%")
+                                        ->count();
+        return view('CollegeOfEngineering.filterResult', compact(
+            'year',
+            'selectEE',
+            'shows',
+            'datas',
+            'totalEE',
+            'totalCE',
+            'outputs'
+        ));
+    }
+
+    public function filterECEByYear($yr){
+        $year = $yr;
+        $selectECE = 1;
+        $shows = CollegeOfComputerAndInformationSciences::latest()->count();
+        $datas = CollegeOfEducations::latest()->count();
+
+        $totalECE = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Electronics Engineering%")
+                                        ->count();
+
+        $outputs = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Electronics Engineering%")
+                                        ->where('year', 'like', "%$yr%")
+                                        ->get();
+        
+        $totalECE = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Electronics Engineering%")
+                                        ->where('year', 'like', "%$yr%")
+                                        ->count();
+        return view('CollegeOfEngineering.filterResult', compact(
+            'year',
+            'selectECE',
+            'shows',
+            'datas',
+            'totalECE',
+            'totalCE',
+            'outputs'
+        ));
+    }
+
+    public function filterIEByYear($yr){
+        $year = $yr;
+        $selectIE = 1;
+        $shows = CollegeOfComputerAndInformationSciences::latest()->count();
+        $datas = CollegeOfEducations::latest()->count();
+
+        $totalCE = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Industrial Engineering%")
+                                        ->count();
+
+        $outputs = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Industrial Engineering%")
+                                        ->where('year', 'like', "%$yr%")
+                                        ->get();
+        
+        $totalIE = CollegeOfEngineerings::where('college', 'like', "%Engineering%")
+                                        ->where('department', 'like', "%Industrial Engineering%")
+                                        ->where('year', 'like', "%$yr%")
+                                        ->count();
+        return view('CollegeOfEngineering.filterResult', compact(
+            'year',
+            'selectIE',
+            'shows',
+            'datas',
+            'totalIE',
+            'totalCE',
+            'outputs'
+        ));
     }
 
     public function CEimport(Request $request){
