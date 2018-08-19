@@ -6,6 +6,31 @@
             text-align: center;
             vertical-align: middle;
         }
+        nav {
+    height: 40px;
+    line-height: 40px;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    height: 40px;
+    line-height: 40px;
+}
+
+nav .button-collapse i {
+    height: 40px;
+    line-height: 40px;
+}
+
+nav .brand-logo { 
+    font-size: 1.3rem; 
+}
+
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 40px;
+        line-height: 40px;
+    }
+}
     </style>
 @endsection
 @section('content')
@@ -13,17 +38,17 @@
 <!--NAVIGATIONAL STRUCTURES -->
 <!-- NAV BAR HEADER -->
 <nav>
-    <div class="navbar-fixed ">
-        <nav>
-          <div class="nav-wrapper red darken-4">
-              <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons white-text">menu</i></button>
-                <a href="#!" class="brand-logo white-text"><i class="large material-icons" style="font-size: 48px;">equalizer</i> PupStats</a>
-                <ul class="right hide-on-med-and-down">
-                </ul>
-          </div>
-        </nav>
-    </div> 
-</nav>
+        <div class="navbar-fixed ">
+            <nav>
+              <div class="nav-wrapper indigo darken-4">
+                  <button class="btn-flat sidenav-trigger button-collapse" data-target="slide-out" style="top: -8px;"><i class="material-icons white-text">menu</i></button>
+                    <a href="#!" class="brand-logo white-text"><i class="large material-icons left" style="font-size: 2rem;">equalizer</i>PUP Analytics</a>
+                    <ul class="right hide-on-med-and-down">
+                    </ul>
+              </div>
+            </nav>
+        </div> 
+    </nav>
 
 <!-- SIDEBAR NAVIGATION -->
 <ul id="slide-out" class="sidenav">
@@ -45,19 +70,28 @@
 </ul>
 <!-- END OF NAVIGATIONAL STRUCTURES -->
 
-<div style="height: 30px;"></div>
+<div style="height: 15px;"></div>
+<div class="fixed-action-btn toolbar">
+        <a class="btn-floating btn-large orange">
+            <i class="large material-icons">add</i>
+        </a>
+        <ul>
+            <li><a href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a></li>
+            <li><a class="waves-effect waves-light btn-large modal-trigger tooltipped indigo darken-2" data-position="top" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a></li>
+        </ul>
+    </div>
 
 <!--MAIN DASHBOARD-->
 <div>
     <div class="row">
-        <div class="col s4">
+        <div class="col s3 m3">
             <!--FILTER TAB-->
             <div class="card josh z-depth-4">
                 <!--CARD DASHBOARD-->
-                <div class="card-content row">
+                <div class="card-content">
                     <div class="col s12">
-                        <span class="card-title"><i class="material-icons" style="font-size: 36px;">filter_list</i>&nbsp Filter Selection TAB</span>
-
+                            <span class="card-title"><i class="material-icons left" style="font-size: 2rem;">filter_none</i><h5>Filters</h5></span>
+                            <br>
                         <!--COLLEGES-->
                         <div class="input-field col s11">
                             <select id="collegeFilter" name="college">
@@ -292,16 +326,13 @@
                         <!--ADD STUDENT BUTTON-->
                         <div class="col s12"><hr></div>
                         
-                        <div class="col s3">
-                            <a href="#modal1" data-tooltip="Add Student" class="tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a>
-                        </div>
+                        
                         <div class="col s9">
                             
                                 <!--EXCEL FILE UPLOAD STRUCTURE -->
 
                             <!-- Modal Trigger -->
-                            <a class="waves-effect waves-light btn-floating btn-large modal-trigger tooltipped" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a>
-
+                           
                             <!-- Modal Structure -->
                             <div id="modal2" class="modal scale-transition" style="height: 350px; overflow: hidden;">
 
@@ -365,20 +396,20 @@
                 </div>
             </div>
         <!--CHART CARD-->
-        <div class="col s8">
+        <div class="col s7">
                 <div class="card josh z-depth-4">
                     <div class="card-content row">
-                        <div class="col s5">
-                                <hr>
+                        <div class="col s12">
                                 <button id="rivera" type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Bar Graph" onclick="toggleChart('bar')"><i class="material-icons">equalizer</i></button>
                                 <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Line Graph" onclick="toggleChart('line')"><i class="material-icons">timeline</i></button>
                                 <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Radar Chart" onclick="toggleChart('radar')"><i class="material-icons">navigation</i></button>
                                 <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Donut Chart" onclick="toggleChart('doughnut')"><i class="material-icons">donut_large</i></button>
                                 <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Pie Chart" onclick="toggleChart('pie')"><i class="material-icons">pie_chart</i></button>
                                 <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Polar Area" onclick="toggleChart('polarArea')"><i class="material-icons">track_changes</i></button>
-                            <hr>
+                                <hr>
                         </div>
-                        <div><canvas id="barChart" height="150%"></canvas></div>
+                        <div><canvas id="barChart" height="180%"></canvas></div>
+                        <div><br><br><br><br><br></div>
                         
                             {{--<div class="input-field col s5">
                                 <select id="mySelect" onchange="toggleChart();">
@@ -396,6 +427,26 @@
                     </div>
                 </div>
             </div>
+            <!--AEXPERIMENTAL FEATURES-->
+            <div class="col s2">
+                    <div class="card z-depth-4">
+                      <div class="card-content black-text">
+                        <span class="card-title center"><h2 id = "cardOne">0</h2></span>
+                      <div class="card-action">
+                          <span>Total Number of Students</span>
+                      </div>
+                </div>
+            </div>
+        </div>
+            <div class="col s2">
+                    <div class="card z-depth-4" style="height: 337px">
+                      <div class="card-content black-text">
+                        <span class="center">CE:  <h4 id="percentOne">0%</h4></span>
+                        <span class="center">CoEd:<h4 id="percentTwo">0%</h4></span>
+                        <span class="center">CCIS:<h4 id="percentThree">0%</h4></span>
+                </div>
+            </div>
+        </div>
         <!--NAME TABLE CARD-->
         <div class="col s12">
             <div class="card">
@@ -788,6 +839,14 @@
 
 
 @section('pageJs')
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+   var elems = document.querySelectorAll('.fixed-action-btn');
+   var instances = M.FloatingActionButton.init(elems, {
+     toolbarEnabled: true
+   });
+ });  
+</script>
     
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -840,11 +899,16 @@
     var ctx = canvas.getContext('2d');
     // We are only changing the chart type, so let's make that a global variable along with the chart object:
     var chartType = 'bar';
+    var forShow = +totalStudents;
+    var showOne = (+total / +totalStudents) * 100;
+    document.getElementById("cardOne").innerHTML = forShow;
+    document.getElementById("percentOne").innerHTML = showOne.toFixed(2) + '%';
     var myBarChart;
 
     // Global Options:
     Chart.defaults.global.defaultFontColor = 'black';
-    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontSize = 14;
+    Chart.defaults.global.defaultFontFamily = "Segoe UI";
 
     var data = {
         labels: [labelLeft, labelRight],
@@ -852,16 +916,16 @@
             label: ' Number of Student',
             data: [totalStudents, total],
             backgroundColor: [
-                '#b71c1c',
-                '#0288d1',
+                '#004d40',
+                '#880044',
                 '#311b92',
                 '#ffff00',
                 '#1b5e20',
                 '#ff9800'
             ],
             borderColor: [
-                '#b71c1c',
-                '#0288d1',
+                '#004d40',
+                '#880044',
                 '#311b92',
                 '#ffff00',
                 '#1b5e20',

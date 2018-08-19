@@ -242,14 +242,14 @@ nav .brand-logo {
 <!--   </div> -->
 <!-- sample adminlte testing -->
 <div class="fixed-action-btn toolbar">
-        <a class="btn-floating btn-large orange">
-          <i class="large material-icons">add</i>
-        </a>
-        <ul>
-            <li><a href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a></li>
-            <li><a class="waves-effect waves-light btn-large modal-trigger tooltipped indigo darken-2" data-position="top" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a></li>
-        </ul>
-      </div>
+    <a class="btn-floating btn-large orange">
+        <i class="large material-icons">add</i>
+    </a>
+    <ul>
+        <li><a href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a></li>
+        <li><a class="waves-effect waves-light btn-large modal-trigger tooltipped indigo darken-2" data-position="top" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a></li>
+    </ul>
+</div>
 <div>
     <div class="row">
         <div class="col s3 m3">
@@ -2052,7 +2052,7 @@ nav .brand-logo {
             label: ' Number of students in this College',
             data: [totalCE, totalCoEd, totalCCIS],
             backgroundColor: [
-                '#00b2b8',
+                '#004d40',
                 '#880044',
                 '#311b92',
                 '#ffff00',
@@ -2060,7 +2060,7 @@ nav .brand-logo {
                 '#ff9800'
             ],
             borderColor: [
-                '#00b2b8',
+                '#004d40',
                 '#880044',
                 '#311b92',
                 '#ffff00',
