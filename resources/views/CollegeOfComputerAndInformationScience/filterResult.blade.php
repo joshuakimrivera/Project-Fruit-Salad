@@ -61,10 +61,10 @@
                         <!--COLLEGES-->
                         <div class="input-field col s11">
                             <select id="collegeFilter" name="college">
-                                <option url= {{ route('CollegesController.index', $CCIS) }} selected>All Colleges</option>
-                                <option url= {{ route('filter.college.CCIS', $CCIS) }} selected value="Computer and Information Sciences">College of Computer and Information Sciences</option>
-                                <option url= {{ route('filter.college.CoEd', $CoEd) }} value="Education">College of Education</option>
-                                <option url= {{ route('filter.college.CE', $CE) }} value="Engineering">College of Engineering</option>
+                                <option url= {{ route('CollegesController.index') }} selected>All Colleges</option>
+                                <option url= {{ route('filter.college.CCIS') }} selected value="Computer and Information Sciences">College of Computer and Information Sciences</option>
+                                <option url= {{ route('filter.college.CoEd') }} value="Education">College of Education</option>
+                                <option url= {{ route('filter.college.CE') }} value="Engineering">College of Engineering</option>
                             </select>
                             <label>College</label>
                         </div>
@@ -73,27 +73,27 @@
                         @if(isset( $selectCS ) )
                             <div class="input-field col s11">
                                 <select id="departmentFilter" name="department">
-                                    <option url= {{ route('filter.college.CCIS', $CCIS) }} value="ALL" selected>All Departments</option>
-                                    <option selected url= {{ route('filter.department.CS', $CS) }} value="Computer Science">Computer Science</option>
-                                    <option url= {{ route('filter.department.IT', $IT) }} value="Information Technology">Information Technology</option>
+                                    <option url= {{ route('filter.college.CCIS') }} value="ALL" selected>All Departments</option>
+                                    <option selected url= {{ route('filter.department.CS') }} value="Computer Science">Computer Science</option>
+                                    <option url= {{ route('filter.department.IT') }} value="Information Technology">Information Technology</option>
                                 </select>
                                 <label>Department</label>
                             </div>
                         @elseif(isset( $selectIT ))
                             <div class="input-field col s11">
                                 <select id="departmentFilter" name="department">
-                                    <option url= {{ route('filter.college.CCIS', $CCIS) }} value="ALL" selected>All Departments</option>
-                                    <option url= {{ route('filter.department.CS', $CS) }} value="Computer Science">Computer Science</option>
-                                    <option selected url= {{ route('filter.department.IT', $IT) }} value="Information Technology">Information Technology</option>
+                                    <option url= {{ route('filter.college.CCIS') }} value="ALL" selected>All Departments</option>
+                                    <option url= {{ route('filter.department.CS') }} value="Computer Science">Computer Science</option>
+                                    <option selected url= {{ route('filter.department.IT') }} value="Information Technology">Information Technology</option>
                                 </select>
                                 <label>Department</label>
                             </div>
                         @else
                             <div class="input-field col s11">
                                 <select id="departmentFilter" name="department">
-                                    <option url= {{ route('filter.college.CCIS', $CCIS) }} value="ALL" selected>All Departments</option>
-                                    <option url= {{ route('filter.department.CS', $CS) }} value="Computer Science">Computer Science</option>
-                                    <option url= {{ route('filter.department.IT', $IT) }} value="Information Technology">Information Technology</option>
+                                    <option url= {{ route('filter.college.CCIS') }} value="ALL" selected>All Departments</option>
+                                    <option url= {{ route('filter.department.CS') }} value="Computer Science">Computer Science</option>
+                                    <option url= {{ route('filter.department.IT') }} value="Information Technology">Information Technology</option>
                                 </select>
                                 <label>Department</label>
                             </div>
@@ -103,11 +103,10 @@
                             <div class="input-field col s5">
                                 <select id="yearFilter" name="year">
                                     <option selected>All Levels</option>
-                                    <option value="1">First Year</option>
-                                    <option value="2">Second Year</option>
-                                    <option value="3">Third Year</option>
-                                    <option value="4">Fourth Year</option>
-                                    <option value="5">Fifth Year</option>
+                                    <option url= {{ route('filter.college.CCIS.yr', "1") }}  value="1">First Year</option>
+                                    <option url= {{ route('filter.college.CCIS.yr', "2") }} value="2">Second Year</option>
+                                    <option url= {{ route('filter.college.CCIS.yr', "3") }} value="3">Third Year</option>
+                                    <option url= {{ route('filter.college.CCIS.yr', "4") }} value="4">Fourth Year</option>
                                 </select>
                                 <label>Year Level</label>
                             </div>
@@ -119,7 +118,6 @@
                                     <option value="2">Second Year</option>
                                     <option value="3">Third Year</option>
                                     <option value="4">Fourth Year</option>
-                                    <option value="5">Fifth Year</option>
                                 </select>
                                 <label>Year Level</label>
                             </div>
@@ -388,22 +386,50 @@
                         </tr>
                         @endforeach
                     </table>
-                    <div style="margin-left:45%">
+                    {{-- <div style="margin-left:45%">
                         {{ $outputs->links() }}
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
 
     </div>
 </div>
-
+{{-- @if( isset( $year ))
+    <input type="text" value="{{ $year }}">
+@endif --}}
 {{-- Temporary Storage From Controller To Script --}}
 @if(isset( $selectCS ))
-    <input type="hidden" name="numberOfCCIS" value="{{ $totalCS }}">
-    <input type="hidden" name="numberOfTotal" value="{{ $totalIT }}">
-    <input type="hidden" name="labelLeft" value="Computer Science">
-    <input type="hidden" name="labelRight" value="Other Department">
+    @if(isset( $year ))
+        @if( $year == '1')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="First Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+            
+        @elseif( $year == '2')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Second Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+        @elseif( $year == '3')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Third Year">
+            <input type="hidden" name="labelRight" value="Other Year">
+        @elseif( $year == '4')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Fourth Year">
+            <input type="hidden" name="labelRight" value="Other Year">  
+        @endif
+    @else 
+        <input type="hidden" name="numberOfCCIS" value="{{ $totalCS }}">
+        <input type="hidden" name="numberOfTotal" value="{{ $totalIT }}">
+        <input type="hidden" name="labelLeft" value="Computer Science">
+        <input type="hidden" name="labelRight" value="Other Department">
+        <input type="text" value="Test">
+    @endif
 @elseif(isset( $selectIT ))
     <input type="hidden" name="numberOfCCIS" value="{{ $totalIT }}">
     <input type="hidden" name="numberOfTotal" value="{{  $totalCS }}">
@@ -850,7 +876,12 @@
         $("#collegeFilter").on('change', function(){
             window.location.href = $('option:selected', this).attr('url')
           });
+
         $("#departmentFilter").on('change', function(){
+        window.location.href = $('option:selected', this).attr('url')
+        });
+
+        $("#yearFilter").on('change', function(){
         window.location.href = $('option:selected', this).attr('url')
         });
         
