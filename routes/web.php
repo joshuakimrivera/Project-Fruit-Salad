@@ -3,6 +3,7 @@
 Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     
     Route::get('/', 'CollegesController@index')->name('CollegesController.index');
+    Route::post('/', 'CollegesController@filterOptions')->name('filterOptions');
 
     //College of Engineering Routes
     Route::get('/add/college-of-Engineering', 'CollegesController@CEadd')->name('CollegesController.CEadd');

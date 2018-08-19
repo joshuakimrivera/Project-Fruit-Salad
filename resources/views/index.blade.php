@@ -291,33 +291,33 @@
                             <label>Year Level</label>
                         </div>
 
-                        <div class="input-field col s1">&nbsp</div>
+                            <div class="input-field col s1">&nbsp</div>
 
-                        <div class="input-field col s5">
-                            <select disabled id="sectionFilter" name="section">
-                                <option value="" selected>All Sections</option>
-                                <option value="1">Section 1</option>
-                                <option value="2">Section 2</option>
-                                <option value="3">Section 3</option>
-                                <option value="4">Section 4</option>
-                                <option value="5">Section 5</option>
-                            </select>
-                            <label>Section</label>
-                        </div>
+                            <div class="input-field col s5">
+                                <select disabled id="sectionFilter" name="section">
+                                    <option value="" selected>All Sections</option>
+                                    <option value="1">Section 1</option>
+                                    <option value="2">Section 2</option>
+                                    <option value="3">Section 3</option>
+                                    <option value="4">Section 4</option>
+                                    <option value="5">Section 5</option>
+                                </select>
+                                <label>Section</label>
+                            </div>
 
-                        <div class="input-field col s6">
-                            <input disabled id="icon_prefix" name="age" type="text" class="validate">
-                            <label for="icon_prefix">Age</label>
-                        </div>
+                            <div class="input-field col s6">
+                                <input disabled id="icon_prefix" name="age" type="text" class="validate">
+                                <label for="icon_prefix">Age</label>
+                            </div>
 
-                        <div class="input-field col s5">
-                            <select disabled id="genderFilter" name="gender">
-                                <option value="" selected>All Genders</option>
-                                <option value="1">Female</option>
-                                <option value="2">Male</option>
-                            </select>
-                            <label>Gender</label>
-                        </div>
+                            <div class="input-field col s5">
+                                <select disabled id="genderFilter" name="gender">
+                                    <option value="" selected>All Genders</option>
+                                    <option value="1">Female</option>
+                                    <option value="2">Male</option>
+                                </select>
+                                <label>Gender</label>
+                            </div>
 
                         <div class="input-field col s3">
                             <select disabled id="yearFilter" name="bday_year">
@@ -2139,6 +2139,49 @@
           });
         
         $("#college").on('change', function(){
+            var college = $(this).val();
+            // console.log(college);
+            // console.log($(this));
+            switch (college) {
+                
+                case 'Computer and Information Science' :
+                    $("input[name='model'").val("CollegeOfComputerAndInformationSciences");
+                    $("#primary").addClass('hiddendiv', true);
+                    $("#CCIS").removeClass('hiddendiv', true);
+                    $("#CoEd").addClass('hiddendiv', true);
+                    $("#CE").addClass('hiddendiv', true);
+                    $("#yearOne").removeClass('hiddendiv', true);
+                    $("#ceYear").addClass('hiddendiv', true);
+                    $("#ui").addClass('hiddendiv', true);
+                    break;
+                
+                case 'Education':
+                    $("input[name='model'").val("CollegeOfEducations");
+                    $("#primary").addClass('hiddendiv', true);
+                    $("#CoEd").removeClass('hiddendiv', true);
+                    $("#CE").addClass('hiddendiv', true);
+                    $("#CCIS").addClass('hiddendiv', true);
+                    $("#yearOne").removeClass('hiddendiv', true);
+                    $("#ceYear").addClass('hiddendiv', true);
+                    $("#ui").addClass('hiddendiv', true);
+                    break;
+
+                case 'Engineering':
+                    $("input[name='model'").val("CollegeOfEngineerings");
+                    $("#primary").addClass('hiddendiv', true);
+                    $("#CoEd").addClass('hiddendiv', true);
+                    $("#CCIS").addClass('hiddendiv', true);
+                    $("#CE").removeClass('hiddendiv', true);
+                    $("#yearOne").addClass('hiddendiv', true);
+                    $("#ceYear").removeClass('hiddendiv', true);
+                    $("#ui").addClass('hiddendiv', true);
+                    break;
+                default :
+                break;
+            }
+        });
+
+        $("#collegeFilter").on('change', function(){
             var college = $(this).val();
             // console.log(college);
             // console.log($(this));
