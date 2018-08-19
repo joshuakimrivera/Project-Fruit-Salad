@@ -52,7 +52,7 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::get('/filtered-by-CoEd-SEMSS', 'CollegesController@filterCoEdDepartmentSEMSS')->name('filter.college.CoEd.SEMSS');
     Route::get('/filtered-by-BTE-yr/{yr}', 'CollegesController@filterBTEByYear')->name('filter.college.BTE.yr');
     Route::get('/filtered-by-LIS-yr/{yr}', 'CollegesController@filterLISByYear')->name('filter.college.LIS.yr');
-    Route::get('/filtered-by-EE-yr/{yr}', 'CollegesController@filterEEByYear')->name('filter.college.EE.yr');
+    Route::get('/filtered-by-EE-yr/{yr}', 'CollegesController@filterElemByYear')->name('filter.college.Elem.yr');
     Route::get('/filtered-by-SEME-yr/{yr}', 'CollegesController@filterSEMEByYear')->name('filter.college.SEME.yr');
     Route::get('/filtered-by-SEMF-yr/{yr}', 'CollegesController@filterSEMFByYear')->name('filter.college.SEMF.yr');
     Route::get('/filtered-by-SEMM-yr/{yr}', 'CollegesController@filterSEMMByYear')->name('filter.college.SEMM.yr');

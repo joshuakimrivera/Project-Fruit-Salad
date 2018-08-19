@@ -668,9 +668,197 @@ class CollegesController extends Controller
         $otherYear = CollegeOfEducations::where('college', 'like', "%Education%")
                                         ->where('department', 'like', "%Business Teacher Education%")
                                         ->count();
+        
+        // return $otherYear;
         return view('CollegeOfEducation.filterResult', compact(
             'year',
-            'selectedBTE',
+            'selectBTE',
+            'shows',
+            'datas',
+            'totalCoEd',
+            'outputs',
+            'selectedYear',
+            'otherYear'
+        ));
+    }
+
+    public function filterLISByYear($yr){
+        $year = $yr;
+        $selectLIS = 1;
+        $shows = CollegeOfEngineerings::latest()->count();
+        $datas = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+        $outputs = CollegeOfEducations::where('college', 'like', "%Education%")
+                                      ->where('department', 'like', "%Library and Information Science%")
+                                      ->where('year', 'like', "%$yr%")
+                                      ->get();
+        
+        $selectedYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                                            ->where('department', 'like', "%Library and Information Science%")
+                                                            ->where('year', 'like', "%$yr%")
+                                                            ->count();
+        $otherYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                        ->where('department', 'like', "%Library and Information Science%")
+                                        ->count();
+        
+        return view('CollegeOfEducation.filterResult', compact(
+            'year',
+            'selectLIS',
+            'shows',
+            'datas',
+            'totalCoEd',
+            'outputs',
+            'selectedYear',
+            'otherYear'
+        ));
+    }
+
+    public function filterElemByYear($yr){
+        $year = $yr;
+        $selectEE = 1;
+        $shows = CollegeOfEngineerings::latest()->count();
+        $datas = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+        $outputs = CollegeOfEducations::where('college', 'like', "%Education%")
+                                      ->where('department', 'like', "%Elementary Education%")
+                                      ->where('year', 'like', "%$yr%")
+                                      ->get();
+        
+        $selectedYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                                            ->where('department', 'like', "%Elementary Education%")
+                                                            ->where('year', 'like', "%$yr%")
+                                                            ->count();
+        $otherYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                        ->where('department', 'like', "%Elementary Education%")
+                                        ->count();
+        
+        return view('CollegeOfEducation.filterResult', compact(
+            'year',
+            'selectEE',
+            'shows',
+            'datas',
+            'totalCoEd',
+            'outputs',
+            'selectedYear',
+            'otherYear'
+        ));
+    }
+
+    public function filterSEMEByYear($yr){
+        $year = $yr;
+        $selectSEME = 1;
+        $shows = CollegeOfEngineerings::latest()->count();
+        $datas = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+        $outputs = CollegeOfEducations::where('college', 'like', "%Education%")
+                                      ->where('department', 'like', "%Secondary Education Major in English%")
+                                      ->where('year', 'like', "%$yr%")
+                                      ->get();
+        
+        $selectedYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                            ->where('department', 'like', "%Secondary Education Major in English%")
+                                            ->where('year', 'like', "%$yr%")
+                                            ->count();
+        $otherYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                        ->where('department', 'like', "%Secondary Education Major in English%")
+                                        ->count();
+        
+        return view('CollegeOfEducation.filterResult', compact(
+            'year',
+            'selectSEME',
+            'shows',
+            'datas',
+            'totalCoEd',
+            'outputs',
+            'selectedYear',
+            'otherYear'
+        ));
+    }
+
+    public function filterSEMFByYear($yr){
+        $year = $yr;
+        $selectSEMF = 1;
+        $shows = CollegeOfEngineerings::latest()->count();
+        $datas = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+        $outputs = CollegeOfEducations::where('college', 'like', "%Education%")
+                                      ->where('department', 'like', "%Secondary Education Major in Filipino%")
+                                      ->where('year', 'like', "%$yr%")
+                                      ->get();
+        
+        $selectedYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                            ->where('department', 'like', "%Secondary Education Major in Filipino%")
+                                            ->where('year', 'like', "%$yr%")
+                                            ->count();
+        $otherYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                        ->where('department', 'like', "%Secondary Education Major in Filipino%")
+                                        ->count();
+        
+        return view('CollegeOfEducation.filterResult', compact(
+            'year',
+            'selectSEMF',
+            'shows',
+            'datas',
+            'totalCoEd',
+            'outputs',
+            'selectedYear',
+            'otherYear'
+        ));
+    }
+
+    public function filterSEMMByYear($yr){
+        $year = $yr;
+        $selectSEMM = 1;
+        $shows = CollegeOfEngineerings::latest()->count();
+        $datas = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+        $outputs = CollegeOfEducations::where('college', 'like', "%Education%")
+                                      ->where('department', 'like', "%Secondary Education Major in Mathematics%")
+                                      ->where('year', 'like', "%$yr%")
+                                      ->get();
+        
+        $selectedYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                            ->where('department', 'like', "%Secondary Education Major in Mathematics%")
+                                            ->where('year', 'like', "%$yr%")
+                                            ->count();
+        $otherYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                        ->where('department', 'like', "%Secondary Education Major in Mathematics%")
+                                        ->count();
+        
+        return view('CollegeOfEducation.filterResult', compact(
+            'year',
+            'selectSEMM',
+            'shows',
+            'datas',
+            'totalCoEd',
+            'outputs',
+            'selectedYear',
+            'otherYear'
+        ));
+    }
+
+    public function filterSEMSSByYear($yr){
+        $year = $yr;
+        $selectSEMSS = 1;
+        $shows = CollegeOfEngineerings::latest()->count();
+        $datas = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+        $outputs = CollegeOfEducations::where('college', 'like', "%Education%")
+                                      ->where('department', 'like', "%Secondary Education Major in Social Studies%")
+                                      ->where('year', 'like', "%$yr%")
+                                      ->get();
+        
+        $selectedYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                            ->where('department', 'like', "%Secondary Education Major in Social Studies%")
+                                            ->where('year', 'like', "%$yr%")
+                                            ->count();
+        $otherYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                        ->where('department', 'like', "%Secondary Education Major in Social Studies%")
+                                        ->count();
+        
+        return view('CollegeOfEducation.filterResult', compact(
+            'year',
+            'selectSEMSS',
             'shows',
             'datas',
             'totalCoEd',
