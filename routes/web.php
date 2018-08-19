@@ -17,7 +17,7 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::get('/College-of-Engineering/sort-by-birthday', 'CollegesController@CEsortingOfBirthdays')->name('CE.sortingOfBirthday');
     Route::get('/College-of-Engineering/sort-by-age', 'CollegesController@CEsortingOfAges')->name('CE.sortingOfAge');
     Route::get('/College-of-Engineering/sort-by-gender', 'CollegesController@CEsortingOfGenders')->name('CE.sortingOfGender');
-    Route::get('/filtered-by-CE/{CE}', 'CollegesController@filterCollegebyCE')->name('filter.college.CE');
+    Route::get('/filtered-by-CE', 'CollegesController@filterCollegebyCE')->name('filter.college.CE');
     Route::post('/add-student-information', 'CollegesController@addStudent')->name('CollegesController.addStudent');
     Route::get('/filtered-by-CCIS-CpE', 'CollegesController@filterCEDepartmentCpE')->name('filter.college.CE.CpE');
     Route::get('/filtered-by-CCIS-Civil', 'CollegesController@filterCEDepartmentCivil')->name('filter.college.CE.Civil');
@@ -36,7 +36,7 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::get('/show/College-of-Education/{id}', 'CollegesController@CoEdshow')->name('CollegesController.CoEdshow');
     Route::post('/search/College-of-Education', 'CollegesController@CoEdsearch')->name('CollegesController.CoEdsearch');
     Route::post('/College-of-Education/import', 'CollegesController@CoEdimport')->name('CoEdimport');
-    Route::get('/filtered-by-CoEd/{CoEd}', 'CollegesController@filterCollegebyCoEd')->name('filter.college.CoEd');
+    Route::get('/filtered-by-CoEd', 'CollegesController@filterCollegebyCoEd')->name('filter.college.CoEd');
     Route::get('/filtered-by-CoEd-BTE', 'CollegesController@filterCoEdDepartmentBTE')->name('filter.college.CoEd.BTE');
     Route::get('/filtered-by-CoEd-LIS', 'CollegesController@filterCoEdDepartmentLIS')->name('filter.college.CoEd.LIS');
     Route::get('/filtered-by-CoEd-EE', 'CollegesController@filterCoEdDepartmentEE')->name('filter.college.CoEd.EE');
@@ -54,9 +54,10 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::get('/show/College-of-Computer-and-Information-Sciences/{id}', 'CollegesController@CCISshow')->name('CollegesController.CCISshow');
     Route::post('/search/College-of-Computer-and-Information-Sciences', 'CollegesController@CCISsearch')->name('CollegesController.CCISsearch');
     Route::post('/College-of-Computer-and-Information-Sciences/import', 'CollegesController@CCISimport')->name('CCISimport');
-    Route::get('/filtered-by-CCIS/department-CS/{CS}', 'CollegesController@filterCCISDepartmentCS')->name('filter.department.CS');
-    Route::get('/filtered-by-CCIS/department-IT/{IT}', 'CollegesController@filterCCISDepartmentIT')->name('filter.department.IT');
-    Route::get('/filtered-by-CCIS/{CCIS}', 'CollegesController@filterCollegebyCCIS')->name('filter.college.CCIS');
+    Route::get('/filtered-by-CCIS/department-CS', 'CollegesController@filterCCISDepartmentCS')->name('filter.department.CS');
+    Route::get('/filtered-by-CCIS/department-IT', 'CollegesController@filterCCISDepartmentIT')->name('filter.department.IT');
+    Route::get('/filtered-by-CCIS', 'CollegesController@filterCollegebyCCIS')->name('filter.college.CCIS');
+    Route::get('/filtered-by-CCIS/Year/{yr}', 'CollegesController@filterCCISbyYear')->name('filter.college.CCIS.yr');
     
 
  });
