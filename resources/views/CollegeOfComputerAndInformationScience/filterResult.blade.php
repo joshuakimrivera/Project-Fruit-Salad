@@ -47,7 +47,7 @@ $('div svg text').css({
             <nav>
               <div class="nav-wrapper indigo darken-4">
                   <button class="btn-flat sidenav-trigger button-collapse" data-target="slide-out" style="top: -8px;"><i class="material-icons white-text">menu</i></button>
-                    <a href="#!" class="brand-logo white-text"><i class="large material-icons left" style="font-size: 2rem;">equalizer</i>PUP Analytics</a>
+                  <a href="#!" class="brand-logo white-text"><i class="large material-icons left" style="font-size: 2rem;">equalizer</i><b>PUP</b>  Analytics</a>
                     <ul class="right hide-on-med-and-down">
                     </ul>
               </div>
