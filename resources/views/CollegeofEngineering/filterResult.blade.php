@@ -42,7 +42,7 @@ nav .brand-logo {
             <nav>
               <div class="nav-wrapper indigo darken-4">
                   <button class="btn-flat sidenav-trigger button-collapse" data-target="slide-out" style="top: -8px;"><i class="material-icons white-text">menu</i></button>
-                    <a href="#!" class="brand-logo white-text"><i class="large material-icons left" style="font-size: 2rem;">equalizer</i>PUP Analytics</a>
+                  <a href="#!" class="brand-logo white-text"><i class="large material-icons left" style="font-size: 2rem;">equalizer</i><b>PUP</b>  Analytics</a>
                     <ul class="right hide-on-med-and-down">
                     </ul>
               </div>
@@ -874,24 +874,26 @@ nav .brand-logo {
             </div>
             <!--AEXPERIMENTAL FEATURES-->
             <div class="col s2">
-                    <div class="card z-depth-4">
-                      <div class="card-content black-text">
-                        <span class="card-title center"><h2 id = "cardOne">0</h2></span>
-                      <div class="card-action">
-                          <span>Total Number of Students</span>
-                      </div>
+                    <div class="card z-depth-4" style="height: 245px">
+                        <div class="card-content black-text">
+                            <span class="card-title center"><h2 id = "cardOne">0</h2></span>
+                            <div class="card-action col s12">
+                                <span class="center" id="indicator"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s2">
+                        <div class="card z-depth-4" style="height: 332px">
+                          <div class="card-content black-text">
+                            <span><span id="indicatorTwo">---</span></span>
+                            <span><span id="indicatorThree"></span>  <h4 id="percentOne" class="center">0%</h4></span>
+                            <br><hr>
+                            <span class="center"><span id="indicatorFour"></span>  <h4 id="percentTwo">0%</h4></span>
+                                
+                    </div>
                 </div>
             </div>
-        </div>
-            <div class="col s2">
-                    <div class="card z-depth-4" style="height: 337px">
-                      <div class="card-content black-text">
-                        <span class="center">CE:  <h4 id="percentOne">0%</h4></span>
-                        <span class="center">CoEd:<h4 id="percentTwo">0%</h4></span>
-                        <span class="center">CCIS:<h4 id="percentThree">0%</h4></span>
-                </div>
-            </div>
-        </div>
         <!--NAME TABLE CARD-->
         <div class="col s12">
             <div class="card">
@@ -1525,9 +1527,14 @@ nav .brand-logo {
     // We are only changing the chart type, so let's make that a global variable along with the chart object:
     var chartType = 'bar';
     var forShow = +totalStudents;
-    var showOne = (+total / +totalStudents) * 100;
+    var showOne = (+totalStudents / (+total + +totalStudents)) * 100;
+    var showTwo = 100 - +showOne;
+    document.getElementById("indicator").innerHTML = labelLeft + " Students";
     document.getElementById("cardOne").innerHTML = forShow;
+    document.getElementById("indicatorTwo").innerHTML =  labelLeft;
+    document.getElementById("indicatorFour").innerHTML =  labelRight;
     document.getElementById("percentOne").innerHTML = showOne.toFixed(2) + '%';
+    document.getElementById("percentTwo").innerHTML = showTwo.toFixed(2) + '%';
     var myBarChart;
 
     // Global Options:
