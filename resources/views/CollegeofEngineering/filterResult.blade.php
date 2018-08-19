@@ -42,7 +42,7 @@ nav .brand-logo {
             <nav>
               <div class="nav-wrapper indigo darken-4">
                   <button class="btn-flat sidenav-trigger button-collapse" data-target="slide-out" style="top: -8px;"><i class="material-icons white-text">menu</i></button>
-                    <a href="#!" class="brand-logo white-text"><i class="large material-icons left" style="font-size: 2rem;">equalizer</i>PUP Analytics</a>
+                  <a href="#!" class="brand-logo white-text"><i class="large material-icons left" style="font-size: 2rem;">equalizer</i><b>PUP</b>  Analytics</a>
                     <ul class="right hide-on-med-and-down">
                     </ul>
               </div>
@@ -54,32 +54,42 @@ nav .brand-logo {
 <ul id="slide-out" class="sidenav">
     <li><div class="user-view">
             <div class="background">
-                {{-- <img src="images/office.jpg"> --}}
+                <img src="{{ asset('img/fruit.jpg') }}" style="height: 400px; width:600px;">
             </div>
             {{-- <a href="#user"><img class="circle" src="images/yuna.jpg"></a> --}}
-            <a href="#name"><span class="name"><i class="material-icons">insert_chart</i>&nbsp PUP STATISTICS DASHBOARD</span></a>
+            <br>
+            <br>
+            <br>
+            <a href="#name"><span class="name"><i class="material-icons"></i></span></a>
             {{--<a href="#email"><span class="email" style="font-size: 10px;" >https://gitlab.com/cristianumali.a99/Project-Fruit-Salad</span></a>--}}
         </div>
-        <br>
     </li>
-    <li><a href="#!"><i class="material-icons">nature_people</i>Project-Fruit-Salad</a></li>
-    <li><a href="#!">Second Link</a></li>
+    <li><a href="#!"><i class="material-icons">nature_people</i>Project Fruit Salad</a></li>
+    <li><a href="https://gitlab.com/cristianumali.a99/Project-Fruit-Salad" target="blank"><img class="left" src="{{ asset('img/gitlab.png') }}" style="height: 25px;">&nbsp Check our Git Repository</a></li>
     <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <li><a class="subheader"><i class="material-icons left">group</i>Our Team:</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Kim Sunga</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Cristian Umali</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">directions_bike</i> Joshua Kim Rivera</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Bryan Lester Fundar</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Genesis Edano</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Mark Rey</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> John Mark Villanueva</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Cyrrenne Cairo</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Christian Gregorio</a></li>
 </ul>
 <!-- END OF NAVIGATIONAL STRUCTURES -->
 
 <div style="height: 15px;"></div>
 <div class="fixed-action-btn toolbar">
-        <a class="btn-floating btn-large orange">
-            <i class="large material-icons">add</i>
-        </a>
-        <ul>
-            <li><a href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a></li>
-            <li><a class="waves-effect waves-light btn-large modal-trigger tooltipped indigo darken-2" data-position="top" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a></li>
-        </ul>
-    </div>
+    <a class="btn-floating btn-large pink darken-1">
+        <i class="large material-icons">add</i>
+    </a>
+    <ul>
+        <li><a href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light"><i class="material-icons">person_add</i></a></li>
+        <li><a class="waves-effect waves-light btn-large modal-trigger tooltipped indigo darken-2" data-position="top" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a></li>
+    </ul>
+</div>
 
 <!--MAIN DASHBOARD-->
 <div>
@@ -683,93 +693,9 @@ nav .brand-logo {
                             <label>Section</label>
                         </div>
 
-                        <div class="input-field col s6">
-                            <input disabled id="icon_prefix" name="age" type="text" class="validate">
-                            <label for="icon_prefix">Age</label>
-                        </div>
-
-                        <div class="input-field col s5">
-                            <select disabled id="genderFilter" name="gender">
-                                <option value="" selected>All Genders</option>
-                                <option value="1">Female</option>
-                                <option value="2">Male</option>
-                            </select>
-                            <label>Gender</label>
-                        </div>
-
-                        <div class="input-field col s3">
-                            <select disabled id="yearFilter" name="bday_year">
-                                <option selected disabled>Year</option>
-                                <option value="1993">1993</option>
-                                <option value="1994">1994</option>
-                                <option value="1995">1995</option>
-                                <option value="1996">1996</option>
-                                <option value="1997">1997</option>
-                                <option value="1998">1998</option>
-                                <option value="1999">1999</option>
-                                <option value="2000">2000</option>
-                            </select>
-                            <label>Birth Year</label>
-                        </div>
-
-                        <div class="input-field col s5">
-                            <select disabled id="monthFilter" name="bday_month">
-                                <option selected disabled>Month</option>
-                                <option data-target="1" value="January">January</option>
-                                <option data-target="2" value="February">February</option>
-                                <option data-target="3" value="March">March</option>
-                                <option data-target="4" value="April">April</option>
-                                <option data-target="5" value="May">May</option>
-                                <option data-target="6" value="June">June</option>
-                                <option data-target="7" value="July">July</option>
-                                <option data-target="8" value="August">August</option>
-                                <option data-target="9" value="September">September</option>
-                                <option data-target="10" value="October">October</option>
-                                <option data-target="11" value="November">November</option>
-                                <option data-target="12" value="December">December</option>
-                            </select>
-                            <label>Month</label>
-                        </div>
-
-                        <div class="input-field col s3">
-                            <select disabled id="dayFilter" name="bday_day">
-                                <option selected disabled>Day</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                            </select>
-                            <label>Day</label>
-                        </div>
+                        
                         <!--ADD STUDENT BUTTON-->
-                        <div class="col s12"><hr></div>
+                      
                         
                         
                         <div class="col s9">
@@ -874,24 +800,26 @@ nav .brand-logo {
             </div>
             <!--AEXPERIMENTAL FEATURES-->
             <div class="col s2">
-                    <div class="card z-depth-4">
-                      <div class="card-content black-text">
-                        <span class="card-title center"><h2 id = "cardOne">0</h2></span>
-                      <div class="card-action">
-                          <span>Total Number of Students</span>
-                      </div>
+                    <div class="card z-depth-4" style="height: 245px">
+                        <div class="card-content black-text">
+                            <span class="card-title center"><h2 id = "cardOne">0</h2></span>
+                            <div class="card-action col s12">
+                                <span class="center" id="indicator"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s2">
+                        <div class="card z-depth-4" style="height: 332px">
+                          <div class="card-content black-text">
+                            <span><span id="indicatorTwo">---</span></span>
+                            <span><span id="indicatorThree"></span>  <h4 id="percentOne" class="center">0%</h4></span>
+                            <br><hr>
+                            <span class="center"><span id="indicatorFour"></span>  <h4 id="percentTwo">0%</h4></span>
+                                
+                    </div>
                 </div>
             </div>
-        </div>
-            <div class="col s2">
-                    <div class="card z-depth-4" style="height: 337px">
-                      <div class="card-content black-text">
-                        <span class="center">CE:  <h4 id="percentOne">0%</h4></span>
-                        <span class="center">CoEd:<h4 id="percentTwo">0%</h4></span>
-                        <span class="center">CCIS:<h4 id="percentThree">0%</h4></span>
-                </div>
-            </div>
-        </div>
         <!--NAME TABLE CARD-->
         <div class="col s12">
             <div class="card">
@@ -1525,9 +1453,14 @@ nav .brand-logo {
     // We are only changing the chart type, so let's make that a global variable along with the chart object:
     var chartType = 'bar';
     var forShow = +totalStudents;
-    var showOne = (+total / +totalStudents) * 100;
+    var showOne = (+totalStudents / (+total + +totalStudents)) * 100;
+    var showTwo = 100 - +showOne;
+    document.getElementById("indicator").innerHTML = labelLeft + " Students";
     document.getElementById("cardOne").innerHTML = forShow;
+    document.getElementById("indicatorTwo").innerHTML =  labelLeft;
+    document.getElementById("indicatorFour").innerHTML =  labelRight;
     document.getElementById("percentOne").innerHTML = showOne.toFixed(2) + '%';
+    document.getElementById("percentTwo").innerHTML = showTwo.toFixed(2) + '%';
     var myBarChart;
 
     // Global Options:
