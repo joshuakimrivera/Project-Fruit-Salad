@@ -446,10 +446,28 @@
                                 <td class="mr-5 ml-5">{{ $output->year }}</td>
                                 <td class="mr-5 ml-5">Section {{ $output->section }}</td>
                                 <td class="mr-5 ml-5">
-                                    {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$data->id) }}"><i class="material-icons">open_in_new</i></a>--}}
+                                    {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$output->id) }}"><i class="material-icons">open_in_new</i></a>--}}
                                     <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4" data-position="bottom" data-tooltip="View" href="#CCISmodal"><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange" data-position="bottom" data-tooltip="Edit" href="{{ route('CollegesController.CCISedit',$output->id) }}"><i class="material-icons">edit</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = "{{ $output->first_name }}"
+                                        last_name = "{{ $output->last_name }}"
+                                        middle_initial = "{{ $output->middle_initial }}"
+                                        bday_month = "{{ $output->bday_month }}"
+                                        bday_day = "{{ $output->bday_day }}"
+                                        bday_year = "{{ $output->bday_year }}"
+                                        age = "{{ $output->age }}"
+                                        gender = "{{ $output->gender }}"
+                                        year = "{{ $output->year }}"
+                                        section = "{{ $output->section }}"><i class="material-icons">zoom_in</i></a>
+                                    <a class="btn btn-floating btn-small tooltipped orange editmodal modal-trigger" data-position="bottom" data-tooltip="Edit" href="#filterbyCoEdedit" first_name = "{{ $output->first_name }}"
+                                        last_name = "{{ $output->last_name }}"
+                                        middle_initial = "{{ $output->middle_initial }}"
+                                        bday_month = "{{ $output->bday_month }}"
+                                        bday_day = "{{ $output->bday_day }}"
+                                        bday_year = "{{ $output->bday_year }}"
+                                        age = "{{ $output->age }}"
+                                        gender = "{{ $output->gender }}"
+                                        year = "{{ $output->year }}"
+                                        section = "{{ $output->section }}"><i class="material-icons">edit</i></a>
                                     <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
@@ -507,6 +525,8 @@
     <input type="hidden" name="labelRight" value="Other Colleges">
 @endif
 
+@include('showmodal')
+@include('filterbyCoEdedit')
 <div id="modal1" class="modal">
     <div class="modal-content"  style="overflow: hidden;" >
         <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
