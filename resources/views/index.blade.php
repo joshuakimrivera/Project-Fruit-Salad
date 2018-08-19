@@ -5,7 +5,34 @@
         th, td {
             text-align: center;
             vertical-align: middle;
+            font-size: 14px;
         }
+        nav {
+    height: 40px;
+    line-height: 40px;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    height: 40px;
+    line-height: 40px;
+}
+
+nav .button-collapse i {
+    height: 40px;
+    line-height: 40px;
+}
+
+nav .brand-logo { 
+    font-size: 1.3rem; 
+}
+
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 40px;
+        line-height: 40px;
+    }
+}
+
     </style>
     <!--Adminlte css  -->
     <!-- <link rel="stylesheet" href="{{ url('adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css') }}"> -->
@@ -23,14 +50,15 @@
     <!--Adminlte css  -->
 @endsection
 @section('content')
+
 <!--NAVIGATIONAL STRUCTURES -->
 <!-- NAV BAR HEADER -->
 <nav>
     <div class="navbar-fixed ">
         <nav>
-          <div class="nav-wrapper red darken-4">
-              <button class="btn-flat sidenav-trigger" data-target="slide-out"><i class="material-icons white-text">menu</i></button>
-                <a href="#!" class="brand-logo white-text"><i class="large material-icons" style="font-size: 48px;">equalizer</i> PupStats</a>
+          <div class="nav-wrapper indigo darken-4">
+              <button class="btn-flat sidenav-trigger button-collapse" data-target="slide-out" style="top: -8px;"><i class="material-icons white-text">menu</i></button>
+                <a href="#!" class="brand-logo white-text"><i class="large material-icons left" style="font-size: 2rem;">equalizer</i>PUP Analytics</a>
                 <ul class="right hide-on-med-and-down">
                 </ul>
           </div>
@@ -58,7 +86,7 @@
 </ul>
 <!-- END OF NAVIGATIONAL STRUCTURES -->
 
-<div style="height: 30px;"></div>
+<div style="height: 15px;"></div>
 
 <!--MAIN DASHBOARD-->
 <!-- sample adminlte testing -->
@@ -213,23 +241,33 @@
     <!-- /.content -->
 <!--   </div> -->
 <!-- sample adminlte testing -->
+<div class="fixed-action-btn toolbar">
+        <a class="btn-floating btn-large orange">
+          <i class="large material-icons">add</i>
+        </a>
+        <ul>
+            <li><a href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a></li>
+            <li><a class="waves-effect waves-light btn-large modal-trigger tooltipped indigo darken-2" data-position="top" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a></li>
+        </ul>
+      </div>
 <div>
     <div class="row">
-        <div class="col s4">
+        <div class="col s3 m3">
             <!--FILTER TAB-->
             <div class="card josh z-depth-4">
                 <!--CARD DASHBOARD-->
-                <div class="card-content row">
+                <div class="card-content">
                     <div class="col s12">
-                        <span class="card-title"><i class="material-icons" style="font-size: 36px;">filter_list</i>&nbsp Filter Selection TAB</span>
+                        <span class="card-title"><i class="material-icons left" style="font-size: 2rem;">filter_none</i><h5>Filters</h5></span>
+                        <br>
 
                         <!--COLLEGES-->
                         <div class="input-field col s11">
                             <select id="collegeFilter" name="college">
                                 <option url= {{ route('CollegesController.index', $CCIS) }} selected>All Colleges</option>
-                                <option url= {{ route('filter.college.CCIS', $CCIS) }} value="Computer and Information Sciences">College of Computer and Information Sciences</option>
-                                <option url= {{ route('filter.college.CoEd', $CoEd) }} value="Education">College of Education</option>
-                                <option url= {{ route('filter.college.CE', $CE) }} value="Engineering">College of Engineering</option>
+                                <option url= {{ route('filter.college.CCIS', $CCIS) }} value="Computer and Information Sciences">Computer and Information Sciences</option>
+                                <option url= {{ route('filter.college.CoEd', $CoEd) }} value="Education">Education</option>
+                                <option url= {{ route('filter.college.CE', $CE) }} value="Engineering">Engineering</option>
                             </select>
                             <label>College</label>
                         </div>
@@ -283,7 +321,7 @@
 
                         <div class="input-field col s3">
                             <select disabled id="yearFilter" name="bday_year">
-                                <option selected disabled>Year</option>
+                                <option selected disabled>---</option>
                                 <option value="1993">1993</option>
                                 <option value="1994">1994</option>
                                 <option value="1995">1995</option>
@@ -298,7 +336,7 @@
 
                         <div class="input-field col s5">
                             <select disabled id="monthFilter" name="bday_month">
-                                <option selected disabled>Month</option>
+                                <option selected disabled>---</option>
                                 <option data-target="1" value="January">January</option>
                                 <option data-target="2" value="February">February</option>
                                 <option data-target="3" value="March">March</option>
@@ -317,7 +355,7 @@
 
                         <div class="input-field col s3">
                             <select disabled id="dayFilter" name="bday_day">
-                                <option selected disabled>Day</option>
+                                <option selected disabled>---</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -391,17 +429,14 @@
                             </div>
                         </div> --}}
                         <!--ADD STUDENT BUTTON-->
-                        <div class="col s12"><hr></div>
                         
-                        <div class="col s3">
-                            <a id="addstud" href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a>
-                        </div>
+                        
                         <div class="col s9">
                             
                                 <!--EXCEL FILE UPLOAD STRUCTURE -->
 
                             <!-- Modal Trigger -->
-                            <a class="waves-effect waves-light btn-floating btn-large modal-trigger tooltipped z-depth-2" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a>
+                           
 
                             <!-- Modal Structure -->
                             <div id="modal2" class="modal scale-transition" style="height: 350px; overflow: hidden;">
@@ -455,7 +490,7 @@
                                     </div>
                                     <div id="lod" class="progress center" style="visibility: hidden;">
                                         <div class="indeterminate"></div>
-                                        <h8> Sending email</h8>
+                                        <h6> Sending email</h6>
                                     </div>
                                 </div>
                             </div>
@@ -465,21 +500,23 @@
                 </div>    
             </div>
         </div>
+       
+        
         <!--CHART CARD-->
-        <div class="col s8">
+        <div class="col s7">
             <div class="card josh z-depth-4">
                 <div class="card-content row">
-                    <div class="col s5">
-                            <hr>
+                    <div class="col s12">
                             <button id="rivera" type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Bar Graph" onclick="toggleChart('bar')"><i class="material-icons">equalizer</i></button>
                             <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Line Graph" onclick="toggleChart('line')"><i class="material-icons">timeline</i></button>
                             <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Radar Chart" onclick="toggleChart('radar')"><i class="material-icons">navigation</i></button>
                             <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Donut Chart" onclick="toggleChart('doughnut')"><i class="material-icons">donut_large</i></button>
                             <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Pie Chart" onclick="toggleChart('pie')"><i class="material-icons">pie_chart</i></button>
                             <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Polar Area" onclick="toggleChart('polarArea')"><i class="material-icons">track_changes</i></button>
-                        <hr>
+                            <hr>
                     </div>
-                    <div><canvas id="barChart" height="150%"></canvas></div>
+                    <div><canvas id="barChart" height="180%"></canvas></div>
+                    <div><br><br><br><br><br></div>
                     
                         {{--<div class="input-field col s5">
                             <select id="mySelect" onchange="toggleChart();">
@@ -497,6 +534,26 @@
                 </div>
             </div>
         </div>
+        <!--AEXPERIMENTAL FEATURES-->
+        <div class="col s2">
+                <div class="card z-depth-4">
+                  <div class="card-content black-text">
+                    <span class="card-title center"><h2 id = "cardOne">0</h2></span>
+                  <div class="card-action">
+                      <span>Total Number of Students</span>
+                  </div>
+            </div>
+        </div>
+    </div>
+        <div class="col s2">
+                <div class="card z-depth-4" style="height: 337px">
+                  <div class="card-content black-text">
+                    <span class="center">CE:  <h4 id="percentOne">0%</h4></span>
+                    <span class="center">CoEd:<h4 id="percentTwo">0%</h4></span>
+                    <span class="center">CCIS:<h4 id="percentThree">0%</h4></span>
+            </div>
+        </div>
+    </div>
         <!--NAME TABLE CARD-->
         <div class="col s12">
             <div class="card">
@@ -744,18 +801,308 @@
         
     </div>
   </div>
-</div>
+</div></div></div>
 <!--End of CCISdelete  -->
 
 
+
 <div id="modal1" class="modal scale-transition">
+        <div class="modal-content"  style="overflow: hidden;" >
+            <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
+            <div class="form-group container">
+                <div class="row">
+                    <div class="">
+                        <br>
+                        <h5 class="center">Fill the student Information below</h5>
+                    </div>
+                </div>
+            
+                {{ Form::open(array('route' => 'CollegesController.addStudent', ))}}
+                <div class="">
+                    <div class="row form-group">
+                        <div class="input-field form-group">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="fname" type="text" name="first_name"  required>
+                                <label for="fname">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">perm_identity</i>
+                                <input id="wobble" type="text" name="middle_initial"  required>
+                                <label for="wobble">Middle Initial</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">perm_identity</i>
+                                <input id="ayoko" type="text" name="last_name"  required>
+                                <label for="ayoko">Last Name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <br>
+                    
+                    <br>
+                    <br>
+                     <div>
+                        <div class="input-field row form-group">
+                            <input type="hidden" id="date_sorter" name="date_sorter" value="">
+                            {{-- {{ Form::date('birthday', null, array('class' => 'ml-4')) }} --}}
+                            <div class="col s6">
+                                <i class="material-icons prefix">perm_contact_calendar</i>
+                                <select name="bday_month" id="bday">
+                                    <option selected disabled>---</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                                <label>Birth Month</label>
+                            </div>
+                            <div class="col s2">
+                                <select name="bday_day" id="" class="col s2">
+                                    <option selected disabled>---</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                                <label>Birth Day</label>
+                            </div>
+                            <div class="col s4">
+                                <select name="bday_year" id="">
+                                    <option selected disabled>---</option>
+                                    <option value="1993">1993</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1999">1999</option>
+                                    <option value="2000">2000</option>
+                                </select>
+                                <label>Birth Year</label>
+                            </div>
+                                
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="input-field col s3">
+                            <i class="material-icons prefix">perm_identity</i>
+                            {{ Form::number('age', null, array('placeholder' => '---', 'class' => '', 'required')) }}
+                            <label>Age</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <i class="material-icons prefix">wc</i>
+                            <select class="ml-2" name="gender" id="">
+                                <option selected disabled>---</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <label>Gender</label>
+                                {{-- {{ Form::text('gender', null, array('placeholder' => 'Male or Female', 'class' => 'form-control')) }} --}}
+                        </div>
+                    </div>
+                   
+      
+                    <div class="row form-group">
+                         <div class="input-field col s12">
+                            <i class="material-icons prefix">home</i>
+                             {{ Form::text('address', null, array('placeholder' => '---','class' => '', 'required')) }}
+                             <label>Address</label>
+                        </div>
+                    </div> 
+                    <hr>
+                    <br>
+                    <div class="row form-group input-field">
+                        <div class="col s6">
+                            <div class="form-group">
+                                <input type="hidden" name="model" value="">
+                                <i class="material-icons prefix">school</i>
+                                <select name="college" id="college">
+                                    <option selected disabled>--</option>
+                                    <option value="Computer and Information Science">College of Computer and Information Science</option>
+                                    <option value="Education">College of Education</option>
+                                    <option value="Engineering">College of Engineering</option>
+                                </select>
+                                <label>College</label>
+                            </div>
+                        </div>
+                        <div class="col s6">
+                            <div class="form-group">
+                                <div id="primary">
+                                    <i class="material-icons prefix">business</i>
+                                    <select name="" id="" disabled>
+                                        <option selected>Select a College First</option>
+                                    </select>
+                                    <label>Department</label>
+                                </div>
+                                <div class="hiddendiv" id="CCIS">
+                                    <i class="material-icons prefix">business</i>
+                                    <select name="department">
+                                        <option selected disabled>--</option>
+                                        <option id="cs" value="Computer Science">Computer Science</option>
+                                        <option id="it" value="Information Technology">Information Technology</option>
+                                    </select>
+                                    <label>Department</label>
+                                </div>
+                                <div class="hiddendiv" id="CoEd">
+                                    <i class="material-icons prefix">business</i>
+                                    <select name="department" id="CoEd">
+                                        <option disabled selected>--</option>
+                                        <option id="bte" value="Business Teacher Educationg">BTEd</option>
+                                        <option id="lis" value="Library and Information Science">LInfoSci</option>
+                                        <option id="ee" value="Elementary Education">ElemEd</option>
+                                        <option id="seme" value="Secondary Education major in English">SecEd Major in English</option>
+                                        <option id="semf" value="Secondary Education major in Filipino">SecEd Major in Filipino</option>
+                                        <option id="semm" value="Secondary Education major in Mathematics">SecEd Major in Mathematics</option>
+                                        <option id="semss" value="Secondary Education major in Social Studies">SecEd Major in Social Studies</option>
+                                    </select>
+                                    <label>Department</label>
+                                </div>
+                                <div class="hiddendiv" id="CE">
+                                    <i class="material-icons prefix">business</i>
+                                    <select class="d-none" name="department">
+                                        <option disabled selected>--</option>
+                                        <option id="ce" value="Civil Engineering">Civil Engineering</option>
+                                        <option id="coe" value="Computer Engineering">Computer Engineering</option>
+                                        <option id="electri" value="Electrical Engineering">Electrical Engineering</option>
+                                        <option id="electro" value="Electronics Engineering">Electronics Engineering</option>
+                                        <option id="ie" value="Industrial Engineering">Industrial Engineering</option>
+                                        <option id="me" value="Mechanical Engineering">Mechanical Engineering</option>
+                                    </select>
+                                    <label>Department</label>
+                                </div>
+                                {{-- {{ Form::text('department', null, array('placeholder' => 'Department','class' => 'form-control')) }} --}}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <br>
+       
+                    <div class="row input-field">
+    
+                        <div class="form-group col s6" id="ui">
+                            <select name="year" disabled>
+                                <option selected disabled>Select a Course First</option>
+                            </select>
+                            <label>Year</label>
+                        </div>
+    
+                        <div class="form-group col s6 hiddendiv" id="yearOne">
+                            <select name="year">
+                                <option selected disabled>---</option>
+                                <option value="4">4th Year</option>
+                                <option value="3">3rd Year</option>
+                                <option value="2">2nd Year</option>
+                                <option value="1">1st Year</option>
+                            </select>
+                            <label>Year</label>
+                        </div>
+    
+    
+                        <div class="form-group col s6 hiddendiv" id="ceYear">
+                            <select name="year">
+                                <option selected disabled>---</option>
+                                <option value="5">5th Year</option>
+                                <option value="4">4th Year</option>
+                                <option value="3">3rd Year</option>
+                                <option value="2">2nd Year</option>
+                                <option value="1">1st Year</option>
+                            </select>
+                            <label>Year</label>
+                        </div>
+    
+    
+    
+    
+                        <div class="form-group col s6">
+                            <select name="section" id="">
+                                <option selected disabled>---</option>
+                                <option value="5">Section 5</option>
+                                <option value="4">Section 4</option>
+                                <option value="3">Section 3</option>
+                                <option value="2">Section 2</option>
+                                <option value="1">Section 1</option>
+                            </select>
+                            <label>Section</label>
+                            {{-- {{ Form::number('section', null, array('placeholder' => 'Section','class' => 'form-control')) }} --}}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="center">
+                        <button type="submit" class="btn btn-large hoverable waves-effect waves-light orange accent-3 tooltipped" data-tooltip="Create Student"><i class="material-icons left">send</i>Submit</button>
+                    </div>
+                    <br>
+                </div>
+                {{ Form::close() }}
+            
+                <div class="container left">
+                    <h6 class="left">Errors will be shown below:</h6>
+                    @if(count($errors))
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach( $errors->all() as $error )
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var elems = document.querySelectorAll('select');
+                        var instances = M.FormSelect.init(elems, {
+                            
+                        });
+                    });
+            </script>
+        </div>
+    </div>
+
+<div id="CEmodal" class="modal">
     <div class="modal-content"  style="overflow: hidden;" >
         <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
         <div class="form-group container">
             <div class="row">
                 <div class="">
                     <br>
-                    <h5 class="center">Fill the student Information below</h5>
+                    <h5 class="center">Student Information</h5>
                 </div>
             </div>
         
@@ -765,8 +1112,8 @@
                     <div class="input-field form-group">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="fname" type="text" name="first_name"  required>
-                            <label for="fname">First Name</label>
+                            <input disabled id="fname" type="text" name="first_name">
+                            {{-- <label for="fname">First Name</label> --}}
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">perm_identity</i>
@@ -776,16 +1123,13 @@
                         <div class="input-field col s6">
                             <i class="material-icons prefix">perm_identity</i>
                             <input id="ayoko" type="text" name="last_name"  required>
-                            <label for="ayoko">Last Name</label>
+                            {{-- <label for="ayoko">Last Name</label> --}}
                         </div>
                     </div>
                 </div>
                 <hr>
                 <br>
-                
-                <br>
-                <br>
-                 <div>
+                    <div>
                     <div class="input-field row form-group">
                         <input type="hidden" id="date_sorter" name="date_sorter" value="">
                         {{-- {{ Form::date('birthday', null, array('class' => 'ml-4')) }} --}}
@@ -879,13 +1223,13 @@
                             {{-- {{ Form::text('gender', null, array('placeholder' => 'Male or Female', 'class' => 'form-control')) }} --}}
                     </div>
                 </div>
-               
-  
+                
+    
                 <div class="row form-group">
-                     <div class="input-field col s12">
+                        <div class="input-field col s12">
                         <i class="material-icons prefix">home</i>
-                         {{ Form::text('address', null, array('placeholder' => '---','class' => '', 'required')) }}
-                         <label>Address</label>
+                            {{ Form::text('address', null, array('placeholder' => '---','class' => '', 'required')) }}
+                            <label>Address</label>
                     </div>
                 </div> 
                 <hr>
@@ -955,7 +1299,7 @@
                 </div>
                 
                 <br>
-   
+    
                 <div class="row input-field">
 
                     <div class="form-group col s6" id="ui">
@@ -1002,8 +1346,581 @@
                             <option value="1">Section 1</option>
                         </select>
                         <label>Section</label>
-                         <!-- {{-- {{ Form::number('section', null, array('placeholder' => 'Section','class' => 'form-control')) }} --}} 
-                    </div> -->
+                        {{-- {{ Form::number('section', null, array('placeholder' => 'Section','class' => 'form-control')) }} --}}
+                    </div>
+                </div>
+                <br>
+                <div class="center">
+                    <button type="submit" class="btn btn-large hoverable waves-effect waves-light orange accent-3 tooltipped" data-tooltip="Create Student"><i class="material-icons left">send</i>Submit</button>
+                </div>
+                <br>
+            </div>
+            {{ Form::close() }}
+        
+            <div class="container left">
+                <h6 class="left">Errors will be shown below:</h6>
+                @if(count($errors))
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach( $errors->all() as $error )
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
+        </div>
+        <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var elems = document.querySelectorAll('select');
+                    var instances = M.FormSelect.init(elems, {
+                        
+                    });
+                });
+        </script>
+    </div>
+</div>
+
+
+<div id="CCISmodal" class="modal">
+    <div class="modal-content"  style="overflow: hidden;" >
+        <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
+        <div class="form-group container">
+            <div class="row">
+                <div class="">
+                    <br>
+                    <h5 class="center">Student Information</h5>
+                </div>
+            </div>
+        
+            {{ Form::open(array('route' => 'CollegesController.addStudent', ))}}
+            <div class="">
+                <div class="row form-group">
+                    <div class="input-field form-group">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input disabled id="fname" type="text" name="first_name">
+                            {{-- <label for="fname">First Name</label> --}}
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="wobble" type="text" name="middle_initial"  required>
+                            <label for="wobble">Middle Initial</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="ayoko" type="text" name="last_name"  required>
+                            {{-- <label for="ayoko">Last Name</label> --}}
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <br>
+                    <div>
+                    <div class="input-field row form-group">
+                        <input type="hidden" id="date_sorter" name="date_sorter" value="">
+                        {{-- {{ Form::date('birthday', null, array('class' => 'ml-4')) }} --}}
+                        <div class="col s6">
+                            <i class="material-icons prefix">perm_contact_calendar</i>
+                            <select name="bday_month" id="bday">
+                                <option selected disabled>---</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                            <label>Birth Month</label>
+                        </div>
+                        <div class="col s2">
+                            <select name="bday_day" id="" class="col s2">
+                                <option selected disabled>---</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            <label>Birth Day</label>
+                        </div>
+                        <div class="col s4">
+                            <select name="bday_year" id="">
+                                <option selected disabled>---</option>
+                                <option value="1993">1993</option>
+                                <option value="1994">1994</option>
+                                <option value="1995">1995</option>
+                                <option value="1996">1996</option>
+                                <option value="1997">1997</option>
+                                <option value="1998">1998</option>
+                                <option value="1999">1999</option>
+                                <option value="2000">2000</option>
+                            </select>
+                            <label>Birth Year</label>
+                        </div>
+                            
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="input-field col s3">
+                        <i class="material-icons prefix">perm_identity</i>
+                        {{ Form::number('age', null, array('placeholder' => '---', 'class' => '', 'required')) }}
+                        <label>Age</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <i class="material-icons prefix">wc</i>
+                        <select class="ml-2" name="gender" id="">
+                            <option selected disabled>---</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <label>Gender</label>
+                            {{-- {{ Form::text('gender', null, array('placeholder' => 'Male or Female', 'class' => 'form-control')) }} --}}
+                    </div>
+                </div>
+                
+    
+                <div class="row form-group">
+                        <div class="input-field col s12">
+                        <i class="material-icons prefix">home</i>
+                            {{ Form::text('address', null, array('placeholder' => '---','class' => '', 'required')) }}
+                            <label>Address</label>
+                    </div>
+                </div> 
+                <hr>
+                <br>
+                <div class="row form-group input-field">
+                    <div class="col s6">
+                        <div class="form-group">
+                            <input type="hidden" name="model" value="">
+                            <i class="material-icons prefix">school</i>
+                            <select name="college" id="college">
+                                <option selected disabled>--</option>
+                                <option value="Computer and Information Science">College of Computer and Information Science</option>
+                                <option value="Education">College of Education</option>
+                                <option value="Engineering">College of Engineering</option>
+                            </select>
+                            <label>College</label>
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="form-group">
+                            <div id="primary">
+                                <i class="material-icons prefix">business</i>
+                                <select name="" id="" disabled>
+                                    <option selected>Select a College First</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                            <div class="hiddendiv" id="CCIS">
+                                <i class="material-icons prefix">business</i>
+                                <select name="department">
+                                    <option selected disabled>--</option>
+                                    <option id="cs" value="Computer Science">Computer Science</option>
+                                    <option id="it" value="Information Technology">Information Technology</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                            <div class="hiddendiv" id="CoEd">
+                                <i class="material-icons prefix">business</i>
+                                <select name="department" id="CoEd">
+                                    <option disabled selected>--</option>
+                                    <option id="bte" value="Business Teacher Educationg">BTEd</option>
+                                    <option id="lis" value="Library and Information Science">LInfoSci</option>
+                                    <option id="ee" value="Elementary Education">ElemEd</option>
+                                    <option id="seme" value="Secondary Education major in English">SecEd Major in English</option>
+                                    <option id="semf" value="Secondary Education major in Filipino">SecEd Major in Filipino</option>
+                                    <option id="semm" value="Secondary Education major in Mathematics">SecEd Major in Mathematics</option>
+                                    <option id="semss" value="Secondary Education major in Social Studies">SecEd Major in Social Studies</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                            <div class="hiddendiv" id="CE">
+                                <i class="material-icons prefix">business</i>
+                                <select class="d-none" name="department">
+                                    <option disabled selected>--</option>
+                                    <option id="ce" value="Civil Engineering">Civil Engineering</option>
+                                    <option id="coe" value="Computer Engineering">Computer Engineering</option>
+                                    <option id="electri" value="Electrical Engineering">Electrical Engineering</option>
+                                    <option id="electro" value="Electronics Engineering">Electronics Engineering</option>
+                                    <option id="ie" value="Industrial Engineering">Industrial Engineering</option>
+                                    <option id="me" value="Mechanical Engineering">Mechanical Engineering</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                            {{-- {{ Form::text('department', null, array('placeholder' => 'Department','class' => 'form-control')) }} --}}
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+    
+                <div class="row input-field">
+
+                    <div class="form-group col s6" id="ui">
+                        <select name="year" disabled>
+                            <option selected disabled>Select a Course First</option>
+                        </select>
+                        <label>Year</label>
+                    </div>
+
+                    <div class="form-group col s6 hiddendiv" id="yearOne">
+                        <select name="year">
+                            <option selected disabled>---</option>
+                            <option value="4">4th Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="1">1st Year</option>
+                        </select>
+                        <label>Year</label>
+                    </div>
+
+
+                    <div class="form-group col s6 hiddendiv" id="ceYear">
+                        <select name="year">
+                            <option selected disabled>---</option>
+                            <option value="5">5th Year</option>
+                            <option value="4">4th Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="1">1st Year</option>
+                        </select>
+                        <label>Year</label>
+                    </div>
+
+
+
+
+                    <div class="form-group col s6">
+                        <select name="section" id="">
+                            <option selected disabled>---</option>
+                            <option value="5">Section 5</option>
+                            <option value="4">Section 4</option>
+                            <option value="3">Section 3</option>
+                            <option value="2">Section 2</option>
+                            <option value="1">Section 1</option>
+                        </select>
+                        <label>Section</label>
+                        {{-- {{ Form::number('section', null, array('placeholder' => 'Section','class' => 'form-control')) }} --}}
+                    </div>
+                </div>
+                <br>
+                <div class="center">
+                    <button type="submit" class="btn btn-large hoverable waves-effect waves-light orange accent-3 tooltipped" data-tooltip="Create Student"><i class="material-icons left">send</i>Submit</button>
+                </div>
+                <br>
+            </div>
+            {{ Form::close() }}
+        
+            <div class="container left">
+                <h6 class="left">Errors will be shown below:</h6>
+                @if(count($errors))
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach( $errors->all() as $error )
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
+        </div>
+        <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var elems = document.querySelectorAll('select');
+                    var instances = M.FormSelect.init(elems, {
+                        
+                    });
+                });
+        </script>
+    </div>
+</div>
+
+<div id="CoEdmodal" class="modal">
+    <div class="modal-content"  style="overflow: hidden;" >
+        <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
+        <div class="form-group container">
+            <div class="row">
+                <div class="">
+                    <br>
+                    <h5 class="center">Student Information</h5>
+                </div>
+            </div>
+        
+            {{ Form::open(array('route' => 'CollegesController.addStudent', ))}}
+            <div class="">
+                <div class="row form-group">
+                    <div class="input-field form-group">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input disabled id="fname" type="text" name="first_name">
+                            {{-- <label for="fname">First Name</label> --}}
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="wobble" type="text" name="middle_initial"  required>
+                            <label for="wobble">Middle Initial</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="ayoko" type="text" name="last_name"  required>
+                            {{-- <label for="ayoko">Last Name</label> --}}
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <br>
+                    <div>
+                    <div class="input-field row form-group">
+                        <input type="hidden" id="date_sorter" name="date_sorter" value="">
+                        {{-- {{ Form::date('birthday', null, array('class' => 'ml-4')) }} --}}
+                        <div class="col s6">
+                            <i class="material-icons prefix">perm_contact_calendar</i>
+                            <select name="bday_month" id="bday">
+                                <option selected disabled>---</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                            <label>Birth Month</label>
+                        </div>
+                        <div class="col s2">
+                            <select name="bday_day" id="" class="col s2">
+                                <option selected disabled>---</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            <label>Birth Day</label>
+                        </div>
+                        <div class="col s4">
+                            <select name="bday_year" id="">
+                                <option selected disabled>---</option>
+                                <option value="1993">1993</option>
+                                <option value="1994">1994</option>
+                                <option value="1995">1995</option>
+                                <option value="1996">1996</option>
+                                <option value="1997">1997</option>
+                                <option value="1998">1998</option>
+                                <option value="1999">1999</option>
+                                <option value="2000">2000</option>
+                            </select>
+                            <label>Birth Year</label>
+                        </div>
+                            
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="input-field col s3">
+                        <i class="material-icons prefix">perm_identity</i>
+                        {{ Form::number('age', null, array('placeholder' => '---', 'class' => '', 'required')) }}
+                        <label>Age</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <i class="material-icons prefix">wc</i>
+                        <select class="ml-2" name="gender" id="">
+                            <option selected disabled>---</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <label>Gender</label>
+                            {{-- {{ Form::text('gender', null, array('placeholder' => 'Male or Female', 'class' => 'form-control')) }} --}}
+                    </div>
+                </div>
+                
+    
+                <div class="row form-group">
+                        <div class="input-field col s12">
+                        <i class="material-icons prefix">home</i>
+                            {{ Form::text('address', null, array('placeholder' => '---','class' => '', 'required')) }}
+                            <label>Address</label>
+                    </div>
+                </div> 
+                <hr>
+                <br>
+                <div class="row form-group input-field">
+                    <div class="col s6">
+                        <div class="form-group">
+                            <input type="hidden" name="model" value="">
+                            <i class="material-icons prefix">school</i>
+                            <select name="college" id="college">
+                                <option selected disabled>--</option>
+                                <option value="Computer and Information Science">College of Computer and Information Science</option>
+                                <option value="Education">College of Education</option>
+                                <option value="Engineering">College of Engineering</option>
+                            </select>
+                            <label>College</label>
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="form-group">
+                            <div id="primary">
+                                <i class="material-icons prefix">business</i>
+                                <select name="" id="" disabled>
+                                    <option selected>Select a College First</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                            <div class="hiddendiv" id="CCIS">
+                                <i class="material-icons prefix">business</i>
+                                <select name="department">
+                                    <option selected disabled>--</option>
+                                    <option id="cs" value="Computer Science">Computer Science</option>
+                                    <option id="it" value="Information Technology">Information Technology</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                            <div class="hiddendiv" id="CoEd">
+                                <i class="material-icons prefix">business</i>
+                                <select name="department" id="CoEd">
+                                    <option disabled selected>--</option>
+                                    <option id="bte" value="Business Teacher Educationg">BTEd</option>
+                                    <option id="lis" value="Library and Information Science">LInfoSci</option>
+                                    <option id="ee" value="Elementary Education">ElemEd</option>
+                                    <option id="seme" value="Secondary Education major in English">SecEd Major in English</option>
+                                    <option id="semf" value="Secondary Education major in Filipino">SecEd Major in Filipino</option>
+                                    <option id="semm" value="Secondary Education major in Mathematics">SecEd Major in Mathematics</option>
+                                    <option id="semss" value="Secondary Education major in Social Studies">SecEd Major in Social Studies</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                            <div class="hiddendiv" id="CE">
+                                <i class="material-icons prefix">business</i>
+                                <select class="d-none" name="department">
+                                    <option disabled selected>--</option>
+                                    <option id="ce" value="Civil Engineering">Civil Engineering</option>
+                                    <option id="coe" value="Computer Engineering">Computer Engineering</option>
+                                    <option id="electri" value="Electrical Engineering">Electrical Engineering</option>
+                                    <option id="electro" value="Electronics Engineering">Electronics Engineering</option>
+                                    <option id="ie" value="Industrial Engineering">Industrial Engineering</option>
+                                    <option id="me" value="Mechanical Engineering">Mechanical Engineering</option>
+                                </select>
+                                <label>Department</label>
+                            </div>
+                            {{-- {{ Form::text('department', null, array('placeholder' => 'Department','class' => 'form-control')) }} --}}
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+    
+                <div class="row input-field">
+
+                    <div class="form-group col s6" id="ui">
+                        <select name="year" disabled>
+                            <option selected disabled>Select a Course First</option>
+                        </select>
+                        <label>Year</label>
+                    </div>
+
+                    <div class="form-group col s6 hiddendiv" id="yearOne">
+                        <select name="year">
+                            <option selected disabled>---</option>
+                            <option value="4">4th Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="1">1st Year</option>
+                        </select>
+                        <label>Year</label>
+                    </div>
+
+
+                    <div class="form-group col s6 hiddendiv" id="ceYear">
+                        <select name="year">
+                            <option selected disabled>---</option>
+                            <option value="5">5th Year</option>
+                            <option value="4">4th Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="1">1st Year</option>
+                        </select>
+                        <label>Year</label>
+                    </div>
+
+
+
+
+                    <div class="form-group col s6">
+                        <select name="section" id="">
+                            <option selected disabled>---</option>
+                            <option value="5">Section 5</option>
+                            <option value="4">Section 4</option>
+                            <option value="3">Section 3</option>
+                            <option value="2">Section 2</option>
+                            <option value="1">Section 1</option>
+                        </select>
+                        <label>Section</label>
+                        {{-- {{ Form::number('section', null, array('placeholder' => 'Section','class' => 'form-control')) }} --}}
+                    </div>
                 </div>
                 <br>
                 <div class="center">
@@ -1039,6 +1956,7 @@
 
 
 
+      
 <!-- END OF MAIN CONTAINER -->
 
 
@@ -1046,7 +1964,14 @@
 
 
 @section('pageJs')
-    
+<script>
+         document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+      toolbarEnabled: true
+    });
+  });  
+    </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.modal');
@@ -1106,11 +2031,20 @@
     var ctx = canvas.getContext('2d');
     // We are only changing the chart type, so let's make that a global variable along with the chart object:
     var chartType = 'bar';
+    var forShow = +totalCCIS + +totalCoEd + +totalCE;
+    var showOne = (+totalCE / forShow) * 100;
+    var showTwo = (+totalCoEd / forShow) * 100;
+    var showThree = (+totalCCIS / forShow) * 100;
+    document.getElementById("cardOne").innerHTML = forShow;
+    document.getElementById("percentOne").innerHTML = showOne.toFixed(2) + '%';
+    document.getElementById("percentTwo").innerHTML = showTwo.toFixed(2) + '%';
+    document.getElementById("percentThree").innerHTML = showThree.toFixed(2) + '%';
     var myBarChart;
 
     // Global Options:
     Chart.defaults.global.defaultFontColor = 'black';
-    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontSize = 14;
+    Chart.defaults.global.defaultFontFamily = "Segoe UI";
 
     var data = {
         labels: ["CE", "COED", "CCIS"],
@@ -1149,12 +2083,12 @@
         title: {
             fontSize: 18,
             display: true,
-            text: 'PUP Statistics ',
+            text: 'PUP Analytics',
             position: 'bottom'
         },
         animation: {
-            duration: 2000,
-            easing: 'easeInOutBounce'
+            duration: 1000,
+            easing: 'easeInQuad'
         }
     };
 
