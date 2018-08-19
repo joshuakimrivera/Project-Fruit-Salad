@@ -54,19 +54,29 @@ nav .brand-logo {
 <ul id="slide-out" class="sidenav">
     <li><div class="user-view">
             <div class="background">
-                {{-- <img src="images/office.jpg"> --}}
+                <img src="{{ asset('img/fruit.jpg') }}" style="height: 400px; width:600px;">
             </div>
             {{-- <a href="#user"><img class="circle" src="images/yuna.jpg"></a> --}}
-            <a href="#name"><span class="name"><i class="material-icons">insert_chart</i>&nbsp PUP STATISTICS DASHBOARD</span></a>
+            <br>
+            <br>
+            <br>
+            <a href="#name"><span class="name"><i class="material-icons"></i></span></a>
             {{--<a href="#email"><span class="email" style="font-size: 10px;" >https://gitlab.com/cristianumali.a99/Project-Fruit-Salad</span></a>--}}
         </div>
-        <br>
     </li>
-    <li><a href="#!"><i class="material-icons">nature_people</i>Project-Fruit-Salad</a></li>
-    <li><a href="#!">Second Link</a></li>
+    <li><a href="#!"><i class="material-icons">nature_people</i>Project Fruit Salad</a></li>
+    <li><a href="https://gitlab.com/cristianumali.a99/Project-Fruit-Salad" target="blank"><img class="left" src="{{ asset('img/gitlab.png') }}" style="height: 25px;">&nbsp Check our Git Repository</a></li>
     <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <li><a class="subheader"><i class="material-icons left">group</i>Our Team:</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Kim Sunga</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Cristian Umali</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">directions_bike</i> Joshua Kim Rivera</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Bryan Lester Fundar</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Genesis Edano</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Mark Rey</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> John Mark Villanueva</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Cyrrenne Cairo</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i> Christian Gregorio</a></li>
 </ul>
 <!-- END OF NAVIGATIONAL STRUCTURES -->
 
