@@ -994,17 +994,54 @@ class CollegesController extends Controller
             'CS'
         ));  //calls the blade file with the value stored in $shows
     }
-
-    public function filterCCISbyYear($yr){
+    public function filterITbyYear($yr){
         $year = $yr;
         $selectIT = 1;
+        $shows = CollegeOfEngineerings::latest()->count();
+        $datas = CollegeOfEducations::latest()->count();
+        $outputs = CollegeOfComputerAndInformationSciences::where('college', 'like', "%Computer and Information Science%")
+                                                           ->where('department', 'like', "%Information Technology%")
+                                                           ->where('year', 'like', "%$yr%")
+                                                           ->get();
+        
+        $totalCCIS = CollegeOfComputerAndInformationSciences::where('college', 'like', "%Computer and Computer and Information Science%")
+                                                            ->count();
+        $selectedYear = CollegeOfComputerAndInformationSciences::where('college', 'like', "%Computer and Information Science%")
+                                                            ->where('department', 'like', "%nformation Technology%")
+                                                            ->where('year', 'like', "%$yr%")
+                                                            ->count();
+        $otherYear = CollegeOfComputerAndInformationSciences::where('college', 'like', "%Computer and Information Science%")
+                                                            ->where('department', 'like', "%nformation Technology%")
+                                                            ->count();
+        $totalIT = CollegeOfComputerAndInformationSciences::where('department', 'like', "%Information Technology%")
+                                                            ->count();
+        $totalCS = CollegeOfComputerAndInformationSciences::where('department', 'like', "%nformation Technology%")
+                                                            ->count();
+        return view('CollegeOfComputerAndInformationScience.filterResult', compact(
+            'outputs',
+            'selectedYear',
+            'otherYear',
+            'year',
+            'selectIT',
+            'totalCCIS',
+            'datas',
+            'shows',
+            'totalIT',
+            'totalCS'
+        ));  //calls the blade file with the value stored in $shows
+    }
+
+
+    public function filterCSbyYear($yr){
+        $year = $yr;
+        $selectCS = 1;
         $shows = CollegeOfEngineerings::latest()->count();
         $datas = CollegeOfEducations::latest()->count();
         $outputs = CollegeOfComputerAndInformationSciences::where('college', 'like', "%Computer and Information Science%")
                                                            ->where('department', 'like', "%Computer Science%")
                                                            ->where('year', 'like', "%$yr%")
                                                            ->get();
-
+        
         $totalCCIS = CollegeOfComputerAndInformationSciences::where('college', 'like', "%Computer and Computer and Information Science%")
                                                             ->count();
         $selectedYear = CollegeOfComputerAndInformationSciences::where('college', 'like', "%Computer and Information Science%")
@@ -1023,7 +1060,7 @@ class CollegesController extends Controller
             'selectedYear',
             'otherYear',
             'year',
-            'selectIT',
+            'selectCS',
             'totalCCIS',
             'datas',
             'shows',

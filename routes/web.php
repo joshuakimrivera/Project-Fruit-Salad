@@ -57,8 +57,8 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::get('/filtered-by-CCIS/department-CS', 'CollegesController@filterCCISDepartmentCS')->name('filter.department.CS');
     Route::get('/filtered-by-CCIS/department-IT', 'CollegesController@filterCCISDepartmentIT')->name('filter.department.IT');
     Route::get('/filtered-by-CCIS', 'CollegesController@filterCollegebyCCIS')->name('filter.college.CCIS');
-    Route::get('/filtered-by-CCIS/Year/{yr}', 'CollegesController@filterCCISbyYear')->name('filter.college.CCIS.yr');
-    
+    Route::get('/filtered-by-CS/Year/{yr}', 'CollegesController@filterCSbyYear')->name('filter.college.CS.yr');
+    Route::get('/filtered-by-IT/Year/{yr}', 'CollegesController@filterITbyYear')->name('filter.college.IT.yr');
 
  });
 

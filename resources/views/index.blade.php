@@ -10,28 +10,28 @@
         nav {
     height: 40px;
     line-height: 40px;
-}
+            }
 
-nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
-    height: 40px;
-    line-height: 40px;
-}
+        nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+            height: 40px;
+            line-height: 40px;
+            }
 
-nav .button-collapse i {
-    height: 40px;
-    line-height: 40px;
-}
+        nav .button-collapse i {
+            height: 40px;
+            line-height: 40px;
+            }
 
-nav .brand-logo { 
-    font-size: 1.3rem; 
-}
+        nav .brand-logo { 
+            font-size: 1.3rem; 
+        }
 
-@media only screen and (min-width: 601px){
-    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
-        height: 40px;
-        line-height: 40px;
-    }
-}
+        @media only screen and (min-width: 601px){
+            nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+                height: 40px;
+                line-height: 40px;
+            }
+        }
 
     </style>
     <!--Adminlte css  -->
@@ -2188,28 +2188,28 @@ nav .brand-logo {
             $("input:hidden#date_sorter").val(dropdown);
         })
       
-        // $(".cciseditmodal").on('click', function(){
-        //     // $('option:selected', this).attr('url')
-        //     // console.log($(this).attr('firstname'));
+        $(".cciseditmodal").on('click', function(){
+            // $('option:selected', this).attr('url')
+            // console.log($(this).attr('firstname'));
             
-        //     var address = $(this).parent('td').parent('tr').find('td:eq(4)').text();
-        //     var department = $(this).parent('td').parent('tr').find('td:eq(5)').text();
-        //     $("input[name='first_name").val($(this).attr('first_name'));
-        //     $("input[name='last_name").val($(this).attr('last_name'));
-        //     $("input[name='middle_initial").val($(this).attr('middle_initial'));
-        //     $("input[name='bday_month").val($(this).attr('bday_month'));
-        //     $("input[name='bday_day").val($(this).attr('bday_day'));
-        //     $("input[name='bday_year").val($(this).attr('bday_year'));
-        //     $("input[name='age").val($(this).attr('age'));
-        //     $("input[name='gender").val($(this).attr('gender'));
-        //     $("input[name='address").val(address);
-        //     $("input[name='department").val(department);
-        //     $("input[name='year").val($(this).attr('year'));
-        //     $("input[name='section").val($(this).attr('section'));
+            // var address = $(this).parent('td').parent('tr').find('td:eq(4)').text();
+            // var department = $(this).parent('td').parent('tr').find('td:eq(5)').text();
+            // $("input[name='first_name").val($(this).attr('first_name'));
+            // $("input[name='last_name").val($(this).attr('last_name'));
+            // $("input[name='middle_initial").val($(this).attr('middle_initial'));
+            // $("input[name='bday_month").val($(this).attr('bday_month'));
+            // $("input[name='bday_day").val($(this).attr('bday_day'));
+            // $("input[name='bday_year").val($(this).attr('bday_year'));
+            // $("input[name='age").val($(this).attr('age'));
+            // $("input[name='gender").val($(this).attr('gender'));
+            // $("input[name='address").val(address);
+            // $("input[name='department").val(department);
+            // $("input[name='year").val($(this).attr('year'));
+            // $("input[name='section").val($(this).attr('section'));
 
 
 
-        // });
+        });
         $('#exitmodal').on('click', function(){
               
             $('.modal').modal('hide');
