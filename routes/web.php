@@ -50,6 +50,13 @@ Route::group([ 'prefix' => '/', 'middleware' => ['web']], function(){
     Route::get('/filtered-by-CoEd-SEMF', 'CollegesController@filterCoEdDepartmentSEMF')->name('filter.college.CoEd.SEMF');
     Route::get('/filtered-by-CoEd-SEMM', 'CollegesController@filterCoEdDepartmentSEMM')->name('filter.college.CoEd.SEMM');
     Route::get('/filtered-by-CoEd-SEMSS', 'CollegesController@filterCoEdDepartmentSEMSS')->name('filter.college.CoEd.SEMSS');
+    Route::get('/filtered-by-BTE-yr/{yr}', 'CollegesController@filterBTEByYear')->name('filter.college.BTE.yr');
+    Route::get('/filtered-by-LIS-yr/{yr}', 'CollegesController@filterLISByYear')->name('filter.college.LIS.yr');
+    Route::get('/filtered-by-EE-yr/{yr}', 'CollegesController@filterEEByYear')->name('filter.college.EE.yr');
+    Route::get('/filtered-by-SEME-yr/{yr}', 'CollegesController@filterSEMEByYear')->name('filter.college.SEME.yr');
+    Route::get('/filtered-by-SEMF-yr/{yr}', 'CollegesController@filterSEMFByYear')->name('filter.college.SEMF.yr');
+    Route::get('/filtered-by-SEMM-yr/{yr}', 'CollegesController@filterSEMMByYear')->name('filter.college.SEMM.yr');
+    Route::get('/filtered-by-SEMSS-yr/{yr}', 'CollegesController@filterSEMSSByYear')->name('filter.college.SEMSS.yr');
 
     //College of Computer and Information Sciences Routes
     Route::get('/add/College-of-Computer-and-Information-Sciences', 'CollegesController@CCISadd')->name('CollegesController.CCISadd');

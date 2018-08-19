@@ -650,6 +650,36 @@ class CollegesController extends Controller
 
 
     //COLLEGE OF EDUCATION
+    public function filterBTEByYear($yr){
+        $year = $yr;
+        $selectBTE = 1;
+        $shows = CollegeOfEngineerings::latest()->count();
+        $datas = CollegeOfComputerAndInformationSciences::latest()->count();
+        $totalCoEd = CollegeOfEducations::latest()->count();
+        $outputs = CollegeOfEducations::where('college', 'like', "%Education%")
+                                      ->where('department', 'like', "%Business Teacher Education%")
+                                      ->where('year', 'like', "%$yr%")
+                                      ->get();
+        
+        $selectedYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                                            ->where('department', 'like', "%Business Teacher Education%")
+                                                            ->where('year', 'like', "%$yr%")
+                                                            ->count();
+        $otherYear = CollegeOfEducations::where('college', 'like', "%Education%")
+                                        ->where('department', 'like', "%Business Teacher Education%")
+                                        ->count();
+        return view('CollegeOfEducation.filterResult', compact(
+            'year',
+            'selectedBTE',
+            'shows',
+            'datas',
+            'totalCoEd',
+            'outputs',
+            'selectedYear',
+            'otherYear'
+        ));
+    }
+
     public function filterCollegebyCoEd() {
         $CCIS = "Computer and Information Science";
         $CoEd = "Education";

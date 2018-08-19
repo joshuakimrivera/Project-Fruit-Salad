@@ -97,10 +97,10 @@ nav .brand-logo {
                         <!--COLLEGES-->
                         <div class="input-field col s11">
                             <select id="collegeFilter" name="college">
-                                <option url= {{ route('CollegesController.index', $CCIS) }} selected>All Colleges</option>
-                                <option url= {{ route('filter.college.CCIS', $CCIS) }} selected value="Computer and Information Sciences">College of Computer and Information Sciences</option>
-                                <option selected url= {{ route('filter.college.CoEd', $CoEd) }} value="Education">College of Education</option>
-                                <option url= {{ route('filter.college.CE', $CE) }} value="Engineering">College of Engineering</option>
+                                <option url= {{ route('CollegesController.index') }} selected>All Colleges</option>
+                                <option url= {{ route('filter.college.CCIS') }} selected value="Computer and Information Sciences">College of Computer and Information Sciences</option>
+                                <option selected url= {{ route('filter.college.CoEd') }} value="Education">College of Education</option>
+                                <option url= {{ route('filter.college.CE') }} value="Engineering">College of Engineering</option>
                             </select>
                             <label>College</label>
                         </div>
@@ -109,7 +109,7 @@ nav .brand-logo {
                         @if(isset( $selectBTE ) )
                             <div class="input-field col s11">
                                 <select id="departmentFilter" name="department">
-                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd') }} value="All">All Department</option>
                                     <option selected url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
                                     <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
                                     <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
@@ -123,7 +123,7 @@ nav .brand-logo {
                         @elseif(isset( $selectLIS ))
                             <div class="input-field col s11">
                                 <select id="departmentFilter" name="department">
-                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd') }} value="All">All Department</option>
                                     <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
                                     <option selected url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
                                     <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
@@ -137,7 +137,7 @@ nav .brand-logo {
                         @elseif(isset( $selectEE ))
                             <div class="input-field col s11">
                                 <select id="departmentFilter" name="department">
-                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd') }} value="All">All Department</option>
                                     <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
                                     <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
                                     <option selected url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
@@ -151,7 +151,7 @@ nav .brand-logo {
                         @elseif(isset( $selectSEME ))
                             <div class="input-field col s11">
                                 <select id="departmentFilter" name="department">
-                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd') }} value="All">All Department</option>
                                     <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
                                     <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
                                     <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
@@ -165,7 +165,7 @@ nav .brand-logo {
                         @elseif(isset( $selectSEMF ))
                             <div class="input-field col s11">
                                 <select id="departmentFilter" name="department">
-                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd') }} value="All">All Department</option>
                                     <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
                                     <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
                                     <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
@@ -179,7 +179,7 @@ nav .brand-logo {
                         @elseif(isset( $selectSEMM ))
                             <div class="input-field col s11">
                                 <select id="departmentFilter" name="department">
-                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd') }} value="All">All Department</option>
                                     <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
                                     <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
                                     <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
@@ -193,7 +193,7 @@ nav .brand-logo {
                         @elseif(isset( $selectSEMSS ))
                             <div class="input-field col s11">
                                 <select id="departmentFilter" name="department">
-                                    <option url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option url= {{ route('filter.college.CoEd') }} value="All">All Department</option>
                                     <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
                                     <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
                                     <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
@@ -207,7 +207,7 @@ nav .brand-logo {
                         @else
                             <div class="input-field col s11">
                                 <select id="departmentFilter" name="department">
-                                    <option selected url= {{ route('filter.college.CoEd', $CoEd) }} value="All">All Department</option>
+                                    <option selected url= {{ route('filter.college.CoEd') }} value="All">All Department</option>
                                     <option url= {{ route('filter.college.CoEd.BTE') }} value="Business Teacher Education">Business Teacher Education</option>
                                     <option url= {{ route('filter.college.CoEd.LIS') }} value="Library and Information Science">Library and Information Science</option>
                                     <option url= {{ route('filter.college.CoEd.EE') }} value="Elementary Education">Elementary Education</option>
@@ -221,18 +221,503 @@ nav .brand-logo {
                         @endif
                         
                         {{-- Year --}}
-                        @if(isset( $selectBTE ) || isset( $selectLIS ) || isset( $selectEE ) || isset($selectSEME) || isset($selectSEMF) || isset($selectSEMM) || isset($selectSEMSS))
-                            <div class="input-field col s5">
-                                <select id="yearFilter" name="year">
-                                    <option selected>All Levels</option>
-                                    <option value="1">First Year</option>
-                                    <option value="2">Second Year</option>
-                                    <option value="3">Third Year</option>
-                                    <option value="4">Fourth Year</option>
-                                    <option value="5">Fifth Year</option>
-                                </select>
-                                <label>Year Level</label>
-                            </div>
+                        @if(isset( $selectBTE ))
+                            @if(isset($year))
+                                @if( $year == '1' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.BTE') }} selected>All Levels</option>
+                                            <option selected url= {{ route('filter.college.BTE.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '2' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.BTE') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '1') }} value="1">First Year</option>
+                                            <option selected url= {{ route('filter.college.BTE.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '3' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.BTE') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '2') }} value="2">Second Year</option>
+                                            <option selected url= {{ route('filter.college.BTE.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '4' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.BTE') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '3') }} value="3">Third Year</option>
+                                            <option selected url= {{ route('filter.college.BTE.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @else
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.BTE') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.BTE.yr', '4') }} value="4">Fourth Year</option>
+                                            <option selected url= {{ route('filter.college.BTE.yr', '5') }} value="5">Fifth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @endif
+                            @else
+                                <div class="input-field col s5">
+                                    <select id="yearFilter" name="year">
+                                        <option url= {{ route('filter.college.CoEd.BTE') }} selected>All Levels</option>
+                                        <option url= {{ route('filter.college.BTE.yr', '1') }} value="1">First Year</option>
+                                        <option url= {{ route('filter.college.BTE.yr', '2') }} value="2">Second Year</option>
+                                        <option url= {{ route('filter.college.BTE.yr', '3') }} value="3">Third Year</option>
+                                        <option url= {{ route('filter.college.BTE.yr', '4') }} value="4">Fourth Year</option>
+                                    </select>
+                                    <label>Year Level</label>
+                                </div>
+                            @endif
+                        @elseif(isset( $selectLIS ))
+                            @if(isset($year))
+                                @if( $year == '1' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.LIS') }} selected>All Levels</option>
+                                            <option selected url= {{ route('filter.college.LIS.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '2' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.LIS') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '1') }} value="1">First Year</option>
+                                            <option selected url= {{ route('filter.college.LIS.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '3' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.LIS') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '2') }} value="2">Second Year</option>
+                                            <option selected url= {{ route('filter.college.LIS.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '4' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.LIS') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '3') }} value="3">Third Year</option>
+                                            <option selected url= {{ route('filter.college.LIS.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @else
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.LIS') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.LIS.yr', '4') }} value="4">Fourth Year</option>
+                                            <option selected url= {{ route('filter.college.LIS.yr', '5') }} value="5">Fifth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @endif
+                            @else
+                                <div class="input-field col s5">
+                                    <select id="yearFilter" name="year">
+                                        <option url= {{ route('filter.college.CoEd.LIS') }} selected>All Levels</option>
+                                        <option url= {{ route('filter.college.LIS.yr', '1') }} value="1">First Year</option>
+                                        <option url= {{ route('filter.college.LIS.yr', '2') }} value="2">Second Year</option>
+                                        <option url= {{ route('filter.college.LIS.yr', '3') }} value="3">Third Year</option>
+                                        <option url= {{ route('filter.college.LIS.yr', '4') }} value="4">Fourth Year</option>
+                                    </select>
+                                    <label>Year Level</label>
+                                </div>
+                            @endif
+                        @elseif(isset( $selectEE ))
+                            @if(isset($year))
+                                @if( $year == '1' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.EE') }} selected>All Levels</option>
+                                            <option selected url= {{ route('filter.college.EE.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.EE.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.EE.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.EE.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '2' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.EE') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.EE.yr', '1') }} value="1">First Year</option>
+                                            <option selected url= {{ route('filter.college.EE.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.EE.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.EE.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '3' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.EE') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.EE.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.EE.yr', '2') }} value="2">Second Year</option>
+                                            <option selected url= {{ route('filter.college.EE.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.EE.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '4' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.EE') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.EE.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.EE.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.EE.yr', '3') }} value="3">Third Year</option>
+                                            <option selected url= {{ route('filter.college.EE.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @else
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.EE') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.EE.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.EE.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.EE.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.EE.yr', '4') }} value="4">Fourth Year</option>
+                                            <option selected url= {{ route('filter.college.EE.yr', '5') }} value="5">Fifth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @endif
+                            @else
+                                <div class="input-field col s5">
+                                    <select id="yearFilter" name="year">
+                                        <option url= {{ route('filter.college.CoEd.EE') }} selected>All Levels</option>
+                                        <option url= {{ route('filter.college.EE.yr', '1') }} value="1">First Year</option>
+                                        <option url= {{ route('filter.college.EE.yr', '2') }} value="2">Second Year</option>
+                                        <option url= {{ route('filter.college.EE.yr', '3') }} value="3">Third Year</option>
+                                        <option url= {{ route('filter.college.EE.yr', '4') }} value="4">Fourth Year</option>
+                                    </select>
+                                    <label>Year Level</label>
+                                </div>
+                            @endif
+                        @elseif(isset( $selectSEME ))
+                            @if(isset($year))
+                                @if( $year == '1' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEME') }} selected>All Levels</option>
+                                            <option selected url= {{ route('filter.college.SEME.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '2' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEME') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '1') }} value="1">First Year</option>
+                                            <option selected url= {{ route('filter.college.SEME.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '3' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEME') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '2') }} value="2">Second Year</option>
+                                            <option selected url= {{ route('filter.college.SEME.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '4' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEME') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '3') }} value="3">Third Year</option>
+                                            <option selected url= {{ route('filter.college.SEME.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @else
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEME') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEME.yr', '4') }} value="4">Fourth Year</option>
+                                            <option selected url= {{ route('filter.college.SEME.yr', '5') }} value="5">Fifth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @endif
+                            @else
+                                <div class="input-field col s5">
+                                    <select id="yearFilter" name="year">
+                                        <option url= {{ route('filter.college.CoEd.SEME') }} selected>All Levels</option>
+                                        <option url= {{ route('filter.college.SEME.yr', '1') }} value="1">First Year</option>
+                                        <option url= {{ route('filter.college.SEME.yr', '2') }} value="2">Second Year</option>
+                                        <option url= {{ route('filter.college.SEME.yr', '3') }} value="3">Third Year</option>
+                                        <option url= {{ route('filter.college.SEME.yr', '4') }} value="4">Fourth Year</option>
+                                    </select>
+                                    <label>Year Level</label>
+                                </div>
+                            @endif
+                        @elseif(isset( $selectSEMF ))
+                            @if(isset($year))
+                                @if( $year == '1' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMF') }} selected>All Levels</option>
+                                            <option selected url= {{ route('filter.college.SEMF.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '2' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMF') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '1') }} value="1">First Year</option>
+                                            <option selected url= {{ route('filter.college.SEMF.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '3' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMF') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '2') }} value="2">Second Year</option>
+                                            <option selected url= {{ route('filter.college.SEMF.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '4' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMF') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '3') }} value="3">Third Year</option>
+                                            <option selected url= {{ route('filter.college.SEMF.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @else
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMF') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEMF.yr', '4') }} value="4">Fourth Year</option>
+                                            <option selected url= {{ route('filter.college.SEMF.yr', '5') }} value="5">Fifth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @endif
+                            @else
+                                <div class="input-field col s5">
+                                    <select id="yearFilter" name="year">
+                                        <option url= {{ route('filter.college.CoEd.SEMF') }} selected>All Levels</option>
+                                        <option url= {{ route('filter.college.SEMF.yr', '1') }} value="1">First Year</option>
+                                        <option url= {{ route('filter.college.SEMF.yr', '2') }} value="2">Second Year</option>
+                                        <option url= {{ route('filter.college.SEMF.yr', '3') }} value="3">Third Year</option>
+                                        <option url= {{ route('filter.college.SEMF.yr', '4') }} value="4">Fourth Year</option>
+                                    </select>
+                                    <label>Year Level</label>
+                                </div>
+                            @endif
+                        @elseif(isset( $selectSEMM ))
+                            @if(isset($year))
+                                @if( $year == '1' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMM') }} selected>All Levels</option>
+                                            <option selected url= {{ route('filter.college.SEMM.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '2' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMM') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '1') }} value="1">First Year</option>
+                                            <option selected url= {{ route('filter.college.SEMM.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '3' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMM') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '2') }} value="2">Second Year</option>
+                                            <option selected url= {{ route('filter.college.SEMM.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '4' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMM') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '3') }} value="3">Third Year</option>
+                                            <option selected url= {{ route('filter.college.SEMM.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @else
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMM') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEMM.yr', '4') }} value="4">Fourth Year</option>
+                                            <option selected url= {{ route('filter.college.SEMM.yr', '5') }} value="5">Fifth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @endif
+                            @else
+                                <div class="input-field col s5">
+                                    <select id="yearFilter" name="year">
+                                        <option url= {{ route('filter.college.CoEd.SEMM') }} selected>All Levels</option>
+                                        <option url= {{ route('filter.college.SEMM.yr', '1') }} value="1">First Year</option>
+                                        <option url= {{ route('filter.college.SEMM.yr', '2') }} value="2">Second Year</option>
+                                        <option url= {{ route('filter.college.SEMM.yr', '3') }} value="3">Third Year</option>
+                                        <option url= {{ route('filter.college.SEMM.yr', '4') }} value="4">Fourth Year</option>
+                                    </select>
+                                    <label>Year Level</label>
+                                </div>
+                            @endif
+                        @elseif(isset( $selectSEMSS ))
+                            @if(isset($year))
+                                @if( $year == '1' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMSS') }} selected>All Levels</option>
+                                            <option selected url= {{ route('filter.college.SEMSS.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '2' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMSS') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '1') }} value="1">First Year</option>
+                                            <option selected url= {{ route('filter.college.SEMSS.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '3' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMSS') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '2') }} value="2">Second Year</option>
+                                            <option selected url= {{ route('filter.college.SEMSS.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @elseif( $year == '4' )
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMSS') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '3') }} value="3">Third Year</option>
+                                            <option selected url= {{ route('filter.college.SEMSS.yr', '4') }} value="4">Fourth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @else
+                                    <div class="input-field col s5">
+                                        <select id="yearFilter" name="year">
+                                            <option url= {{ route('filter.college.CoEd.SEMSS') }} selected>All Levels</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '1') }} value="1">First Year</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '2') }} value="2">Second Year</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '3') }} value="3">Third Year</option>
+                                            <option url= {{ route('filter.college.SEMSS.yr', '4') }} value="4">Fourth Year</option>
+                                            <option selected url= {{ route('filter.college.SEMSS.yr', '5') }} value="5">Fifth Year</option>
+                                        </select>
+                                        <label>Year Level</label>
+                                    </div>
+                                @endif
+                            @else
+                                <div class="input-field col s5">
+                                    <select id="yearFilter" name="year">
+                                        <option url= {{ route('filter.college.CoEd.SEMSS') }} selected>All Levels</option>
+                                        <option url= {{ route('filter.college.SEMSS.yr', '1') }} value="1">First Year</option>
+                                        <option url= {{ route('filter.college.SEMSS.yr', '2') }} value="2">Second Year</option>
+                                        <option url= {{ route('filter.college.SEMSS.yr', '3') }} value="3">Third Year</option>
+                                        <option url= {{ route('filter.college.SEMSS.yr', '4') }} value="4">Fourth Year</option>
+                                    </select>
+                                    <label>Year Level</label>
+                                </div>
+                            @endif
                         @else
                             <div class="input-field col s5">
                                 <select disabled id="yearFilter" name="year">
@@ -486,48 +971,47 @@ nav .brand-logo {
                                 <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Year</h6></a></th>
                                 <th class="mr-5 ml-5"><a href="#" class="red-text"><h6>Actions</h6></a></th>
                             </tr>
-                            
                             @foreach($outputs as $output)  
-                            <tr>
-                                <td class="mr-5 ml-5">{{ $output->last_name }}, {{ $output->first_name }} {{ $output->middle_initial }}.</td>
-                                <td class="mr-5 ml-5">{{ $output->bday_month }} {{ $output->bday_day }}, {{ $output->bday_year }}</td>
-                                <td class="mr-5 ml-5">{{ $output->age }}</td>
-                                <td class="mr-5 ml-5">{{ $output->gender }}</td>
-                                <td class="mr-5 ml-5">{{ $output->address }}</td>
-                                <td class="mr-5 ml-5">{{ $output->department }}</td>
-                                <td class="mr-5 ml-5">{{ $output->year }}</td>
-                                <td class="mr-5 ml-5">Section {{ $output->section }}</td>
-                                <td class="mr-5 ml-5">
-                                    {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$output->id) }}"><i class="material-icons">open_in_new</i></a>--}}
-                                    <!-- Modal Trigger -->
-                                    <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = "{{ $output->first_name }}"
-                                        last_name = "{{ $output->last_name }}"
-                                        middle_initial = "{{ $output->middle_initial }}"
-                                        bday_month = "{{ $output->bday_month }}"
-                                        bday_day = "{{ $output->bday_day }}"
-                                        bday_year = "{{ $output->bday_year }}"
-                                        age = "{{ $output->age }}"
-                                        gender = "{{ $output->gender }}"
-                                        year = "{{ $output->year }}"
-                                        section = "{{ $output->section }}"><i class="material-icons">zoom_in</i></a>
-                                    <a class="btn btn-floating btn-small tooltipped orange editmodal modal-trigger" data-position="bottom" data-tooltip="Edit" href="#filterbyCoEdedit" first_name = "{{ $output->first_name }}"
-                                        last_name = "{{ $output->last_name }}"
-                                        middle_initial = "{{ $output->middle_initial }}"
-                                        bday_month = "{{ $output->bday_month }}"
-                                        bday_day = "{{ $output->bday_day }}"
-                                        bday_year = "{{ $output->bday_year }}"
-                                        age = "{{ $output->age }}"
-                                        gender = "{{ $output->gender }}"
-                                        year = "{{ $output->year }}"
-                                        section = "{{ $output->section }}"><i class="material-icons">edit</i></a>
-                                    <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
-                                </td>
-                            </tr>
-                            @endforeach
+                                <tr>
+                                    <td class="mr-5 ml-5">{{ $output->last_name }}, {{ $output->first_name }} {{ $output->middle_initial }}.</td>
+                                    <td class="mr-5 ml-5">{{ $output->bday_month }} {{ $output->bday_day }}, {{ $output->bday_year }}</td>
+                                    <td class="mr-5 ml-5">{{ $output->age }}</td>
+                                    <td class="mr-5 ml-5">{{ $output->gender }}</td>
+                                    <td class="mr-5 ml-5">{{ $output->address }}</td>
+                                    <td class="mr-5 ml-5">{{ $output->department }}</td>
+                                    <td class="mr-5 ml-5">{{ $output->year }}</td>
+                                    <td class="mr-5 ml-5">Section {{ $output->section }}</td>
+                                    <td class="mr-5 ml-5">
+                                        {{--<a class="btn btn-floating btn-small tooltipped modal-trigger" data-position="bottom" data-tooltip="Show" href="{{ route('CollegesController.CoEdshow',$output->id) }}"><i class="material-icons">open_in_new</i></a>--}}
+                                        <!-- Modal Trigger -->
+                                        <a class="btn btn-floating btn-small tooltipped modal-trigger light-blue darken-4 viewmodal" data-position="bottom" data-tooltip="View" href="#showmodal" first_name = "{{ $output->first_name }}"
+                                            last_name = "{{ $output->last_name }}"
+                                            middle_initial = "{{ $output->middle_initial }}"
+                                            bday_month = "{{ $output->bday_month }}"
+                                            bday_day = "{{ $output->bday_day }}"
+                                            bday_year = "{{ $output->bday_year }}"
+                                            age = "{{ $output->age }}"
+                                            gender = "{{ $output->gender }}"
+                                            year = "{{ $output->year }}"
+                                            section = "{{ $output->section }}"><i class="material-icons">zoom_in</i></a>
+                                        <a class="btn btn-floating btn-small tooltipped orange editmodal modal-trigger" data-position="bottom" data-tooltip="Edit" href="#filterbyCoEdedit" first_name = "{{ $output->first_name }}"
+                                            last_name = "{{ $output->last_name }}"
+                                            middle_initial = "{{ $output->middle_initial }}"
+                                            bday_month = "{{ $output->bday_month }}"
+                                            bday_day = "{{ $output->bday_day }}"
+                                            bday_year = "{{ $output->bday_year }}"
+                                            age = "{{ $output->age }}"
+                                            gender = "{{ $output->gender }}"
+                                            year = "{{ $output->year }}"
+                                            section = "{{ $output->section }}"><i class="material-icons">edit</i></a>
+                                        <a class="btn btn-floating btn-small red darken-5 tooltipped" data-position="bottom" data-tooltip="Delete" href = "{{ route('CollegesController.CCISdelete',$output->id) }}"><i class="material-icons">delete</i></a>
+                                    </td>
+                                </tr>
+                                @endforeach
                         </table>
-                    <div>
+                    {{-- <div>
                         {{ $outputs->links() }}
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -536,40 +1020,215 @@ nav .brand-logo {
 </div>
 
 @if(isset( $selectBTE ))
-    <input type="hidden" name="numberOfStudent" value="{{ $totalBTE }}">
-    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalBTE }}">
-    <input type="hidden" name="labelLeft" value="Business Teacher Education">
-    <input type="hidden" name="labelRight" value="Other Departments">
+    @if(isset( $year ))
+        @if( $year == '1')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="First Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+            
+        @elseif( $year == '2')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Second Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+        @elseif( $year == '3')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Third Year">
+            <input type="hidden" name="labelRight" value="Other Year">
+        @elseif( $year == '4')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Fourth Year">
+            <input type="hidden" name="labelRight" value="Other Year">  
+        @endif
+    @else
+        <input type="hidden" name="numberOfStudent" value="{{ $totalBTE }}">
+        <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalBTE }}">
+        <input type="hidden" name="labelLeft" value="Business Teacher Education">
+        <input type="hidden" name="labelRight" value="Other Departments">
+    @endif
 @elseif(isset( $selectLIS ))
-    <input type="hidden" name="numberOfStudent" value="{{ $totalLIS }}">
-    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalLIS }}">
-    <input type="hidden" name="labelLeft" value="Library Information Science">
-    <input type="hidden" name="labelRight" value="Other Departments">
+    @if(isset( $year ))
+        @if( $year == '1')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="First Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+            
+        @elseif( $year == '2')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Second Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+        @elseif( $year == '3')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Third Year">
+            <input type="hidden" name="labelRight" value="Other Year">
+        @elseif( $year == '4')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Fourth Year">
+            <input type="hidden" name="labelRight" value="Other Year">  
+        @endif
+    @else
+        <input type="hidden" name="numberOfStudent" value="{{ $totalLIS }}">
+        <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalLIS }}">
+        <input type="hidden" name="labelLeft" value="Library Information Science">
+        <input type="hidden" name="labelRight" value="Other Departments">
+    @endif
 @elseif(isset( $selectEE ))
-    <input type="hidden" name="numberOfStudent" value="{{ $totalEE }}">
-    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalEE }}">
-    <input type="hidden" name="labelLeft" value="Elementary Education">
-    <input type="hidden" name="labelRight" value="Other Departments">
+    @if(isset( $year ))
+        @if( $year == '1')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="First Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+            
+        @elseif( $year == '2')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Second Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+        @elseif( $year == '3')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Third Year">
+            <input type="hidden" name="labelRight" value="Other Year">
+        @elseif( $year == '4')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Fourth Year">
+            <input type="hidden" name="labelRight" value="Other Year">  
+        @endif
+    @else
+        <input type="hidden" name="numberOfStudent" value="{{ $totalEE }}">
+        <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalEE }}">
+        <input type="hidden" name="labelLeft" value="Elementary Education">
+        <input type="hidden" name="labelRight" value="Other Departments">
+    @endif
 @elseif(isset( $selectSEME ))
-    <input type="hidden" name="numberOfStudent" value="{{ $totalSEME }}">
-    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalSEME }}">
-    <input type="hidden" name="labelLeft" value="Secondary Education Major in English">
-    <input type="hidden" name="labelRight" value="Other Departments">
+    @if(isset( $year ))
+        @if( $year == '1')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="First Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+            
+        @elseif( $year == '2')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Second Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+        @elseif( $year == '3')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Third Year">
+            <input type="hidden" name="labelRight" value="Other Year">
+        @elseif( $year == '4')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Fourth Year">
+            <input type="hidden" name="labelRight" value="Other Year">  
+        @endif
+    @else
+        <input type="hidden" name="numberOfStudent" value="{{ $totalSEME }}">
+        <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalSEME }}">
+        <input type="hidden" name="labelLeft" value="Secondary Education Major in English">
+        <input type="hidden" name="labelRight" value="Other Departments">
+    @endif
 @elseif(isset( $selectSEMF ))
-    <input type="hidden" name="numberOfStudent" value="{{ $totalSEMF }}">
-    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalSEMF }}">
-    <input type="hidden" name="labelLeft" value="Secondary Education Major in Filipino">
-    <input type="hidden" name="labelRight" value="Other Departments">
+    @if(isset( $year ))
+        @if( $year == '1')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="First Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+            
+        @elseif( $year == '2')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Second Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+        @elseif( $year == '3')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Third Year">
+            <input type="hidden" name="labelRight" value="Other Year">
+        @elseif( $year == '4')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Fourth Year">
+            <input type="hidden" name="labelRight" value="Other Year">  
+        @endif
+    @else
+        <input type="hidden" name="numberOfStudent" value="{{ $totalSEMF }}">
+        <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalSEMF }}">
+        <input type="hidden" name="labelLeft" value="Secondary Education Major in Filipino">
+        <input type="hidden" name="labelRight" value="Other Departments">
+    @endif
 @elseif(isset( $selectSEMM ))
-    <input type="hidden" name="numberOfStudent" value="{{ $totalSEMM }}">
-    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalSEMM }}">
-    <input type="hidden" name="labelLeft" value="Secondary Education Major in Mathematics">
-    <input type="hidden" name="labelRight" value="Other Departments">
+    @if(isset( $year ))
+        @if( $year == '1')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="First Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+            
+        @elseif( $year == '2')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Second Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+        @elseif( $year == '3')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Third Year">
+            <input type="hidden" name="labelRight" value="Other Year">
+        @elseif( $year == '4')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Fourth Year">
+            <input type="hidden" name="labelRight" value="Other Year">  
+        @endif
+    @else
+        <input type="hidden" name="numberOfStudent" value="{{ $totalSEMM }}">
+        <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalSEMM }}">
+        <input type="hidden" name="labelLeft" value="Secondary Education Major in Mathematics">
+        <input type="hidden" name="labelRight" value="Other Departments">
+    @endif
 @elseif(isset( $selectSEMSS ))
-    <input type="hidden" name="numberOfStudent" value="{{ $totalSEMSS }}">
-    <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalSEMSS }}">
-    <input type="hidden" name="labelLeft" value="Sec Educ Major in Social Studies">
-    <input type="hidden" name="labelRight" value="Other Departments">
+    @if(isset( $year ))
+        @if( $year == '1')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="First Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+            
+        @elseif( $year == '2')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Second Year">
+            <input type="hidden" name="labelRight" value="Other Year"> 
+        @elseif( $year == '3')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Third Year">
+            <input type="hidden" name="labelRight" value="Other Year">
+        @elseif( $year == '4')
+            <input type="hidden" name="numberOfCCIS" value="{{ $selectedYear }}">
+            <input type="hidden" name="numberOfTotal" value="{{ $otherYear - $selectedYear }}">
+            <input type="hidden" name="labelLeft" value="Fourth Year">
+            <input type="hidden" name="labelRight" value="Other Year">  
+        @endif
+    @else
+        <input type="hidden" name="numberOfStudent" value="{{ $totalSEMSS }}">
+        <input type="hidden" name="numberOfTotal" value="{{ $totalCoEd - $totalSEMSS }}">
+        <input type="hidden" name="labelLeft" value="Sec Educ Major in Social Studies">
+        <input type="hidden" name="labelRight" value="Other Departments">
+    @endif
 @else
     <input type="hidden" name="numberOfStudent" value="{{ $totalCoEd }}">
     <input type="hidden" name="numberOfTotal" value="{{ $shows + $datas }}">
@@ -1025,6 +1684,10 @@ nav .brand-logo {
         $("#collegeFilter").on('change', function(){
             window.location.href = $('option:selected', this).attr('url')
           });
+
+        $("#yearFilter").on('change', function(){
+            window.location.href = $('option:selected', this).attr('url')
+        });
         
         $("#college").on('change', function(){
             var college = $(this).val();
