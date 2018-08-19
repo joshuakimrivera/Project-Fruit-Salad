@@ -246,7 +246,7 @@ nav .brand-logo {
           <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a href="#modal1" data-position="top" data-tooltip="Add Student" class="tooltipped modal-trigger  btn-large waves-effect waves-light indigo darken-2"><i class="material-icons">person_add</i></a></li>
+            <li><a href="#modal1" data-tooltip="Add Student" class="z-depth-2 tooltipped modal-trigger btn-floating btn-large waves-effect waves-light orange accent-3"><i class="material-icons">person_add</i></a></li>
             <li><a class="waves-effect waves-light btn-large modal-trigger tooltipped indigo darken-2" data-position="top" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a></li>
         </ul>
       </div>
