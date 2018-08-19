@@ -50,15 +50,7 @@ nav .brand-logo {
     <!--Adminlte css  -->
 @endsection
 @section('content')
-<div class="fixed-action-btn toolbar">
-        <a class="btn-floating btn-large orange">
-          <i class="large material-icons">add</i>
-        </a>
-        <ul>
-            <li><a href="#modal1" data-position="top" data-tooltip="Add Student" class="tooltipped modal-trigger  btn-large waves-effect waves-light indigo darken-2"><i class="material-icons">person_add</i></a></li>
-            <li><a class="waves-effect waves-light btn-large modal-trigger tooltipped indigo darken-2" data-position="top" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a></li>
-        </ul>
-      </div>
+
 <!--NAVIGATIONAL STRUCTURES -->
 <!-- NAV BAR HEADER -->
 <nav>
@@ -249,6 +241,15 @@ nav .brand-logo {
     <!-- /.content -->
 <!--   </div> -->
 <!-- sample adminlte testing -->
+<div class="fixed-action-btn toolbar">
+        <a class="btn-floating btn-large orange">
+          <i class="large material-icons">add</i>
+        </a>
+        <ul>
+            <li><a href="#modal1" data-position="top" data-tooltip="Add Student" class="tooltipped modal-trigger  btn-large waves-effect waves-light indigo darken-2"><i class="material-icons">person_add</i></a></li>
+            <li><a class="waves-effect waves-light btn-large modal-trigger tooltipped indigo darken-2" data-position="top" data-tooltip="Import Excel File" href="#modal2"><i class="material-icons">insert_chart</i></a></li>
+        </ul>
+      </div>
 <div>
     <div class="row">
         <div class="col s3 m3">
@@ -489,7 +490,7 @@ nav .brand-logo {
                                     </div>
                                     <div id="lod" class="progress center" style="visibility: hidden;">
                                         <div class="indeterminate"></div>
-                                        <h8> Sending email</h8>
+                                        <h6> Sending email</h6>
                                     </div>
                                 </div>
                             </div>
@@ -499,6 +500,8 @@ nav .brand-logo {
                 </div>    
             </div>
         </div>
+       
+        
         <!--CHART CARD-->
         <div class="col s7">
             <div class="card josh z-depth-4">
@@ -802,6 +805,7 @@ nav .brand-logo {
 <!--End of CCISdelete  -->
 
 
+
 <div id="modal1" class="modal scale-transition">
     <div class="modal-content"  style="overflow: hidden;" >
         <a class="btn btn-primary tooltipped left orange accent-3" data-tooltip="Back" href="{{ route('CollegesController.index') }}"> <i class="material-icons">arrow_back</i></a>
@@ -1089,6 +1093,7 @@ nav .brand-logo {
                 });
         </script>
     </div>
+</div>
 </div>
 
 <div id="CEmodal" class="modal">
@@ -1949,6 +1954,7 @@ nav .brand-logo {
         </script>
     </div>
 </div>
+
 
 
       
