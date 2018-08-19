@@ -23,9 +23,6 @@
             height: 600px; /* Your height here */
         (   /*overflow: hidden;*/
         }
-        .maroon{
-            color: maroon;
-        }
     </style>
 
     @yield('pageCss')

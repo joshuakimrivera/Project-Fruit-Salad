@@ -512,8 +512,8 @@ nav .brand-logo {
                             <button type="submit" class="btn-flat tooltipped" data-position="bottom" data-tooltip="Polar Area" onclick="toggleChart('polarArea')"><i class="material-icons">track_changes</i></button>
                             <hr>
                     </div>
-                    <div><canvas id="barChart" height="150%"></canvas></div>
-                    <div></div>
+                    <div><canvas id="barChart" height="180%"></canvas></div>
+                    <div><br><br><br><br><br></div>
                     
                         {{--<div class="input-field col s5">
                             <select id="mySelect" onchange="toggleChart();">
@@ -531,6 +531,26 @@ nav .brand-logo {
                 </div>
             </div>
         </div>
+        <!--AEXPERIMENTAL FEATURES-->
+        <div class="col s2">
+                <div class="card z-depth-4">
+                  <div class="card-content black-text">
+                    <span class="card-title center"><h2 id = "cardOne">0</h2></span>
+                  <div class="card-action">
+                      <span>Total Number of Students</span>
+                  </div>
+            </div>
+        </div>
+    </div>
+        <div class="col s2">
+                <div class="card z-depth-4" style="height: 337px">
+                  <div class="card-content black-text">
+                    <span class="center">CE:  <h4 id="percentOne">0%</h4></span>
+                    <span class="center">CoEd:<h4 id="percentTwo">0%</h4></span>
+                    <span class="center">CCIS:<h4 id="percentThree">0%</h4></span>
+            </div>
+        </div>
+    </div>
         <!--NAME TABLE CARD-->
         <div class="col s12">
             <div class="card">
@@ -2006,11 +2026,20 @@ nav .brand-logo {
     var ctx = canvas.getContext('2d');
     // We are only changing the chart type, so let's make that a global variable along with the chart object:
     var chartType = 'bar';
+    var forShow = +totalCCIS + +totalCoEd + +totalCE;
+    var showOne = (+totalCE / forShow) * 100;
+    var showTwo = (+totalCoEd / forShow) * 100;
+    var showThree = (+totalCCIS / forShow) * 100;
+    document.getElementById("cardOne").innerHTML = forShow;
+    document.getElementById("percentOne").innerHTML = showOne.toFixed(2) + '%';
+    document.getElementById("percentTwo").innerHTML = showTwo.toFixed(2) + '%';
+    document.getElementById("percentThree").innerHTML = showThree.toFixed(2) + '%';
     var myBarChart;
 
     // Global Options:
     Chart.defaults.global.defaultFontColor = 'black';
-    Chart.defaults.global.defaultFontSize = 12;
+    Chart.defaults.global.defaultFontSize = 14;
+    Chart.defaults.global.defaultFontFamily = "Segoe UI";
 
     var data = {
         labels: ["CE", "COED", "CCIS"],
@@ -2049,12 +2078,12 @@ nav .brand-logo {
         title: {
             fontSize: 18,
             display: true,
-            text: 'PUP Statistics ',
+            text: 'PUP Analytics',
             position: 'bottom'
         },
         animation: {
-            duration: 2000,
-            easing: 'easeInOutBounce'
+            duration: 1000,
+            easing: 'easeInQuad'
         }
     };
 
