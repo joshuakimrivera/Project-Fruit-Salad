@@ -44,7 +44,7 @@ nav .brand-logo {
             <nav>
               <div class="nav-wrapper indigo darken-4">
                   <button class="btn-flat sidenav-trigger button-collapse" data-target="slide-out" style="top: -8px;"><i class="material-icons white-text">menu</i></button>
-                    <a href="#!" class="brand-logo white-text"><i class="large material-icons left" style="font-size: 2rem;">equalizer</i>PUP Analytics</a>
+                  <a href="#!" class="brand-logo white-text"><i class="large material-icons left" style="font-size: 2rem;">equalizer</i><b>PUP</b>  Analytics</a>
                     <ul class="right hide-on-med-and-down">
                     </ul>
               </div>
@@ -933,8 +933,8 @@ nav .brand-logo {
     var ctx = canvas.getContext('2d');
     // We are only changing the chart type, so let's make that a global variable along with the chart object:
     var chartType = 'bar';
-    var forShow = +total;
-    var showOne = (+totalStudents / +total) * 100;
+    var forShow = +totalStudents;
+    var showOne = (+totalStudents / (+totalStudents + +total)) * 100;
     document.getElementById("cardOne").innerHTML = forShow;
     document.getElementById("percentOne").innerHTML = showOne.toFixed(2) + '%';
     var myBarChart;
