@@ -8,7 +8,6 @@
                     <h5 class="center">Student Information</h5>
                 </div>
             </div>
-        
             {{ Form::open(array('route' => 'CollegesController.addStudent', ))}}
             <div class="">
                 <div class="row form-group">
